@@ -3,6 +3,6 @@
 
 @section('main')
 
-ddd
+
 
 @endsection
