@@ -1,0 +1,34 @@
+$maxGridLoop:100;
+
+.row{
+    min-height: 100%;
+    overflow: hidden;
+}
+
+.row::after{
+    @include clearfix();
+}
+
+@for $i from 1 through $maxGridLoop {
+    .col-#{$i}{
+        float : left;
+        width : #{$i}#{"%"};
+        /**padding-bottom: 32767px;
+        margin-bottom: -32767px;**/
+        min-height : 1px;
+    }
+    .col-offset-#{$i}{
+        margin-left : #{$i}#{"%"};
+    }
+}
+
+.clearfix::after{
+    @include clearfix();
+}
+
+.float-left{
+    float : left;
+}
+.float-right{
+    float : right;
+}

@@ -1,0 +1,44 @@
+.btn{
+    font-size : 100%;
+    border : none;
+    background : none;
+}
+
+.btn-lg{
+    width : 60%;
+    line-height : 250%;
+}
+
+.btn-block{
+    display : block;
+    width : 100%;
+}
+
+
+
+@each $type,$color in $colors {
+    .btn-#{$type} {
+        background: #{$color};
+    }
+}
+@each $type,$color in $colors {
+    .btn-outline-#{$type},
+    .btn-outline-#{$type}:hover{
+        border : solid 1px #{$color};
+        color : #{$color};
+        background : #ffffff;
+    }
+}
+
+
+/**
+    ボタン&背景のテキスト
+ */
+@each $type,$color in $inColors {
+    .btn-#{$type},
+    .btn-#{$type}:hover,
+    .btn-#{$type}:active{
+        color:#{$color};
+    }
+}
+

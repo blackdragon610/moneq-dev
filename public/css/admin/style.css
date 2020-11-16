@@ -1,0 +1,231 @@
+@CHARSET "UTF-8";
+
+body,th,td{
+	color : #000000;
+}
+
+.well{
+	padding : 40px;
+	background : #FFFFFF;
+}
+
+.mt{
+	margin-top : 20px;
+}
+.mt-lg{
+	margin-top : 40px;
+}
+
+.plus{
+	background: url(/common/admin/img/plus.png) no-repeat 10px center;
+}
+
+.inline-block{
+	display : inline-block;	
+}
+
+.title-my{
+	padding  : 10px;
+	background: #558cba;
+	color : #FFFFFF;
+	font-size : 19px;
+}
+
+.table{
+	width : 100%;
+	display : table;
+	border : none;
+	border-bottom : solid #DDDDDD 1px;
+	border-left : solid #DDDDDD 1px;
+}
+.table tr{
+	display:table-row;
+}
+
+.table th{
+	background : #F0F0F0;
+}
+
+.table th,
+.table td{
+	padding : 10px;
+	border : solid #DDDDDD 1px;
+	border-top : solid #DDDDDD 1px !important;
+	border-bottom : none;
+	border-left : none;
+	vertical-align: middle;
+}
+
+.table-res{
+	border-collapse: collapse;
+	display : table;
+	width : 100%;
+}
+.table-res .tr{
+	display : table-row;
+}
+
+.table-res .th,
+.table-res .td{
+	padding : 10px;
+	display : table-cell;	
+	border : solid 1px #EEEEEE;
+}
+.table-res .th{
+	background : #F5F5F5;
+	vertical-align: top;
+}
+
+.error-box{
+	padding : 10px;
+	background: #990000;
+	color : #FFFFFF;
+}
+
+.title{
+	padding-bottom : 10px;
+	font-size : 150%;
+	border-bottom : solid 1px #DDDDDD;
+	text-align : center;
+}
+
+.btn{
+	display : inline;
+}
+
+.btn-lg{
+	padding : 10px;
+	width : 60%;
+}
+
+.btn-default{
+	background : #FFFFFF;
+}
+
+.form-control{
+	display : inline;
+}
+
+.state-1{
+	background : #FFFFFF;	
+}
+.state-2{
+	background : #DAE3F2;	
+}
+.state-3{
+	background : #DDFFDD;	
+}
+.state-4{
+	background : #DDDDDD;	
+}
+.state-5{
+	background : #FFDDDD;	
+}
+
+.dialog-bg{
+	position: absolute;
+	top : 0px;
+	left:0px;
+	width : 100%;
+	height : 100%;
+	z-index : 100000;
+	background : rgba(0,0,0,0.4);
+	display : none;
+}
+
+.dialog{
+	position: absolute;
+
+	padding : 10px;
+	
+	background : #FFFFFF;
+	left : 10%;
+	top : 25%;
+	
+	width : 80%;
+	min-height : 50%;
+}
+
+.border-bottom{
+	padding : 10px;
+	border-bottom : solid 1px #DDDDDD;
+}
+
+.map{
+	width : 100%;
+	height : 500px;
+}
+
+.tab a{
+	margin-top : 5px;
+	padding : 5px 15px;
+	display : inline-block;
+	border : solid 1px #999999;
+	color : #000000;
+}
+
+.tab a.hit{
+	color : #FFFFFF;
+	background : #000000;
+}
+
+#navi-system-index a span{
+	font-size : 16px !important;
+}
+
+.table{
+  border-collapse: collapse;
+  border-spacing: 0;		
+	display : table;
+}
+	
+.table .tr{
+	display : table-row;
+}
+
+.table .th,
+.table .td{
+	padding : 10px;
+	display : table-cell;
+	border : solid 1px #DDDDDD;
+}
+
+.table .th{
+	background : #F6F6F6;
+	font-weight: 800;
+}
+
+.dl-title dt{
+	font-weight: 400;
+}
+
+.dl-title dd{
+	margin-top : 5px;	
+	padding-left : 1em;	
+}
+
+.must{
+	margin-left : 5px;
+}
+
+.search{
+	position: relative;
+}
+
+.search input{
+	padding-right : 70px;	
+}
+
+.search button{
+	position : absolute;
+	top : 0px;
+	right : 0px;
+}
+
+
+@media all and (max-width: 780px) {
+	.table th,
+	.table td{
+		display : block;
+	}
+}

@@ -1,0 +1,83 @@
+{
+    "extends": [
+        "eslint:recommended",
+        "plugin:vue/recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "plugins": [
+        "vue",
+        "@typescript-eslint"
+    ],
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true
+    },
+    "parser": "vue-eslint-parser",
+    "parserOptions": {
+        "parser": "@typescript-eslint/parser",
+        "sourceType": "module"
+    },
+    "rules": {
+        // タグの最後で改行しないで
+        "vue/html-closing-bracket-newline": [
+            2,
+            {
+                "multiline": "never"
+            }
+        ],
+        // 複数属性を1行に記述
+        "vue/max-attributes-per-line": "off",
+        // 不要なカッコは消す
+        "no-extra-parens": "warn",
+        // 無駄なスペースは削除
+        "no-multi-spaces": "error",
+        // 不要な空白行は削除。2行開けてたらエラー
+        "no-multiple-empty-lines": [
+            "error",
+            {
+                "max": 1
+            }
+        ],
+        // 関数とカッコはあけない(function hoge() {/** */})
+        "func-call-spacing": [
+            "error",
+            "never"
+        ],
+        // true/falseを無駄に使うな
+        "no-unneeded-ternary": "error",
+        // セミコロンは禁止
+        "semi": [
+            "error",
+            "never"
+        ],
+        // 文字列はシングルクオートのみ
+        "quotes": [
+            "error",
+            "single"
+        ],
+        // varは禁止
+        "no-var": "error",
+        // jsのインデントは２
+        "indent": [
+            "error",
+            2
+        ],
+        // かっこの中はスペースなし！違和感
+        "space-in-parens": [
+            "error",
+            "never"
+        ],
+        // コンソールは許可
+        "no-console": "off",
+        // カンマの前後にスペース入れる？
+        "comma-spacing": "error",
+        // 配列のindexには空白入れるな(hogehoge[ x ])
+        "computed-property-spacing": "error",
+        // キー
+        "key-spacing": "error",
+        // キーワードの前後には適切なスペースを
+        "keyword-spacing": "error"
+    }
+}

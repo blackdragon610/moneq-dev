@@ -1,0 +1,57 @@
+.text-left{
+    text-align : left;
+}
+.text-center{
+    text-align : center;
+}
+.text-right{
+    text-align : right;
+}
+
+/**
+    テキスト&背景関連
+ */
+@each $type,$color in $colors{
+    .text-#{$type}{
+        color:#{$color};
+    }
+    /*.text-#{$type}::placeholder{
+        color:#{$color};
+    }*/
+
+
+}
+
+@for $i from 1 through 200 {
+    .text-#{$i}{
+        font-size:#{$i}#{"%"};
+    }
+
+}
+
+@for $i from 1 through 200 {
+    .line-height-#{$i}{
+        line-height:#{$i}px;
+    }
+
+    .line-height-#{$i} img{
+        vertical-align: middle;
+    }
+}
+@for $i from 1 through 200 {
+    .line-height-percent-#{$i}{
+        line-height:#{$i}#{"%"};
+    }
+}
+
+
+@each $weight in $fontWeights {
+    .text-weight-#{$weight}{
+        font-weight: #{$weight};
+    }
+}
+
+
+
+
+

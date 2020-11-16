@@ -1,0 +1,59 @@
+/**　変数群 **/
+$sp: 740px;
+$font-input: 16px;
+
+/**
+    基本設定
+ */
+
+$colors : (
+    base :#f6e160,
+);
+
+$inColors : (
+    black: "#ffffff",
+    black2: "#ffffff",
+    darkgray: "#ffffff",
+    darkgray2: "#ffffff",
+    blue:"#FFFFFF",
+    darkblue:"#ffffff",
+    sky:"#FFFFFF"
+);
+
+$fontWeights : (
+    100,200,300,400,500,600,700,800
+);
+
+
+/** 関数群 **/
+@mixin sp {
+  @media (max-width: ($sp)) {
+    @content;
+  }
+}
+
+@mixin clearfix{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/**
+    囲み系の定義
+ */
+$circleTypes: (
+    'top'
+    'left'
+    'right'
+    'bottom'
+    'all'
+);
+@mixin circleJudge($tag, $key, $value) {
+    @if ($key == "all"){
+        #{$tag} : #{$value}px;
+    }@else{
+        #{$tag}-#{$key} : #{$value}px;
+    }
+}
+
+

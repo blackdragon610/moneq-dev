@@ -1,0 +1,87 @@
+.table{
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.display-none{
+    display : none;
+}
+
+.position-relative{
+    position: relative;
+}
+
+
+
+/**
+    バッジ系
+ */
+.badge {
+    border-radius: 24px;
+    font-weight: normal;
+    background-color: #5097f4;
+
+    font-size: 12px;
+    line-height : 24px;
+    width: 25px;
+    height: 24px;
+    opacity: 85%;
+    color : #FFFFFF;
+    text-align : center;
+}
+
+.badge-right{
+    position :absolute;
+    top: 13%;
+    right: 8%;
+}
+
+.badge-red{
+    position : absolute;
+    top : 2em;
+    right : 15px;
+    background : #ff0000;
+    width : 5px;
+    height : 5px;
+    border-radius: 50%;
+}
+
+
+/**
+    その他
+ */
+.short-string{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-text-overflow: elipsis;
+    -o-text-overflow: elipsis;
+}
+
+.right-arrow{
+    position : absolute;
+    right : 10px;
+    margin-top : -10px;
+    top : 50%;
+    width : 20px;
+    height : 20px;
+}
+
+.flexiblebox {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center; /* 縦方向中央揃え（Safari用） */
+    align-items: center; /* 縦方向中央揃え */
+    -webkit-justify-content: center; /* 横方向中央揃え（Safari用） */
+    justify-content: center; /* 横方向中央揃え */
+}
+
+.camera{
+    padding : 2px 5px;
+    position : absolute;
+    top : 0px;
+    left : 0px;
+    background : #FFFFFF;
+    color : #999999;
+    font-weight: 800;
+}
