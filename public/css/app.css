@@ -21933,6 +21933,90 @@ a.text-dark:focus {
   }
 }
 
+.yellowpanel {
+  background-color: #FAE13F;
+}
+
+.btn-outline-orange {
+  color: #FF7820;
+  border-color: #FF7820;
+  border: 3px solid;
+  background-color: transparent;
+  border-radius: 0.0rem;
+  padding: 0.375rem 2.75rem;
+}
+
+.btn-outline-orange:hover {
+  color: #212529;
+  background-color: #FF7820;
+  border-color: #FF7820;
+}
+
+.btn-outline-orange:focus,
+.btn-outline-orange.focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.5);
+}
+
+.btn-outline-orange.disabled,
+.btn-outline-orange:disabled {
+  color: #FF7820;
+  background-color: transparent;
+}
+
+.btn-outline-orange:not(:disabled):not(.disabled):active,
+.btn-outline-orange:not(:disabled):not(.disabled).active,
+.show > .btn-outline-orange.dropdown-toggle {
+  color: #212529;
+  background-color: #FF7820;
+  border-color: #FF7820;
+}
+
+.btn-outline-orange:not(:disabled):not(.disabled):active:focus,
+.btn-outline-orange:not(:disabled):not(.disabled).active:focus,
+.show > .btn-outline-orange.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.5);
+}
+
+.btn-outline-red {
+  color: #dc3545;
+  border-color: #dc3545;
+  border: 3px solid;
+  background-color: transparent;
+  border-radius: 0.0rem;
+  padding: 0.375rem 2.75rem;
+}
+
+.btn-outline-red:hover {
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn-outline-red:focus,
+.btn-outline-red.focus {
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);
+}
+
+.btn-outline-red.disabled,
+.btn-outline-red:disabled {
+  color: #dc3545;
+  background-color: transparent;
+}
+
+.btn-outline-red:not(:disabled):not(.disabled):active,
+.btn-outline-red:not(:disabled):not(.disabled).active,
+.show > .btn-outline-red.dropdown-toggle {
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn-outline-red:not(:disabled):not(.disabled):active:focus,
+.btn-outline-red:not(:disabled):not(.disabled).active:focus,
+.show > .btn-outline-red.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);
+}
+
 /**
     共通設定
 */

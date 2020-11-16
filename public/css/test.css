@@ -1,0 +1,31 @@
+.blackpanel {
+    background-color: black;
+}
+
+.lightgreypanel {
+    background-color: #f3f3f3;
+}
+
+#plantable td {
+    text-align: center;
+} 
+
+#plantable colgroup col.first {
+    background-color: #f3f3f3;
+} 
+
+#plantable colgroup col.second {
+    background-color: #fff3cc;
+} 
+
+#plantable colgroup col.third {
+    background-color: #f3e4d6;
+} 
+
+#plantable colgroup col.fourth {
+    background-color: #ffffff;
+} 
+
+#exTab1 .nav-pills > li > a {
+    border-radius: 0;
+  }

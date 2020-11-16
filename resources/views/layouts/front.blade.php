@@ -10,6 +10,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<link rel="stylesheet" href="css/app.css">
+		<link rel="stylesheet" href="css/test.css">
         <title></title>
 
         @if (env("APP_DEBUG"))
