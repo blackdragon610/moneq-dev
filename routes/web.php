@@ -5,7 +5,7 @@
 */
 
 //フロント
-Route::group(['middleware' => 'common:user'], function() {
+Route::group(['middleware' => 'common:user'], function () {
     Route::group(['middleware' => 'auth:user'], function () {
         //通常の人のプロフィール
         Route::get('profile/edit', 'ProfileController@edit')->name('profile.edit');
@@ -29,7 +29,7 @@ Route::group(['middleware' => 'common:user'], function() {
         Route::get('expert/profile/end', 'ExpertProfileController@end')->name('expert.profile.end');
     });
 
-//ログイン関連
+    //ログイン関連
     Route::get('login', 'LoginController@index')->name('login');
     Route::post("auth", "Auth\AuthController@login")->name("auth");
 
@@ -51,15 +51,11 @@ Route::group(['middleware' => 'common:user'], function() {
     Route::get('sns/google/callback', 'Auth\GooglePlusController@authCallback');
 
     //Yahooログイン（ボタンのリンク先）
-    Route::get('sns/yahoojp/login','YahooJapanIdController@yahoojpLogin');
+    Route::get('sns/yahoojp/login', 'YahooJapanIdController@yahoojpLogin');
     //認証後の戻りURL
-    Route::get('sns/yahoojp/callback','YahooJapanIdController@yahoojpCallback');
+    Route::get('sns/yahoojp/callback', 'YahooJapanIdController@yahoojpCallback');
 
-    // Route::get('auth/fb_login', 'Auth\SocialController@viewLogin');
-    // Route::get('auth/login/facebook', 'Auth\SocialController@redirectToFacebookProvider');
-    // Route::get('auth/facebook/callback', 'Auth\SocialController@handleFacebookProviderCallback');
-
-//登録関連
+    //ユーザー登録関連
     Route::get('entry', 'EntryController@index')->name('entry');
     Route::post('entry/send', 'EntryController@send')->name('entry.send');
     Route::get('entry/send/end', 'EntryController@sendEnd')->name('entry.send.end');
@@ -73,9 +69,6 @@ Route::group(['middleware' => 'common:user'], function() {
     Route::get('error', 'ErrorController@index')->name('error');
     Route::get('', 'TopController@index')->name('top');
 
-//画像
+    //画像
     Route::get('api/image', 'ImageController@index')->name('api.image');
 });
-
-
-

@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use JWTAuth;
+use Tymon\JWTAuth\Exceptions\JWTException;
 
 class User  extends ModelClass implements JWTSubject
 {
@@ -14,9 +16,9 @@ class User  extends ModelClass implements JWTSubject
 
     public $uploadType = "users";
 
-    // protected $fillable = [
-    //     'name', 'email', 'password',
-    // ];
+    protected $fillable = [
+        'nickname', 'email', 'password',
+    ];
 
 
     /**
@@ -44,6 +46,10 @@ class User  extends ModelClass implements JWTSubject
         if (isset($userToken->email)){
             $User->email = $userToken->email;
             $User->nickname = substr($userToken->email, 0, 3);
+        }
+
+        if (isset($userToken->token_sns)){
+            $User->token_sns = $userToken->token_sns;
         }
 
         $User->password = $datas["password"];
@@ -82,8 +88,24 @@ class User  extends ModelClass implements JWTSubject
     /**
      *  ログイン処理
      */
-    public function login()
+    public function login($userModel)
     {
+        // grab credentials from the request
+        $credentials = $userModel->only('email', 'password');
+
+        try {
+            // attempt to verify the credentials and create a token for the user
+            if (! $token = JWTAuth::attempt(['email'=>'siafae@gmail.com', 'password'=>'adfaKi3242'])) {
+                die('invalid');
+                return response()->json(['error' => 'invalid_credentials'], 401);
+            }
+            die($token);
+        } catch (JWTException $e) {
+            // something went wrong whilst attempting to encode the token
+            die('error');
+            return response()->json(['error' => 'could_not_create_token'], 500);
+        }
+
         \Auth::login($this, true);
     }
 
