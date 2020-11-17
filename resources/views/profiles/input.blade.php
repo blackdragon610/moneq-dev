@@ -2,7 +2,7 @@
 
     @include('layouts.parts.editor.radio', ['name' => 'gender', "file" => configJson("custom/gender"), "keyValue" => "", 'contents' => ''])<br />
 
-    @include('layouts.parts.editor.select', ['name' => 'date_birth_year', "file" => config("custom.years"), "keyValue" => "", 'contents' => ''])年
+    @include('layouts.parts.editor.select', ['name' => 'date_birth_year', "file" => config("funcs.years"), "keyValue" => "", 'contents' => ''])年
     @include('layouts.parts.editor.select', ['name' => 'date_birth_month', "file" => configJson("custom/months"), "keyValue" => "", 'contents' => ''])月
     @include('layouts.parts.editor.select', ['name' => 'date_birth_day', "file" => configJson("custom/days"), "keyValue" => "", 'contents' => ''])日
     <br />

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use App\Models\UserToken;
 
 use Laravel\Socialite\Contracts\Factory as Socialite;
 
@@ -33,7 +34,15 @@ class YahooJapanIdController extends Controller
         $user->getName();
         $user->getEmail();
 
-        //とりあえず表示
-        return $user->getEmail();
+
+        //  ログイン処理
+        $datas = array();
+        $datas["email"] = $user->getEmail();
+        $datas["token_sns"] = $user->getToken;
+
+        $userToken = new UserToken();
+        $userModel = $userToken->saveSNSEntry($datas);
+        $token = $userModel->token;
+        return redirect()->route('entry.password', compact('token'));
     }
 }

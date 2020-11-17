@@ -24,6 +24,7 @@
 
             $ApiClass = app("ApiClass");
 
+
             $string = $token = JWTAuth::getToken();
 
             // ヘッダーにAuthorizationが存在するかをチェック

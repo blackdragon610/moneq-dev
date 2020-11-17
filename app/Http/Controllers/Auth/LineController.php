@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use GuzzleHttp\Client;
+use App\Models\UserToken;
 
 class LineController extends Controller
 {
@@ -41,8 +42,17 @@ class LineController extends Controller
         $code = $request->query('code');
         $token_info = $this->fetchTokenInfo($code);
         $user_info = $this->fetchUserInfo($token_info->access_token);
+
         //  ログイン処理
-    }
+        $datas = array();
+        $datas["email"] = $user_info->email;
+        $datas["token_sns"] = $token_info->access_token;
+
+        $userToken = new UserToken();
+        $userModel = $userToken->saveSNSEntry($datas);
+        $token = $userModel->token;
+        return redirect()->route('entry.password', compact('token'));
+}
 
     private function fetchUserInfo($access_token)
     {

@@ -1,10 +1,10 @@
 <?php
 	if (!isset($inputs)){
 		$inputs[$name] = '';
-	}
+    }
+
 
 	$selects = viewConfig($file, getVariable($inputs, $name), $keyValue, false);
-
 ?>
 
 

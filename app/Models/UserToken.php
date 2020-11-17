@@ -38,6 +38,26 @@ class UserToken extends ModelClass
         return $Model;
     }
 
+    /**
+     * SNSトークンの登録
+     * @param  string  $mode
+     * @param  array  $datas
+     * @return UserToken
+     */
+    public function saveSNSEntry(array $datas)
+    {
+        $Model = clone $this;
+
+        $Model->email = $datas["email"];
+        $Model->token_sns = $datas["token_sns"];
+        $Model->token = $this->getToken();
+        $Model->is_expert = 0;
+
+        $Model->save();
+
+        return $Model;
+    }
+
     public function checkToken(Request $request) : ?UserToken
     {
         $token = $request->input("token");
