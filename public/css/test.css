@@ -85,3 +85,38 @@ span.answers {
 span.date, span.resolved {
     float: right;
 }
+
+.line.btn {
+    background-color: #00ff00;
+    color: white;
+    width:100%;
+    margin-top: 10px;
+}
+
+.yahoo.btn {
+    background-color: red;
+    color: white;
+    width:100%;
+    margin-top: 20px;
+}
+
+.fb.btn {
+    background-color: #3B5998;
+    color: white;
+    width:100%;
+    margin-top: 20px;
+}
+
+.twitter.btn {
+    background-color: #55ACEE;
+    color: white;
+    width:100%;
+    margin-top: 10px;
+}
+
+.google.btn {
+    background-color: #dd4b39;
+    color: white;
+    width:100%;
+    margin-top: 10px;
+}

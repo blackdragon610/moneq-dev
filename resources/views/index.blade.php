@@ -388,7 +388,7 @@
             </div>
         </div>
         <section class="pt-4 bg-white">
-            <div class="row">
+            <div class="row pl-4">
                 <article class="col-sm-12 col-md-6 col-lg-4 col-xl-4 p-2">
                     <p>【資産運用】</p>
                     <div class="meta">
@@ -492,7 +492,15 @@
         </div>
         <div class="row">
             <div class="meta col-md-4 col-lg-4">
-                <h5 class="font-weight-bold">2020/10/4</h5>
+                <h5 class="font-weight-bold float-right">2020/10/4</h5>
+            </div>
+            <div class="col-md-8 col-lg-8">
+                <p>***************</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="meta col-md-4 col-lg-4">
+                <h5 class="font-weight-bold float-right">2020/10/4</h5>
             </div>
             <div class="col-md-8 col-lg-8">
                 <p>***************</p>
