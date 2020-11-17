@@ -29,11 +29,35 @@ Route::group(['middleware' => 'common:user'], function() {
         Route::get('expert/profile/end', 'ExpertProfileController@end')->name('expert.profile.end');
     });
 
-    Route::post("auth", "Auth\AuthController@login")->name("auth");
-
 //ログイン関連
     Route::get('login', 'LoginController@index')->name('login');
     Route::post("auth", "Auth\AuthController@login")->name("auth");
+
+    //Twitter
+    Route::get('sns/twitter/login', 'Auth\TwitterController@getAuth');
+    Route::get('sns/twitter/callback', 'Auth\TwitterController@authCallback');
+
+    //Facebook
+    Route::get('sns/facebook/login', 'Auth\FacebookController@getAuth');
+    Route::get('sns/facebook/callback', 'Auth\FacebookController@authCallback');
+
+    // LINEの認証画面に遷移
+    Route::get('sns/line/login', 'Auth\LineController@redirectToProvider')->name('line.login');
+    // 認証後にリダイレクトされるURL(コールバックURL)
+    Route::get('sns/line/callback', 'Auth\LineController@handleProviderCallback');
+
+    //Google
+    Route::get('sns/google/login', 'Auth\GooglePlusController@getAuth');
+    Route::get('sns/google/callback', 'Auth\GooglePlusController@authCallback');
+
+    //Yahooログイン（ボタンのリンク先）
+    Route::get('sns/yahoojp/login','YahooJapanIdController@yahoojpLogin');
+    //認証後の戻りURL
+    Route::get('sns/yahoojp/callback','YahooJapanIdController@yahoojpCallback');
+
+    // Route::get('auth/fb_login', 'Auth\SocialController@viewLogin');
+    // Route::get('auth/login/facebook', 'Auth\SocialController@redirectToFacebookProvider');
+    // Route::get('auth/facebook/callback', 'Auth\SocialController@handleFacebookProviderCallback');
 
 //登録関連
     Route::get('entry', 'EntryController@index')->name('entry');

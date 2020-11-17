@@ -178,6 +178,10 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\ValidatorServiceProvider::class,
         LaravelFCM\FCMServiceProvider::class,
+
+        Laravel\Socialite\SocialiteServiceProvider::class,
+        App\YahooJpManager\MySocialServiceProvider::class,
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
     ],
 
     /*
@@ -230,6 +234,9 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'FCM'      => LaravelFCM\Facades\FCM::class,
         'FCMGroup' => LaravelFCM\Facades\FCMGroup::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
+        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
     ],
 
 ];
