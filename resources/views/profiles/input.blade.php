@@ -11,10 +11,10 @@
 
                 {{Form::open(['url'=> route('profile.update'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
     
-                    <label for="sex">性別</label><span class="text-danger">(必須)</span><br/>
+                    <label for="sex" class="font-weight-bold">性別</label><span class="text-danger">(必須)</span><br/>
                     @include('layouts.parts.editor.radio', ['name' => 'gender', "file" => configJson("custom/gender"), "keyValue" => "", 'contents' => 'class="form-control"'])<br />
 
-                    <label for="birthday">生年月日</label><span class="text-danger">(必須)</span><br />
+                    <label for="birthday" class="font-weight-bold">生年月日</label><span class="text-danger">(必須)</span><br />
                     <div class="mb-2">
                         @include('layouts.parts.editor.select', ['name' => 'date_birth_year', "file" => config("funcs.years"), "keyValue" => "", 'contents' => ''])年
                         @include('layouts.parts.editor.select', ['name' => 'date_birth_month', "file" => configJson("custom/months"), "keyValue" => "", 'contents' => ''])月
@@ -22,19 +22,19 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                            <label for="birthday">お住まいの都道府県</label><span class="text-danger">(必須)</span><br />
+                            <label for="birthday" class="font-weight-bold">お住まいの都道府県</label><span class="text-danger">(必須)</span><br />
                             @include('layouts.parts.editor.select', ['name' => 'prefecture', "file" => configJson("custom/prefecture"), "keyValue" => "", 'contents' => 'class="form-control"'])<br />
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                            <label for="birthday">職業</label><span class="text-danger">(必須)</span><br />
+                            <label for="birthday" class="font-weight-bold">職業</label><span class="text-danger">(必須)</span><br />
                             @include('layouts.parts.editor.select', ['name' => 'job', "file" => configJson("custom/job"), "keyValue" => "", 'contents' => 'class="form-control"'])<br />
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                            <label for="birthday">婚姻状況</label><span class="text-danger">(必須)</span><br />
+                            <label for="birthday" class="font-weight-bold">婚姻状況</label><span class="text-danger">(必須)</span><br />
                             @include('layouts.parts.editor.select', ['name' => 'marriage', "file" => configJson("custom/marriage"), "keyValue" => "", 'contents' => 'class="form-control"'])<br />
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                            <label for="birthday">子供人数</label><span class="text-danger">(必須)</span><br />
+                            <label for="birthday" class="font-weight-bold">子供人数</label><span class="text-danger">(必須)</span><br />
                             @include('layouts.parts.editor.select', ['name' => 'child', "file" => configJson("custom/child"), "keyValue" => "", 'contents' => 'class="form-control"'])<br />
                         </div>
                     </div>
