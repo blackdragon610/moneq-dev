@@ -2,8 +2,14 @@ const mix = require('laravel-mix')
 const Dotenv = require('dotenv-webpack');
 const webpack = require("webpack");
 
-mix.js('resources/ts/app.ts', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css')
+//
+// Deprecated : Commented this since Vue.js is not supported
+//
+// mix.js('resources/ts/app.ts', 'public/js')
+//     .sass('resources/sass/app.scss', 'public/css')
+//     .version().sourceMaps()
+
+mix.sass('resources/sass/app.scss', 'public/css')
     .version().sourceMaps()
 
 
@@ -17,7 +23,6 @@ files = fs.readdirSync("./config/custom")
 for (let key in files){
     let name = files[key].split(".")
     configs[name] = require("./config/custom/" + files[key])
-
 }
 
 mix.webpackConfig({

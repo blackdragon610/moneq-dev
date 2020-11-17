@@ -13,6 +13,9 @@
 @import "liblary/file";
 @import "liblary/datepicker";
 
+@import '~bootstrap/scss/bootstrap';
+@import "custom";
+
 /**
     共通設定
 */
@@ -53,4 +56,3 @@ body {
     width : 1380px;
     text-align : left;
 }
-
