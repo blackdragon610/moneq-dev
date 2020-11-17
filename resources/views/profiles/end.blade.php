@@ -14,7 +14,7 @@
                     <a href="{{route('post.create')}}" class="bg-dark text-white p-3 pl-5 pr-5">今すぐ、専門家に相談する</a>
                     <p class="mt-5">お金相談Q&Aを検索する</p>
                     <div class="input-group col-lg-6 offset-lg-3 col-md-12 pl-0 p-3">
-                        <input class="form-control py-1 amber-border" type="text" placeholder="Search" aria-label="保険">
+                        <input class="form-control py-1 amber-border" type="text" placeholder="保険" aria-label="Search">
                         <div class="input-group-append">
                             <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fa fa-search text-grey"></i></span>
                         </div>
