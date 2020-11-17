@@ -5,7 +5,7 @@
 */
 
 //フロント
-Route::group(['middleware' => 'common:user'], function() {
+Route::group(['middleware' => 'common:user'], function () {
     Route::group(['middleware' => 'auth:user'], function () {
         //通常の人のプロフィール
         Route::get('profile/edit', 'ProfileController@edit')->name('profile.edit');
@@ -29,13 +29,33 @@ Route::group(['middleware' => 'common:user'], function() {
         Route::get('expert/profile/end', 'ExpertProfileController@end')->name('expert.profile.end');
     });
 
-    Route::post("auth", "Auth\AuthController@login")->name("auth");
-
-//ログイン関連
+    //ログイン関連
     Route::get('login', 'LoginController@index')->name('login');
     Route::post("auth", "Auth\AuthController@login")->name("auth");
 
-//登録関連
+    //Twitter
+    Route::get('sns/twitter/login', 'Auth\TwitterController@getAuth');
+    Route::get('sns/twitter/callback', 'Auth\TwitterController@authCallback');
+
+    //Facebook
+    Route::get('sns/facebook/login', 'Auth\FacebookController@getAuth');
+    Route::get('sns/facebook/callback', 'Auth\FacebookController@authCallback');
+
+    // LINEの認証画面に遷移
+    Route::get('sns/line/login', 'Auth\LineController@redirectToProvider')->name('line.login');
+    // 認証後にリダイレクトされるURL(コールバックURL)
+    Route::get('sns/line/callback', 'Auth\LineController@handleProviderCallback');
+
+    //Google
+    Route::get('sns/google/login', 'Auth\GooglePlusController@getAuth');
+    Route::get('sns/google/callback', 'Auth\GooglePlusController@authCallback');
+
+    //Yahooログイン（ボタンのリンク先）
+    Route::get('sns/yahoojp/login', 'YahooJapanIdController@yahoojpLogin');
+    //認証後の戻りURL
+    Route::get('sns/yahoojp/callback', 'YahooJapanIdController@yahoojpCallback');
+
+    //ユーザー登録関連
     Route::get('entry', 'EntryController@index')->name('entry');
     Route::post('entry/send', 'EntryController@send')->name('entry.send');
     Route::get('entry/send/end', 'EntryController@sendEnd')->name('entry.send.end');
@@ -49,9 +69,6 @@ Route::group(['middleware' => 'common:user'], function() {
     Route::get('error', 'ErrorController@index')->name('error');
     Route::get('', 'TopController@index')->name('top');
 
-//画像
+    //画像
     Route::get('api/image', 'ImageController@index')->name('api.image');
 });
-
-
-
