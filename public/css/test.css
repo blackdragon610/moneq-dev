@@ -86,37 +86,32 @@ span.date, span.resolved {
     float: right;
 }
 
-.line.btn {
+.line {
     background-color: #00ff00;
     color: white;
     width:100%;
-    margin-top: 10px;
 }
 
-.yahoo.btn {
+.yahoo {
     background-color: red;
     color: white;
     width:100%;
-    margin-top: 20px;
 }
 
-.fb.btn {
+.fb {
     background-color: #3B5998;
     color: white;
     width:100%;
-    margin-top: 20px;
 }
 
-.twitter.btn {
+.twitter {
     background-color: #55ACEE;
     color: white;
     width:100%;
-    margin-top: 10px;
 }
 
-.google.btn {
+.google {
     background-color: #dd4b39;
     color: white;
     width:100%;
-    margin-top: 10px;
 }

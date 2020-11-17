@@ -30,19 +30,19 @@
                 {{Form::close()}}
             </div>
             <div class="col-md-4 col-lg-4">
-                <a href="{{ url('/sns/line/login') }}" class="line btn">
+                <a href="{{ url('/sns/line/login') }}" class="line btn mt-3">
                     <i class="fa fa-line fa-fw"></i>Lineでログイン
                 </a>
-                <a href="{{ url('/sns/yahoojp/login') }}" class="yahoo btn">
+                <a href="{{ url('/sns/yahoojp/login') }}" class="yahoo btn mt-3">
                     <i class="fa fa-yahoo fa-fw"></i>Yahoo! JAPAN IDでログイン
                 </a>
-                <a href="{{ url('/sns/facebook/login') }}" class="fb btn">
+                <a href="{{ url('/sns/facebook/login') }}" class="fb btn mt-2">
                     <i class="fa fa-facebook fa-fw"></i>Facebook
                 </a>
-                <a href="{{ url('/sns/twitter/login')}}" class="twitter btn">
+                <a href="{{ url('/sns/twitter/login')}}" class="twitter btn mt-2">
                     <i class="fa fa-twitter fa-fw"></i>Twitter
                 </a>
-                <a href="{{ url('/sns/google/login') }}" class="google btn">
+                <a href="{{ url('/sns/google/login') }}" class="google btn mt-2">
                     <i class="fa fa-google fa-fw"></i>Google+
                 </a>
             </div>

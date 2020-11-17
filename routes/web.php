@@ -31,6 +31,7 @@ Route::group(['middleware' => 'common:user'], function () {
 
     //ログイン関連
     Route::get('login', 'LoginController@index')->name('login');
+    Route::get('register', 'LoginController@register')->name('register');
     Route::post("auth", "Auth\AuthController@login")->name("auth");
 
     //Twitter

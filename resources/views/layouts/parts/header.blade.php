@@ -5,8 +5,8 @@
 
     <div class="nav navbar-nav navbar-right">
         <div class="btn-toolbar">
-            <a href="#" class="btn btn-outline-orange mx-2">@lang('string.register')</a>
-            <a href="{{url('/login')}}" class="btn btn-outline-red">@lang('string.login')</a>
+            <a href="{{ url('/register') }}" class="btn btn-outline-orange mx-2">@lang('string.register')</a>
+            <a href="{{ url('/login') }}" class="btn btn-outline-red">@lang('string.login')</a>
         </div>   
      </div>
 </nav>
