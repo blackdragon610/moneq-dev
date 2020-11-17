@@ -34,20 +34,20 @@
         <div class="row text-center">
             <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-5">
                 <h5>お金のことを 信頼して相談できる人が 周りにいない</h5>
-                <i class="fa fa-6x fa-legal color-primary margin-b-20">イラスト・アイコン</i>
+                <i class="fa fa-6x fa-legal color-primary margin-b-20"></i>イラスト・アイコン
             </article>
             <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-5">
                 <h5>ちょっとした お金の疑問で 専門家に相談できない</h5>
-                <i class="fa fa-6x fa-legal color-primary margin-b-20">イラスト・アイコン</i>
+                <i class="fa fa-6x fa-legal color-primary margin-b-20"></i>イラスト・アイコン
             </article>
             <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-5">
                 <h5>FPに相談すると 保険を売られるのではないか 不安</h5>
-                <i class="fa fa-6x fa-legal color-primary margin-b-20">イラスト・アイコン</i>
+                <i class="fa fa-6x fa-legal color-primary margin-b-20"></i>イラスト・アイコン
             </article>
 
             <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-5">
                 <h5>ネットのお金の情報は 執筆者が見えないので 信用できない</h5>
-                <i class="fa fa-6x fa-legal color-primary margin-b-20">イラスト・アイコン</i>
+                <i class="fa fa-6x fa-legal color-primary margin-b-20"></i>イラスト・アイコン
             </article>
             <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-5">
                 <h5>自分の状況にあった お金に関する アドバイスが欲しい</h5>
