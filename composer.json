@@ -13,6 +13,7 @@
         "fideloper/proxy": "^4.0",
         "kreait/firebase-php": "^4.41",
         "laravel/framework": "^6.2",
+        "laravel/socialite": "^5.1",
         "laravel/tinker": "^2.0",
         "laravelcollective/html": "^6.1",
         "nexmo/client": "^2.0",
@@ -43,17 +44,17 @@
         "classmap": [
             "database/seeds",
             "database/factories"
-        ],        
+        ],
 	    "files": [
 	        "app/Helpers.php"
 	    ]
 	},
-	
+
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
         }
-    },    
+    },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
