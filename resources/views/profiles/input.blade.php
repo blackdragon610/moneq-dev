@@ -41,7 +41,7 @@
 
                     <div class="row">
                         <div class="col text-center">
-                            <button class="bg-dark text-white p-3 pl-5 pr-5">次へ</button>
+                            <button class="btnSubmit">次へ</button>
                         </div>
                     </div>
                 {{Form::close()}}

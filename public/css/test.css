@@ -135,3 +135,56 @@ span.date, span.resolved {
     min-width: 1em;
     font-weight:bold;
 }
+
+.btnSubmit {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+    background-color: black;
+    color: white;
+}
+
+.btnSelected {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+    background-color: #FF7820;
+    color: white;
+    font-weight: bold;
+}
+
+.btnSelected:hover {
+    color: white;
+}
+
+.btnUnselected {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+    background-color: transparent;
+    color: black;
+    border: 1px solid;
+    border-color: grey;
+    font-weight: bold;
+}
+
+.btnUnselected:hover {
+    color : black;
+}
+
+section {
+    padding-top: 0.5rem !important;
+    padding-bottom: 1.0rem !important;
+}
+
+article {
+    padding: 1.0rem !important;
+}
+
+article > .btnlayer {
+    padding-top: 1.5rem !important;
+    padding-bottom: 0.25rem !important;
+}

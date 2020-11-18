@@ -32,11 +32,11 @@
         </div>
     </div>
 
-    <button class="bg-dark text-white p-3 pl-5 pr-5 float-right">次へ</button>
+    <button class="btnSubmit">次へ</button>
 {{Form::close()}}
 
 {{Form::open(['url'=> route('profile.updatePlus'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
-    <button class="bg-dark text-white p-3 pl-5 pr-5">入力をスキップする</button>
+    <button class="btnSubmit">入力をスキップする</button>
 {{Form::close()}}
 
             </div>

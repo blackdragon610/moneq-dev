@@ -6,7 +6,7 @@
 
 //フロント
 Route::group(['middleware' => 'common:user'], function () {
-    Route::group(['middleware' => 'auth:user'], function () {
+    // Route::group(['middleware' => 'auth:user'], function () {
         //通常の人のプロフィール
         Route::get('profile/edit', 'ProfileController@edit')->name('profile.edit');
         Route::post('profile/update', 'ProfileController@update')->name('profile.update');
@@ -20,7 +20,7 @@ Route::group(['middleware' => 'common:user'], function () {
         Route::post('post/store', 'PostController@store')->name('post.store');
         Route::get('post/end', 'PostController@end')->name('post.end');
         Route::get('post/detail/{id}', 'PostController@end')->name('post.detail');
-    });
+    // });
 
     Route::group(['middleware' => 'auth:expert'], function () {
         //専門家のプロフィール
