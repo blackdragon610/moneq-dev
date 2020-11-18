@@ -13,7 +13,7 @@
 {{Form::open(['url'=> route('profile.updatePlus'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
 
     <label for="" class="font-weight-bold">お金についての悩みはありますか？</label><span class="text-danger">(複数選択)</span><br/>
-    @include('layouts.parts.editor.checkbox', ['name' => 'trouble', "file" => configJson("custom/trouble"), "keyValue" => "", 'contents' => ''])<br />
+    @include('layouts.parts.editor.checkboxext', ['name' => 'trouble', "file" => configJson("custom/trouble"), "keyValue" => "", 'contents' => 'class="checkboxHidden"'])<br />
 
     <label for="" class="font-weight-bold">世帯収入</label>
     <div class="row">
@@ -23,7 +23,7 @@
     </div>
 
     <label for="" class="font-weight-bold">家族構成</label><span class="text-danger">(複数選択)</span><br/>
-    @include('layouts.parts.editor.checkbox', ['name' => 'family', "file" => configJson("custom/family"), "keyValue" => "", 'contents' => ''])<br />
+    @include('layouts.parts.editor.checkboxext', ['name' => 'family', "file" => configJson("custom/family"), "keyValue" => "", 'contents' => 'class="checkboxHidden"'])<br />
 
     <label for="" class="font-weight-bold">住まい</label>
     <div class="row">

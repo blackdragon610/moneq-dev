@@ -30,7 +30,7 @@
                     <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>1つの質問につき最大3回まで追加質問が可能</p>
                     <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>過去Q&Aはすべて見放題</p>
                     <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>回答したお金の専門家に具体的な有料相談を行うことが可能</p>
-                    <div class="col text-center btnlayer">
+                    <div class="col text-center btnLayer">
                         <a href="#" class="btnSelected" id="btnPlan1">選択中</a>
                     </div>
                 </article>
@@ -43,7 +43,7 @@
                     <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>1つの質問につき最大3回まで追加質問が可能</p>
                     <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>過去Q&Aはすべて見放題</p>
                     <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>回答したお金の専門家に具体的な有料相談を行うことが可能</p>
-                    <div class="col text-center btnlayer">
+                    <div class="col text-center btnLayer">
                         <a href="#" class="btnUnselected" id="btnPlan2">選択する</a>
                     </div>
                 </article>
@@ -61,7 +61,7 @@
                 <article class="bg-white">
                     <h5 class="font-weight-bold mb-2">無料会員</h5>
                     <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>月最大3回までQ&Aが見れる</p>
-                    <div class="col text-center btnlayer">
+                    <div class="col text-center btnLayer">
                         <a href="#" class="btnUnselected" id="btnPlan3">選択する</a>
                     </div>
                 </article>
