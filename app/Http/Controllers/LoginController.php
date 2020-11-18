@@ -23,14 +23,6 @@ class LoginController extends Controller
         return view('logins.index',);
     }
 
-<<<<<<< HEAD
-    public function register()
-    {
-        return view('logins.register', );
-    }
-
-=======
->>>>>>> b72242df3254aa2f03e3b9f4a05cdacd67815073
     public function logout(ApiClass $ApiClass, PushClass $PushClass, Request $request)
     {
         $PushClass->deleteToken($request->input("deviceToken"));
