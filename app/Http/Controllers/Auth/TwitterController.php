@@ -47,6 +47,9 @@ class TwitterController extends Controller
             $datas["email"] = $user->getEmail();
             $datas["token_sns"] = $user->token;
 
+
+
+
             $userToken = new UserToken();
             $userModel = $userToken->saveSNSEntry($datas);
             $token = $userModel->token;
