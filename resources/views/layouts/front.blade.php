@@ -24,7 +24,7 @@
 
 	<body>
 		@include('layouts.parts.header')
-        @yield('main')
+		@yield('main')
 		@include('layouts.parts.footer')
 	</body>
 </html>
