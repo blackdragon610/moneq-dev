@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\UserToken;
+use App\Models\User;
 
 class GooglePlusController extends Controller
 {
@@ -33,6 +34,13 @@ class GooglePlusController extends Controller
                 $datas = array();
                 $datas["email"] = $user->getEmail();
                 $datas["token_sns"] = $user->token;
+
+
+                $userCheckModel = User::getUserCheckBySnsToken($user->token);
+                if(!empty($userCheckModel)){
+                    return redirect()->route('auth.get', compact('userCheckModel'));
+                }
+
 
                 $userToken = new UserToken();
                 $userModel = $userToken->saveSNSEntry($datas);
