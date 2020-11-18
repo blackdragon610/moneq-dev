@@ -136,7 +136,7 @@ class EntryController extends Controller
         $User->setTransaction("ユーザー登録時にエラー", function() use($User, $userToken, $datas){
             $user = $User->saveEntry($datas["inputs"], $userToken);
 
-            $user->login($user);
+            $user->login();
             $userToken->delete();
 
         });

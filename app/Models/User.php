@@ -17,7 +17,7 @@ class User  extends ModelClass implements JWTSubject
     public $uploadType = "users";
 
     protected $fillable = [
-        'nickname', 'email', 'password',
+        'nickname', 'email', 'password', 'token_sns'
     ];
 
 
@@ -88,23 +88,21 @@ class User  extends ModelClass implements JWTSubject
     /**
      *  ログイン処理
      */
-    public function login($userModel)
+    public function login()
     {
-        // grab credentials from the request
-        $credentials = $userModel->only('email', 'password');
+        // // grab credentials from the request
+        // $credentials = $userModel->only('email', 'password');
 
-        try {
-            // attempt to verify the credentials and create a token for the user
-            if (! $token = JWTAuth::attempt(['email'=>'siafae@gmail.com', 'password'=>'adfaKi3242'])) {
-                die('invalid');
-                return response()->json(['error' => 'invalid_credentials'], 401);
-            }
-            die($token);
-        } catch (JWTException $e) {
-            // something went wrong whilst attempting to encode the token
-            die('error');
-            return response()->json(['error' => 'could_not_create_token'], 500);
-        }
+        // try {
+        //     // attempt to verify the credentials and create a token for the user
+        //     if (! $token = JWTAuth::attempt(['email'=>'siafae@gmail.com', 'password'=>'adfaKi3242'])) {
+        //         return response()->json(['error' => 'invalid_credentials'], 401);
+        //     }
+        //     die($token);
+        // } catch (JWTException $e) {
+        //     // something went wrong whilst attempting to encode the token
+        //     return response()->json(['error' => 'could_not_create_token'], 500);
+        // }
 
         \Auth::login($this, true);
     }
@@ -151,6 +149,10 @@ class User  extends ModelClass implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [];
+    }
+
+    public function getUserCheckBySnsToken($snsToken){
+        $user = $this->where([['token_sns', $snsToken]])->first();
     }
 
 }

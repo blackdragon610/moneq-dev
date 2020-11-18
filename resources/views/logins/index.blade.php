@@ -16,8 +16,8 @@
 
                     @include('layouts.parts.editor.text', ["type" => "password", 'name' => 'password', 'contents' => 'class="form-control" placeholder="パスワード"'])<br />
                     <div class="m-2">
-                        <input type="checkbox" id="check1">
-                        <label class="form-check-label" for="check1">次回から自動ログイン</label>
+                        <input type="checkbox" id = "auto_token" name = "auto_token">
+                        <label class="form-check-label" for="auto-token">次回から自動ログイン</label>
                     </div>
                     <div class="row">
                         <div class="col text-center">

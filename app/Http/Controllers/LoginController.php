@@ -7,6 +7,8 @@ use App\Libs\PushClass;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Hash;
+use Firebase\JWT\JWT;
 
 class LoginController extends Controller
 {
@@ -18,14 +20,12 @@ class LoginController extends Controller
      */
     public function index()
     {
-        return view('logins.index',
-        );
+        return view('logins.index',);
     }
 
-    public function register() 
+    public function register()
     {
-        return view('logins.register',
-        );
+        return view('logins.register', );
     }
 
     public function logout(ApiClass $ApiClass, PushClass $PushClass, Request $request)
