@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\UserToken;
+use Socialite;
 
 class GooglePlusController extends Controller
 {
@@ -17,7 +18,6 @@ class GooglePlusController extends Controller
             $user = $this->getProviderUserInfo();
 
             if($user){
-                dd($user); //デバック用
                 // OAuth Two Providers
                 $token = $user->token;
                 $refreshToken = $user->refreshToken; // not always provided
