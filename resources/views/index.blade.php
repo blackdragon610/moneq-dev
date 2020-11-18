@@ -4,7 +4,7 @@
 @section('main')
 
 <div class="">
-    <div class="container p-5">
+    <div class="container p-sm-5">
         <div class="row">
             <div class="col text-center">
                 <h4 class="font-weight-bold">お金の悩みを「気軽に」専門家に質問できる</h4>
@@ -14,8 +14,7 @@
                 <div class="input-group md-form form-sm form-2 pl-0">
                     <input class="form-control py-1 amber-border" type="text" placeholder="Search" aria-label="Search">
                     <div class="input-group-append">
-                        <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fas fa-search text-grey"
-                            aria-hidden="true"></i></span>
+                        <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fa fa-search text-grey" aria-hidden="true"></i></span>
                     </div>
                 </div>
                 <p class="text-secondary pt-4">さっそく、お金の悩みを専門家に相談する</p>  
@@ -25,35 +24,35 @@
     </div>
 </div>
 <div class="lightgreypanel">
-    <div class="container p-5">
+    <div class="container p-sm-5">
         <div class="row">
             <div class="col text-center">
                 <h4 class="font-weight-bold">こんなお悩みありませんか？</h4>
             </div>
         </div>
         <div class="row text-center">
-            <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-5">
+            <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-sm-5">
                 <h5>お金のことを 信頼して相談できる人が 周りにいない</h5>
                 <i class="fa fa-6x fa-legal color-primary margin-b-20"></i>イラスト・アイコン
             </article>
-            <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-5">
+            <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-sm-5">
                 <h5>ちょっとした お金の疑問で 専門家に相談できない</h5>
                 <i class="fa fa-6x fa-legal color-primary margin-b-20"></i>イラスト・アイコン
             </article>
-            <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-5">
+            <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-sm-5">
                 <h5>FPに相談すると 保険を売られるのではないか 不安</h5>
                 <i class="fa fa-6x fa-legal color-primary margin-b-20"></i>イラスト・アイコン
             </article>
 
-            <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-5">
+            <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-sm-5">
                 <h5>ネットのお金の情報は 執筆者が見えないので 信用できない</h5>
                 <i class="fa fa-6x fa-legal color-primary margin-b-20"></i>イラスト・アイコン
             </article>
-            <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-5">
+            <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-sm-5">
                 <h5>自分の状況にあった お金に関する アドバイスが欲しい</h5>
                 <i class="fa fa-6x fa-legal color-primary margin-b-20">イラスト・アイコン</i>
             </article>
-            <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-5">
+            <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-sm-5">
                 <h5>ファイナンシャルコーチ などを頼みたいが 料金が高額</h5>
                 <i class="fa fa-6x fa-legal color-primary margin-b-20">イラスト・アイコン</i>
             </article>
@@ -67,24 +66,24 @@
     </div>
 </div>
 <div class="">
-    <div class="container p-5">
+    <div class="container p-sm-5">
         <div class="row">
             <div class="col text-center">
                 <h4 class="font-weight-bold">日本最大級のお金相談サービス「MoneQ」とは？</h4>
             </div>
         </div>
         <div class="row text-center">
-            <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-5">
+            <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-sm-5">
                 <h5>1. お金の相談をする</h5>
                 <p>家計・貯蓄・保険・投資・相続・住宅ローンなど、どんな相談でも構いません</p>
                 <i class="fa fa-6x fa-legal color-primary margin-b-20">イラスト・アイコン</i>
             </article>
-            <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-5">
+            <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-sm-5">
                 <h5>2. 専門家が回答する</h5>
                 <p>相談に対して、100名以上のお金の専門家（FP、税理士、会計士など）が回答します。</p>
                 <i class="fa fa-6x fa-legal color-primary margin-b-20">イラスト・アイコン</i>
             </article>
-            <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-5">
+            <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-sm-5">
                 <h5>3. 悩みが解決する</h5>
                 <p>複数の専門家からの回答により、悩みが解決します。追加で質問することも可能です。</p>
                 <i class="fa fa-6x fa-legal color-primary margin-b-20">イラスト・アイコン</i>
@@ -98,24 +97,24 @@
     </div>
 </div>
 <div class="lightgreypanel">
-    <div class="container p-5">
+    <div class="container p-sm-5">
         <div class="row">
             <div class="col text-center">
                 <h4 class="font-weight-bold">「MoneQ」が選ばれる理由</h4>
             </div>
         </div>
         <div class="row text-center">
-            <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-5">
+            <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-sm-5">
                 <h5>実務経験豊富な専門家が回答</h5>
                 <p>MoneQで回答してくれる専門家は、資格を保有していて、実務経験の豊富な方を厳選しています。</p>
                 <i class="fa fa-6x fa-legal color-primary margin-b-20">イラスト・アイコン</i>
             </article>
-            <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-5">
+            <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-sm-5">
                 <h5>最短5分で回答</h5>
                 <p>相談に対して、速ければ最短5分で回答がきます。お金のお悩みを迅速に解決することができます。</p>
                 <i class="fa fa-6x fa-legal color-primary margin-b-20">イラスト・アイコン</i>
             </article>
-            <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-5">
+            <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-sm-5">
                 <h5>格安の料金体系</h5>
                 <p>費用は、月額300円（税別）です。1日10円という低コストで24時間365日利用できるサービスです。</p>
                 <i class="fa fa-6x fa-legal color-primary margin-b-20">イラスト・アイコン</i>
@@ -129,7 +128,7 @@
     </div>
 </div>
 <div class="">
-    <div class="container p-5">
+    <div class="container p-sm-5">
         <div class="row">
             <div class="col text-center">
                 <h4>プラン</h4>
@@ -201,7 +200,7 @@
     </div>
 </div>
 <div class="lightgreypanel">
-    <div class="container p-5">
+    <div class="container p-sm-5">
         <div class="row">
             <div class="col text-center">
                 <h4 class="font-weight-bold">お金の相談</h4>
@@ -218,7 +217,7 @@
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade active show" id="consult-money-1" role="tabpanel" aria-labelledby="consult-money-1-tab">
-                    <article class="col-sm-12 col-md-12 col-lg-12 col-xl-12 p-3">
+                    <article class="col-sm-12 col-md-12 col-lg-12 col-xl-12 p-sm-3">
                         <div class="meta">
                             <h5 class="font-weight-bold">保険のことで質問です</h5>
                         </div>
@@ -230,7 +229,7 @@
                         </div>
                         <p>MoneQで回答してくれる専門家は、資格を保有していて、実務経験の豊富な方を厳選しています。</p>
                     </article>
-                    <article class="col-sm-12 col-md-12 col-lg-12 col-xl-12 p-3">
+                    <article class="col-sm-12 col-md-12 col-lg-12 col-xl-12 p-sm-3">
                         <div class="meta">
                             <h5 class="font-weight-bold">保険のことで質問です</h5>
                         </div>
@@ -242,7 +241,7 @@
                         </div>
                         <p>MoneQで回答してくれる専門家は、資格を保有していて、実務経験の豊富な方を厳選しています。</p>
                     </article>
-                    <article class="col-sm-12 col-md-12 col-lg-12 col-xl-12 p-3">
+                    <article class="col-sm-12 col-md-12 col-lg-12 col-xl-12 p-sm-3">
                         <div class="meta">
                             <h5 class="font-weight-bold">保険のことで質問です</h5>
                         </div>
@@ -256,7 +255,7 @@
                     </article>
                 </div>
                 <div class="tab-pane fade" id="consult-money-2" role="tabpanel" aria-labelledby="consult-money-2-tab">
-                    <article class="col-sm-12 col-md-12 col-lg-12 col-xl-12 p-3">
+                    <article class="col-sm-12 col-md-12 col-lg-12 col-xl-12 p-sm-3">
                         <div class="meta">
                             <h5 class="font-weight-bold">保険のことで質問です</h5>
                         </div>
@@ -279,7 +278,7 @@
 
     </div>
 
-    <div class="container p-5">
+    <div class="container p-sm-5">
         <div class="row">
             <div class="col text-center">
                 <h4 class="font-weight-bold">お金の専門家</h4>
@@ -302,12 +301,12 @@
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade active show" id="expert-money-1" role="tabpanel" aria-labelledby="expert-money-1-tab">
-                    <article class="col-sm-12 col-md-12 col-lg-12 col-xl-12 p-3">
+                    <article class="col-sm-12 col-md-12 col-lg-12 col-xl-12 p-sm-1">
                         <div class="row">
-                            <div class="meta col-md-4 col-lg-2">
-                                <img src="http://placehold.it/150x50?text=Logo" alt="">
+                            <div class="meta col-md-3 col-lg-1">
+                                <img src="http://placehold.it/50x50?text=P" alt="">
                             </div>
-                            <div class="col-md-8 col-lg-4">
+                            <div class="col-md-9 col-lg-4">
                                 <div class="meta">
                                     <h5 class="font-weight-bold">テスト花子さん</h5>
                                     <p>（テストハナコ）</p>
@@ -317,7 +316,7 @@
                                     <span class="address">東京都</span>
                                 </div>
                             </div>
-                            <div class="col-md-4 col-lg-3">
+                            <div class="col-md-3 col-lg-3">
                                 <div class="meta">
                                     <span class="font-weight-bold">回答数</span>
                                     <span>125件</span>
@@ -327,7 +326,7 @@
                                     <span >50件</span>
                                 </div>
                             </div>
-                            <div class="col-md-8 col-lg-3">
+                            <div class="col-md-9 col-lg-4">
                                 <div class="meta">
                                     <h5 class="font-weight-bold">保有資格</h5>
                                 </div>
@@ -336,12 +335,12 @@
                                 </div>
                             </div>
                     </article>
-                    <article class="col-sm-12 col-md-12 col-lg-12 col-xl-12 p-3">
+                    <article class="col-sm-12 col-md-12 col-lg-12 col-xl-12 p-sm-1">
                         <div class="row">
-                            <div class="meta col-md-4 col-lg-2">
-                                <img src="http://placehold.it/150x50?text=Logo" alt="">
+                            <div class="meta col-md-3 col-lg-1">
+                                <img src="http://placehold.it/50x50?text=P" alt="">
                             </div>
-                            <div class="col-md-8 col-lg-4">
+                            <div class="col-md-9 col-lg-4">
                                 <div class="meta">
                                     <h5 class="font-weight-bold">テスト花子さん</h5>
                                     <p>（テストハナコ）</p>
@@ -351,7 +350,7 @@
                                     <span class="address">東京都</span>
                                 </div>
                             </div>
-                            <div class="col-md-4 col-lg-3">
+                            <div class="col-md-3 col-lg-3">
                                 <div class="meta">
                                     <span class="font-weight-bold">回答数</span>
                                     <span>125件</span>
@@ -361,7 +360,7 @@
                                     <span >50件</span>
                                 </div>
                             </div>
-                            <div class="col-md-8 col-lg-3">
+                            <div class="col-md-9 col-lg-4">
                                 <div class="meta">
                                     <h5 class="font-weight-bold">保有資格</h5>
                                 </div>
@@ -381,7 +380,7 @@
 
     </div>
 
-    <div class="container p-5">
+    <div class="container p-sm-5">
         <div class="row">
             <div class="col text-center">
                 <h4 class="font-weight-bold">相談テーマからQ&Aを調べる</h4>
@@ -484,26 +483,26 @@
         </section>
     </div>
 
-    <div class="container p-5">
+    <div class="container p-sm-5">
         <div class="row">
             <div class="col text-center">
                 <h4 class="font-weight-bold">お知らせ</h4>
             </div>
         </div>
         <div class="row">
-            <div class="meta col-md-4 col-lg-4">
+            <div class="meta col col-md-4 col-lg-4">
                 <h5 class="font-weight-bold float-right">2020/10/4</h5>
             </div>
-            <div class="col-md-8 col-lg-8">
-                <p>***************</p>
+            <div class="col col-md-8 col-lg-8">
+                <p><u>******************************</u></p>
             </div>
         </div>
         <div class="row">
-            <div class="meta col-md-4 col-lg-4">
+            <div class="meta col col-md-4 col-lg-4">
                 <h5 class="font-weight-bold float-right">2020/10/4</h5>
             </div>
-            <div class="col-md-8 col-lg-8">
-                <p>***************</p>
+            <div class="col col-md-8 col-lg-8">
+                <p><u>******************************</u></p>
             </div>
         </div>
     </div>

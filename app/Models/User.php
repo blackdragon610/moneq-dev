@@ -152,7 +152,10 @@ class User  extends ModelClass implements JWTSubject
     }
 
     public function getUserCheckBySnsToken($snsToken){
+
         $user = $this->where([['token_sns', $snsToken]])->first();
+
+        return $user;
     }
 
 }
