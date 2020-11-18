@@ -5,7 +5,7 @@
 <div class="container-fluid lightgreypanel p-3">
     <div class="container p-3">
         <div class="row">
-            <div class="col-md-8 col-lg-8 bg-white">
+            <div class="col-12 col-md-8 col-lg-8 bg-white">
                 {{Form::open(['url'=> route('auth'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
                     
                     <label for="email">メールアドレス</label>
@@ -29,7 +29,7 @@
                     </div>
                 {{Form::close()}}
             </div>
-            <div class="col-md-4 col-lg-4">
+            <div class="col-12 col-md-4 col-lg-4">
                 <a href="{{ url('/sns/line/login') }}" class="line btn mt-3">
                     <i class="fa fa-line fa-fw"></i>Lineでログイン
                 </a>
