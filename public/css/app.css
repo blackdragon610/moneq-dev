@@ -21937,6 +21937,18 @@ a.text-dark:focus {
   background-color: #FAE13F;
 }
 
+.blackpanel {
+  background-color: black;
+}
+
+.lightgreypanel {
+  background-color: #f3f3f3;
+}
+
+#plantable td {
+  text-align: center;
+}
+
 .btn-outline-orange {
   color: #FF7820;
   border-color: #FF7820;
@@ -22052,10 +22064,5 @@ body {
 #header-main #header-bottom {
   padding: 10px 0;
   background: #f6e160;
-}
-
-.container {
-  width: 1380px;
-  text-align: left;
 }
 

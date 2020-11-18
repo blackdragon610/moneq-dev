@@ -1,6 +1,6 @@
 <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand" href="#">
-        <img src="http://placehold.it/150x50?text=Logo" alt="">
+        <img src="http://placehold.it/70x70?text=Savee" alt="">
     </a>
 
     <div class="nav navbar-nav navbar-right">
@@ -12,16 +12,16 @@
 </nav>
 <div class="container-fluid yellowpanel">
     <div class="row">
-        <form action="#" method="post">
-            <div class="container">
-                <div class="input-group col-lg-6 pl-0 p-3">
-                    <input class="form-control py-1 amber-border" type="text" placeholder="Search" aria-label="Search">
+        <div class="container-fluid">
+            <form action="#" method="post">
+                <div class="input-group pb-2 pt-2">
+                    <input class="form-control py-1 col-sm-6" type="text" placeholder="Search" aria-label="Search">
                     <div class="input-group-append">
                         <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fa fa-search text-grey"></i></span>
                     </div>
-                    <a href="#" class="btn btn-danger mx-2">@lang('string.consult_btn')</a>
+                    <a href="#" class="btn btn-danger offset-sm-3 col-sm-3">@lang('string.consult_btn')</a>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </div>
