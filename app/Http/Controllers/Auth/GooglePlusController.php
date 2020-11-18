@@ -5,11 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\UserToken;
-<<<<<<< HEAD
 use Socialite;
-=======
 use App\Models\User;
->>>>>>> 20a262581d5b4348b90d71381ebeeaeb316460d9
 
 class GooglePlusController extends Controller
 {
