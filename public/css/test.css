@@ -25,7 +25,93 @@
 #plantable colgroup col.fourth {
     background-color: #ffffff;
 } 
+.panel {
+    margin-top: 25px;
+}
+.panel-heading {
+    padding: 5px 5px 0 5px;
+}
 
-#exTab1 .nav-pills > li > a {
-    border-radius: 0;
-  }
+.nav-tabs {
+    border-bottom: none;
+}
+
+.nav-tabs .nav-link {
+    color: #ffffff;
+    background-color: #FF7820;
+}
+
+.nav-link {
+    font-size: 1.25rem;
+    margin-left: 5px;
+}
+
+.tab-content {
+    background-color: #ffffff;
+    padding: 25px;
+}
+
+.nav-tabs .nav-link.active {
+    font-weight: 700;
+    font-size : 1.2rem;
+    color: black;
+    background-color: #fff;
+    border-color: #ffffff #ffffff #fff;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+    cursor: default;
+}
+
+.nav-tabs > li {
+    float: left; 
+    margin-bottom: -1px;
+}
+
+.meta > span, .meta > h5, .meta > p {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+span.answers {
+    color: darkred;
+    font-weight: bold;
+}
+
+span.date, span.resolved {
+    float: right;
+}
+
+.line {
+    background-color: #00ff00;
+    color: white;
+    width:100%;
+}
+
+.yahoo {
+    background-color: red;
+    color: white;
+    width:100%;
+}
+
+.fb {
+    background-color: #3B5998;
+    color: white;
+    width:100%;
+}
+
+.twitter {
+    background-color: #55ACEE;
+    color: white;
+    width:100%;
+}
+
+.google {
+    background-color: #dd4b39;
+    color: white;
+    width:100%;
+}
