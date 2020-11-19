@@ -67,7 +67,7 @@ use AuthenticatesUsers;
                     $changeToken = ChangeToken::find($cTokenArray->id);
                 }
                 $changeToken->user_id = $user_id;
-                $changeToken->token = $this->getToken($email, 0);
+                $changeToken->token = substr(bcrypt($this->getToken($email, 0)), 0, 30);
                 $changeToken->save();
             }
 
