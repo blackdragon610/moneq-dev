@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\DB;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
@@ -151,9 +152,10 @@ class User  extends ModelClass implements JWTSubject
         return [];
     }
 
-    static public function getUserCheckBySnsToken($snsToken){
+    static public function getUserCheckBySnsToken($email){
 
-        $user = User::where([['token_sns', $snsToken]])->first();
+        $sql ="select *from users where token_sns <> '' and email='".$email."'";
+        $user = DB::select($sql);
 
         return $user;
     }
