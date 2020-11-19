@@ -72,8 +72,7 @@
     margin-bottom: -1px;
 }
 
-.meta > span, .meta > h5, .meta > p {
-    display: inline-block;
+span.name, span.age {
     margin-right: 10px;
 }
 
@@ -82,9 +81,9 @@ span.answers {
     font-weight: bold;
 }
 
-span.date, span.resolved {
+/* span.date, span.resolved {
     float: right;
-}
+} */
 
 .line {
     background-color: #00ff00;

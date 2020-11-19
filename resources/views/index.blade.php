@@ -42,28 +42,27 @@
             <div class="row d-flex justify-content-center text-center">
                 <article >
                     <h5>お金のことを 信頼して相談できる人が 周りにいない</h5>
-                    <img src="http://placehold.it/200x50?text=P" alt="">
+                    <img src="http://placehold.it/200x50?text=Image" alt="">
                 </article>
                 <article >
                     <h5>ちょっとした お金の疑問で 専門家に相談できない</h5>
-                    <img src="http://placehold.it/200x50?text=P" alt="">
+                    <img src="http://placehold.it/200x50?text=Image" alt="">
                 </article>
                 <article >
                     <h5>FPに相談すると 保険を売られるのではないか 不安</h5>
-                    <img src="http://placehold.it/200x50?text=P" alt="">
+                    <img src="http://placehold.it/200x50?text=Image" alt="">
                 </article>
-
                 <article >
                     <h5>ネットのお金の情報は 執筆者が見えないので 信用できない</h5>
-                    <img src="http://placehold.it/200x50?text=P" alt="">
+                    <img src="http://placehold.it/200x50?text=Image" alt="">
                 </article>
                 <article >
                     <h5>自分の状況にあった お金に関する アドバイスが欲しい</h5>
-                    <img src="http://placehold.it/200x50?text=P" alt="">
+                    <img src="http://placehold.it/200x50?text=Image" alt="">
                 </article>
                 <article >
                     <h5>ファイナンシャルコーチ などを頼みたいが 料金が高額</h5>
-                    <img src="http://placehold.it/200x50?text=P" alt="">
+                    <img src="http://placehold.it/200x50?text=Image" alt="">
                 </article>
             </div>
             <div class="row">
@@ -77,317 +76,364 @@
 
     </div>
 </div>
-<div class="">
-    <div class="container p-sm-5">
-        <div class="row">
-            <div class="col text-center">
-                <h4 class="font-weight-bold">日本最大級のお金相談サービス「MoneQ」とは？</h4>
+<div class="bg-white">
+    <div class="container p-3">
+
+        <section>
+
+            <div class="row">
+                <div class="col-sm-8 offset-sm-2 text-center">
+                    <h4 class="font-weight-bold">日本最大級のお金相談サービス「MoneQ」とは？</h4>
+                </div>
             </div>
-        </div>
-        <div class="row text-center">
-            <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-sm-5">
-                <h5>1. お金の相談をする</h5>
-                <p>家計・貯蓄・保険・投資・相続・住宅ローンなど、どんな相談でも構いません</p>
-                <i class="fa fa-6x fa-legal color-primary margin-b-20">イラスト・アイコン</i>
-            </article>
-            <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-sm-5">
-                <h5>2. 専門家が回答する</h5>
-                <p>相談に対して、100名以上のお金の専門家（FP、税理士、会計士など）が回答します。</p>
-                <i class="fa fa-6x fa-legal color-primary margin-b-20">イラスト・アイコン</i>
-            </article>
-            <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-sm-5">
-                <h5>3. 悩みが解決する</h5>
-                <p>複数の専門家からの回答により、悩みが解決します。追加で質問することも可能です。</p>
-                <i class="fa fa-6x fa-legal color-primary margin-b-20">イラスト・アイコン</i>
-            </article>
-        </div>
-        <div class="row">
-            <div class="col text-center">
-                <a href="#" class="btn btn-outline-orange mx-2">今すぐ登録して、専門家に相談する</a>
+            <div class="row d-flex justify-content-center text-center">
+                <article>
+                    <h5>1. お金の相談をする</h5>
+                    <p>家計・貯蓄・保険・投資・相続・住宅ローンなど、どんな相談でも構いません</p>
+                    <img src="http://placehold.it/200x50?text=Image" alt="">
+                </article>
+                <article>
+                    <h5>2. 専門家が回答する</h5>
+                    <p>相談に対して、100名以上のお金の専門家（FP、税理士、会計士など）が回答します。</p>
+                    <img src="http://placehold.it/200x50?text=Image" alt="">
+                </article>
+                <article>
+                    <h5>3. 悩みが解決する</h5>
+                    <p>複数の専門家からの回答により、悩みが解決します。追加で質問することも可能です。</p>
+                    <img src="http://placehold.it/200x50?text=Image" alt="">
+                </article>
             </div>
-        </div>
+            <div class="row">
+                <div class="col text-center">
+                    <a href="#" class="btn btn-outline-orange mx-2">今すぐ登録して、専門家に相談する</a>
+                </div>
+            </div>
+
+        </section>
     </div>
 </div>
 <div class="lightgreypanel">
-    <div class="container p-sm-5">
-        <div class="row">
-            <div class="col text-center">
-                <h4 class="font-weight-bold">「MoneQ」が選ばれる理由</h4>
+    <div class="container p-3">
+
+        <section>
+
+            <div class="row">
+                <div class="col text-center">
+                    <h4 class="font-weight-bold">「MoneQ」が選ばれる理由</h4>
+                </div>
             </div>
-        </div>
-        <div class="row text-center">
-            <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-sm-5">
-                <h5>実務経験豊富な専門家が回答</h5>
-                <p>MoneQで回答してくれる専門家は、資格を保有していて、実務経験の豊富な方を厳選しています。</p>
-                <i class="fa fa-6x fa-legal color-primary margin-b-20">イラスト・アイコン</i>
-            </article>
-            <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-sm-5">
-                <h5>最短5分で回答</h5>
-                <p>相談に対して、速ければ最短5分で回答がきます。お金のお悩みを迅速に解決することができます。</p>
-                <i class="fa fa-6x fa-legal color-primary margin-b-20">イラスト・アイコン</i>
-            </article>
-            <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-sm-5">
-                <h5>格安の料金体系</h5>
-                <p>費用は、月額300円（税別）です。1日10円という低コストで24時間365日利用できるサービスです。</p>
-                <i class="fa fa-6x fa-legal color-primary margin-b-20">イラスト・アイコン</i>
-            </article>
-        </div>
-        <div class="row">
-            <div class="col text-center">
-                <a href="#" class="btn btn-outline-orange mx-2">今すぐ登録して、専門家に相談する</a>
+            <div class="row d-flex justify-content-center text-center">
+                <article>
+                    <h5>実務経験豊富な専門家が回答</h5>
+                    <p>MoneQで回答してくれる専門家は、資格を保有していて、実務経験の豊富な方を厳選しています。</p>
+                    <img src="http://placehold.it/200x50?text=Image" alt="">
+                </article>
+                <article>
+                    <h5>最短5分で回答</h5>
+                    <p>相談に対して、速ければ最短5分で回答がきます。お金のお悩みを迅速に解決することができます。</p>
+                    <img src="http://placehold.it/200x50?text=Image" alt="">
+                </article>
+                <article>
+                    <h5>格安の料金体系</h5>
+                    <p>費用は、月額300円（税別）です。1日10円という低コストで24時間365日利用できるサービスです。</p>
+                    <img src="http://placehold.it/200x50?text=Image" alt="">
+                </article>
             </div>
-        </div>
+            <div class="row">
+                <div class="col text-center">
+                    <a href="#" class="btn btn-outline-orange mx-2">今すぐ登録して、専門家に相談する</a>
+                </div>
+            </div>
+
+        </section>
     </div>
 </div>
-<div class="">
-    <div class="container p-sm-5">
-        <div class="row">
-            <div class="col text-center">
-                <h4>プラン</h4>
+<div class="bg-white">
+    <div class="container p-3">
+
+        <section>
+
+            <div class="row">
+                <div class="col text-center">
+                    <h4>プラン</h4>
+                </div>
             </div>
-        </div>
-        <div class="container-fluid">
-            <table id="plantable" class="table table-bordered">
-                <colgroup>
-                    <col class="first">
-                    <col class="second">
-                    <col class="third">
-                    <col class="fourth">
-                </colgroup>
-                <tbody>
-                    <tr>
-                        <td>-</td>
-                        <td style="background-color:#ffe699">資格を保有</td>
-                        <td style="background-color:#f8cbad">迅速に解決することができます</td>
-                        <td>専門家に</td>
-                    </tr>
-                    <tr>
-                        <td>専門</td>
-                        <td>迅速に解決することができます</td>
-                        <td>迅速に解決することができます</td>
-                        <td>専門</td>
-                    </tr>
-                    <tr>
-                        <td>-</td>
-                        <td>@twitter</td>
-                        <td>@twitter</td>
-                        <td>@twitter</td>
-                    </tr>
-                    <tr>
-                        <td>-</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <td>-</td>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <td>-</td>
-                        <td>@twitter</td>
-                        <td>@twitter</td>
-                        <td>@twitter</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <div class="container-fluid">
+                <table id="plantable" class="table table-bordered">
+                    <colgroup>
+                        <col class="first">
+                        <col class="second">
+                        <col class="third">
+                        <col class="fourth">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td>-</td>
+                            <td style="background-color:#ffe699">資格を保有</td>
+                            <td style="background-color:#f8cbad">迅速に解決することができます</td>
+                            <td>専門家に</td>
+                        </tr>
+                        <tr>
+                            <td>専門</td>
+                            <td>迅速に解決することができます</td>
+                            <td>迅速に解決することができます</td>
+                            <td>専門</td>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>@twitter</td>
+                            <td>@twitter</td>
+                            <td>@twitter</td>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>@twitter</td>
+                            <td>@twitter</td>
+                            <td>@twitter</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
     </div>
 </div>
 <div class="blackpanel">
-    <div class="container p-2">
-        <div class="row">
-            <div class="col text-center">
-                <h4 class="text-light">いつでも、気軽に、お金の相談ができる</h4>
-                <h4 class="text-light">あなたのマネーパートナーを手に入れましょう！</h4>
+    <div class="container p-3">
+
+        <section> 
+
+            <div class="row">
+                <div class="col text-center">
+                    <h4 class="text-light">いつでも、気軽に、お金の相談ができる</h4>
+                    <h4 class="text-light">あなたのマネーパートナーを手に入れましょう！</h4>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col text-center pt-4">
-                <a href="#" class="btn btn-outline-orange mx-2">会員登録</a>
+            <div class="row">
+                <div class="col text-center pt-4">
+                    <a href="#" class="btn btn-outline-orange mx-2">会員登録</a>
+                </div>
             </div>
-        </div>
+
+        </section>
+
     </div>
 </div>
 <div class="lightgreypanel">
-    <div class="container p-sm-5">
-        <div class="row">
-            <div class="col text-center">
-                <h4 class="font-weight-bold">お金の相談</h4>
+    <div class="container p-3">
+
+        <section>
+
+            <div class="row">
+                <div class="col text-center">
+                    <h4 class="font-weight-bold">お金の相談</h4>
+                </div>
             </div>
-        </div>
-        <section class="pt-4">
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item waves-effect waves-light">
-                    <a class="nav-link active" id="consult-money-1-tab" data-toggle="tab" href="#consult-money-1" role="tab" aria-controls="consult-money-1" aria-selected="false">新着</a>
-                </li>
-                <li class="nav-item waves-effect waves-light">
-                    <a class="nav-link" id="consult-money-2-tab" data-toggle="tab" href="#consult-money-2" role="tab" aria-controls="consult-money-2" aria-selected="false">新着質問</a>
-                </li>
-            </ul>
-            <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade active show" id="consult-money-1" role="tabpanel" aria-labelledby="consult-money-1-tab">
-                    <article class="col-sm-12 col-md-12 col-lg-12 col-xl-12 p-sm-3">
-                        <div class="meta">
-                            <h5 class="font-weight-bold">保険のことで質問です</h5>
+            <section class="pt-4">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item waves-effect waves-light">
+                        <a class="nav-link active" id="consult-money-1-tab" data-toggle="tab" href="#consult-money-1" role="tab" aria-controls="consult-money-1" aria-selected="false">新着</a>
+                    </li>
+                    <li class="nav-item waves-effect waves-light">
+                        <a class="nav-link" id="consult-money-2-tab" data-toggle="tab" href="#consult-money-2" role="tab" aria-controls="consult-money-2" aria-selected="false">新着質問</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade active show" id="consult-money-1" role="tabpanel" aria-labelledby="consult-money-1-tab">
+                        <article class="col-12">
+                            <div class="row">
+                                <img src="/images/insurance-icon.png" alt="">
+                                <h5 class="font-weight-bold pl-2">保険のことで質問です</h5>
+                                <img src="/images/solved-icon.png" class="ml-auto">
+                            </div>
+                            <div class="row">
+                                <span class="name">テスト太郎さん</span>
+                                <span class="age">30代/男</span>
+                                <span class="answers">2名が回答</span>
+                                <span class="ml-auto pr-1">2020/09/16</span>
+                            </div>
+                            <div class="row">
+                                <p class="pt-2">MoneQで回答してくれる専門家は、資格を保有していて、実務経験の豊富な方を厳選しています。</p>
+                            </div>
+                        </article>
+                        <article class="col-12">
+                            <div class="row">
+                                <img src="/images/insurance-icon.png" alt="">
+                                <h5 class="font-weight-bold pl-2">保険のことで質問です</h5>
+                                <img src="/images/solved-icon.png" class="ml-auto">
+                            </div>
+                            <div class="row">
+                                <span class="name">テスト太郎さん</span>
+                                <span class="age">30代/男</span>
+                                <span class="answers">2名が回答</span>
+                                <span class="ml-auto pr-1">2020/09/16</span>
+                            </div>
+                            <div class="row">
+                                <p class="pt-2">MoneQで回答してくれる専門家は、資格を保有していて、実務経験の豊富な方を厳選しています。</p>
+                            </div>
+                        </article>
+                        <article class="col-12">
+                            <div class="row">
+                                <img src="/images/insurance-icon.png" alt="">
+                                <h5 class="font-weight-bold pl-2">保険のことで質問です</h5>
+                                <img src="/images/solved-icon.png" class="ml-auto">
+                            </div>
+                            <div class="row">
+                                <span class="name">テスト太郎さん</span>
+                                <span class="age">30代/男</span>
+                                <span class="answers">2名が回答</span>
+                                <span class="ml-auto pr-1">2020/09/16</span>
+                            </div>
+                            <div class="row">
+                                <p class="pt-2">MoneQで回答してくれる専門家は、資格を保有していて、実務経験の豊富な方を厳選しています。</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="tab-pane fade" id="consult-money-2" role="tabpanel" aria-labelledby="consult-money-2-tab">
+                        <article class="col-12">
+                            <div class="row">
+                                <img src="/images/insurance-icon.png" alt="">
+                                <h5 class="font-weight-bold pl-2">保険のことで質問です</h5>
+                                <img src="/images/solved-icon.png" class="ml-auto">
+                            </div>
+                            <div class="row">
+                                <span class="name">テスト太郎さん</span>
+                                <span class="age">30代/男</span>
+                                <span class="answers">2名が回答</span>
+                                <span class="ml-auto pr-1">2020/09/16</span>
+                            </div>
+                            <div>
+                                <p class="pt-2">MoneQで回答してくれる専門家は、資格を保有していて、実務経験の豊富な方を厳選しています。</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="row">
+                        <div class="col text-center">
+                            <a href="#" class="btn btn-outline-orange mx-2">もっと見る</a>
                         </div>
-                        <div class="meta">
-                            <span class="name">テスト太郎さん</span>
-                            <span class="age">30代/男</span>
-                            <span class="answers">2名が回答</span>
-                            <span class="date">2020/09/16</span>
-                        </div>
-                        <p>MoneQで回答してくれる専門家は、資格を保有していて、実務経験の豊富な方を厳選しています。</p>
-                    </article>
-                    <article class="col-sm-12 col-md-12 col-lg-12 col-xl-12 p-sm-3">
-                        <div class="meta">
-                            <h5 class="font-weight-bold">保険のことで質問です</h5>
-                        </div>
-                        <div class="meta">
-                            <span class="name">テスト太郎さん</span>
-                            <span class="age">30代/男</span>
-                            <span class="answers">2名が回答</span>
-                            <span class="date">2020/09/16</span>
-                        </div>
-                        <p>MoneQで回答してくれる専門家は、資格を保有していて、実務経験の豊富な方を厳選しています。</p>
-                    </article>
-                    <article class="col-sm-12 col-md-12 col-lg-12 col-xl-12 p-sm-3">
-                        <div class="meta">
-                            <h5 class="font-weight-bold">保険のことで質問です</h5>
-                        </div>
-                        <div class="meta">
-                            <span class="name">テスト太郎さん</span>
-                            <span class="age">30代/男</span>
-                            <span class="answers">2名が回答</span>
-                            <span class="date">2020/09/16</span>
-                        </div>
-                        <p>MoneQで回答してくれる専門家は、資格を保有していて、実務経験の豊富な方を厳選しています。</p>
-                    </article>
-                </div>
-                <div class="tab-pane fade" id="consult-money-2" role="tabpanel" aria-labelledby="consult-money-2-tab">
-                    <article class="col-sm-12 col-md-12 col-lg-12 col-xl-12 p-sm-3">
-                        <div class="meta">
-                            <h5 class="font-weight-bold">保険のことで質問です</h5>
-                        </div>
-                        <div class="meta">
-                            <span class="name">テスト太郎さん</span>
-                            <span class="age">30代/男</span>
-                            <span class="answers">2名が回答</span>
-                            <span class="date">2020/09/16</span>
-                        </div>
-                        <p>MoneQで回答してくれる専門家は、資格を保有していて、実務経験の豊富な方を厳選しています。</p>
-                    </article>
-                </div>
-                <div class="row">
-                    <div class="col text-center">
-                        <a href="#" class="btn btn-outline-orange mx-2">もっと見る</a>
                     </div>
                 </div>
-            </div>
+            </section>
+
         </section>
 
     </div>
 
-    <div class="container p-sm-5">
-        <div class="row">
-            <div class="col text-center">
-                <h4 class="font-weight-bold">お金の専門家</h4>
-            </div>
-        </div>
-        <section class="pt-4">
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item waves-effect waves-light">
-                    <a class="nav-link active" id="expert-money-1-tab" data-toggle="tab" href="#expert-money-1" role="tab" aria-controls="expert-money-1" aria-selected="false">月間回答数</a>
-                </li>
-                <li class="nav-item waves-effect waves-light">
-                    <a class="nav-link" id="expert-money-2-tab" data-toggle="tab" href="#expert-money-2" role="tab" aria-controls="expert-money-2" aria-selected="false">総合回答数</a>
-                </li>
-                <li class="nav-item waves-effect waves-light">
-                    <a class="nav-link" id="expert-money-3-tab" data-toggle="tab" href="#expert-money-3" role="tab" aria-controls="expert-money-3" aria-selected="false">月間役に立った数</a>
-                </li>
-                <li class="nav-item waves-effect waves-light">
-                    <a class="nav-link" id="expert-money-4-tab" data-toggle="tab" href="#expert-money-4" role="tab" aria-controls="expert-money-4" aria-selected="false">総合役に立った数</a>
-                </li>
-            </ul>
-            <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade active show" id="expert-money-1" role="tabpanel" aria-labelledby="expert-money-1-tab">
-                    <article class="col-sm-12 col-md-12 col-lg-12 col-xl-12 p-sm-1">
-                        <div class="row">
-                            <div class="meta col-md-3 col-lg-1">
-                                <img src="http://placehold.it/50x50?text=P" alt="">
-                            </div>
-                            <div class="col-md-9 col-lg-4">
-                                <div class="meta">
-                                    <h5 class="font-weight-bold">テスト花子さん</h5>
-                                    <p>（テストハナコ）</p>
-                                </div>
-                                <div class="meta">
-                                    <span class="age">30代前半／女性</span>
-                                    <span class="address">東京都</span>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-lg-3">
-                                <div class="meta">
-                                    <span class="font-weight-bold">回答数</span>
-                                    <span>125件</span>
-                                </div>
-                                <div class="meta">
-                                    <span class="font-weight-bold">3役に立った</span>
-                                    <span >50件</span>
-                                </div>
-                            </div>
-                            <div class="col-md-9 col-lg-4">
-                                <div class="meta">
-                                    <h5 class="font-weight-bold">保有資格</h5>
-                                </div>
-                                <div class="meta">
-                                    <span class="age">1級ファイナンシャル・プランニング技能士</span>
-                                </div>
-                            </div>
-                    </article>
-                    <article class="col-sm-12 col-md-12 col-lg-12 col-xl-12 p-sm-1">
-                        <div class="row">
-                            <div class="meta col-md-3 col-lg-1">
-                                <img src="http://placehold.it/50x50?text=P" alt="">
-                            </div>
-                            <div class="col-md-9 col-lg-4">
-                                <div class="meta">
-                                    <h5 class="font-weight-bold">テスト花子さん</h5>
-                                    <p>（テストハナコ）</p>
-                                </div>
-                                <div class="meta">
-                                    <span class="age">30代前半／女性</span>
-                                    <span class="address">東京都</span>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-lg-3">
-                                <div class="meta">
-                                    <span class="font-weight-bold">回答数</span>
-                                    <span>125件</span>
-                                </div>
-                                <div class="meta">
-                                    <span class="font-weight-bold">3役に立った</span>
-                                    <span >50件</span>
-                                </div>
-                            </div>
-                            <div class="col-md-9 col-lg-4">
-                                <div class="meta">
-                                    <h5 class="font-weight-bold">保有資格</h5>
-                                </div>
-                                <div class="meta">
-                                    <span class="age">1級ファイナンシャル・プランニング技能士</span>
-                                </div>
-                            </div>
-                    </article>
+    <div class="container p-3">
+        
+        <section>
+        
+            <div class="row">
+                <div class="col text-center">
+                    <h4 class="font-weight-bold">お金の専門家</h4>
                 </div>
-                <div class="row">
-                    <div class="col text-center">
-                        <a href="#" class="btn btn-outline-orange mx-2">もっと見る</a>
+            </div>
+            <section class="pt-4">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item waves-effect waves-light">
+                        <a class="nav-link active" id="expert-money-1-tab" data-toggle="tab" href="#expert-money-1" role="tab" aria-controls="expert-money-1" aria-selected="false">月間回答数</a>
+                    </li>
+                    <li class="nav-item waves-effect waves-light">
+                        <a class="nav-link" id="expert-money-2-tab" data-toggle="tab" href="#expert-money-2" role="tab" aria-controls="expert-money-2" aria-selected="false">総合回答数</a>
+                    </li>
+                    <li class="nav-item waves-effect waves-light">
+                        <a class="nav-link" id="expert-money-3-tab" data-toggle="tab" href="#expert-money-3" role="tab" aria-controls="expert-money-3" aria-selected="false">月間役に立った数</a>
+                    </li>
+                    <li class="nav-item waves-effect waves-light">
+                        <a class="nav-link" id="expert-money-4-tab" data-toggle="tab" href="#expert-money-4" role="tab" aria-controls="expert-money-4" aria-selected="false">総合役に立った数</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade active show" id="expert-money-1" role="tabpanel" aria-labelledby="expert-money-1-tab">
+                        <article class="col-sm-12 col-md-12 col-lg-12 col-xl-12 p-sm-1">
+                            <div class="row">
+                                <div class="meta col-md-3 col-lg-1">
+                                    <img src="http://placehold.it/50x50?text=P" alt="">
+                                </div>
+                                <div class="col-md-9 col-lg-4">
+                                    <div class="row">
+                                        <h5 class="font-weight-bold">テスト花子さん</h5>
+                                        <p>（テストハナコ）</p>
+                                    </div>
+                                    <div class="row">
+                                        <span class="age">30代前半／女性</span>
+                                        <span class="address">東京都</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-lg-3">
+                                    <div class="row">
+                                        <span class="font-weight-bold">回答数</span>
+                                        <span>125件</span>
+                                    </div>
+                                    <div class="row">
+                                        <span class="font-weight-bold">3役に立った</span>
+                                        <span >50件</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-9 col-lg-4">
+                                    <div class="row">
+                                        <h5 class="font-weight-bold">保有資格</h5>
+                                    </div>
+                                    <div class="row">
+                                        <span class="age">1級ファイナンシャル・プランニング技能士</span>
+                                    </div>
+                                </div>
+                        </article>
+                        <article class="col-sm-12 col-md-12 col-lg-12 col-xl-12 p-sm-1">
+                            <div class="row">
+                                <div class="meta col-md-3 col-lg-1">
+                                    <img src="http://placehold.it/50x50?text=P" alt="">
+                                </div>
+                                <div class="col-md-9 col-lg-4">
+                                    <div class="row">
+                                        <h5 class="font-weight-bold">テスト花子さん</h5>
+                                        <p>（テストハナコ）</p>
+                                    </div>
+                                    <div class="row">
+                                        <span class="age">30代前半／女性</span>
+                                        <span class="address">東京都</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-lg-3">
+                                    <div class="row">
+                                        <span class="font-weight-bold">回答数</span>
+                                        <span>125件</span>
+                                    </div>
+                                    <div class="row">
+                                        <span class="font-weight-bold">3役に立った</span>
+                                        <span >50件</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-9 col-lg-4">
+                                    <div class="row">
+                                        <h5 class="font-weight-bold">保有資格</h5>
+                                    </div>
+                                    <div class="row">
+                                        <span class="age">1級ファイナンシャル・プランニング技能士</span>
+                                    </div>
+                                </div>
+                        </article>
+                    </div>
+                    <div class="row">
+                        <div class="col text-center">
+                            <a href="#" class="btn btn-outline-orange mx-2">もっと見る</a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </section>
+
         </section>
 
     </div>
@@ -402,7 +448,7 @@
             <div class="row pl-4">
                 <article class="col-sm-12 col-md-6 col-lg-4 col-xl-4 p-2">
                     <p>【資産運用】</p>
-                    <div class="meta">
+                    <div class="row">
                         <span><a href="#" class="pr-3 text-dark">お金の貯め方全般</a></span>
                         <span><a href="#" class="pr-3 text-dark">貯金</a></span>
                         <span><a href="#" class="pr-3 text-dark">預金</a></span>
@@ -422,7 +468,7 @@
                 </article>    
                 <article class="col-sm-12 col-md-6 col-lg-4 col-xl-4 p-2">
                     <p>【保険】</p>
-                    <div class="meta">
+                    <div class="row">
                         <span><a href="#" class="pr-3 text-dark">保険全般</a></span>
                         <span><a href="#" class="pr-3 text-dark">生命保険</a></span>
                         <span><a href="#" class="pr-3 text-dark">終身保険</a></span>
@@ -436,7 +482,7 @@
                 </article>    
                 <article class="col-sm-12 col-md-6 col-lg-4 col-xl-4 p-2">
                     <p>【税金】</p>
-                    <div class="meta">
+                    <div class="row">
                         <span><a href="#" class="pr-3 text-dark">税金</a></span>
                         <span><a href="#" class="pr-3 text-dark">公的手当</a></span>
                         <span><a href="#" class="pr-3 text-dark">給付金</a></span>
@@ -446,7 +492,7 @@
                 </article>
                 <article class="col-sm-12 col-md-6 col-lg-4 col-xl-4 p-2">
                     <p>【老後】</p>
-                    <div class="meta">
+                    <div class="row">
                         <span><a href="#" class="pr-3 text-dark">老後のお金全般年金</a></span>
                         <span><a href="#" class="pr-3 text-dark">個人年金</a></span>
                         <span><a href="#" class="pr-3 text-dark">iDeco相続</a></span>
@@ -456,7 +502,7 @@
                 </article>    
                 <article class="col-sm-12 col-md-6 col-lg-4 col-xl-4 p-2">
                     <p>【生活】</p>
-                    <div class="meta">
+                    <div class="row">
                         <span><a href="#" class="pr-3 text-dark">家計全般</a></span>
                         <span><a href="#" class="pr-3 text-dark">ライフプラン</a></span>
                         <span><a href="#" class="pr-3 text-dark">家計簿</a></span>
@@ -482,7 +528,7 @@
                 </article>   
                 <article class="col-sm-12 col-md-6 col-lg-4 col-xl-4 p-2">
                     <p>【仕事】</p>
-                    <div class="meta">
+                    <div class="row">
                         <span><a href="#" class="pr-3 text-dark">仕事全般</a></span>
                         <span><a href="#" class="pr-3 text-dark">転職</a></span>
                         <span><a href="#" class="pr-3 text-dark">退職</a></span>
