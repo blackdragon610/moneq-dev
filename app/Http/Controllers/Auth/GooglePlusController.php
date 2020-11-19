@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\UserToken;
+use Socialite;
+use App\Models\User;
 
 class GooglePlusController extends Controller
 {
@@ -17,7 +19,6 @@ class GooglePlusController extends Controller
             $user = $this->getProviderUserInfo();
 
             if($user){
-                dd($user); //デバック用
                 // OAuth Two Providers
                 $token = $user->token;
                 $refreshToken = $user->refreshToken; // not always provided
@@ -33,6 +34,13 @@ class GooglePlusController extends Controller
                 $datas = array();
                 $datas["email"] = $user->getEmail();
                 $datas["token_sns"] = $user->token;
+
+
+                $userCheckModel = User::getUserCheckBySnsToken($user->getEmail());
+                if(!empty($userCheckModel)){
+                    return redirect()->route('auth.get', compact('userCheckModel'));
+                }
+
 
                 $userToken = new UserToken();
                 $userModel = $userToken->saveSNSEntry($datas);

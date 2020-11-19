@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Socialite;
 use App\Models\UserToken;
+use App\Models\User;
 
 class FacebookController extends Controller
 {
@@ -34,6 +35,13 @@ class FacebookController extends Controller
                 $datas = array();
                 $datas["email"] = $user->getEmail();
                 $datas["token_sns"] = $user->token;
+
+
+                $userCheckModel = User::getUserCheckBySnsToken($user->token);
+                if(!empty($userCheckModel)){
+                    return redirect()->route('auth.get', compact('userCheckModel'));
+                }
+
 
                 $userToken = new UserToken();
                 $userModel = $userToken->saveSNSEntry($datas);

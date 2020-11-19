@@ -4,9 +4,13 @@ namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\DB;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use Firebase\JWT\JWT;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
+
+use App\Models\ChangeToken;
 
 class User  extends ModelClass implements JWTSubject
 {
@@ -17,7 +21,7 @@ class User  extends ModelClass implements JWTSubject
     public $uploadType = "users";
 
     protected $fillable = [
-        'nickname', 'email', 'password',
+        'nickname', 'email', 'password', 'token_sns'
     ];
 
 
@@ -50,6 +54,10 @@ class User  extends ModelClass implements JWTSubject
 
         if (isset($userToken->token_sns)){
             $User->token_sns = $userToken->token_sns;
+        }
+
+        if (isset($userToken->tel)){
+            $User->tel = $userToken->tel;
         }
 
         $User->password = $datas["password"];
@@ -88,27 +96,42 @@ class User  extends ModelClass implements JWTSubject
     /**
      *  ログイン処理
      */
-    public function login($userModel)
+    public function login($user)
     {
-        // grab credentials from the request
-        $credentials = $userModel->only('email', 'password');
-
-        try {
-            // attempt to verify the credentials and create a token for the user
-            if (! $token = JWTAuth::attempt(['email'=>'siafae@gmail.com', 'password'=>'adfaKi3242'])) {
-                die('invalid');
-                return response()->json(['error' => 'invalid_credentials'], 401);
-            }
-            die($token);
-        } catch (JWTException $e) {
-            // something went wrong whilst attempting to encode the token
-            die('error');
-            return response()->json(['error' => 'could_not_create_token'], 500);
-        }
+        $changeToken = new ChangeToken();
+        $changeToken->user_id = $user->id;
+        $changeToken->token = substr(bcrypt($this->setToken($user->email, 0)), 0, 30);
+        $changeToken->save();
 
         \Auth::login($this, true);
     }
 
+    /**
+     * トークンの取得
+     * @return false|string
+     */
+    public function setToken($email, $state)
+    {
+        //----------------------------------------Firebase JWT Token---------------------------------------
+        $issuedat_claim = time(); // issued at
+        $notbefore_claim = $issuedat_claim + 10; //not before in seconds
+        // $expire_claim = $issuedat_claim + 3600 * 24 * 30; // expire time in seconds
+        $expire_claim = $issuedat_claim + 600; // expire time in seconds
+        $token = array(
+            "iat" => $issuedat_claim,
+            "nbf" => $notbefore_claim,
+            "exp" => $expire_claim,
+            "data" => array(
+                "email" => $email,
+            )
+        );
+
+        $jwt = JWT::encode($token, env("JWT_SECRET"), "HS256");
+
+        $length = 30;
+
+        return substr($jwt, 0, $length);
+    }
     /**
      * 投稿できるかの確認
      * @return bool
@@ -151,6 +174,14 @@ class User  extends ModelClass implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [];
+    }
+
+    static public function getUserCheckBySnsToken($email){
+
+        $sql ="select *from users where token_sns <> '' and email='".$email."'";
+        $user = DB::select($sql);
+
+        return $user;
     }
 
 }

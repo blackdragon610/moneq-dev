@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Models\UserToken;
+use App\Models\User;
 
 use Laravel\Socialite\Contracts\Factory as Socialite;
 
@@ -39,6 +40,13 @@ class YahooJapanIdController extends Controller
         $datas = array();
         $datas["email"] = $user->getEmail();
         $datas["token_sns"] = $user->getToken;
+
+
+        $userCheckModel = User::getUserCheckBySnsToken($user->token);
+        if(!empty($userCheckModel)){
+            return redirect()->route('auth.get', compact('userCheckModel'));
+        }
+
 
         $userToken = new UserToken();
         $userModel = $userToken->saveSNSEntry($datas);

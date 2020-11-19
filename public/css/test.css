@@ -181,9 +181,7 @@ section {
 }
 
 article {
-    padding: 1.25rem !important;
-    min-width: 280px;
-    max-width: 280px;
+    padding: 1.0rem !important;
 }
 
 .btnLayer {

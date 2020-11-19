@@ -3,78 +3,66 @@
 
 @section('main')
 
-<div class="bg-white">
-    <div class="container p-3">
-        <section>
-            <div class="row">
-                <div class="col-sm-8 offset-sm-2 text-center">
-                    <h4 class="font-weight-bold">お金の悩みを「気軽に」専門家に質問できる日本最大級のお金相談サービス「MoneQ（マネク）」</h4>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col text-center">
-                    <h6>お金のQ&A数：○件　役に立った件数：○件　回答率：○％   協力専門家数：○人　会員数：(当初は非表示)</h6>
-                    <p class="text-secondary pt-4">お金の相談Q&Aを見る</p>                
-                    <div class="input-group md-form form-sm form-2 pl-0">
-                        <input class="form-control py-1 amber-border" type="text" placeholder="Search" aria-label="Search">
-                        <div class="input-group-append">
-                            <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fa fa-search text-grey" aria-hidden="true"></i></span>
-                        </div>
+<div class="">
+    <div class="container p-sm-5">
+        <div class="row">
+            <div class="col text-center">
+                <h4 class="font-weight-bold">お金の悩みを「気軽に」専門家に質問できる</h4>
+                <h4 class="font-weight-bold">日本最大級のお金相談サービス「MoneQ（マネク）」</h4>
+                <h6>お金のQ&A数：○件　役に立った件数：○件　回答率：○％   協力専門家数：○人　会員数：(当初は非表示)</h6>
+                <p class="text-secondary pt-4">お金の相談Q&Aを見る</p>                
+                <div class="input-group md-form form-sm form-2 pl-0">
+                    <input class="form-control py-1 amber-border" type="text" placeholder="Search" aria-label="Search">
+                    <div class="input-group-append">
+                        <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fa fa-search text-grey" aria-hidden="true"></i></span>
                     </div>
-                    <p class="text-secondary pt-4">さっそく、お金の悩みを専門家に相談する</p>  
-                    <a href="#" class="btn btn-outline-orange mx-2">今すぐ登録して、専門家に相談する</a>
                 </div>
+                <p class="text-secondary pt-4">さっそく、お金の悩みを専門家に相談する</p>  
+                <a href="#" class="btn btn-outline-orange mx-2">今すぐ登録して、専門家に相談する</a>
             </div>
-        </section>
+        </div>
     </div>
 </div>
-
 <div class="lightgreypanel">
-    <div class="container p-3">
-
-        <section>
-
-            <div class="row">
-                <div class="col text-center">
-                    <h4 class="font-weight-bold">こんなお悩みありませんか？</h4>
-                </div>
+    <div class="container p-sm-5">
+        <div class="row">
+            <div class="col text-center">
+                <h4 class="font-weight-bold">こんなお悩みありませんか？</h4>
             </div>
-            <div class="row d-flex justify-content-center text-center">
-                <article >
-                    <h5>お金のことを 信頼して相談できる人が 周りにいない</h5>
-                    <img src="http://placehold.it/200x50?text=P" alt="">
-                </article>
-                <article >
-                    <h5>ちょっとした お金の疑問で 専門家に相談できない</h5>
-                    <img src="http://placehold.it/200x50?text=P" alt="">
-                </article>
-                <article >
-                    <h5>FPに相談すると 保険を売られるのではないか 不安</h5>
-                    <img src="http://placehold.it/200x50?text=P" alt="">
-                </article>
+        </div>
+        <div class="row text-center">
+            <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-sm-5">
+                <h5>お金のことを 信頼して相談できる人が 周りにいない</h5>
+                <i class="fa fa-6x fa-legal color-primary margin-b-20"></i>イラスト・アイコン
+            </article>
+            <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-sm-5">
+                <h5>ちょっとした お金の疑問で 専門家に相談できない</h5>
+                <i class="fa fa-6x fa-legal color-primary margin-b-20"></i>イラスト・アイコン
+            </article>
+            <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-sm-5">
+                <h5>FPに相談すると 保険を売られるのではないか 不安</h5>
+                <i class="fa fa-6x fa-legal color-primary margin-b-20"></i>イラスト・アイコン
+            </article>
 
-                <article >
-                    <h5>ネットのお金の情報は 執筆者が見えないので 信用できない</h5>
-                    <img src="http://placehold.it/200x50?text=P" alt="">
-                </article>
-                <article >
-                    <h5>自分の状況にあった お金に関する アドバイスが欲しい</h5>
-                    <img src="http://placehold.it/200x50?text=P" alt="">
-                </article>
-                <article >
-                    <h5>ファイナンシャルコーチ などを頼みたいが 料金が高額</h5>
-                    <img src="http://placehold.it/200x50?text=P" alt="">
-                </article>
+            <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-sm-5">
+                <h5>ネットのお金の情報は 執筆者が見えないので 信用できない</h5>
+                <i class="fa fa-6x fa-legal color-primary margin-b-20"></i>イラスト・アイコン
+            </article>
+            <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-sm-5">
+                <h5>自分の状況にあった お金に関する アドバイスが欲しい</h5>
+                <i class="fa fa-6x fa-legal color-primary margin-b-20">イラスト・アイコン</i>
+            </article>
+            <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 p-sm-5">
+                <h5>ファイナンシャルコーチ などを頼みたいが 料金が高額</h5>
+                <i class="fa fa-6x fa-legal color-primary margin-b-20">イラスト・アイコン</i>
+            </article>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <h4 class="font-weight-bold">「MoneQ」がそのお悩みを解決します！</h4>
+                <h4 class="font-weight-bold">「MoneQ」は、低価格で使えるお金の相談パートナーです。</h4>
             </div>
-            <div class="row">
-                <div class="col text-center">
-                    <h4 class="font-weight-bold">「MoneQ」がそのお悩みを解決します！</h4>
-                    <h4 class="font-weight-bold">「MoneQ」は、低価格で使えるお金の相談パートナーです。</h4>
-                </div>
-            </div>
-
-        </section>
-
+        </div>
     </div>
 </div>
 <div class="">
