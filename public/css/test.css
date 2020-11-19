@@ -72,7 +72,7 @@
     margin-bottom: -1px;
 }
 
-span.name, span.age {
+span.name, span.age, .mright {
     margin-right: 10px;
 }
 
@@ -84,6 +84,15 @@ span.answers {
 /* span.date, span.resolved {
     float: right;
 } */
+
+.keepOneLine {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.underlineFor {
+    border-bottom: 1px solid black;
+}
 
 .line {
     background-color: #00ff00;

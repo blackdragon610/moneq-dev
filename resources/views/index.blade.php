@@ -314,7 +314,7 @@
                                 <span class="answers">2名が回答</span>
                                 <span class="ml-auto pr-1">2020/09/16</span>
                             </div>
-                            <div>
+                            <div class="row">
                                 <p class="pt-2">MoneQで回答してくれる専門家は、資格を保有していて、実務経験の豊富な方を厳選しています。</p>
                             </div>
                         </article>
@@ -357,71 +357,77 @@
                 </ul>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade active show" id="expert-money-1" role="tabpanel" aria-labelledby="expert-money-1-tab">
-                        <article class="col-sm-12 col-md-12 col-lg-12 col-xl-12 p-sm-1">
+                        <article class="col-12 p-1">
                             <div class="row">
-                                <div class="meta col-md-3 col-lg-1">
+                                <div class="col-sm-2 col-lg-1 pt-2">
                                     <img src="http://placehold.it/50x50?text=P" alt="">
                                 </div>
-                                <div class="col-md-9 col-lg-4">
-                                    <div class="row">
-                                        <h5 class="font-weight-bold">テスト花子さん</h5>
-                                        <p>（テストハナコ）</p>
-                                    </div>
-                                    <div class="row">
-                                        <span class="age">30代前半／女性</span>
-                                        <span class="address">東京都</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-lg-3">
-                                    <div class="row">
-                                        <span class="font-weight-bold">回答数</span>
-                                        <span>125件</span>
-                                    </div>
-                                    <div class="row">
-                                        <span class="font-weight-bold">3役に立った</span>
-                                        <span >50件</span>
+                                <div class="col-sm-10 col-lg-4 pt-2">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <h5 class="font-weight-bold">テスト花子さん</h5>
+                                            <p>（テストハナコ）</p>
+                                        </div>
+                                        <div class="row">
+                                            <span class="age">30代前半／女性</span>
+                                            <span class="address">東京都</span>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-9 col-lg-4">
-                                    <div class="row">
+
+                                <div class="col-sm-4 col-lg-3 pt-2">
+                                    <div class="container-fluid">
+                                        <div class="row pb-lg-1">
+                                            <h6 class="mright font-weight-bold">回答数</h6>
+                                            <span>125件</span>
+                                        </div>
+                                        <div class="row">
+                                            <span class="mright font-weight-bold">3役に立った</span>
+                                            <span >50件</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-8 col-lg-4 pt-2">
+                                    <div class="container-fluid keepOneLine pl-0">
                                         <h5 class="font-weight-bold">保有資格</h5>
-                                    </div>
-                                    <div class="row">
-                                        <span class="age">1級ファイナンシャル・プランニング技能士</span>
+                                        <span class="mright">1級ファイナンシャル・プランニング技能士</span>
                                     </div>
                                 </div>
                         </article>
-                        <article class="col-sm-12 col-md-12 col-lg-12 col-xl-12 p-sm-1">
+                        <article class="col-12 p-1">
                             <div class="row">
-                                <div class="meta col-md-3 col-lg-1">
+                                <div class="col-sm-2 col-lg-1 pt-2">
                                     <img src="http://placehold.it/50x50?text=P" alt="">
                                 </div>
-                                <div class="col-md-9 col-lg-4">
-                                    <div class="row">
-                                        <h5 class="font-weight-bold">テスト花子さん</h5>
-                                        <p>（テストハナコ）</p>
-                                    </div>
-                                    <div class="row">
-                                        <span class="age">30代前半／女性</span>
-                                        <span class="address">東京都</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-lg-3">
-                                    <div class="row">
-                                        <span class="font-weight-bold">回答数</span>
-                                        <span>125件</span>
-                                    </div>
-                                    <div class="row">
-                                        <span class="font-weight-bold">3役に立った</span>
-                                        <span >50件</span>
+                                <div class="col-sm-10 col-lg-4 pt-2">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <h5 class="font-weight-bold">テスト花子さん</h5>
+                                            <p>（テストハナコ）</p>
+                                        </div>
+                                        <div class="row">
+                                            <span class="age">30代前半／女性</span>
+                                            <span class="address">東京都</span>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-9 col-lg-4">
-                                    <div class="row">
+
+                                <div class="col-sm-4 col-lg-3 pt-2">
+                                    <div class="container-fluid">
+                                        <div class="row pb-lg-1">
+                                            <h6 class="mright font-weight-bold">回答数</h6>
+                                            <span>125件</span>
+                                        </div>
+                                        <div class="row">
+                                            <span class="mright font-weight-bold">3役に立った</span>
+                                            <span >50件</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-8 col-lg-4 pt-2">
+                                    <div class="container-fluid keepOneLine pl-0">
                                         <h5 class="font-weight-bold">保有資格</h5>
-                                    </div>
-                                    <div class="row">
-                                        <span class="age">1級ファイナンシャル・プランニング技能士</span>
+                                        <span class="mright">1級ファイナンシャル・プランニング技能士</span>
                                     </div>
                                 </div>
                         </article>
@@ -438,131 +444,160 @@
 
     </div>
 
-    <div class="container p-sm-5">
-        <div class="row">
-            <div class="col text-center">
-                <h4 class="font-weight-bold">相談テーマからQ&Aを調べる</h4>
+    <div class="container p-3">
+        <section>
+
+            <div class="row">
+                <div class="col text-center">
+                    <h4 class="font-weight-bold">相談テーマからQ&Aを調べる</h4>
+                </div>
             </div>
-        </div>
-        <section class="pt-4 bg-white">
-            <div class="row pl-4">
-                <article class="col-sm-12 col-md-6 col-lg-4 col-xl-4 p-2">
-                    <p>【資産運用】</p>
-                    <div class="row">
-                        <span><a href="#" class="pr-3 text-dark">お金の貯め方全般</a></span>
-                        <span><a href="#" class="pr-3 text-dark">貯金</a></span>
-                        <span><a href="#" class="pr-3 text-dark">預金</a></span>
-                        <span><a href="#" class="pr-3 text-dark">定期預金</a></span>
-                        <span><a href="#" class="pr-3 text-dark">外貨預金</a></span>
-                        <span><a href="#" class="pr-3 text-dark">積立株式投資</a></span>
-                        <span><a href="#" class="pr-3 text-dark">NISA</a></span>
-                        <span><a href="#" class="pr-3 text-dark">投資信託</a></span>
-                        <span><a href="#" class="pr-3 text-dark">ETF</a></span>
-                        <span><a href="#" class="pr-3 text-dark">REITFX</a></span>
-                        <span><a href="#" class="pr-3 text-dark">金投資</a></span>
-                        <span><a href="#" class="pr-3 text-dark">CFD</a></span>
-                        <span><a href="#" class="pr-3 text-dark">先物取引</a></span>
-                        <span><a href="#" class="pr-3 text-dark">仮想通貨不動産投資</a></span>
-                        <span><a href="#" class="pr-3 text-dark">賃貸経営</a></span>
-                    </div>
-                </article>    
-                <article class="col-sm-12 col-md-6 col-lg-4 col-xl-4 p-2">
-                    <p>【保険】</p>
-                    <div class="row">
-                        <span><a href="#" class="pr-3 text-dark">保険全般</a></span>
-                        <span><a href="#" class="pr-3 text-dark">生命保険</a></span>
-                        <span><a href="#" class="pr-3 text-dark">終身保険</a></span>
-                        <span><a href="#" class="pr-3 text-dark">医療保険</a></span>
-                        <span><a href="#" class="pr-3 text-dark">がん保険</a></span>
-                        <span><a href="#" class="pr-3 text-dark">自動車保険</a></span>
-                        <span><a href="#" class="pr-3 text-dark">火災保険</a></span>
-                        <span><a href="#" class="pr-3 text-dark">地震保険</a></span>
-                        <span><a href="#" class="pr-3 text-dark">その他保険</a></span>
-                    </div>
-                </article>    
-                <article class="col-sm-12 col-md-6 col-lg-4 col-xl-4 p-2">
-                    <p>【税金】</p>
-                    <div class="row">
-                        <span><a href="#" class="pr-3 text-dark">税金</a></span>
-                        <span><a href="#" class="pr-3 text-dark">公的手当</a></span>
-                        <span><a href="#" class="pr-3 text-dark">給付金</a></span>
-                        <span><a href="#" class="pr-3 text-dark">補助金</a></span>
-                        <span><a href="#" class="pr-3 text-dark">助成金</a></span>
-                    </div>
-                </article>
-                <article class="col-sm-12 col-md-6 col-lg-4 col-xl-4 p-2">
-                    <p>【老後】</p>
-                    <div class="row">
-                        <span><a href="#" class="pr-3 text-dark">老後のお金全般年金</a></span>
-                        <span><a href="#" class="pr-3 text-dark">個人年金</a></span>
-                        <span><a href="#" class="pr-3 text-dark">iDeco相続</a></span>
-                        <span><a href="#" class="pr-3 text-dark">介護</a></span>
-                        <span><a href="#" class="pr-3 text-dark">退職金</a></span>
-                    </div>
-                </article>    
-                <article class="col-sm-12 col-md-6 col-lg-4 col-xl-4 p-2">
-                    <p>【生活】</p>
-                    <div class="row">
-                        <span><a href="#" class="pr-3 text-dark">家計全般</a></span>
-                        <span><a href="#" class="pr-3 text-dark">ライフプラン</a></span>
-                        <span><a href="#" class="pr-3 text-dark">家計簿</a></span>
-                        <span><a href="#" class="pr-3 text-dark">節約住まい選び</a></span>
-                        <span><a href="#" class="pr-3 text-dark">マイホーム</a></span>
-                        <span><a href="#" class="pr-3 text-dark">住宅ローン車</a></span>
-                        <span><a href="#" class="pr-3 text-dark">マイカーローン</a></span>                    
-                        <span><a href="#" class="pr-3 text-dark">カーシェア結婚</a></span>
-                        <span><a href="#" class="pr-3 text-dark">離婚</a></span>
-                        <span><a href="#" class="pr-3 text-dark">出産</a></span>
-                        <span><a href="#" class="pr-3 text-dark">教育</a></span>
-                        <span><a href="#" class="pr-3 text-dark">子育てクレジットカード</a></span>
-                        <span><a href="#" class="pr-3 text-dark">デビットカード</a></span>
-                        <span><a href="#" class="pr-3 text-dark">電子マネー</a></span>
-                        <span><a href="#" class="pr-3 text-dark">ポイント</a></span>
-                        <span><a href="#" class="pr-3 text-dark">QR決済</a></span>
-                        <span><a href="#" class="pr-3 text-dark">金銭トラブル</a></span>
-                        <span><a href="#" class="pr-3 text-dark">カードローン</a></span>
-                        <span><a href="#" class="pr-3 text-dark">キャッシング</a></span>
-                        <span><a href="#" class="pr-3 text-dark">借金全般ペット</a></span>
-                        <span><a href="#" class="pr-3 text-dark">ペット保険</a></span>
-                    </div>
-                </article>   
-                <article class="col-sm-12 col-md-6 col-lg-4 col-xl-4 p-2">
-                    <p>【仕事】</p>
-                    <div class="row">
-                        <span><a href="#" class="pr-3 text-dark">仕事全般</a></span>
-                        <span><a href="#" class="pr-3 text-dark">転職</a></span>
-                        <span><a href="#" class="pr-3 text-dark">退職</a></span>
-                        <span><a href="#" class="pr-3 text-dark">副業</a></span>
-                        <span><a href="#" class="pr-3 text-dark">起業</a></span>
-                        <span><a href="#" class="pr-3 text-dark">独立</a></span>
-                    </div>
-                </article>    
-            </div>
+            <section class="pt-4 bg-white">
+                <div class="row pl-4">
+                    <article class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 p-2">
+                        <div class="container-fluid">
+                            <p>【資産運用】</p>
+                            <div class="row">
+                                <span><a href="#" class="pr-3 text-dark">お金の貯め方全般</a></span>
+                                <span><a href="#" class="pr-3 text-dark">貯金</a></span>
+                                <span><a href="#" class="pr-3 text-dark">預金</a></span>
+                                <span><a href="#" class="pr-3 text-dark">定期預金</a></span>
+                                <span><a href="#" class="pr-3 text-dark">外貨預金</a></span>
+                                <span><a href="#" class="pr-3 text-dark">積立株式投資</a></span>
+                                <span><a href="#" class="pr-3 text-dark">NISA</a></span>
+                                <span><a href="#" class="pr-3 text-dark">投資信託</a></span>
+                                <span><a href="#" class="pr-3 text-dark">ETF</a></span>
+                                <span><a href="#" class="pr-3 text-dark">REITFX</a></span>
+                                <span><a href="#" class="pr-3 text-dark">金投資</a></span>
+                                <span><a href="#" class="pr-3 text-dark">CFD</a></span>
+                                <span><a href="#" class="pr-3 text-dark">先物取引</a></span>
+                                <span><a href="#" class="pr-3 text-dark">仮想通貨不動産投資</a></span>
+                                <span><a href="#" class="pr-3 text-dark">賃貸経営</a></span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 p-2">
+                        <div class="container-fluid">
+                            <p>【保険】</p>
+                            <div class="row">
+                                <span><a href="#" class="pr-3 text-dark">保険全般</a></span>
+                                <span><a href="#" class="pr-3 text-dark">生命保険</a></span>
+                                <span><a href="#" class="pr-3 text-dark">終身保険</a></span>
+                                <span><a href="#" class="pr-3 text-dark">医療保険</a></span>
+                                <span><a href="#" class="pr-3 text-dark">がん保険</a></span>
+                                <span><a href="#" class="pr-3 text-dark">自動車保険</a></span>
+                                <span><a href="#" class="pr-3 text-dark">火災保険</a></span>
+                                <span><a href="#" class="pr-3 text-dark">地震保険</a></span>
+                                <span><a href="#" class="pr-3 text-dark">その他保険</a></span>
+                            </div>
+                        </div>
+                    </article>    
+
+                    <article class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 p-2">
+                        <div class="container-fluid">
+                            <p>【税金】</p>
+                            <div class="row">
+                                <span><a href="#" class="pr-3 text-dark">税金</a></span>
+                                <span><a href="#" class="pr-3 text-dark">公的手当</a></span>
+                                <span><a href="#" class="pr-3 text-dark">給付金</a></span>
+                                <span><a href="#" class="pr-3 text-dark">補助金</a></span>
+                                <span><a href="#" class="pr-3 text-dark">助成金</a></span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 p-2">
+                        <div class="container-fluid">
+                            <p>【老後】</p>
+                            <div class="row">
+                                <span><a href="#" class="pr-3 text-dark">老後のお金全般年金</a></span>
+                                <span><a href="#" class="pr-3 text-dark">個人年金</a></span>
+                                <span><a href="#" class="pr-3 text-dark">iDeco相続</a></span>
+                                <span><a href="#" class="pr-3 text-dark">介護</a></span>
+                                <span><a href="#" class="pr-3 text-dark">退職金</a></span>
+                            </div>
+                        </div>
+                    </article>    
+
+                    <article class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 p-2">
+                        <div class="container-fluid">
+                            <p>【生活】</p>
+                            <div class="row">
+                                <span><a href="#" class="pr-3 text-dark">家計全般</a></span>
+                                <span><a href="#" class="pr-3 text-dark">ライフプラン</a></span>
+                                <span><a href="#" class="pr-3 text-dark">家計簿</a></span>
+                                <span><a href="#" class="pr-3 text-dark">節約住まい選び</a></span>
+                                <span><a href="#" class="pr-3 text-dark">マイホーム</a></span>
+                                <span><a href="#" class="pr-3 text-dark">住宅ローン車</a></span>
+                                <span><a href="#" class="pr-3 text-dark">マイカーローン</a></span>                    
+                                <span><a href="#" class="pr-3 text-dark">カーシェア結婚</a></span>
+                                <span><a href="#" class="pr-3 text-dark">離婚</a></span>
+                                <span><a href="#" class="pr-3 text-dark">出産</a></span>
+                                <span><a href="#" class="pr-3 text-dark">教育</a></span>
+                                <span><a href="#" class="pr-3 text-dark">子育てクレジットカード</a></span>
+                                <span><a href="#" class="pr-3 text-dark">デビットカード</a></span>
+                                <span><a href="#" class="pr-3 text-dark">電子マネー</a></span>
+                                <span><a href="#" class="pr-3 text-dark">ポイント</a></span>
+                                <span><a href="#" class="pr-3 text-dark">QR決済</a></span>
+                                <span><a href="#" class="pr-3 text-dark">金銭トラブル</a></span>
+                                <span><a href="#" class="pr-3 text-dark">カードローン</a></span>
+                                <span><a href="#" class="pr-3 text-dark">キャッシング</a></span>
+                                <span><a href="#" class="pr-3 text-dark">借金全般ペット</a></span>
+                                <span><a href="#" class="pr-3 text-dark">ペット保険</a></span>
+                            </div>
+                        </div>
+                    </article>   
+
+                    <article class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 p-2">
+                        <div class="container-fluid">
+                            <p>【仕事】</p>
+                            <div class="row">
+                                <span><a href="#" class="pr-3 text-dark">仕事全般</a></span>
+                                <span><a href="#" class="pr-3 text-dark">転職</a></span>
+                                <span><a href="#" class="pr-3 text-dark">退職</a></span>
+                                <span><a href="#" class="pr-3 text-dark">副業</a></span>
+                                <span><a href="#" class="pr-3 text-dark">起業</a></span>
+                                <span><a href="#" class="pr-3 text-dark">独立</a></span>
+                            </div>
+                        </div>
+                    </article>    
+
+                </div>
+            </section>
+
         </section>
     </div>
 
     <div class="container p-sm-5">
-        <div class="row">
-            <div class="col text-center">
-                <h4 class="font-weight-bold">お知らせ</h4>
+
+        <section>
+            <div class="row">
+                <div class="col text-center">
+                    <h4 class="font-weight-bold">お知らせ</h4>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="meta col col-md-4 col-lg-4">
-                <h5 class="font-weight-bold float-right">2020/10/4</h5>
+            <div class="container pt-5">
+                <div class="row">
+                    <div class="meta col col-sm-4">
+                        <h5 class="font-weight-bold float-sm-right">2020/10/4</h5>
+                    </div>
+                    <div class="col col-sm-8">
+                        <p class="underlineFor">******************************</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="meta col col-sm-4">
+                        <h5 class="font-weight-bold float-sm-right">2020/10/4</h5>
+                    </div>
+                    <div class="col col-sm-8">
+                        <p class="underlineFor">******************************</p>
+                    </div>
+                </div>
             </div>
-            <div class="col col-md-8 col-lg-8">
-                <p><u>******************************</u></p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="meta col col-md-4 col-lg-4">
-                <h5 class="font-weight-bold float-right">2020/10/4</h5>
-            </div>
-            <div class="col col-md-8 col-lg-8">
-                <p><u>******************************</u></p>
-            </div>
-        </div>
+
+        </section>
+
     </div>
 </div>
 
