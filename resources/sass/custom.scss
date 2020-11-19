@@ -27,7 +27,7 @@
 }
 
 .btn-outline-orange:hover {
-    color: #212529;
+    color: white;
     background-color: #FF7820;
     border-color:#FF7820;
 }
@@ -46,7 +46,7 @@
 .btn-outline-orange:not(:disabled):not(.disabled):active,
 .btn-outline-orange:not(:disabled):not(.disabled).active,
 .show > .btn-outline-orange.dropdown-toggle {
-    color: #212529;
+    color: white;
     background-color: #FF7820;
     border-color: #FF7820;
 }

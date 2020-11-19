@@ -1,4 +1,4 @@
-<footer class="border border-dark">
+<footer class="border border-dark bg-white">
     <div class="container">
         <div class="row p-2 m-2 border border-dark">
             <a href="#" class="pr-3 text-dark">MoneQとは</a>
