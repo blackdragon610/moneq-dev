@@ -102,9 +102,9 @@ class EntryController extends Controller
     public function password(Request $request, UserToken $UserToken)
     {
         //トークンのチェック
-        // if (!$UserToken->checkToken($request)){
-        //     return redirect()->route('error');
-        // }
+        if (!$UserToken->checkToken($request)){
+            return redirect()->route('error');
+        }
 
         return view('entries.password');
     }
