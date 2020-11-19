@@ -23,7 +23,7 @@
                     <div class="row">
                         <div class="col text-center">
                             <p><u>利用規約</u>に同意して登録する</p>
-                            <button class="bg-dark text-white p-3 pl-5 pr-5">送信する</button>
+                            <button class="btnSubmit">送信する</button>
                         </div>
                     </div>
                     <div class="m-2">

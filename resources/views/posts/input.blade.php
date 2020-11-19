@@ -17,8 +17,8 @@
         {!! Form::submit('修正', ['class' => 'btn btn-block btn-default', 'name' => 'reInput']) !!}
         {!! Form::submit('確定', ['class' => 'btn btn-block btn-primary', 'name' => 'end']) !!}
     @else
-        <button>一時保存</button>
-        <button>相談を投稿</button>
+        <button class="btnSubmit">一時保存</button>
+        <button class="btnSubmit">相談を投稿</button>
     @endif
 
     {{Form::close()}}
