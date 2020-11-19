@@ -24,15 +24,15 @@
                         <section>
                             <label for="birthday" class="font-weight-bold">生年月日</label><span class="text-danger">(必須)</span><br />
                             <div class="row">
-                                <div class="col-sm-12 col-md-4 input-group mt-3 mt-md-0">
+                                <div class="col-sm-12 col-md-3 input-group mt-3 mt-md-0">
                                     @include('layouts.parts.editor.select', ['name' => 'date_birth_year', "file" => config("funcs.years"), "keyValue" => "", 'contents' => 'class="form-control textCenter p-0"'])
                                     <h6 class="font-weight-400 pl-2 textCenter">年</h6>
                                 </div>
-                                <div class="col-sm-12 col-md-4 input-group mt-3 mt-md-0">
+                                <div class="col-sm-12 col-md-3 input-group mt-3 mt-md-0">
                                     @include('layouts.parts.editor.select', ['name' => 'date_birth_month', "file" => configJson("custom/months"), "keyValue" => "", 'contents' => 'class="form-control textCenter p-0"'])
                                     <h6 class="font-weight-400 pl-2">月</h6>
                                 </div>
-                                <div class="col-sm-12 col-md-4 input-group mt-3 mt-md-0">
+                                <div class="col-sm-12 col-md-3 input-group mt-3 mt-md-0">
                                     @include('layouts.parts.editor.select', ['name' => 'date_birth_day', "file" => configJson("custom/days"), "keyValue" => "", 'contents' => 'class="form-control textCenter p-0"'])
                                     <h6 class="font-weight-400 pl-2">日</h6>
                                 </div>
