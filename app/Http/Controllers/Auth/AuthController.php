@@ -5,10 +5,12 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Cookie;
 use Firebase\JWT\JWT;
 
 use App\Models\AutoToken;
 use App\Models\ChangeToken;
+use App\Libs\Common;
 
 class AuthController extends Controller {
 use AuthenticatesUsers;
@@ -45,31 +47,18 @@ use AuthenticatesUsers;
 
         if ($this->attemptLogin($request)) {
 
+            $auto_login = 0;
+            if(isset($_COOKIE['auto_login']))
+                $auto_login = $_COOKIE['auto_login'];
+
             $user_id = $this->guard()->id();
             $email = $this->guard()->user()->email;
 
-            if($request->auto_token == "on"){
+            $custom_token = Common::tokenSet($auto_login, $user_id, $email);
 
-                $tokenArray = AutoToken::where([['user_id', $user_id]])->first();
-                if(empty($tokenArray)){
-                    $autoToken = new AutoToken();
-                }else{
-                    $autoToken = AutoToken::find($tokenArray->id);
-                }
-                $autoToken->user_id = $user_id;
-                $autoToken->token = $this->getToken($email, 1);
-                $autoToken->save();
-            }else{
-                $cTokenArray = ChangeToken::where([['user_id', $user_id]])->first();
-                if(empty($cTokenArray)){
-                    $changeToken = new ChangeToken();
-                }else{
-                    $changeToken = ChangeToken::find($cTokenArray->id);
-                }
-                $changeToken->user_id = $user_id;
-                $changeToken->token = substr(bcrypt($this->getToken($email, 0)), 0, 30);
-                $changeToken->save();
-            }
+            if($auto_login == 0) Cookie::queue('custom_token', $custom_token, 120);
+
+            if($auto_login == 1) Cookie::queue('custom_token', $custom_token, 7200);
 
             return $this->sendLoginResponse($request);
         }
@@ -81,48 +70,6 @@ use AuthenticatesUsers;
 
         return $this->sendFailedLoginResponse($request);
     }
-
-    /**
-     * トークンの取得
-     * @return false|string
-     */
-    protected function getToken($email, $state)
-    {
-        //----------------------------------------Firebase JWT Token---------------------------------------
-        $issuedat_claim = time(); // issued at
-        $notbefore_claim = $issuedat_claim + 10; //not before in seconds
-        // $expire_claim = $issuedat_claim + 3600 * 24 * 30; // expire time in seconds
-        $expire_claim = $issuedat_claim + 600; // expire time in seconds
-        $token = array(
-            "iat" => $issuedat_claim,
-            "nbf" => $notbefore_claim,
-            "exp" => $expire_claim,
-            "data" => array(
-                "email" => $email,
-            )
-        );
-
-        $jwt = JWT::encode($token, env("JWT_SECRET"), "HS256");
-
-        $length = 30;
-        if($state == 1) {
-            $length = 100;
-        }
-
-        return substr($jwt, 0, $length);
-
-        // JWT::$leeway = 60;
-        // try {
-        //     $decoded = (array) JWT::decode($jwt, env("JWT_SECRET"), array('HS256'));
-        //     // print_r($decoded['data']->email);
-        // } catch (ExpiredException $e) {
-        //     return false;
-        // }
-        // $expire_claim = $decoded['exp'];
-
-        //-----------------------------------------------------------------------------------------------
-    }
-
 
     public function username()
     {

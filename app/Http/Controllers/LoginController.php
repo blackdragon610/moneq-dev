@@ -7,6 +7,7 @@ use App\Libs\PushClass;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Symfony\Component\HttpFoundation\Cookie;
 use Illuminate\Support\Facades\Hash;
 use Firebase\JWT\JWT;
 

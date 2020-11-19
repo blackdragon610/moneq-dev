@@ -6,6 +6,9 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use Symfony\Component\HttpFoundation\Cookie;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
 use Firebase\JWT\JWT;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
@@ -103,6 +106,7 @@ class User  extends ModelClass implements JWTSubject
         $changeToken->token = substr(bcrypt($this->setToken($user->email, 0)), 0, 30);
         $changeToken->save();
 
+
         \Auth::login($this, true);
     }
 
@@ -180,6 +184,10 @@ class User  extends ModelClass implements JWTSubject
 
         $sql ="select *from users where token_sns <> '' and email='".$email."'";
         $user = DB::select($sql);
+
+        $user = User::where([
+            ['token_sns', '<>', "''"],['email', '=', $email]
+        ])->first();
 
         return $user;
     }

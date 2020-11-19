@@ -10,14 +10,14 @@
                 <h4 class="font-weight-bold">お金の悩みを「気軽に」専門家に質問できる</h4>
                 <h4 class="font-weight-bold">日本最大級のお金相談サービス「MoneQ（マネク）」</h4>
                 <h6>お金のQ&A数：○件　役に立った件数：○件　回答率：○％   協力専門家数：○人　会員数：(当初は非表示)</h6>
-                <p class="text-secondary pt-4">お金の相談Q&Aを見る</p>                
+                <p class="text-secondary pt-4">お金の相談Q&Aを見る</p>
                 <div class="input-group md-form form-sm form-2 pl-0">
                     <input class="form-control py-1 amber-border" type="text" placeholder="Search" aria-label="Search">
                     <div class="input-group-append">
                         <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fa fa-search text-grey" aria-hidden="true"></i></span>
                     </div>
                 </div>
-                <p class="text-secondary pt-4">さっそく、お金の悩みを専門家に相談する</p>  
+                <p class="text-secondary pt-4">さっそく、お金の悩みを専門家に相談する</p>
                 <a href="#" class="btn btn-outline-orange mx-2">今すぐ登録して、専門家に相談する</a>
             </div>
         </div>
@@ -407,7 +407,7 @@
                         <span><a href="#" class="pr-3 text-dark">仮想通貨不動産投資</a></span>
                         <span><a href="#" class="pr-3 text-dark">賃貸経営</a></span>
                     </div>
-                </article>    
+                </article>
                 <article class="col-sm-12 col-md-6 col-lg-4 col-xl-4 p-2">
                     <p>【保険】</p>
                     <div class="meta">
@@ -421,7 +421,7 @@
                         <span><a href="#" class="pr-3 text-dark">地震保険</a></span>
                         <span><a href="#" class="pr-3 text-dark">その他保険</a></span>
                     </div>
-                </article>    
+                </article>
                 <article class="col-sm-12 col-md-6 col-lg-4 col-xl-4 p-2">
                     <p>【税金】</p>
                     <div class="meta">
@@ -441,7 +441,7 @@
                         <span><a href="#" class="pr-3 text-dark">介護</a></span>
                         <span><a href="#" class="pr-3 text-dark">退職金</a></span>
                     </div>
-                </article>    
+                </article>
                 <article class="col-sm-12 col-md-6 col-lg-4 col-xl-4 p-2">
                     <p>【生活】</p>
                     <div class="meta">
@@ -451,7 +451,7 @@
                         <span><a href="#" class="pr-3 text-dark">節約住まい選び</a></span>
                         <span><a href="#" class="pr-3 text-dark">マイホーム</a></span>
                         <span><a href="#" class="pr-3 text-dark">住宅ローン車</a></span>
-                        <span><a href="#" class="pr-3 text-dark">マイカーローン</a></span>                    
+                        <span><a href="#" class="pr-3 text-dark">マイカーローン</a></span>
                         <span><a href="#" class="pr-3 text-dark">カーシェア結婚</a></span>
                         <span><a href="#" class="pr-3 text-dark">離婚</a></span>
                         <span><a href="#" class="pr-3 text-dark">出産</a></span>
@@ -467,7 +467,7 @@
                         <span><a href="#" class="pr-3 text-dark">借金全般ペット</a></span>
                         <span><a href="#" class="pr-3 text-dark">ペット保険</a></span>
                     </div>
-                </article>   
+                </article>
                 <article class="col-sm-12 col-md-6 col-lg-4 col-xl-4 p-2">
                     <p>【仕事】</p>
                     <div class="meta">
@@ -478,7 +478,7 @@
                         <span><a href="#" class="pr-3 text-dark">起業</a></span>
                         <span><a href="#" class="pr-3 text-dark">独立</a></span>
                     </div>
-                </article>    
+                </article>
             </div>
         </section>
     </div>
