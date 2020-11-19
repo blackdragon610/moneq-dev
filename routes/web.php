@@ -32,6 +32,7 @@ Route::group(['middleware' => 'common:user'], function () {
     //ログイン関連
     Route::get('login', 'LoginController@index')->name('login');
     Route::post("auth", "Auth\AuthController@login")->name("auth");
+    Route::get("auth", "Auth\AuthController@login")->name("auth.get");
 
     //Twitter
     Route::get('sns/twitter/login', 'Auth\TwitterController@getAuth');
@@ -48,7 +49,7 @@ Route::group(['middleware' => 'common:user'], function () {
 
     //Google
     Route::get('sns/google/login', 'Auth\GooglePlusController@getAuth');
-    Route::get('sns/google/callback', 'Auth\GooglePlusController@authCallback');
+    Route::get('login/google/callback', 'Auth\GooglePlusController@authCallback');
 
     //Yahooログイン（ボタンのリンク先）
     Route::get('sns/yahoojp/login', 'YahooJapanIdController@yahoojpLogin');

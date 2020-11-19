@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite as FacadesSocialite;
 use Socialite;
 use App\Models\UserToken;
+use App\Models\User;
 
 class TwitterController extends Controller
 {
@@ -46,6 +47,13 @@ class TwitterController extends Controller
             $datas = array();
             $datas["email"] = $user->getEmail();
             $datas["token_sns"] = $user->token;
+
+
+            $userCheckModel = User::getUserCheckBySnsToken($user->token);
+            if(!empty($userCheckModel)){
+                return redirect()->route('auth.get', compact('userCheckModel'));
+            }
+
 
             $userToken = new UserToken();
             $userModel = $userToken->saveSNSEntry($datas);

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use GuzzleHttp\Client;
 use App\Models\UserToken;
+use Socialite;
 
 class LineController extends Controller
 {
