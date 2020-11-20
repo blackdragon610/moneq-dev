@@ -252,72 +252,14 @@
                 </ul>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade active show" id="consult-money-1" role="tabpanel" aria-labelledby="consult-money-1-tab">
-                        <article class="col-12">
-                            <div class="row">
-                                <img src="/images/insurance-icon.png" alt="">
-                                <h5 class="font-weight-bold pl-2">保険のことで質問です</h5>
-                                <img src="/images/solved-icon.png" class="ml-auto">
-                            </div>
-                            <div class="row">
-                                <span class="name">テスト太郎さん</span>
-                                <span class="age">30代/男</span>
-                                <span class="answers">2名が回答</span>
-                                <span class="ml-auto pr-1">2020/09/16</span>
-                            </div>
-                            <div class="row">
-                                <p class="pt-2">MoneQで回答してくれる専門家は、資格を保有していて、実務経験の豊富な方を厳選しています。</p>
-                            </div>
-                        </article>
-                        <article class="col-12">
-                            <div class="row">
-                                <img src="/images/insurance-icon.png" alt="">
-                                <h5 class="font-weight-bold pl-2">保険のことで質問です</h5>
-                                <img src="/images/solved-icon.png" class="ml-auto">
-                            </div>
-                            <div class="row">
-                                <span class="name">テスト太郎さん</span>
-                                <span class="age">30代/男</span>
-                                <span class="answers">2名が回答</span>
-                                <span class="ml-auto pr-1">2020/09/16</span>
-                            </div>
-                            <div class="row">
-                                <p class="pt-2">MoneQで回答してくれる専門家は、資格を保有していて、実務経験の豊富な方を厳選しています。</p>
-                            </div>
-                        </article>
-                        <article class="col-12">
-                            <div class="row">
-                                <img src="/images/insurance-icon.png" alt="">
-                                <h5 class="font-weight-bold pl-2">保険のことで質問です</h5>
-                                <img src="/images/solved-icon.png" class="ml-auto">
-                            </div>
-                            <div class="row">
-                                <span class="name">テスト太郎さん</span>
-                                <span class="age">30代/男</span>
-                                <span class="answers">2名が回答</span>
-                                <span class="ml-auto pr-1">2020/09/16</span>
-                            </div>
-                            <div class="row">
-                                <p class="pt-2">MoneQで回答してくれる専門家は、資格を保有していて、実務経験の豊富な方を厳選しています。</p>
-                            </div>
-                        </article>
+                        @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])                        
+                        @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])                        
+                        @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])                        
+                        @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])                        
                     </div>
                     <div class="tab-pane fade" id="consult-money-2" role="tabpanel" aria-labelledby="consult-money-2-tab">
-                        <article class="col-12">
-                            <div class="row">
-                                <img src="/images/insurance-icon.png" alt="">
-                                <h5 class="font-weight-bold pl-2">保険のことで質問です</h5>
-                                <img src="/images/solved-icon.png" class="ml-auto">
-                            </div>
-                            <div class="row">
-                                <span class="name">テスト太郎さん</span>
-                                <span class="age">30代/男</span>
-                                <span class="answers">2名が回答</span>
-                                <span class="ml-auto pr-1">2020/09/16</span>
-                            </div>
-                            <div class="row">
-                                <p class="pt-2">MoneQで回答してくれる専門家は、資格を保有していて、実務経験の豊富な方を厳選しています。</p>
-                            </div>
-                        </article>
+                        @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])                        
+                        @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])                        
                     </div>
                     <div class="row">
                         <div class="col text-center">
@@ -357,80 +299,9 @@
                 </ul>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade active show" id="expert-money-1" role="tabpanel" aria-labelledby="expert-money-1-tab">
-                        <article class="col-12 p-1">
-                            <div class="row">
-                                <div class="col-sm-2 col-lg-1 pt-2">
-                                    <img src="http://placehold.it/50x50?text=P" alt="">
-                                </div>
-                                <div class="col-sm-10 col-lg-4 pt-2">
-                                    <div class="container-fluid">
-                                        <div class="row">
-                                            <h5 class="font-weight-bold">テスト花子さん</h5>
-                                            <p>（テストハナコ）</p>
-                                        </div>
-                                        <div class="row">
-                                            <span class="age">30代前半／女性</span>
-                                            <span class="address">東京都</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-4 col-lg-3 pt-2">
-                                    <div class="container-fluid">
-                                        <div class="row pb-lg-1">
-                                            <h6 class="mright font-weight-bold">回答数</h6>
-                                            <span>125件</span>
-                                        </div>
-                                        <div class="row">
-                                            <span class="mright font-weight-bold">3役に立った</span>
-                                            <span >50件</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-8 col-lg-4 pt-2">
-                                    <div class="container-fluid keepOneLine pl-0">
-                                        <h5 class="font-weight-bold">保有資格</h5>
-                                        <span class="mright">1級ファイナンシャル・プランニング技能士</span>
-                                    </div>
-                                </div>
-                        </article>
-                        <article class="col-12 p-1">
-                            <div class="row">
-                                <div class="col-sm-2 col-lg-1 pt-2">
-                                    <img src="http://placehold.it/50x50?text=P" alt="">
-                                </div>
-                                <div class="col-sm-10 col-lg-4 pt-2">
-                                    <div class="container-fluid">
-                                        <div class="row">
-                                            <h5 class="font-weight-bold">テスト花子さん</h5>
-                                            <p>（テストハナコ）</p>
-                                        </div>
-                                        <div class="row">
-                                            <span class="age">30代前半／女性</span>
-                                            <span class="address">東京都</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-4 col-lg-3 pt-2">
-                                    <div class="container-fluid">
-                                        <div class="row pb-lg-1">
-                                            <h6 class="mright font-weight-bold">回答数</h6>
-                                            <span>125件</span>
-                                        </div>
-                                        <div class="row">
-                                            <span class="mright font-weight-bold">3役に立った</span>
-                                            <span >50件</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-8 col-lg-4 pt-2">
-                                    <div class="container-fluid keepOneLine pl-0">
-                                        <h5 class="font-weight-bold">保有資格</h5>
-                                        <span class="mright">1級ファイナンシャル・プランニング技能士</span>
-                                    </div>
-                                </div>
-                        </article>
+                        @include('layouts.parts.custom.userinfo', ["type" => "userinfo", 'name' => 'userinfo', 'contents' => ''])
+                        @include('layouts.parts.custom.userinfo', ["type" => "userinfo", 'name' => 'userinfo', 'contents' => ''])
+                        @include('layouts.parts.custom.userinfo', ["type" => "userinfo", 'name' => 'userinfo', 'contents' => ''])
                     </div>
                     <div class="row">
                         <div class="col text-center">
@@ -569,7 +440,7 @@
         </section>
     </div>
 
-    <div class="container p-sm-5">
+    <div class="container p-3">
 
         <section>
             <div class="row">
