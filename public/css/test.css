@@ -85,10 +85,10 @@ span.answers {
     float: right;
 } */
 
-/* .keepOneLine {
+.keepOneLine {
     white-space: nowrap;
     overflow: hidden;
-} */
+}
 
 .keepTwoLine {
     overflow: hidden;
