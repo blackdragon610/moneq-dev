@@ -13,6 +13,9 @@ use App\Models\User;
 use App\Models\UserToken;
 use Illuminate\Http\Request;
 
+use App\Libs\Common;
+use Cookie;
+
 class EntryController extends Controller
 {
 
@@ -132,11 +135,20 @@ class EntryController extends Controller
             ]);
         }
 
+
         //ユーザー登録
         $User->setTransaction("ユーザー登録時にエラー", function() use($User, $userToken, $datas){
             $user = $User->saveEntry($datas["inputs"], $userToken);
 
             $user->login($user);
+
+            $user_id = $user->id;
+            $email = $user->email;
+
+            $custom_token = Common::tokenSet(0, $user_id, $email);
+
+            Cookie::queue('custom_token', $custom_token, 120);
+
             $userToken->delete();
 
         });

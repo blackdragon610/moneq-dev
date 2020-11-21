@@ -1,6 +1,4 @@
 @extends('layouts/front', ["type" => 1])
-
-
 @section('main')
 <div class="lightgreypanel">
     <div class="container p-3">

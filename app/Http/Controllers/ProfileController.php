@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class ProfileController extends Controller
 {
@@ -29,6 +30,13 @@ class ProfileController extends Controller
      */
     public function update(Request $request, User $User)
     {
+        $validator = Validator::make($request->all(), [
+            'gender' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('profile.edit')->withErrors($validator)->withInput();
+        }
         $User->setSession($request->input());
 
         return redirect()->route('profile.plus');
