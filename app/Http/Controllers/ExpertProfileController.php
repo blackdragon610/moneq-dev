@@ -37,7 +37,6 @@ class ExpertProfileController extends Controller
     {
         $datas = $this->checkForm($request);
 
-
         if ((!$request->input('end')) || (!empty($datas['errors']))){
             //確認画面か入力画面を表示させる
             return view('expert_profiles.input',[

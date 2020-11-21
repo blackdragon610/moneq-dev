@@ -5,12 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Cookie;
-use Firebase\JWT\JWT;
 
-use App\Models\AutoToken;
-use App\Models\ChangeToken;
 use App\Libs\Common;
+use Cookie;
 
 class AuthController extends Controller {
 use AuthenticatesUsers;
