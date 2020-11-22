@@ -2,37 +2,40 @@
 
 
 @section('main')
-<div class="container-fluid lightgreypanel p-3">
+<div class="lightgreypanel">
     <div class="container p-3">
 
         <section>
 
             <div class="row">
                 <div class="col-md-12 col-lg-12 bg-white">
-                    <h5 class="font-weight-bold p-2">会員登録の完了</h5>
+                    <h5 class="font-weight-bold p-2">メールアドレス</h5>
                     <hr class="mt-2 mb-3"/>
 
-                    <p>会員登録が完了しました</p>
+                    {{Form::open(['url'=> route('profiles.email.update'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
+                        <section>
+                            @include('layouts.parts.editor.text', ["type" => "email", 'name' => 'email', 'contents' => 'class="form-control" placeholder="メールアドレスを入力"'])<br />
+                        </section>
 
-                    <div class="col text-center">
-                        <a href="{{route('post.create')}}" class="btn btnSubmit">今すぐ、専門家に相談する</a>
-                        <p class="mt-5">お金相談Q&Aを検索する</p>
-                        <div class="input-group col-lg-6 offset-lg-3 col-md-12 pl-0 p-3">
-                            <input class="form-control py-1 amber-border" type="text" placeholder="保険" aria-label="Search">
-                            <div class="input-group-append">
-                                <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fa fa-search text-grey"></i></span>
+                        <section>
+                            <div class="d-flex justify-content-end">
+                                <button class="btnSubmit">次へ</button>
                             </div>
-                        </div>
-                    </div>
+                        </section>
+                    {{Form::close()}}
+
+                    {{Form::open(['url'=> route('profiles.manage'),'method'=>'GET', 'files' => false, 'id' => 'form'])}}
+                        <section style="position:absolute; bottom:0px;">
+                            <button class="btnUnselected">会員情報に戻る</button>
+                        </section>
+                    {{Form::close()}}
 
                 </div>
             </div>
 
-
-
         </section>
+
     </div>
 </div>
-
 
 @endsection

@@ -26,7 +26,7 @@ class TwitterController extends Controller
             $user = $this->getProviderUserInfo();
 
             if ($user) {
-                dd($user); //デバック用
+                // dd($user); //デバック用
                 // OAuth Two Providers
                 $token = $user->token;
                 $refreshToken = $user->refreshToken; // not always provided

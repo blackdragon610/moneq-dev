@@ -72,8 +72,7 @@
     margin-bottom: -1px;
 }
 
-.meta > span, .meta > h5, .meta > p {
-    display: inline-block;
+span.name, span.age, .mright {
     margin-right: 10px;
 }
 
@@ -82,8 +81,23 @@ span.answers {
     font-weight: bold;
 }
 
-span.date, span.resolved {
+/* span.date, span.resolved {
     float: right;
+} */
+
+.keepOneLine {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.keepTwoLine {
+    overflow: hidden;
+    line-height: 1.5em;
+    height: 3.5em;
+}
+
+.underlineFor {
+    border-bottom: 1px solid black;
 }
 
 .line {
@@ -181,7 +195,9 @@ section {
 }
 
 article {
-    padding: 1.0rem !important;
+    padding: 1.25rem !important;
+    min-width: 280px;
+    max-width: 280px;
 }
 
 .btnLayer {
@@ -238,4 +254,36 @@ input[type="checkbox"]:checked + label>span {
     color: white;
     font-weight: bold;
     border-color: #FF7820;
+}
+
+.checkbox-menu li label {
+    display: block;
+    padding: 3px 10px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+    margin:0;
+    transition: background-color .4s ease;
+}
+.checkbox-menu li input {
+    margin: 0px 5px;
+    top: 2px;
+    position: relative;
+}
+
+.checkbox-menu li.active label {
+    background-color: #cbcbff;
+    font-weight:bold;
+}
+
+.checkbox-menu li label:hover,
+.checkbox-menu li label:focus {
+    background-color: #f5f5f5;
+}
+
+.checkbox-menu li.active label:hover,
+.checkbox-menu li.active label:focus {
+    background-color: #b8b8ff;
 }

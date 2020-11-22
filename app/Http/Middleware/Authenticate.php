@@ -28,7 +28,7 @@ class Authenticate extends Middleware
 
     protected function guard()
     {
-        dd("TT");
+        // dd("TT");
     }
 
 }

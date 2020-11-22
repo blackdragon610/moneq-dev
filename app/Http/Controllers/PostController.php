@@ -63,4 +63,9 @@ class PostController extends Controller
         );
     }
 
+    public function search(Request $request){
+        $post = clone $this;
+        return view('posts/search', compact('post'));
+    }
+
 }

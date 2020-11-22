@@ -17,6 +17,7 @@
                 $str = '';
             }
         }
+        // dd($str);
 
         if (isset($str[$key])){
             return $str[$key];
@@ -43,6 +44,8 @@
      */
     function viewConfig($file, $hex = '', $keyValue, $is_select=true){
 
+        $hex = json_decode($hex, true);
+
         $option = [];
 
         if ($keyValue){
@@ -55,10 +58,8 @@
             $lists = $file;
         }
 
-
         foreach ($lists as $key => $list){
             $select = '';
-
             if (is_array($hex)){
                 if (!empty($hex[$key])){
                     $select = ' selected';
@@ -88,7 +89,7 @@
      * @param  string  $type   種類
      * @param  string  $date   日時
      * @return false|string
-     */
+     *
     function dateDefault(string $type, ?string $date){
         if (!$date){
             return "-";
