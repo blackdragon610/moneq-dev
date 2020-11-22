@@ -7,18 +7,23 @@ use Illuminate\Http\Request;
 use Socialite;
 use App\Models\UserToken;
 use App\Models\User;
+use App\Libs\Common;
+use Cookie;
+
 
 class FacebookController extends Controller
 {
-    public function getAuth() {
+    public function getAuth()
+    {
         return Socialite::driver('facebook')->redirect();
-      }
+    }
 
-      public function authCallback() {
-        try{
+    public function authCallback()
+    {
+        try {
             $user = $this->getProviderUserInfo();
 
-            if($user){
+            if ($user) {
                 dd($user); //デバック用
                 // OAuth Two Providers
                 $token = $user->token;
@@ -37,23 +42,37 @@ class FacebookController extends Controller
                 $datas["token_sns"] = $user->token;
 
 
-                $userCheckModel = User::getUserCheckBySnsToken($user->token);
-                if(!empty($userCheckModel)){
-                    return redirect()->route('auth.get', compact('userCheckModel'));
-                }
+                $userCheckModel = User::getUserCheckBySnsToken($user->getEmail());
+                if ($userCheckModel) {
 
+                    \Auth::login($userCheckModel, true);
+                    $auto_login = 0;
+                    if (isset($_COOKIE['auto_login']))
+                        $auto_login = $_COOKIE['auto_login'];
+
+                    $user_id = $userCheckModel->id;
+                    $email = $userCheckModel->email;
+                    $custom_token = Common::tokenSet($auto_login, $user_id, $email);
+
+                    if ($auto_login == 0) Cookie::queue('custom_token', $custom_token, 120);
+
+                    if ($auto_login == 1) Cookie::queue('custom_token', $custom_token, 7200);
+
+                    return redirect('/');
+                }
 
                 $userToken = new UserToken();
                 $userModel = $userToken->saveSNSEntry($datas);
                 $token = $userModel->token;
                 return redirect()->route('entry.password', compact('token'));
             }
-        }catch(Exception $e){
+        } catch (Exception $e) {
             return redirect("/");
         }
-      }
+    }
 
-      private function getProviderUserInfo(){
+    private function getProviderUserInfo()
+    {
         return Socialite::driver('facebook')->user();
-      }
+    }
 }

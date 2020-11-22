@@ -6,6 +6,9 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use Symfony\Component\HttpFoundation\Cookie;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
 use Firebase\JWT\JWT;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
@@ -98,40 +101,9 @@ class User  extends ModelClass implements JWTSubject
      */
     public function login($user)
     {
-        $changeToken = new ChangeToken();
-        $changeToken->user_id = $user->id;
-        $changeToken->token = substr(bcrypt($this->setToken($user->email, 0)), 0, 30);
-        $changeToken->save();
-
         \Auth::login($this, true);
     }
 
-    /**
-     * トークンの取得
-     * @return false|string
-     */
-    public function setToken($email, $state)
-    {
-        //----------------------------------------Firebase JWT Token---------------------------------------
-        $issuedat_claim = time(); // issued at
-        $notbefore_claim = $issuedat_claim + 10; //not before in seconds
-        // $expire_claim = $issuedat_claim + 3600 * 24 * 30; // expire time in seconds
-        $expire_claim = $issuedat_claim + 600; // expire time in seconds
-        $token = array(
-            "iat" => $issuedat_claim,
-            "nbf" => $notbefore_claim,
-            "exp" => $expire_claim,
-            "data" => array(
-                "email" => $email,
-            )
-        );
-
-        $jwt = JWT::encode($token, env("JWT_SECRET"), "HS256");
-
-        $length = 30;
-
-        return substr($jwt, 0, $length);
-    }
     /**
      * 投稿できるかの確認
      * @return bool
@@ -181,7 +153,17 @@ class User  extends ModelClass implements JWTSubject
         $sql ="select *from users where token_sns <> '' and email='".$email."'";
         $user = DB::select($sql);
 
+        $user = User::where([
+            ['token_sns', '<>', "''"],['email', '=', $email]
+        ])->first();
+
         return $user;
+    }
+    static public function getEmailCheck($email){
+        $user = User::where('email', $email)->first();
+
+        if(!$user)   return 0;
+        if(!$user)   return 1;
     }
 
 }

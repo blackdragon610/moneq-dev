@@ -7,17 +7,17 @@
         <div class="row">
             <div class="col-12 col-md-8 bg-white">
                 {{Form::open(['url'=> route('auth'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
-                    
+
                     <label for="email">メールアドレス</label>
-                    
+
                     @include('layouts.parts.editor.text', ["type" => "email", 'name' => 'email', 'contents' => 'class="form-control" placeholder="メールアドレスを入力"'])<br />
 
                     <label for="password">パスワード</label>
 
                     @include('layouts.parts.editor.text', ["type" => "password", 'name' => 'password', 'contents' => 'class="form-control" placeholder="パスワード"'])<br />
                     <div class="m-2">
-                        <input type="checkbox" id = "auto_token" name = "auto_token">
-                        <label class="form-check-label" for="auto-token">次回から自動ログイン</label>
+                        <input type="checkbox" id = "auto_login" name = "auto_login">
+                        <label class="form-check-label" for="auto_login">次回から自動ログイン</label>
                     </div>
                     <div class="row">
                         <div class="col text-center">
@@ -49,4 +49,16 @@
         </div>
     </div>
 </div>
+
+<script>
+
+    $('#auto_login').change(function(){
+        if( $(this).is(":checked") ){
+            $.cookie("auto_login", 1);
+        }else{
+            $.removeCookie("auto_login");
+        }
+    });
+
+</script>
 @endsection

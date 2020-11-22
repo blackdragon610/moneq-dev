@@ -8,6 +8,9 @@ use Illuminate\Support\Str;
 use GuzzleHttp\Client;
 use App\Models\UserToken;
 use Socialite;
+use App\Libs\Common;
+use Cookie;
+
 
 class LineController extends Controller
 {
@@ -48,6 +51,26 @@ class LineController extends Controller
         $datas = array();
         $datas["email"] = $user_info->email;
         $datas["token_sns"] = $token_info->access_token;
+
+        $userCheckModel = User::getUserCheckBySnsToken($user_info->email);
+        if ($userCheckModel) {
+
+            \Auth::login($userCheckModel, true);
+            $auto_login = 0;
+            if (isset($_COOKIE['auto_login']))
+                $auto_login = $_COOKIE['auto_login'];
+
+            $user_id = $userCheckModel->id;
+            $email = $userCheckModel->email;
+            $custom_token = Common::tokenSet($auto_login, $user_id, $email);
+
+            if ($auto_login == 0) Cookie::queue('custom_token', $custom_token, 120);
+
+            if ($auto_login == 1) Cookie::queue('custom_token', $custom_token, 7200);
+
+            return redirect('/');
+        }
+
 
         $userToken = new UserToken();
         $userModel = $userToken->saveSNSEntry($datas);

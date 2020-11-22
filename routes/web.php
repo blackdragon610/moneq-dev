@@ -13,7 +13,18 @@ Route::group(['middleware' => 'common:user'], function () {
         Route::any('profile/plus', 'ProfileController@plus')->name('profile.plus');
         Route::post('profile/update/plus', 'ProfileController@updatePlus')->name('profile.updatePlus');
         Route::get('profile/update/end', 'ProfileController@end')->name('profile.end');
-
+        Route::get('profile/manage', 'ProfileManageController@index')->name('profiles.manage');
+        Route::get('profile/manage/email', function() { return view('profiles.edit.email');})->name('profiles.email');
+        Route::post('profile/manage/email', 'ProfileManageController@emailUpdate')->name('profiles.email.update');
+        Route::get('profile/manage/password', function() { return view('profiles.edit.password');})->name('profiles.password');
+        Route::post('profile/manage/password', 'ProfileManageController@passwordUpdate')->name('profiles.password.update');
+        Route::get('profile/manage/profile', 'ProfileManageController@profileEdit')->name('profiles.profile');
+        Route::post('profile/manage/profile', 'ProfileManageController@profileUpdate')->name('profiles.profile.update');
+        Route::get('profile/manage/notification', 'ProfileManageController@notification')->name('profiles.notification');
+        Route::post('profile/manage/notification', 'ProfileManageController@notificationUpdate')->name('profiles.notification.update');
+        Route::get('profile/manage/membership', 'ProfileManageController@membership')->name('profiles.membership');
+        Route::get('profile/manage/membership/payment', 'ProfileManageController@memberPayment')->name('profiles.membership.payment');
+        Route::get('profile/manage/membership/payment/delete', 'ProfileManageController@memberPayDelete')->name('profiles.membership.payment.delete');
 
         //相談の投稿
         Route::get('post/create', 'PostController@create')->name('post.create');
@@ -31,8 +42,9 @@ Route::group(['middleware' => 'common:user'], function () {
 
     //ログイン関連
     Route::get('login', 'LoginController@index')->name('login');
-    Route::post("auth", "Auth\AuthController@login")->name("auth");
-    Route::get("auth", "Auth\AuthController@login")->name("auth.get");
+    // Route::post("auth", "Auth\AuthController@login")->name("auth");
+    Route::post('auth', 'Auth\AuthController@login')->name('auth');
+    Route::get("auth/sns", "Auth\AuthController@snsLogin")->name("auth.sns");
 
     //Twitter
     Route::get('sns/twitter/login', 'Auth\TwitterController@getAuth');

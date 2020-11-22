@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-sm navbar-light bg-white">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="{{url('/')}}">
         <img src="{{ url('/images/logo.png') }}" alt="">
     </a>
     <div class="nav navbar-nav col-sm-5 col-5 mr-auto">
@@ -7,7 +7,8 @@
     </div>
 
     <!-- AFTER LOGIN -->
-    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-3" aria-controls="navbarSupportedContent-3" aria-expanded="false" aria-label="Toggle navigation">
+    @if(Cookie::has('custom_token'))
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-3" aria-controls="navbarSupportedContent-3" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent-3">
@@ -32,17 +33,20 @@
                 </div>
             </li>
         </ul>
-    </div> -->
+    </div>
+    @endif
 
     <!-- Before LOGIN  -->
+    @if(!Cookie::has('custom_token'))
     <div class="nav navbar-nav ml-auto">
         <div class="btn-toolbar d-flex justify-content-end">
             <a href="{{ url('/entry') }}" class="btn btn-outline-orange font-weight-bold">@lang('string.register')</a>
             <a href="{{ url('/login') }}" class="btn btn-outline-red font-weight-bold ml-md-2 ml-2">@lang('string.login')</a>
-        </div>   
+        </div>
      </div>
+     @endif
 </nav>
-    
+
 <div class="container-fluid yellowpanel">
     <div class="row">
         <div class="container-fluid">
