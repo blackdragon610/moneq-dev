@@ -2,6 +2,18 @@
 
 
 @section('main')
+<header class="header">
+    <div class="overlay">
+    </div>
+    <div class="description">
+        <p id="heading1" class="m-0">お金の悩みを<span>「気軽に」</span></p>
+        <p id="heading2" class="mt-0 mb-0">専門家に質問できる</p>
+        <div id="static1">
+            <p class="text-center">日本最大級のお金の悩み相談サービス</p>
+        </div>
+    </div>
+</header>
+
 
 <div class="bg-white">
     <div class="container p-3">

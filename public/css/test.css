@@ -1,3 +1,126 @@
+/* XD DESIGN */
+@font-face {
+    font-family: NotoSansCJK-JP-Bold;
+    src: url('../fonts/NotoSansCJKjp-Bold.otf');
+}
+@font-face {
+    font-family: NotoSansCJK-JP-Medium;
+    src: url('../fonts/NotoSansCJKjp-Medium.otf');
+}
+@font-face {
+    font-family: NotoSansCJK-JP-Regular;
+    src: url('../fonts/NotoSansCJKjp-Regular.otf');
+}
+@font-face {
+    font-family: NotoSans-JP-Bold;
+    src: url('../fonts/NotoSansJP-Bold.otf');
+}
+@font-face {
+    font-family: NotoSans-JP-Medium;
+    src: url('../fonts/NotoSansJP-Medium.otf');
+}
+@font-face {
+    font-family: NotoSans-JP-Regular;
+    src: url('../fonts/NotoSansJP-Regular.otf');
+}
+@font-face {
+    font-family: SFProText-Regular;
+    src: url('../fonts/FontsFree-Net-SFProText-Regular.ttf');
+}
+  
+.moneq-navbar {
+    height: 70px;
+    background-color: white;
+}
+
+.moneq-navbar #logo {
+    padding-left: 40px;
+}
+
+.moneq-navbar #title {
+    padding-left: 22.6px;
+    font-family: NotoSans-JP-Regular;
+    font-size: 17px !important;
+}
+
+.moneq-navbar #btnLogin {
+    font-family: NotoSans-JP-Regular;
+    font-size: 13px !important;
+    width: 147px;
+    height: 30px;
+    font-weight: 400;
+    color: black;
+    background-color: #ffd800;
+    margin-right: 45px;
+}
+
+.moneq-navbar #btnRegister {
+    font-family: NotoSans-JP-Regular;
+    font-size: 13px !important;
+    color: black;
+    margin-right: 33px;
+}
+
+.header {
+    position: relative;
+    width: 100%;
+    height: 704px !important;
+    top: 70px !important;
+    background-image: url('../images/svg/top-main-overlay.svg');
+    background-size: cover;
+    background-position: center;    
+}
+
+header .overlay {
+    position: absolute;
+    min-height: 704px !important;
+    min-width: 100%;
+    left: 0;
+    top: 0;
+    background: transparent;
+}
+
+header .description {
+    position: absolute;
+    top: 63px !important;
+    margin-left: 300px !important;
+}
+header .description #heading1 {
+    font-family: NotoSans-JP-Bold;
+    font-size: 57px !important;
+    color: black;
+    letter-spacing: 3px; 
+}
+header .description #heading1 span{
+    color: #ffd800;
+}
+header .description #heading2 {
+    font-family: NotoSans-JP-Regular;
+    font-size: 57px !important;
+    color: black;
+    margin-left: 35px;
+    margin-top: -20px !important;
+    letter-spacing: 3px; 
+}
+header .description #static1 {
+    position: absolute;
+    font-family: NotoSans-JP-Bold;
+    font-size: 17px !important;
+    color: black;
+    margin-left: 114px !important;
+    margin-top: 23px !important;
+    min-height: 47px !important;
+    min-width: 403px !important;
+    background-image: url('../images/svg/img-message-aqua-long.svg');
+    background-size: cover;
+    background-position: center;    
+}
+
+header .description #static1 p{
+    padding-top: 0.25rem !important;
+    letter-spacing: 3px; 
+}
+/* ------------- */
 .blackpanel {
     background-color: black;
 }
