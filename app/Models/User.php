@@ -23,9 +23,11 @@ class User  extends ModelClass implements JWTSubject
 
     public $uploadType = "users";
 
-    protected $fillable = [
-        'nickname', 'email', 'password', 'token_sns'
-    ];
+    protected $fillable = ['nickname', 'gender', 'date_birth_year', 'date_birth_month', 'date_birth_day',
+    'prefecture', 'job', 'marriage', 'child', 'trouble', 'income', 'family', 'live'];
+
+    public $field = ['nickname', 'gender', 'date_birth_year', 'date_birth_month', 'date_birth_day',
+    'prefecture', 'job', 'marriage', 'child', 'trouble', 'income', 'family', 'live'];
 
 
     /**
@@ -68,6 +70,40 @@ class User  extends ModelClass implements JWTSubject
         $User->save();
 
         return $User;
+    }
+
+    public function saveEmail(object $changeToken=null)
+    {
+        $user = User::where('id', $changeToken->user_id)->first();
+
+        if($user){
+            if (isset($changeToken->value)){
+                $user->email = $changeToken->value;
+                $user->nickname = substr($changeToken->value, 0, 3);
+            }
+
+            $user->email = $changeToken->value;
+            $user->save();
+            }
+
+        return $user;
+    }
+
+    public function savePassword(object $changeToken=null)
+    {
+        $user = User::where('id', $changeToken->user_id)->first();
+
+        if($user){
+            if (isset($changeToken->value)){
+                $user->email = $changeToken->value;
+                $user->nickname = substr($changeToken->value, 0, 3);
+            }
+
+            $user->password = $changeToken->value;
+            $user->save();
+            }
+
+        return $user;
     }
 
 

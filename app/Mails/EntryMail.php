@@ -30,6 +30,5 @@ class EntryMail extends Mailable{
         	->subject("仮登録の完了")
 	        ->from(config('mail.from.address'), config('mail.from.name'))
 	        ->with($this->datas);
-        ;
     }
 }

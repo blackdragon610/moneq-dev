@@ -21,10 +21,9 @@ class FacebookController extends Controller
     public function authCallback()
     {
         try {
-            $user = $this->getProviderUserInfo();
+            $user = Socialite::driver('facebook')->user();
 
             if ($user) {
-                dd($user); //デバック用
                 // OAuth Two Providers
                 $token = $user->token;
                 $refreshToken = $user->refreshToken; // not always provided
@@ -69,10 +68,5 @@ class FacebookController extends Controller
         } catch (Exception $e) {
             return redirect("/");
         }
-    }
-
-    private function getProviderUserInfo()
-    {
-        return Socialite::driver('facebook')->user();
     }
 }

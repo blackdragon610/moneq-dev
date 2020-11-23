@@ -8,7 +8,7 @@
         <section>
 
             <div class="row">
-                <div class="col-md-12 col-lg-12 bg-white">         
+                <div class="col-md-12 col-lg-12 bg-white">
                     <h5 class="font-weight-bold p-2">会員ステータス</h5>
                     <hr class="mt-2 mb-3"/>
                     <p>現在のプランは月払会員</p>
@@ -40,25 +40,18 @@
                                     </div>
                                 </article>
                             </div>
-
-                        </div>
-                    </section>                    
-
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 col-lg-12 bg-white">
+                    </section>
                     <hr class="mt-2 mb-3"/>
                     <p class="font-weight-bold">課金停止</p>
                     <p>1下のボタンより現在の料金プランの停止手続きをしてください。</p>
                     <p>2.料金プラン停止手続き完了後、新しい料金プランの選択画面に移ります。</p>
+                    <p></p>
                     <p>無料会員への変更は即時対応します。残っている質問は引き続き今月中は使用できます。</p>
                     <p>変更のキャンセルはできませんので、予めご了承ください。</p>
-                    <a href="#" class="text-dark" ><u>課金停止</u></a>
-
+                        <a href="{{route('profiles.membership.payment.delete')}}" class="text-dark">課金停止</a>
+                    <p></p>
                 </div>
             </div>
-
         </section>
 
     </div>

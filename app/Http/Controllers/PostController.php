@@ -63,4 +63,10 @@ class PostController extends Controller
         );
     }
 
+    public function search(Request $request){
+        $post = clone $this;
+        $post->where(['id', '>', '0'])->paginate(100);
+        return view('posts/search', compact('post'));
+    }
+
 }

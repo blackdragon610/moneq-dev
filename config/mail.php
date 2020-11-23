@@ -56,13 +56,13 @@ return [
     */
 
     'from' => [
-        'address' => "info@test.jp",
+        'address' => env('MAIL_HOST'),
         'name' => "moneq",
     ],
-    'to' => [
-        'address' => env('MAIL_TO_ADDRESS', 'makoto@tejima.jp'),
-        'name' => "moneq",
-    ],
+    // 'to' => [
+    //     'address' => env('MAIL_TO_ADDRESS', 'makoto@tejima.jp'),
+    //     'name' => "moneq",
+    // ],
     /*
     |--------------------------------------------------------------------------
     | E-Mail Encryption Protocol

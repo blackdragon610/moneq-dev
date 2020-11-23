@@ -7,7 +7,7 @@
         <section>
 
             <div class="row">
-                <div class="col-md-12 col-lg-12 bg-white">         
+                <div class="col-md-12 col-lg-12 bg-white">
                     <h5 class="font-weight-bold p-2">パスワード</h5>
                     <hr class="mt-2 mb-3"/>
 
@@ -33,7 +33,7 @@
                         </section>
                     {{Form::close()}}
 
-                </div>            
+                </div>
             </div>
 
         </section>

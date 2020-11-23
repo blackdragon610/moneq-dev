@@ -13,11 +13,15 @@ Route::group(['middleware' => 'common:user'], function () {
         Route::any('profile/plus', 'ProfileController@plus')->name('profile.plus');
         Route::post('profile/update/plus', 'ProfileController@updatePlus')->name('profile.updatePlus');
         Route::get('profile/update/end', 'ProfileController@end')->name('profile.end');
+
+        //普通の人のプロフィールを更新
         Route::get('profile/manage', 'ProfileManageController@index')->name('profiles.manage');
         Route::get('profile/manage/email', function() { return view('profiles.edit.email');})->name('profiles.email');
+        Route::get('profile/manage/change/email', 'ProfileManageController@emailChange')->name('profiles.email.change');
         Route::post('profile/manage/email', 'ProfileManageController@emailUpdate')->name('profiles.email.update');
         Route::get('profile/manage/password', function() { return view('profiles.edit.password');})->name('profiles.password');
         Route::post('profile/manage/password', 'ProfileManageController@passwordUpdate')->name('profiles.password.update');
+        Route::get('profile/manage/change/password', 'ProfileManageController@emailPassword')->name('profiles.password.change');
         Route::get('profile/manage/profile', 'ProfileManageController@profileEdit')->name('profiles.profile');
         Route::post('profile/manage/profile', 'ProfileManageController@profileUpdate')->name('profiles.profile.update');
         Route::get('profile/manage/notification', 'ProfileManageController@notification')->name('profiles.notification');
@@ -26,12 +30,19 @@ Route::group(['middleware' => 'common:user'], function () {
         Route::get('profile/manage/membership/payment', 'ProfileManageController@memberPayment')->name('profiles.membership.payment');
         Route::get('profile/manage/membership/payment/delete', 'ProfileManageController@memberPayDelete')->name('profiles.membership.payment.delete');
 
+        //ポスト検索
+
+
         //相談の投稿
         Route::get('post/create', 'PostController@create')->name('post.create');
         Route::post('post/store', 'PostController@store')->name('post.store');
         Route::get('post/end', 'PostController@end')->name('post.end');
         Route::get('post/detail/{id}', 'PostController@end')->name('post.detail');
     // });
+
+    //相談の投稿検索
+    Route::get('post/search', 'PostController@search')->name('post.search');
+
 
     Route::group(['middleware' => 'auth:expert'], function () {
         //専門家のプロフィール
@@ -52,7 +63,7 @@ Route::group(['middleware' => 'common:user'], function () {
 
     //Facebook
     Route::get('sns/facebook/login', 'Auth\FacebookController@getAuth');
-    Route::get('sns/facebook/callback', 'Auth\FacebookController@authCallback');
+    Route::get('auth/facebook/callback', 'Auth\FacebookController@authCallback');
 
     // LINEの認証画面に遷移
     Route::get('sns/line/login', 'Auth\LineController@redirectToProvider')->name('line.login');
@@ -64,9 +75,9 @@ Route::group(['middleware' => 'common:user'], function () {
     Route::get('login/google/callback', 'Auth\GooglePlusController@authCallback');
 
     //Yahooログイン（ボタンのリンク先）
-    Route::get('sns/yahoojp/login', 'YahooJapanIdController@yahoojpLogin');
+    Route::get('sns/yahoojp/login', 'Auth\YahooJapanIdController@yahoojpLogin');
     //認証後の戻りURL
-    Route::get('sns/yahoojp/callback', 'YahooJapanIdController@yahoojpCallback');
+    Route::get('yahoojp/callback', 'Auth\YahooJapanIdController@yahoojpCallback');
 
     //ユーザー登録関連
     Route::get('entry', 'EntryController@index')->name('entry');

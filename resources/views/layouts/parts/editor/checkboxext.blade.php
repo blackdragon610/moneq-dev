@@ -16,7 +16,6 @@
 
 <?php }else{ ?>
 <?php if (isset($file)){ ?>
-
 <?php
     $checkboxs = viewConfig($file, /*getVariable($inputs, $name)*/'', $keyValue, false);
 ?>
