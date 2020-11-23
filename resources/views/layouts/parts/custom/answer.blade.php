@@ -1,9 +1,9 @@
 <article class="col-12 p-1 bg-white">
     <div class="row">
-        <div class="col-sm-2 pt-2">
+        <div class="col-sm-1 pt-2">
             <img src="http://placehold.it/50x50?text=P" alt="">
         </div>
-        <div class="col-sm-7 pt-2">
+        <div class="col-sm-8 pt-2">
             <div class="container-fluid">
                 <div class="row">
                     <h5 class="font-weight-bold">{{$item->expert->expert_name_second}}</h5>
