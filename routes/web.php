@@ -63,7 +63,7 @@ Route::group(['middleware' => 'common:user'], function () {
 
     //Facebook
     Route::get('sns/facebook/login', 'Auth\FacebookController@getAuth');
-    Route::get('sns/facebook/callback', 'Auth\FacebookController@authCallback');
+    Route::get('auth/facebook/callback', 'Auth\FacebookController@authCallback');
 
     // LINEの認証画面に遷移
     Route::get('sns/line/login', 'Auth\LineController@redirectToProvider')->name('line.login');
@@ -75,9 +75,9 @@ Route::group(['middleware' => 'common:user'], function () {
     Route::get('login/google/callback', 'Auth\GooglePlusController@authCallback');
 
     //Yahooログイン（ボタンのリンク先）
-    Route::get('sns/yahoojp/login', 'YahooJapanIdController@yahoojpLogin');
+    Route::get('sns/yahoojp/login', 'Auth\YahooJapanIdController@yahoojpLogin');
     //認証後の戻りURL
-    Route::get('sns/yahoojp/callback', 'YahooJapanIdController@yahoojpCallback');
+    Route::get('yahoojp/callback', 'Auth\YahooJapanIdController@yahoojpCallback');
 
     //ユーザー登録関連
     Route::get('entry', 'EntryController@index')->name('entry');
