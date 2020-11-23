@@ -7,13 +7,47 @@
         <!-- right sticky sidebar -->
         <div class="col-12 col-sm-3 order-sm-2 order-1" id="sticky-sidebar">
             <!-- <section> -->
-                <div class="sticky-top bg-white m-2">
-                    <div class="nav flex-column">
-                        <a href="#_" class="nav-link">Link</a>
-                        <a href="#_" class="nav-link">Link</a>
-                        <a href="#_" class="nav-link">Link</a>
-                        <a href="#_" class="nav-link">Link</a>
-                        <a href="#_" class="nav-link">Link</a>
+                <div class="sticky-top m-2">
+                    <div class="container-fluid pt-2 pb-2 bg-white">
+                        <p>今すぐ、お金の専門家に相談</p>
+                        <p><i class="fa fa-clock-o"></i> 最短5分で回答可能</p>
+                        <p><i class="fa fa-clock-o"></i> 実務経験豊富な専門家が</p>
+                        <p><i class="fa fa-clock-o"></i> 回答率99％</p>
+                        <div class="col text-center ">
+                            <button class="btnSubmit">専門家に相談する</button>
+                        </div>
+                    </div>
+                    <div class="container-fluid pt-2 pb-2">
+                        <p>回答の多いお金の専門家</p>
+
+                        <section class="pt-4">
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item waves-effect waves-light">
+                                    <a class="nav-link active" id="question-1-tab" data-toggle="tab" href="#question-1" role="tab" aria-controls="question-1" aria-selected="false">週間</a>
+                                </li>
+                                <li class="nav-item waves-effect waves-light">
+                                    <a class="nav-link" id="question-2-tab" data-toggle="tab" href="#question-2" role="tab" aria-controls="question-2" aria-selected="false">月間</a>
+                                </li>
+                                <li class="nav-item waves-effect waves-light">
+                                    <a class="nav-link" id="question-3-tab" data-toggle="tab" href="#question-3" role="tab" aria-controls="question-3" aria-selected="false">総合</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade active show" id="question-1" role="tabpanel" aria-labelledby="question-1-tab">
+                                    <div class="row">
+                                        @include('layouts.parts.custom.answerinfo', ["type" => "answerinfo", 'name' => 'answer', 'contents' => ''])
+                                        @include('layouts.parts.custom.answerinfo', ["type" => "answerinfo", 'name' => 'answer', 'contents' => ''])
+                                        @include('layouts.parts.custom.answerinfo', ["type" => "answerinfo", 'name' => 'answer', 'contents' => ''])
+                                    </div>                                    
+                                </div>
+                                <div class="row">
+                                    <div class="col text-center">
+                                        <a href="#" class="btn btnSelected mx-2">お金の専門家一覧</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
                     </div>
                 </div>
             <!-- </section> -->
