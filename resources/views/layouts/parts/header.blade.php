@@ -15,11 +15,11 @@
         <ul class="navbar-nav ml-auto nav-flex-icons">
             <li class="nav-item dropdown">
                 <a class="nav-link waves-effect waves-light" id="navbarDropdownBell" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-bell-o fa-lg has-badge" data-count="4"></i>
+                    <i class="fa fa-bell-o fa-lg has-badge" data-count="2"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownBell">
-                    <a class="dropdown-item waves-effect waves-light" href="#">Another action</a>
-                    <a class="dropdown-item waves-effect waves-light" href="#">Something else here</a>
+                    <a class="dropdown-item waves-effect waves-light" href="#">○○○に関して、○○○さんからメッセージがありました。</a>
+                    <a class="dropdown-item waves-effect waves-light" href="#">○○○に関して、○○○さんから回答がありました。</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -27,9 +27,21 @@
                     <i class="fa fa-user-o fa-lg"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownUser">
-                    <a class="dropdown-item waves-effect waves-light" href="#">Action</a>
-                    <a class="dropdown-item waves-effect waves-light" href="#">Another action</a>
-                    <a class="dropdown-item waves-effect waves-light" href="#">Something else here</a>
+                    <a class="dropdown-item waves-effect waves-light" href="#">@lang('string.tema_search')</a>
+                    <hr>
+                    <a class="dropdown-item waves-effect waves-light" href="#">@lang('string.money_free')</a>
+                    <hr>
+                    <a class="dropdown-item waves-effect waves-light" href="#">@lang('string.expert_search')</a>
+                    <hr>
+                    <a class="dropdown-item waves-effect waves-light" href="#">@lang('string.post_in')</a>
+                    <hr>
+                    <a class="dropdown-item waves-effect waves-light" href="#">@lang('string.search_history')</a>
+                    <hr>
+                    <a class="dropdown-item waves-effect waves-light" href="#">@lang('string.saved')</a>
+                    <hr>
+                    <a class="dropdown-item waves-effect waves-light" href="{{route('profiles.manage')}}">@lang('string.infomation')</a>
+                    <hr>
+                    <a class="dropdown-item waves-effect waves-light" href="#">@lang('string.help')</a>
                 </div>
             </li>
         </ul>
