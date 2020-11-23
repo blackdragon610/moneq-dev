@@ -2,7 +2,7 @@
 
 <?php if (!empty($isConfirmation)){ ?>
 
-<?php if (getVariable($inputs, $name)){ ?>{{$checkValue}}<?php } ?>
+<?php /*if (getVariable($inputs, $name)){*/ ?>{{$checkValue}}<?php /*}*/ ?>
 
 <?php }else{ ?>
     <input type="checkbox" id="{{$name}}[{{$key}}]" name="{{$name}}[{{$key}}]" {!! $contents !!} value="1"<?php if (getVariable($inputs, $name)){ ?> checked="checked"<?php } ?> />
@@ -17,11 +17,11 @@
 <?php }else{ ?>
 <?php if (isset($file)){ ?>
 <?php
-    $checkboxs = viewConfig($file, getVariable($inputs, $name), $keyValue, false);
+    $checkboxs = viewConfig($file, /*getVariable($inputs, $name)*/'', $keyValue, false);
 ?>
 
 <?php }else{ ?>
-<?php if (!isset($ext)){$ext= '';}echo viewModel($model, $function, getVariable($inputs, $name), $ext); ?>
+<?php if (!isset($ext)){$ext= '';}echo viewModel($model, $function, /*getVariable($inputs, $name)*/ '', $ext); ?>
 <?php } ?>
 
 <?php if (!empty($isConfirmation)){ ?>

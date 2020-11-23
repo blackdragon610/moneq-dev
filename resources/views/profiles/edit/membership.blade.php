@@ -41,7 +41,6 @@
                                 </article>
                             </div>
                     </section>
-
                     <hr class="mt-2 mb-3"/>
                     <p class="font-weight-bold">課金停止</p>
                     <p>1下のボタンより現在の料金プランの停止手続きをしてください。</p>
@@ -57,5 +56,23 @@
 
     </div>
 </div>
+
+<script>
+$('#btnPlan1').click(function(e) {
+    $('#btnPlan1').addClass('btnSelected').removeClass('btnUnselected');
+    $('#btnPlan2').addClass('btnUnselected').removeClass('btnSelected');
+    $('#btnPlan1').html('選択中');
+    $('#btnPlan3').html('選択する');
+});
+
+$('#btnPlan2').click(function(e) {
+    $('#btnPlan2').addClass('btnSelected').removeClass('btnUnselected');
+    $('#btnPlan1').addClass('btnUnselected').removeClass('btnSelected');
+    $('#btnPlan2').html('選択中');
+    $('#btnPlan1').html('選択する');
+});
+
+
+</script>
 
 @endsection
