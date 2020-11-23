@@ -11,9 +11,25 @@
         <div id="static1">
             <p class="text-center">日本最大級のお金の悩み相談サービス</p>
         </div>
+        <div id="static2">
+        </div>
+        <div class="input-group" id="searchbar">
+            <input type="text" placeholder="お金の悩みを検索" >
+            <div class="input-group-append">
+                <button type="button" class="btn btn-secondary">
+                    <i class="fa fa-search fa-1x"></i>
+                </button>
+            </div>
+        </div>
+        <p id="heading3" class="mt-0 mb-0">\ さっそく、お金の悩みを専門家に相談する /</p>
+        <div class="text-center">
+            <a href="{{ url('/login') }}" class="btn">今すぐ登録して、専門家に相談する</a>
+        </div>
     </div>
 </header>
 
+<div class="sectionbar1">
+</div>
 
 <div class="bg-white">
     <div class="container p-3">
