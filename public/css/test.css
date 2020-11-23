@@ -29,6 +29,7 @@
 #plantable colgroup col.fourth {
     background-color: #ffffff;
 } 
+
 .panel {
     margin-top: 25px;
 }
@@ -169,6 +170,26 @@ span.answers {
     padding-left: 1rem !important;
     padding-right: 1rem !important;
     background-color: #FF7820;
+    color: white;
+    font-weight: bold;
+}
+
+.btnGreen {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    background-color: #00d583;
+    color: white;
+    font-weight: bold;
+}
+
+.btnBlue {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    background-color: #0070c0;
     color: white;
     font-weight: bold;
 }

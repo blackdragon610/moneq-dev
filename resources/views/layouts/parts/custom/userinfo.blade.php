@@ -34,4 +34,5 @@
                 <span class="mright keepTwoLine">1級ファイナンシャル・プランニング技能士</span>
             </div>
         </div>
+    </div>
 </article>
