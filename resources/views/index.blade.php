@@ -14,15 +14,19 @@
             <div class="row">
                 <div class="col text-center">
                     <h6>お金のQ&A数：○件　役に立った件数：○件　回答率：○％   協力専門家数：○人　会員数：(当初は非表示)</h6>
-                    <p class="text-secondary pt-4">お金の相談Q&Aを見る</p>                
+                    <p class="text-secondary pt-4">お金の相談Q&Aを見る</p>
                     <div class="input-group md-form form-sm form-2 pl-0">
                         <input class="form-control py-1 amber-border" type="text" placeholder="Search" aria-label="Search">
                         <div class="input-group-append">
                             <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fa fa-search text-grey" aria-hidden="true"></i></span>
                         </div>
                     </div>
-                    <p class="text-secondary pt-4">さっそく、お金の悩みを専門家に相談する</p>  
-                    <a href="#" class="btn btn-outline-orange mx-2">今すぐ登録して、専門家に相談する</a>
+                    <p class="text-secondary pt-4">さっそく、お金の悩みを専門家に相談する</p>
+                    @if(Cookie::has('token'))
+                        <a href="{{route('post.create')}}" class="btn btn-outline-orange mx-2">今すぐ登録して、専門家に相談する</a>
+                    @else
+                        <a href="{{route('entry')}}" class="btn btn-outline-orange mx-2">今すぐ登録して、専門家に相談する</a>
+                    @endif
                 </div>
             </div>
         </section>
@@ -105,7 +109,11 @@
             </div>
             <div class="row">
                 <div class="col text-center">
-                    <a href="#" class="btn btn-outline-orange mx-2">今すぐ登録して、専門家に相談する</a>
+                    @if(Cookie::has('token'))
+                        <a href="{{route('post.create')}}" class="btn btn-outline-orange mx-2">今すぐ登録して、専門家に相談する</a>
+                    @else
+                        <a href="{{route('entry')}}" class="btn btn-outline-orange mx-2">今すぐ登録して、専門家に相談する</a>
+                    @endif
                 </div>
             </div>
 
@@ -213,7 +221,7 @@
 <div class="blackpanel">
     <div class="container p-3">
 
-        <section> 
+        <section>
 
             <div class="row">
                 <div class="col text-center">
@@ -223,7 +231,7 @@
             </div>
             <div class="row">
                 <div class="col text-center pt-4">
-                    <a href="#" class="btn btn-outline-orange mx-2">会員登録</a>
+                    <a href="{{route('entry')}}" class="btn btn-outline-orange mx-2">会員登録</a>
                 </div>
             </div>
 
@@ -252,18 +260,22 @@
                 </ul>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade active show" id="consult-money-1" role="tabpanel" aria-labelledby="consult-money-1-tab">
-                        @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])                        
-                        @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])                        
-                        @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])                        
-                        @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])                        
+                        @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])
+                        @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])
+                        @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])
+                        @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])
                     </div>
                     <div class="tab-pane fade" id="consult-money-2" role="tabpanel" aria-labelledby="consult-money-2-tab">
-                        @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])                        
-                        @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])                        
+                        @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])
+                        @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])
                     </div>
                     <div class="row">
                         <div class="col text-center">
-                            <a href="#" class="btn btn-outline-orange mx-2">もっと見る</a>
+                            @if(Cookie::has('token'))
+                            <a href="{{route('post.create')}}" class="btn btn-outline-orange mx-2">今すぐ登録して、専門家に相談する</a>
+                            @else
+                                <a href="{{route('entry')}}" class="btn btn-outline-orange mx-2">今すぐ登録して、専門家に相談する</a>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -274,9 +286,9 @@
     </div>
 
     <div class="container p-3">
-        
+
         <section>
-        
+
             <div class="row">
                 <div class="col text-center">
                     <h4 class="font-weight-bold">お金の専門家</h4>
@@ -363,7 +375,7 @@
                                 <span><a href="#" class="pr-3 text-dark">その他保険</a></span>
                             </div>
                         </div>
-                    </article>    
+                    </article>
 
                     <article class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 p-2">
                         <div class="container-fluid">
@@ -389,7 +401,7 @@
                                 <span><a href="#" class="pr-3 text-dark">退職金</a></span>
                             </div>
                         </div>
-                    </article>    
+                    </article>
 
                     <article class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 p-2">
                         <div class="container-fluid">
@@ -401,7 +413,7 @@
                                 <span><a href="#" class="pr-3 text-dark">節約住まい選び</a></span>
                                 <span><a href="#" class="pr-3 text-dark">マイホーム</a></span>
                                 <span><a href="#" class="pr-3 text-dark">住宅ローン車</a></span>
-                                <span><a href="#" class="pr-3 text-dark">マイカーローン</a></span>                    
+                                <span><a href="#" class="pr-3 text-dark">マイカーローン</a></span>
                                 <span><a href="#" class="pr-3 text-dark">カーシェア結婚</a></span>
                                 <span><a href="#" class="pr-3 text-dark">離婚</a></span>
                                 <span><a href="#" class="pr-3 text-dark">出産</a></span>
@@ -418,7 +430,7 @@
                                 <span><a href="#" class="pr-3 text-dark">ペット保険</a></span>
                             </div>
                         </div>
-                    </article>   
+                    </article>
 
                     <article class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 p-2">
                         <div class="container-fluid">
@@ -432,7 +444,7 @@
                                 <span><a href="#" class="pr-3 text-dark">独立</a></span>
                             </div>
                         </div>
-                    </article>    
+                    </article>
 
                 </div>
             </section>

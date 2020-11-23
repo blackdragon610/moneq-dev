@@ -16,12 +16,12 @@
                             <span class="name">今月はあと 3回 相談ができます。</span>
                             <span class="age">再質問権 0件</span>
                         </div>
-                    </div>                    
+                    </div>
                     {{Form::open(['url'=> route('post.store'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
                         <section>
                             <div class="container-fluid pl-2">
-                                <p><a href="#" class="text-dark"><i class="fa fa-warning"></i> はじめて専門家に相談する方へ</a></p>
-                                <p><a href="#" class="text-dark"><i class="fa fa-stop"></i> 相談の禁止事項</a></p>
+                                <p><a href="#" class="text-dark" target="_blank"><i class="fa fa-warning"></i> はじめて専門家に相談する方へ</a></p>
+                                <p><a href="#" class="text-dark" target="_blank"><i class="fa fa-stop"></i> 相談の禁止事項</a></p>
                                 <p>よくある相談の禁止事項</p>
                                 <ul>
                                     <li><i class="fa fa-check"></i>個人情報の記載</li>
@@ -63,9 +63,9 @@
                                     </article>
                                     <p>相談内容(必須)</p>
                                     @include('layouts.parts.editor.textarea', ['name' => 'body', "contents" => ""])<br />
-                                    @include('layouts.parts.editor.text', ["type" => "text", 'name' => 'taginput',  'contents' => 'placeholder=""'])<br />
+                                    @include('layouts.parts.editor.text', ["type" => "text", 'name' => 'tag',  'contents' => 'placeholder=""'])<br />
                                 </div>
-                                
+
                             </div>
 
                             <div class="row">

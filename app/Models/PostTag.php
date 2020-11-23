@@ -18,7 +18,7 @@ class PostTag extends ModelClass
         for($i = 0; $i<count($tagArray); $i++){
             $model = new PostTag();
             $model->post_id = $postId;
-            $model->tag = $tagArray[$i];
+            $model->tag_name = $tagArray[$i];
             $model->save();
         }
     }

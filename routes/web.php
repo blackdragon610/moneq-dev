@@ -37,7 +37,7 @@ Route::group(['middleware' => 'common:user'], function () {
         Route::get('post/create', 'PostController@create')->name('post.create');
         Route::post('post/store', 'PostController@store')->name('post.store');
         Route::get('post/end', 'PostController@end')->name('post.end');
-        Route::get('post/detail/{id}', 'PostController@end')->name('post.detail');
+        Route::get('post/detail/{id}', 'PostController@detail')->name('post.detail');
     // });
 
     //相談の投稿検索

@@ -6,6 +6,8 @@ use App\Http\Requests\PostRequest;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\PostTag;
+use App\Models\PostAdd;
+use App\Models\PostAnswer;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -63,8 +65,17 @@ class PostController extends Controller
     {
         return view('posts.end',[
             "postId" => $request->input("postId")
-                                  ]
+            ]
         );
+    }
+
+    public function detail(Request $request, Post $Post, PostAdd $PostAdd, PostAnswer $PostAnswer, $postId){
+        $post = $Post->find($postId);
+        $postAdd = $post->find($postId)->adds;
+        $postAnswer = $post->find($postId)->answers;
+        $post->user->date_birth = getAge($post->user->date_birth);
+
+        return view('consultdetail.index', compact('post', 'postAdd', 'postAnswer'));
     }
 
     public function search(Request $request){

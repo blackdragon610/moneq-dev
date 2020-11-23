@@ -57,9 +57,9 @@ class GooglePlusController extends Controller
                     $email = $userCheckModel->email;
                     $custom_token = Common::tokenSet($auto_login, $user_id, $email);
 
-                    if ($auto_login == 0) Cookie::queue('custom_token', $custom_token, 120);
+                    if ($auto_login == 0) Cookie::queue('token', $custom_token, 120);
 
-                    if ($auto_login == 1) Cookie::queue('custom_token', $custom_token, 7200);
+                    if ($auto_login == 1) Cookie::queue('token', $custom_token, 7200);
 
                     return redirect('/');
                 }

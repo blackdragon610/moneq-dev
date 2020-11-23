@@ -18,12 +18,13 @@
                 </div>
             <!-- </section> -->
         </div>
-        
+
         <div class="col-12 col-sm-9 order-sm-1 order-2" id="main">
             <div class="lightgreypanel">
                 <section>
                     <div class="container-fluid whitepanel">
-                        @include('layouts.parts.custom.articledetail', ["type" => "articledetail", 'name' => 'article', 'contents' => ''])
+                        @include('layouts.parts.custom.articledetail', ["type" => "articledetail", 'name' => 'article',
+                                                                        'post'=>$post, 'postAdd'=>$postAdd])
                     </div>
                 </section>
             </div>
@@ -33,8 +34,9 @@
                     <div class="container-fluid whitepanel">
                         <h5 class="font-weight-bold p-2">2名の専門科が回答しています</h5>
                         <hr class="mt-2 mb-3"/>
-                        @include('layouts.parts.custom.answer', ["type" => "answer", 'name' => 'answer', 'contents' => ''])
-                        @include('layouts.parts.custom.answer', ["type" => "answer", 'name' => 'answer', 'contents' => ''])
+                        @foreach ($postAnswer as $item)
+                            @include('layouts.parts.custom.answer', ["type" => "answer", 'name' => 'answer', 'contents' => $item])
+                        @endforeach
                     </div>
 
                 </section>

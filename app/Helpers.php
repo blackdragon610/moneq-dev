@@ -89,7 +89,7 @@
      * @param  string  $type   種類
      * @param  string  $date   日時
      * @return false|string
-     *
+     */
     function dateDefault(string $type, ?string $date){
         if (!$date){
             return "-";
@@ -234,6 +234,14 @@
         $Model = app($appName);
 
         return $Model->uploadType;
+    }
+
+    function getAge(string $birthDay) : string
+    {
+        $curDate = new \DateTime(date("Y-m-d"));
+        $birthDate = new \DateTime($birthDay);
+        $age = $curDate->diff($birthDate);
+        return $age->y;
     }
 
 ?>
