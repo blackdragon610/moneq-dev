@@ -68,8 +68,4 @@ class Post extends ModelClass
     public function adds(){
         return $this->hasMany(PostAdd::class);
     }
-
-    public function expert(){
-        return $this->belongsTo(Expert::class);
-    }
 }
