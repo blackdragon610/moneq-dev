@@ -24,7 +24,7 @@
     <section>
         <div class="row">
             <div class="col-sm-12 col-md-6 pl-0 pr-0 pr-md-2">
-                <article class="bg-white">
+                <article class="bg-white col-12">
                     <h5 class="font-weight-bold mb-2">年払会員 (3,980円/年)</h5>
                     <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>️️月最大3回お金の専門家に相談が可能</p>
                     <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>1つの質問につき最大3回まで追加質問が可能</p>
@@ -37,7 +37,7 @@
             </div>
 
             <div class="col-sm-12 col-md-6 pl-0 pr-0 pl-md-2 mt-4 mt-md-0">
-                <article class="bg-white">
+                <article class="bg-white col-12">
                     <h5 class="font-weight-bold mb-2">月払会員 (330円/月)</h5>
                     <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>月最大1回お金の専門家に相談が可能</p>
                     <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>1つの質問につき最大3回まで追加質問が可能</p>
@@ -58,7 +58,7 @@
     <section>
         <div class="row">
             <div class="col-sm-12 offset-md-3 col-md-6 pl-0 pr-0">
-                <article class="bg-white">
+                <article class="bg-white col-12">
                     <h5 class="font-weight-bold mb-2">無料会員</h5>
                     <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>月最大3回までQ&Aが見れる</p>
                     <div class="col text-center btnLayer">

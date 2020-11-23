@@ -95,4 +95,7 @@ Route::group(['middleware' => 'common:user'], function () {
 
     //画像
     Route::get('api/image', 'ImageController@index')->name('api.image');
+
+    Route::get('mockup', 'MockupUIController@index');
+
 });

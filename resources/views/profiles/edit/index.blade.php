@@ -1,11 +1,9 @@
 @extends('layouts/front', ["type" => 1])
-
 @section('main')
 <div class="lightgreypanel">
     <div class="container p-3">
 
         <section>
-
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 p-2">
                     @include('layouts.parts.custom.profilecard', ['url' => 'manage/email', 'name' => 'メールアドレス', 'contents' => $email])
@@ -28,7 +26,6 @@
                 </div>
                 @endif
             </div>
-
         </section>
 
     </div>
