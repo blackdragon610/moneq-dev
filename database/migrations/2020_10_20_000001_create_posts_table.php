@@ -27,7 +27,7 @@ class CreatePostsTable extends Migration
             $table->integer("count_answer")->comment("回答数")->index()->default(0);
             $table->integer("count_usuful")->comment("参考になった数")->index()->default(0);
             $table->integer("count_access")->comment("閲覧数")->index()->default(0);
-
+            $table->integer("is_open")->comment("表示")->index()->default(1);
         });
     }
 
