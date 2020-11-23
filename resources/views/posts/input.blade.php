@@ -40,7 +40,7 @@
 
                     <section>
                         <label for="" >カテゴリ</label><span class="text-danger">(必須)</span>
-                        @include('layouts.parts.editor.select', ['name' => 'date_birth_day', "file" => configJson("custom/days"), "keyValue" => "", 'contents' => 'class="form-control textCenter p-0"'])                                </div>
+                        @include('layouts.parts.editor.select', ['name' => 'sub_category_id',  "file" => $categories, "keyValue" => "", "contents" => ""])<br />
                     </section>
 
                     <section>
