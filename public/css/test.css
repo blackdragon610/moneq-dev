@@ -4,6 +4,7 @@
 
 .lightgreypanel {
     background-color: #f3f3f3;
+    overflow: hidden;
 }
 
 #plantable td {
