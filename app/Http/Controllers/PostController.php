@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PostRequest;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\PostTag;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,7 +21,9 @@ class PostController extends Controller
      */
     public function create(Request $request, Category $Category)
     {
-        $this->isPost();
+        // $this->isPost();
+
+        $member = Auth::user()->pay_status;
 
         $categories = $Category->getSelectAll();
 
@@ -31,9 +34,9 @@ class PostController extends Controller
         );
     }
 
-    public function store(PostRequest $request, Category $Category, Post $Post)
+    public function store(PostRequest $request, Category $Category, Post $Post, PostTag $PostTag)
     {
-        $this->isPost();
+        // $this->isPost();
 
         $datas = $this->checkForm($request);
 
@@ -50,6 +53,7 @@ class PostController extends Controller
             ]);
         }else{
             $post = $Post->saveEntry($datas, Auth::user()->id);
+            $post_tag = $PostTag->saveEntry($datas['tag'], Auth::user()->id);
         }
 
         return redirect()->route('post.end', ["postId" => $post->id]);
