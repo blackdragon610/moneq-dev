@@ -8,17 +8,15 @@
 
             <div class="row">
                 <div class="col-md-12 col-lg-12">
-                    <p class="keepTwoLine">「<span><b>保険のことで質問です<b></span>」の通報が完了しました。</p>
+                    <p class="keepTwoLine">「<span><b>保険のことで質問です</b></span>」の通報が完了しました。</p>
 
-                    {{Form::open(['url'=> route('profile.update'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
                         <section>
                             <div class="row">
                                 <div class="col text-center btnLayer">
-                                    <button class="btnSubmit">トップ</button>
+                                    <a class="btnSubmit" href="{{url('/')}}">追記内容の相談に戻る</a>
                                 </div>
                             </div>
                         </section>
-                    {{Form::close()}}
 
                 </div>
             </div>

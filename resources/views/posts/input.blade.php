@@ -3,11 +3,11 @@
 
 @section('main')
 
-<div class="col-md-12">
-    <div class="container bg-white" style="">
+<div class="container-fluid lightgreypanel p-3">
+    <div class="container bg-white p-3">
 
         <h5 class="font-weight-bold">相談の投稿</h5>
-        <hr class="mt-2 mb-3"/>
+        <hr class="mt-2 mb-4"/>
         <div class="container-fluid">
             <div class="row pl-2">
                 <span class="name">今月はあと 3回 相談ができます。</span>
@@ -28,8 +28,6 @@
                         <li><i class="fa fa-check"></i>質問や回答と関係のないURLの記載</li>
                         <li><i class="fa fa-check"></i>お礼や報告など質問ではない投稿</li>
                     </ul>
-                    <label for="" >相談テーマ</label><span class="text-danger">(必須)</span>
-                    @include('layouts.parts.editor.text', ["type" => "text", 'name' => 'post_name',  'contents' => 'placeholder="例：お金のことで相談がある"'])<br />
             <section>
                 <label for="" >相談テーマ</label><span class="text-danger">(必須)</span>
                 @include('layouts.parts.editor.text', ["type" => "text", 'name' => 'post_name',  'contents' => 'placeholder="例：お金のことで相談がある"'])<br />
@@ -72,15 +70,15 @@
             </section>
             <section>
                 <label for="" >タグ</label><span class="text-danger">(必須)</span>
-                @include('layouts.parts.editor.text', ["type" => "text", 'name' => 'taginput',  'contents' => 'placeholder=""'])<br />
+                @include('layouts.parts.editor.text', ["type" => "text", 'name' => 'tag',  'contents' => 'placeholder=""'])<br />
             </section>
 
             <section>
                 <div class="row">
                     <div class="col text-center btnLayer">
                         @if (!empty($isConfirmation))
-                            {!! Form::submit('修正', ['class' => 'btn btn-block btn-default', 'name' => 'reInput']) !!}
-                            {!! Form::submit('確定', ['class' => 'btn btn-block btn-primary', 'name' => 'end']) !!}
+                            {!! Form::submit('修正', ['class' => 'btnSubmit', 'name' => 'reInput']) !!}
+                            {!! Form::submit('確定', ['class' => 'btnSubmit', 'name' => 'end']) !!}
                         @else
                             <button class="btnSubmit">一時保存</button>
                             <button class="btnSubmit">相談を投稿</button>

@@ -1,10 +1,10 @@
 <div class="moneq-navbar fixed-top">
     <div class="row align-items-center" style="overflow: visible;">
-
-            <nav class="navbar navbar-expand-sm navbar-light p-0 col-12">
-            <img src="{{ url('/images/svg/logo.svg') }}" id="logo">
+        <div class="col-sm-9">
+            <a class="navbar-brand" href="{{url('/')}}"><img src="{{ url('/images/svg/logo.svg') }}" id="logo"></a>
             <span id="title">お金の悩み相談サービス「マネク」</span>
-
+        </div>
+        <nav class="navbar navbar-expand-sm navbar-light col-sm-3">
             <!-- AFTER LOGIN -->
             @if(Cookie::has('token'))
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-3" aria-controls="navbarSupportedContent-3" aria-expanded="false" aria-label="Toggle navigation">

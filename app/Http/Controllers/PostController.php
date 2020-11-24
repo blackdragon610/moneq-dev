@@ -90,6 +90,9 @@ class PostController extends Controller
             $postData->save();
         }
 
+        $postStoreFlag = $PostData->getPostStoreData($post->user->id, $postId);
+        $postHelpFlag = $PostData->getPostHelpData($post->user->id, $postId);
+
         $weekExperts = $PostAnswer->weekHighExpert();
         $monthExperts = $PostAnswer->monthHighExpert();
         $totalExperts = $PostAnswer->totalHighExpert();
@@ -97,7 +100,7 @@ class PostController extends Controller
         $post->user->date_birth = getAge($post->user->date_birth);
 
         return view('consultdetail.index', compact('post', 'postAdd', 'postAnswer', 'weekExperts',
-                                                     'monthExperts', 'totalExperts', 'isUser'));
+                                                     'monthExperts', 'totalExperts', 'isUser', 'postStoreFlag', 'postHelpFlag'));
     }
 
     public function postDataEntry($postId, $value){
@@ -144,9 +147,7 @@ class PostController extends Controller
         ]);
 
         if($validator->fails()){
-            return redirect('consultdetail.report')
-            ->withErrors($validator)
-            ->withInput();
+            return back()->withErrors($validator)->withInput();
         }
 
         $postReport = new PostReport();
@@ -168,9 +169,7 @@ class PostController extends Controller
         ]);
 
         if($validator->fails()){
-            return redirect('consultdetail.reportaddition')
-            ->withErrors($validator)
-            ->withInput();
+            return back()->withErrors($validator)->withInput();
         }
 
         $postReport = new PostAdd();

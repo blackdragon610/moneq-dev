@@ -21,47 +21,52 @@
                                 @include('layouts.parts.editor.radioext', ['name' => 'gender', "file" => configJson("custom/gender"), "keyValue" => "", 'contents' => 'class="form-control"'])<br />
                             </div>
 
-                            <label for="birthday" class="font-weight-bold">生年月日</label><span class="text-danger">(必須)</span><br />
+                            <label for="birthday" class="font-weight-bold mt-2">生年月日</label><span class="text-danger">(必須)</span><br />
                             <div class="row">
-                                <div class="col-sm-12 col-md-3 input-group mt-3 mt-md-0">
-                                    @include('layouts.parts.editor.select', ['name' => 'date_birth_year', "file" => config("funcs.years"), "keyValue" => "", 'contents' => 'class="form-control textCenter p-0"'])
-                                    <h6 class="font-weight-400 pl-2 textCenter">年</h6>
+                                <div class="col-sm-2 input-group">
+                                    <div class="col-sm-10">
+                                        @include('layouts.parts.editor.select', ['name' => 'date_birth_year', "file" => config("funcs.years"), "keyValue" => "", 'contents' => 'class="form-control textCenter p-0"'])
+                                    </div>
+                                    <label for="date_birth_year" class="col-form-label">年</label>
                                 </div>
-                                <div class="col-sm-12 col-md-3 input-group mt-3 mt-md-0">
-                                    @include('layouts.parts.editor.select', ['name' => 'date_birth_month', "file" => configJson("custom/months"), "keyValue" => "", 'contents' => 'class="form-control textCenter p-0"'])
-                                    <h6 class="font-weight-400 pl-2">月</h6>
+
+                                <div class="col-sm-2 input-group">
+                                    <div class="col-sm-10">
+                                        @include('layouts.parts.editor.select', ['name' => 'date_birth_month', "file" => configJson("custom/months"), "keyValue" => "", 'contents' => 'class="form-control textCenter p-0"'])
+                                    </div>
+                                    <label for="date_birth_year" class="col-form-label">月</label>
                                 </div>
-                                <div class="col-sm-12 col-md-3 input-group mt-3 mt-md-0">
-                                    @include('layouts.parts.editor.select', ['name' => 'date_birth_day', "file" => configJson("custom/days"), "keyValue" => "", 'contents' => 'class="form-control textCenter p-0"'])
-                                    <h6 class="font-weight-400 pl-2">日</h6>
+                                <div class="col-sm-2 input-group">
+                                    <div class="col-sm-10">
+                                        @include('layouts.parts.editor.select', ['name' => 'date_birth_day', "file" => configJson("custom/days"), "keyValue" => "", 'contents' => 'class="form-control textCenter p-0"'])
+                                    </div>
+                                    <label for="date_birth_year" class="col-form-label">日</label>
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-sm-12 col-md-6 pt-2">
-                                    <label for="birthday" class="font-weight-bold">お住まいの都道府県</label><span class="text-danger">(必須)</span><br />
+                                    <label for="birthday" class="font-weight-bold mt-2">お住まいの都道府県</label><span class="text-danger">(必須)</span><br />
                                     @include('layouts.parts.editor.select', ['name' => 'prefecture', "file" => configJson("custom/prefecture"), "keyValue" => "", 'contents' => 'class="form-control textCenter p-0"'])
                                 </div>
                                 <div class="col-sm-12 col-md-6 pt-2">
-                                    <label for="birthday" class="font-weight-bold">職業</label><span class="text-danger">(必須)</span><br />
+                                    <label for="birthday" class="font-weight-bold mt-2">職業</label><span class="text-danger">(必須)</span><br />
                                     @include('layouts.parts.editor.select', ['name' => 'job', "file" => configJson("custom/job"), "keyValue" => "", 'contents' => 'class="form-control textCenter p-0"'])
                                 </div>
                                 <div class="col-sm-12 col-md-6 pt-2">
-                                    <label for="birthday" class="font-weight-bold">婚姻状況</label><span class="text-danger">(必須)</span><br />
+                                    <label for="birthday" class="font-weight-bold mt-2">婚姻状況</label><span class="text-danger">(必須)</span><br />
                                     @include('layouts.parts.editor.select', ['name' => 'marriage', "file" => configJson("custom/marriage"), "keyValue" => "", 'contents' => 'class="form-control textCenter p-0"'])
                                 </div>
                                 <div class="col-sm-12 col-md-6 pt-2">
-                                    <label for="birthday" class="font-weight-bold">子供人数</label><span class="text-danger">(必須)</span><br />
+                                    <label for="birthday" class="font-weight-bold mt-2">子供人数</label><span class="text-danger">(必須)</span><br />
                                     @include('layouts.parts.editor.select', ['name' => 'child', "file" => configJson("custom/child"), "keyValue" => "", 'contents' => 'class="form-control textCenter p-0"'])
                                 </div>
                             </div>
 
-                            <section>
-                                <label for="" class="font-weight-bold">お金についての悩みはありますか？</label><span class="text-danger">(複数選択)</span><br/>
-                                @include('layouts.parts.editor.checkboxext', ['name' => 'trouble', "file" => configJson("custom/trouble"), "keyValue" => "", 'contents' => 'class="checkboxHidden"'])
-                            </section>
+                            <label for="" class="font-weight-bold mt-3">お金についての悩みはありますか？</label><span class="text-danger">(複数選択)</span><br/>
+                            @include('layouts.parts.editor.checkboxext', ['name' => 'trouble', "file" => configJson("custom/trouble"), "keyValue" => "", 'contents' => 'class="checkboxHidden"'])
 
-                            <label for="" class="font-weight-bold">世帯収入</label>
+                            <label for="" class="font-weight-bold mt-2">世帯収入</label>
                             <div class="row">
                                 <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                     @include('layouts.parts.editor.select', ['name' => 'income', "file" => configJson("custom/income"), "keyValue" => "", 'contents' => 'class="form-control p-0 textCenter"'])<br />

@@ -27,7 +27,7 @@ class PostAnswer extends ModelClass
     public function weekHighExpert(){
         $date = new \DateTime();
         $week = $date->format("W");
-        $sql = "SELECT t1.*, amount from(SELECT expert_id, count(*) as amount from post_answers where week(created_at)=".$week." GROUP BY expert_id
+        $sql = "SELECT t1.*, amount from(SELECT expert_id, count(*) as amount from post_answers where week(created_at,3)=".($week)." GROUP BY expert_id
                 order by count(*) desc LIMIT 5) total LEFT JOIN(SELECT*FROM experts)t1 on(total.expert_id=t1.id)";
         $weekExperts = \DB::select($sql);
 

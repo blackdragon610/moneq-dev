@@ -22,9 +22,14 @@
             </div>
         </div>
         <p id="heading3" class="mt-0 mb-0">\ さっそく、お金の悩みを専門家に相談する /</p>
-        <div class="text-center">
-            <a href="{{ url('/login') }}" class="btn">今すぐ登録して、専門家に相談する</a>
+        <div class="col text-center">
+            @if(Cookie::has('token'))
+                <a href="{{route('post.create')}}" class="btn">今すぐ登録して、専門家に相談する</a>
+            @else
+                <a href="{{route('entry')}}" class="btn">今すぐ登録して、専門家に相談する</a>
+            @endif
         </div>
+
     </div>
 </header>
 

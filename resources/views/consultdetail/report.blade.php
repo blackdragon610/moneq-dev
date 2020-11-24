@@ -12,10 +12,11 @@
                     なお、対応結果やその理由につきましてはご返答いたしかねますので予めご了承いただければ幸いです。</p>
 
                     {{Form::open(['url'=> route('post.report.end'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
-                            <input type="hidden" name="post_id", value="{{$postId}}">
-                            <p>通報内容</p>
-                            <textarea rows = "5" cols = "100%" name = "body">
-                            </textarea><br>
+                        <input type="hidden" name="post_id", value="{{$postId}}">
+                        <section>
+                            <label for="" >相談内容</label><span class="text-danger">(必須)</span>
+                            @include('layouts.parts.editor.textarea', ['name' => 'body', "contents" => ""])<br />
+                        </section>
                         <section>
                             <div class="row">
                                 <div class="col text-center btnLayer">

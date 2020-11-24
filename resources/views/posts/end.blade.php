@@ -1,6 +1,5 @@
 @extends('layouts/front', ["type" => 1])
 
-
 @section('main')
 
 <div class="container-fluid lightgreypanel p-3">
@@ -20,7 +19,7 @@
                             </div>
                             <div class="row">
                                 <div class="col text-center btnLayer">
-                                    <a href="{{route("post.detail", $postId)}}" class="btnSubmit">相談詳細へ</button>
+                                    <a href="{{route("post.detail", $postId)}}" class="btnSubmit">相談詳細へ</a>
                                 </div>
                             </div>
                         </section>

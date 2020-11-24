@@ -11,21 +11,27 @@
                     <hr class="mt-2 mb-3"/>
                        {{Form::open(['url'=> route('profiles.notification.update'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
                          <div class="container row p-2">
-                            <div class="col">
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" <?php if($user->is_send_answer == 1) echo 'checked'?> data-toggle="toggle" data-style="ios" name="is_send_answer"> 回答通知
-                                </label>
-                           </div>
-                            <div class="col">
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" <?php if($user->is_send_message == 1) echo 'checked'?> data-toggle="toggle" data-style="ios" name="is_send_message"> メッセージの通知
-                                </label>
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-8">
+                                <div class="row">
+                                    <div class="col-sm-3 text-center">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" <?php if($user->is_send_answer == 1) echo 'checked'?> data-toggle="toggle" data-style="ios" name="is_send_answer"> 回答通知
+                                        </label>
+                                   </div>
+                                    <div class="col text-center">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" <?php if($user->is_send_message == 1) echo 'checked'?> data-toggle="toggle" data-style="ios" name="is_send_message"> メッセージの通知
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-3 text-center">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" <?php if($user->is_send_master == 1) echo 'checked'?> data-toggle="toggle" data-style="ios" name=is_send_master> MoneQの通知
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col">
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" <?php if($user->is_send_master == 1) echo 'checked'?> data-toggle="toggle" data-style="ios" name=is_send_master> MoneQの通知
-                                </label>
-                            </div>
+                            <div class="col"></div>
                         </div>
                         <section>
                             <div class="d-flex justify-content-end">
