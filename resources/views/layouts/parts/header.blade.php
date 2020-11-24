@@ -7,6 +7,8 @@
             <img src="{{ url('/images/svg/logo.svg') }}" id="logo">
             <span id="title">お金の悩み相談サービス「マネク」</span>
 
+            <!-- AFTER LOGIN -->
+            @if(Cookie::has('token'))
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-3" aria-controls="navbarSupportedContent-3" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -48,7 +50,7 @@
             @endif
 
             <!-- Before LOGIN  -->
-            @if(!Cookie::has('custom_token'))
+            @if(!Cookie::has('token'))
             <div class="nav navbar-nav ml-auto p-0">
                 <div class="btn-toolbar d-flex justify-content-end p-0 align-items-center">
                     <a href="{{ url('/entry') }}" id="btnRegister"><span class="bdyellow">@lang('string.register')</span></a>

@@ -244,6 +244,22 @@
         return $age->y;
     }
 
+    function getEra(string $birthDay) : string
+    {
+        $curDate = new \DateTime(date("Y-m-d"));
+        $birthDate = new \DateTime($birthDay);
+        $age = $curDate->diff($birthDate)->y;
+        if($age > 9){
+            $year = substr($age, 0, strlen($age)-1);
+            $year.= '0';
+            $sub = substr($age, -1);
+            if($sub>5)  $sub = '代後半';
+            else    $sub = '代前半';
+            return $year.$sub;
+        }
+        return $age;
+    }
+
     function isUser($id){
         if($id == \Auth::user()->id){
             return 1;

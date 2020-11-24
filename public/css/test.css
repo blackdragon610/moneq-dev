@@ -27,7 +27,7 @@
     font-family: SFProText-Regular;
     src: url('../fonts/FontsFree-Net-SFProText-Regular.ttf');
 }
-  
+
 .moneq-navbar {
     height: 70px;
     background-color: white;
@@ -72,7 +72,7 @@
     top: 0px !important;
     background-image: url('../images/svg/top-main-overlay.svg');
     background-size: cover;
-    background-position: center;    
+    background-position: center;
 }
 
 header .overlay {
@@ -93,7 +93,7 @@ header .description #heading1 {
     font-family: NotoSans-JP-Bold;
     font-size: 57px !important;
     color: black;
-    letter-spacing: 3px; 
+    letter-spacing: 3px;
 }
 header .description #heading1 span{
     color: #ffd800;
@@ -104,7 +104,7 @@ header .description #heading2 {
     color: black;
     margin-left: 35px;
     margin-top: -20px !important;
-    letter-spacing: 3px; 
+    letter-spacing: 3px;
 }
 header .description #static1 {
     position: absolute;
@@ -117,7 +117,7 @@ header .description #static1 {
     min-width: 403px !important;
     background-image: url('../images/svg/img-message-aqua-long.svg');
     background-size: cover;
-    background-position: center;    
+    background-position: center;
 }
 header .description #static2 {
     position: absolute;
@@ -127,12 +127,12 @@ header .description #static2 {
     min-width: 528px !important;
     background-image: url('../images/svg/img-logo-title-large.svg');
     background-size: cover;
-    background-position: center;    
+    background-position: center;
 }
 
 header .description #static1 p{
     padding-top: 0.25rem !important;
-    letter-spacing: 3px; 
+    letter-spacing: 3px;
 }
 
 header .description #searchbar{
@@ -165,7 +165,7 @@ header .description #heading3 {
     color: black;
     margin-left: 120px;
     margin-top: 36px !important;
-    letter-spacing: 2px; 
+    letter-spacing: 2px;
 }
 header .description a{
     margin-top: 20px !important;
@@ -175,7 +175,7 @@ header .description a{
     border-radius: 25px;
     font-family: NotoSans-JP-Medium;
     font-size: 20px !important;
-    letter-spacing: 3px; 
+    letter-spacing: 3px;
 }
 
 .sectionbar1 {
@@ -230,7 +230,7 @@ header .description a{
     text-align: center;
     border: 0px;
     width: 208px !important;
-    /* height: 48px !important; */ 
+    /* height: 48px !important; */
 }
 .sectionbar2 #row2 .text2 {
     font-family: NotoSans-JP-Regular;
@@ -261,7 +261,7 @@ header .description a{
     width: 310px !important;
 }
 .sectionbar3 #row1 .title {
-    margin-top: 80px;    
+    margin-top: 80px;
     font-family: NotoSans-JP-Medium;
     font-size: 18px !important;
     color: black;
@@ -334,23 +334,23 @@ header .description a{
 
 #plantable td {
     text-align: center;
-} 
+}
 
 #plantable colgroup col.first {
     background-color: #f3f3f3;
-} 
+}
 
 #plantable colgroup col.second {
     background-color: #fff3cc;
-} 
+}
 
 #plantable colgroup col.third {
     background-color: #f3e4d6;
-} 
+}
 
 #plantable colgroup col.fourth {
     background-color: #ffffff;
-} 
+}
 
 .panel {
     margin-top: 25px;
@@ -395,7 +395,7 @@ header .description a{
 }
 
 .nav-tabs > li {
-    float: left; 
+    float: left;
     margin-bottom: -1px;
 }
 
@@ -585,7 +585,7 @@ input[type="checkbox"]:checked + label>span {
 
 .radio-input:checked + label {
     color: red;
-    font-weight: bold;    
+    font-weight: bold;
 }
 
 .radio-input + label::before {
@@ -634,3 +634,4 @@ input[type="checkbox"]:checked + label>span {
 .checkbox-menu li.active label:focus {
     background-color: #b8b8ff;
 }
+

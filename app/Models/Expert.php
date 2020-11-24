@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use App\Models\Specialtie;
 
 class Expert extends ModelClass implements JWTSubject
 {
@@ -82,6 +83,10 @@ class Expert extends ModelClass implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [];
+    }
+
+    public function specialtie(){
+        return $this->belongsTo(Specialtie::class);
     }
 
 }
