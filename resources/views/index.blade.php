@@ -168,6 +168,63 @@
     </div>
 </div>
 
+<div class="sectionbar4">
+    <div class="container" id="row1">
+        <div class="row justify-content-center">
+            <img src="/images/svg/img-logo-210-56.svg">
+            <p class="title1">が選ばれる</p>
+            <p class="title2">理由</p>
+        </div>
+    </div>
+    <div class="container" id="row2">
+        <div class="row align-items-end">
+            <div class="col">
+                <article class="col-12 p-0 text-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <p id="tagline1" style="z-index:10"><span class="bdred">経験豊富</span>な専門家が回答</p>
+                        </div>
+                    </div>
+                    <img src="/images/svg/img-answer-1.svg" style="z-index:5;margin-top:-40px">
+                    <p id="tagline2" style="margin-top:-30px">MoneQで回答してくれる専門家は、<br/>
+                    資格を保有していて、実務経験の<br/>
+                    豊富な方を厳選しています。</p>
+                </article>
+            </div>
+            <div class="col">
+                <article class="col-12 p-0 text-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <p id="tagline1">最短<span class="bdred">5分</span>で回答</p>
+                        </div>
+                    </div>
+                    <img src="/images/svg/img-answer-2.svg" style="margin-top:-14px">
+                    <p id="tagline2">相談に対して、速ければ最短5分で<br/>
+                    回答がきます。お金のお悩みを迅速に<br/>
+                    解決することができます。</p>
+                </article>
+            </div>
+            <div class="col">
+                <article class="col-12 p-0 text-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <p id="tagline1"><span class="bdred">月300円</span>の格安料金</p>
+                        </div>
+                    </div>
+                    <img src="/images/svg/img-answer-3.svg" style="margin-top:-24px">
+                    <p id="tagline2" style="margin-top:-18px" >費用は、月額300円（税別）です。<br/>
+                    1日10円という低コストで<br/>
+                    24時間365日利用できるサービスです。</p>
+                </article>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <a href="{{ url('/login') }}" class="btn yellow-roundbtn" style="margin-top: 80px !important;">今すぐ登録して、専門家に相談する</a>
+        </div>
+
+    </div>
+</div>
 
 <div class="lightgreypanel">
     <div class="container p-3">
