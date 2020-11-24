@@ -6,12 +6,12 @@
         <div class="col-sm-10 col-lg-4 pt-2">
             <div class="container-fluid">
                 <div class="row">
-                    <h5 class="font-weight-bold">テスト花子さん</h5>
-                    <p>（テストハナコ）</p>
+                    <h5 class="font-weight-bold">{{$contents->expert_name_first.$contents->expert_name_second}}</h5>
+                    <p>({{$contents->expert_name_kana_first.$contents->expert_name_kana_second}})</p>
                 </div>
                 <div class="row">
-                    <span class="age">30代前半／女性</span>
-                    <span class="address">東京都</span>
+                    <span class="age">{{$contents->date_birth.'/'.$contents->gender}}</span>
+                    <span class="address">{{$contents->prefecture_area}}</span>
                 </div>
             </div>
         </div>
@@ -20,11 +20,11 @@
             <div class="container-fluid">
                 <div class="row pb-lg-1">
                     <h6 class="mright font-weight-bold">回答数</h6>
-                    <span>125件</span>
+                    <span>{{$answerNumber}}件</span>
                 </div>
                 <div class="row">
-                    <span class="mright font-weight-bold">3役に立った</span>
-                    <span >50件</span>
+                    <span class="mright font-weight-bold">役に立った</span>
+                    <span >{{$contents->count_useful}}件</span>
                 </div>
             </div>
         </div>
@@ -71,7 +71,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="container-fluid">
         <div class="row">
             <div class="col text-center btnLayer">

@@ -35,10 +35,24 @@
                             <div class="tab-content" id="myTabContent">
                                 <div class="tab-pane fade active show" id="question-1" role="tabpanel" aria-labelledby="question-1-tab">
                                     <div class="row">
-                                        @include('layouts.parts.custom.answerinfo', ["type" => "answerinfo", 'name' => 'answer', 'contents' => ''])
-                                        @include('layouts.parts.custom.answerinfo', ["type" => "answerinfo", 'name' => 'answer', 'contents' => ''])
-                                        @include('layouts.parts.custom.answerinfo', ["type" => "answerinfo", 'name' => 'answer', 'contents' => ''])
-                                    </div>                                    
+                                        @foreach ($weekExperts as $item)
+                                            @include('layouts.parts.custom.answerinfo', ["type" => "answerinfo", 'name' => 'answer', 'contents' => $item])
+                                        @endforeach
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade show" id="question-2" role="tabpanel" aria-labelledby="question-2-tab">
+                                    <div class="row">
+                                        @foreach ($monthExperts as $item)
+                                            @include('layouts.parts.custom.answerinfo', ["type" => "answerinfo", 'name' => 'answer', 'contents' => $item])
+                                        @endforeach
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade show" id="question-3" role="tabpanel" aria-labelledby="question-3-tab">
+                                    <div class="row">
+                                        @foreach ($totalExperts as $item)
+                                            @include('layouts.parts.custom.answerinfo', ["type" => "answerinfo", 'name' => 'answer', 'contents' => $item])
+                                        @endforeach
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col text-center">
@@ -52,13 +66,14 @@
                 </div>
             <!-- </section> -->
         </div>
-        
+
         <div class="col-12 col-sm-9 order-sm-1 order-2" id="main">
             <div class="container">
                 <section>
                     <div class="row">
                         <div class="container-fluid whitepanel">
-                            @include('layouts.parts.custom.userinfodetail', ["type" => "userinfodetail", 'name' => 'userinfo', 'contents' => ''])
+                            @include('layouts.parts.custom.userinfodetail', ["type" => "userinfodetail", 'name' => 'userinfo', 'contents' => $expert,
+                                                                             'answerNumber'=>$answerNumber, 'helpNumber'=>$helpNumber])
                         </div>
                     </div>
                 </section>
