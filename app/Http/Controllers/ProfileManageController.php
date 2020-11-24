@@ -20,7 +20,7 @@ class ProfileManageController extends Controller
 {
     //
     public function index(){
-        $user = \Auth::user();
+        $user = Auth::user();
 
         if($user->is_send_answer == 1){$answer = 'オン';} else{ $answer = 'オフ';}
         if($user->is_send_message == 1){$message = 'オン';} else{ $message = 'オフ';}

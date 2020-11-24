@@ -10,13 +10,14 @@
                 <div class="col-md-12 col-lg-12">
                     <p class="keepTwoLine">「<span><b>保険のことで質問です<b></span>」の内容に追記します</p>
 
-                    {{Form::open(['url'=> route('profile.update'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
+                    {{Form::open(['url'=> route('post.report.add.end'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
+                        <input type="hidden" name="post_id", value="{{$postId}}">
                         <label for="question">質問</label>
                         <p name="question">主人の生命保険のことで相談があります。がん保険は入ったほうがよろしいでしょうか？主人の生命保険のことで相
 談があります。がん保険は入ったほうがよろしいでしょうか？主人の生命保険のことで相談があります。がん保険は入ったほうがよろしいでしょうか？主人の生命保険のことで相談があります。がん保険は入ったほうがよろしいでしょうか？主人の生命保険のことで相談があります。がん保険は入ったほうがよろしいでしょうか？がん保険は入ったほうがよろしいでしょうか？がん保険は入ったほうがよろしいでしょうか？がん保険は入ったほうがよろしいでしょうか？
 </p>
                         <p>相談の追記</p>
-                        <textarea rows = "5" cols = "100%" name = "description">
+                        <textarea rows = "5" cols = "100%" name = "body">
                         </textarea><br>
                     <section>
                         <div class="row">

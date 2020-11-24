@@ -4,7 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-
+use App\Models\User;
+use App\Models\PostAnswer;
+use App\Models\PostAdd;
+use App\Models\Expert;
 
 class Post extends ModelClass
 {
@@ -54,4 +57,15 @@ class Post extends ModelClass
         $query->whereStatus(2);
     }
 
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
+    public function answers(){
+        return $this->hasMany(PostAnswer::class);
+    }
+
+    public function adds(){
+        return $this->hasMany(PostAdd::class);
+    }
 }

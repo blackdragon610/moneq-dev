@@ -5,10 +5,10 @@
     <div class="col-9 pt-2">
             <div class="container-fluid">
                 <div class="row">
-                    <p class="font-weight-bold mb-0">テスト花子さん</p>
+                    <p class="font-weight-bold mb-0">{{$contents->expert_name_second}}</p>
                 </div>
                 <div class="row">
-                    <span>回答数 : 30</span>
+                <span>回答数 : {{$contents->amount}}</span>
                 </div>
             </div>
     </div>

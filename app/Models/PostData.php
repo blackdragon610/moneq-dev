@@ -13,4 +13,10 @@ class PostData extends ModelClass
     protected $hidden = [
     ];
 
+    public function getPostHistoryData($userId, $postId){
+        $PostData = clone $this;
+        $postData = $PostData->where([['user_id',$userId],['post_id', $postId]]);
+        if($postData)   return $postData;
+        else    return $PostData;
+    }
 }
