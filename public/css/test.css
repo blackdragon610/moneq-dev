@@ -33,6 +33,10 @@
     background-color: white;
 }
 
+.behind-bar {
+    width: 100%;
+    height: 70px !important;    
+}
 .moneq-navbar #logo {
     padding-left: 40px;
 }
@@ -65,7 +69,7 @@
     position: relative;
     width: 100%;
     height: 704px !important;
-    top: 70px !important;
+    top: 0px !important;
     background-image: url('../images/svg/top-main-overlay.svg');
     background-size: cover;
     background-position: center;
@@ -178,7 +182,6 @@ header .description a{
     width: 100%;
     height: 133px !important;
     background-color: #221815;
-    margin-top: 70px;
 }
 .sectionbar1 #overview {
     min-width: 960px !important;

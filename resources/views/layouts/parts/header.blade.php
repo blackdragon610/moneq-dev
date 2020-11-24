@@ -60,3 +60,21 @@
 
     </div>
 </div>
+<div class="behind-bar">
+</div>
+
+<!-- <div class="container-fluid yellowpanel">
+    <div class="row">
+        <div class="container-fluid">
+            <form action="#" method="post">
+                <div class="input-group pb-2 pt-2">
+                    <input class="form-control py-1 col-sm-6" type="text" placeholder="Search" aria-label="Search">
+                    <div class="input-group-append">
+                        <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fa fa-search text-grey"></i></span>
+                    </div>
+                    <a href="#" class="btn btn-danger offset-sm-2 col-sm-4 offset-md-3 col-md-3 mt-2 mt-sm-0">@lang('string.consult_btn')</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div> -->
