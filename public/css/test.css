@@ -601,10 +601,16 @@ article #article #date {
     color: #9B9B9B;
     vertical-align: middle;
 }
-article #article #solved {
+article #article #unsolved {
     font-family: NotoSans-JP-Regular;
     font-size: 14px !important;
     color: red;
+    margin-left: 30px;
+}
+article #article #solved {
+    font-family: NotoSans-JP-Regular;
+    font-size: 14px !important;
+    color: #008000;
     margin-left: 30px;
 }
 article #article #dashline {
@@ -626,6 +632,11 @@ article #article #persons {
     font-size: 16px !important;
     color: #ffd800;
     margin-left: 10px;
+}
+article #article #wait {
+    font-family: NotoSans-JP-Regular;
+    font-size: 14px !important;
+    color: #ffd800;
 }
 
 
