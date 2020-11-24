@@ -25,7 +25,7 @@
             </div>
         @endforeach
     @endif
-    {{-- @if($isUser == 0) --}}
+    @if($isUser == 0)
         <div class="row">
             <button class="btn btn-default" type="button" id="dataSave">
                 <i class="fa fa-bookmark-o <?php if($sPost !=0) echo 'fa_custom'?>" id="fa"></i> 保存する
@@ -37,7 +37,7 @@
                 <i class="fa fa-warning"></i> 通報する
             </a>
         </div>
-    {{-- @endif --}}
+    @endif
     <div class="container-fluid">
         <div class="row text-center">
             <div class="col-12 col-sm-4 pt-2">
