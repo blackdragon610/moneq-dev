@@ -36,7 +36,7 @@
 	<input type="hidden" name="{{$name}}" value="{{getVariable($inputs, $name)}}">
 @else
 
-	<select name="{{$name}}" {!! $contents !!} >
+	<select class="form-control" name="{{$name}}" {!! $contents !!} >
 		@if (isset($first))
 			<option value="0">{!! $first !!}</option>
 		@endif

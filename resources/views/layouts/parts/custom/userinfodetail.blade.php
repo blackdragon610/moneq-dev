@@ -31,7 +31,7 @@
         <div class="col-sm-8 col-lg-4 pt-2">
             <div class="container-fluid pl-0 pb-lg-1">
                 <h6 class="font-weight-bold">保有資格</h6>
-                <span class="mright keepTwoLine">1級ファイナンシャル・プランニング技能士</span>
+                <span class="mright keepTwoLine">{{$contents->sec}}</span>
             </div>
         </div>
     </div>
