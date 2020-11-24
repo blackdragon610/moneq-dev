@@ -103,7 +103,7 @@
     <div class="container" id="row3">
         <div class="row justify-content-center">
             <img src="/images/svg/img-logo-137-36.svg"><p class="title2 mb-0 ml-2">がそのお悩みを解決します！</p>
-            <p class="title2">低価格で使えるお金の相談パートナーです。</p>
+            <p class="title2">低価格で使える<span class="bdyellow">お金の相談パートナー</span>です。</p>
         </div>
     </div>
 </div>
@@ -118,15 +118,33 @@
     <div class="container" id="row2">
         <div class="row align-items-end">
             <div class="col">
-                <article>
+                <article class="col-12 p-0 text-center">
+                    <button class="roundbtn">STEP 1</button>
+                    <p id="tagline1">お金の相談をする</p>
+                    <img src="/images/svg/img-consult-1.svg">
+                    <p id="tagline2">家計・貯蓄・保険・投資・相談・住宅ローン<br/>
+                        などの「お金の相談」を<br/>
+                        スマホ・パソコンから送信します。</p>
                 </article>
             </div>
             <div class="col">
-                <article>
+                <article class="col-12 p-0 text-center">
+                    <button class="roundbtn">STEP 2</button>
+                    <p id="tagline1">専門家が回答する</p>
+                    <img src="/images/svg/img-consult-2.svg">
+                    <p id="tagline2">「お金の相談」に対して<br/>
+                    100名以上の複数の専門家（FP、税理士、<br/>
+                    会計士…）が回答します。</p>
                 </article>
             </div>
             <div class="col">
-                <article>
+                <article class="col-12 p-0 text-center">
+                    <button class="roundbtn">STEP 3</button>
+                    <p id="tagline1">悩みが解決する</p>
+                    <img src="/images/svg/img-consult-3.svg">
+                    <p id="tagline2">専門家からの回答で<br/>
+                        お悩みが解決します。<br/>
+                        追加質問や個別相談も可能です。</p>
                 </article>
             </div>
         </div>

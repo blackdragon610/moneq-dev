@@ -272,8 +272,48 @@ header .description a{
 .sectionbar3 #row2 article {
     width: 340px !important;
     height: 405px !important;
-    background-color: red;
+    margin-top: 50px;
 }
+.sectionbar3 #row2 article .roundbtn {
+    width: 164px !important;
+    height: 38px !important;
+    border-radius: 19px;
+    background-color: #221815;
+    color: white;
+    font-family: NotoSans-JP-Medium;
+    font-size: 24px !important;
+}
+.sectionbar3 #row2 article #tagline1 {
+    font-family: NotoSans-JP-Medium;
+    font-size: 24px !important;
+    color: black;
+    width: 192px !important;
+    height: 38px !important;
+    margin-top: 21px;
+    margin-bottom: 0px;
+    padding: 0px;
+}
+.sectionbar3 #row2 article #tagline2 {
+    font-family: NotoSans-JP-Regular;
+    font-size: 16px !important;
+    color: black;
+    padding : 0px;
+}
+
+
+.bdyellow {
+    border-bottom: 2px solid #ffd800;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 /* ------------- */
