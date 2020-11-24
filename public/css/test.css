@@ -167,16 +167,6 @@ header .description #heading3 {
     margin-top: 36px !important;
     letter-spacing: 2px;
 }
-header .description a{
-    margin-top: 20px !important;
-    background-color: #ffd800;
-    width: 500px !important;
-    height: 50px !important;
-    border-radius: 25px;
-    font-family: NotoSans-JP-Medium;
-    font-size: 20px !important;
-    letter-spacing: 3px;
-}
 
 .sectionbar1 {
     width: 100%;
@@ -306,6 +296,15 @@ header .description a{
 
 .bdyellow {
     border-bottom: 2px solid #ffd800;
+}
+.yellow-roundbtn{
+    background-color: #ffd800;
+    width: 500px !important;
+    height: 50px !important;
+    border-radius: 25px !important;
+    font-family: NotoSans-JP-Medium;
+    font-size: 20px !important;
+    letter-spacing: 3px;
 }
 
 

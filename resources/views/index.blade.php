@@ -23,7 +23,7 @@
         </div>
         <p id="heading3" class="mt-0 mb-0">\ さっそく、お金の悩みを専門家に相談する /</p>
         <div class="text-center">
-            <a href="{{ url('/login') }}" class="btn">今すぐ登録して、専門家に相談する</a>
+            <a href="{{ url('/login') }}" class="btn yellow-roundbtn" style="margin-top: 20px !important;">今すぐ登録して、専門家に相談する</a>
         </div>
     </div>
 </header>
@@ -120,7 +120,11 @@
             <div class="col">
                 <article class="col-12 p-0 text-center">
                     <button class="roundbtn">STEP 1</button>
-                    <p id="tagline1">お金の相談をする</p>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <p id="tagline1">お金の相談をする</p>
+                        </div>
+                    </div>
                     <img src="/images/svg/img-consult-1.svg">
                     <p id="tagline2">家計・貯蓄・保険・投資・相談・住宅ローン<br/>
                         などの「お金の相談」を<br/>
@@ -130,7 +134,11 @@
             <div class="col">
                 <article class="col-12 p-0 text-center">
                     <button class="roundbtn">STEP 2</button>
-                    <p id="tagline1">専門家が回答する</p>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <p id="tagline1">専門家が回答する</p>
+                        </div>
+                    </div>
                     <img src="/images/svg/img-consult-2.svg">
                     <p id="tagline2">「お金の相談」に対して<br/>
                     100名以上の複数の専門家（FP、税理士、<br/>
@@ -140,14 +148,23 @@
             <div class="col">
                 <article class="col-12 p-0 text-center">
                     <button class="roundbtn">STEP 3</button>
-                    <p id="tagline1">悩みが解決する</p>
-                    <img src="/images/svg/img-consult-3.svg">
-                    <p id="tagline2">専門家からの回答で<br/>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <p id="tagline1">悩みが解決する</p>
+                        </div>
+                    </div>
+                    <img src="/images/svg/img-consult-3.svg" style="margin-top:24px">
+                    <p id="tagline2" style="margin-top:28px" >専門家からの回答で<br/>
                         お悩みが解決します。<br/>
                         追加質問や個別相談も可能です。</p>
                 </article>
             </div>
         </div>
+
+        <div class="text-center">
+            <a href="{{ url('/login') }}" class="btn yellow-roundbtn" style="margin-top: 80px !important;">今すぐ登録して、専門家に相談する</a>
+        </div>
+
     </div>
 </div>
 
