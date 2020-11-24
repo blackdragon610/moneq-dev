@@ -349,6 +349,116 @@ header .description #heading3 {
     padding: 0px;
 }
 
+/* ----------- */
+
+.sectionbar5 {
+    height: 888px !important;
+    width: 100%;
+    background-color: #fff9f2;
+}
+.sectionbar5 #row1 .title1 {
+    font-family: NotoSans-JP-Bold;
+    font-size: 32px !important;
+    color: black;
+    margin-top: 80px;
+}
+.sectionbar5 #row2 .tag {
+    float: left;
+    width: 150px !important;
+}
+.sectionbar5 #row2 .tag li {
+    border-bottom:1px solid #e3e3e3;
+    border-right:1px solid #e3e3e3;
+    border-left:1px solid #e3e3e3;
+    background-color: #f2f2f2;
+}
+.sectionbar5 #row2 .columns {
+    float: left;
+    width: 280px !important;
+}
+.sectionbar5 #row2 .price,
+.sectionbar5 #row2 .tag {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+.sectionbar5 #row2 .tag .tagheader{
+    border:0px solid transparent !important; 
+    background-color: transparent !important;
+    height: 70px !important;
+}
+.sectionbar5 #row2 .tag li {
+    height: 90px !important;
+    font-family: NotoSans-JP-Bold;
+    font-size: 16px !important;
+    display: flex; /* allows align-items to work below */
+    justify-content: center; /* Horizontally centers single-line elements */
+    text-align:center; /* Horizontally centers text within line-wrapped elements */
+    align-items: center; /* vertical */
+}
+.sectionbar5 #row2 .price:hover {
+    box-shadow: 0 8px 12px 0 rgba(0,0,0,0.4)
+}
+.sectionbar5 #row2 .price .membership1 {
+    background-color: #ee7800;
+    color: white;
+    font-family: NotoSans-JP-Bold;
+    font-size: 16px !important;
+    text-align: center;
+    height: 70px !important;
+}
+.sectionbar5 #row2 #membership1 .price,
+.sectionbar5 #row2 #membership1 li {
+    border-bottom:1px solid #ee7800;
+    border-right:1px solid #ee7800;
+    border-left:1px solid #ee7800;
+}
+.sectionbar5 #row2 .price .membership2 {
+    background-color: #FEDC1A;
+    color: black;
+    font-family: NotoSans-JP-Bold;
+    font-size: 16px !important;
+    text-align: center;
+    height: 70px !important;
+}
+.sectionbar5 #row2 #membership2 .price,
+.sectionbar5 #row2 #membership2 li {
+    border-bottom:1px solid #fedc1a;
+    border-right:1px solid #fedc1a;
+    border-left:1px solid #fedc1a;
+}
+
+.sectionbar5 #row2 .price .membership3 {
+    background-color: #E3E3E3;
+    color: black;
+    font-family: NotoSans-JP-Bold;
+    font-size: 16px !important;
+    text-align: center;
+    height: 70px !important;
+}
+.sectionbar5 #row2 #membership3 .price,
+.sectionbar5 #row2 #membership3 li {
+    border-bottom:1px solid #e3e3e3;
+    border-right:1px solid #e3e3e3;
+    border-left:1px solid #e3e3e3;
+}
+.sectionbar5 #row2 .price li {
+    height: 90px !important;
+    font-family: NotoSans-JP-Regular;
+    font-size: 16px !important;
+    display: flex; /* allows align-items to work below */
+    justify-content: center; /* Horizontally centers single-line elements */
+    text-align:center; /* Horizontally centers text within line-wrapped elements */
+    align-items: center; /* vertical */
+    background-color: white;
+}
+
+
+
+
+
 
 
 
@@ -366,6 +476,33 @@ header .description #heading3 {
     font-family: NotoSans-JP-Medium;
     font-size: 20px !important;
     letter-spacing: 3px;
+}
+.orange-roundbtn-150-30{
+    background-color: #ee7800;
+    width: 150px !important;
+    height: 30px !important;
+    border-radius: 15px !important;
+    font-family: NotoSans-JP-Regular;
+    font-size: 13px !important;
+    color: white;
+}
+.yellow-roundbtn-150-30{
+    background-color: #ffd800;
+    width: 150px !important;
+    height: 30px !important;
+    border-radius: 15px !important;
+    font-family: NotoSans-JP-Regular;
+    font-size: 13px !important;
+    color: black;
+}
+.white-roundbtn-150-30{
+    background-color: white;
+    width: 150px !important;
+    height: 30px !important;
+    border-radius: 15px !important;
+    font-family: NotoSans-JP-Regular;
+    font-size: 13px !important;
+    color: black;
 }
 
 

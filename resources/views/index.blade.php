@@ -208,10 +208,10 @@
                 <article class="col-12 p-0 text-center">
                     <div class="container">
                         <div class="row justify-content-center">
-                            <p id="tagline1"><span class="bdred">月300円</span>の格安料金</p>
+                            <p id="tagline1" style="z-index:10"><span class="bdred">月300円</span>の格安料金</p>
                         </div>
                     </div>
-                    <img src="/images/svg/img-answer-3.svg" style="margin-top:-24px">
+                    <img src="/images/svg/img-answer-3.svg" style="z-index:5;margin-top:-24px">
                     <p id="tagline2" style="margin-top:-18px" >費用は、月額300円（税別）です。<br/>
                     1日10円という低コストで<br/>
                     24時間365日利用できるサービスです。</p>
@@ -220,11 +220,77 @@
         </div>
 
         <div class="text-center">
-            <a href="{{ url('/login') }}" class="btn yellow-roundbtn" style="margin-top: 80px !important;">今すぐ登録して、専門家に相談する</a>
+            <a href="{{ url('/login') }}" class="btn yellow-roundbtn" style="margin-top: 50px !important;">今すぐ登録して、専門家に相談する</a>
         </div>
 
     </div>
 </div>
+
+<div class="sectionbar5">
+    <div class="container" id="row1">
+        <div class="row justify-content-center">
+            <p class="title1">プラン</p>
+        </div>
+    </div>
+    <div class="container" id="row2" style="margin-top:60px">
+        <div class="row no-gutters justify-content-center">
+            <div class="tag">
+                <ul>
+                    <li class="tagheader"></li>
+                    <li>料金</li>
+                    <li>専門家相談</li>
+                    <li>過去のQ&A閲覧</li>
+                    <li>追加質問</li>
+                    <li>個別相談※</li>
+                    <li>登録</li>
+                </ul>
+            </div>
+            <div class="columns" id="membership1">
+                <ul class="price">
+                    <li class="membership1"><span>お試し会員</span></li>
+                    <li>月300円（税別)<br/>1日10円</li>
+                    <li>月最大1回</li>
+                    <li>無制限</li>
+                    <li>1件の質問につき3回</li>
+                    <li>可能</li>
+                    <li><a href="{{ url('/login') }}" class="btn orange-roundbtn-150-30" >登録はこちら</a></li>
+                </ul>
+            </div>
+
+            <div class="columns" id="membership2">
+                <ul class="price">
+                    <li class="membership2">スタンダード会員</li>
+                    <li style="font-family:NotoSans-JP-Bold">
+                        <div>
+                        年<span style="font-size:24px">3,600</span>円（税別）<br/>
+                        1日10円
+                        </div>
+                    </li>
+                    <li>月最大3回</li>
+                    <li>無制限</li>
+                    <li>1件の質問につき3回</li>
+                    <li>可能</li>
+                    <li><a href="{{ url('/login') }}" class="btn yellow-roundbtn-150-30" >登録はこちら</a></li>
+                </ul>
+            </div>
+
+            <div class="columns" id="membership3">
+                <ul class="price">
+                    <li class="membership3">無料会員</li>
+                    <li style="font-family:NotoSans-JP-Bold"><span style="font-size:24px">0</span>円</li>
+                    <li>-</li>
+                    <li>月3件閲覧可能</li>
+                    <li>-</li>
+                    <li>可能</li>
+                    <li><a href="{{ url('/login') }}" class="btn white-roundbtn-150-30" >登録はこちら</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 
 <div class="lightgreypanel">
     <div class="container p-3">
