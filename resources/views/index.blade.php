@@ -2,36 +2,137 @@
 
 
 @section('main')
+<header class="header">
+    <div class="overlay">
+    </div>
+    <div class="description">
+        <p id="heading1" class="m-0">お金の悩みを<span>「気軽に」</span></p>
+        <p id="heading2" class="mt-0 mb-0">専門家に質問できる</p>
+        <div id="static1">
+            <p class="text-center">日本最大級のお金の悩み相談サービス</p>
+        </div>
+        <div id="static2">
+        </div>
+        <div class="input-group" id="searchbar">
+            <input type="text" placeholder="お金の悩みを検索" >
+            <div class="input-group-append">
+                <button type="button" class="btn btn-secondary">
+                    <i class="fa fa-search fa-1x"></i>
+                </button>
+            </div>
+        </div>
+        <p id="heading3" class="mt-0 mb-0">\ さっそく、お金の悩みを専門家に相談する /</p>
+        <div class="text-center">
+            <a href="{{ url('/login') }}" class="btn">今すぐ登録して、専門家に相談する</a>
+        </div>
+    </div>
+</header>
 
-<div class="bg-white">
-    <div class="container p-3">
-        <section>
-            <div class="row">
-                <div class="col-sm-8 offset-sm-2 text-center">
-                    <h4 class="font-weight-bold">お金の悩みを「気軽に」専門家に質問できる日本最大級のお金相談サービス「MoneQ（マネク）」</h4>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col text-center">
-                    <h6>お金のQ&A数：○件　役に立った件数：○件　回答率：○％   協力専門家数：○人　会員数：(当初は非表示)</h6>
-                    <p class="text-secondary pt-4">お金の相談Q&Aを見る</p>
-                    <div class="input-group md-form form-sm form-2 pl-0">
-                        <input class="form-control py-1 amber-border" type="text" placeholder="Search" aria-label="Search">
-                        <div class="input-group-append">
-                            <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fa fa-search text-grey" aria-hidden="true"></i></span>
-                        </div>
+<div class="sectionbar1">
+    <div class="row">
+        <div class="container">
+            <div class="row align-items-center justify-content-center" id="overview">
+                <div class="overviewCard col">
+                    <div id="title">Q&amp;A</div>
+                    <div class="inline-block">
+                        <h1 id="number">14,054</h1>
+                        <span id="unit">件</span>
                     </div>
-                    <p class="text-secondary pt-4">さっそく、お金の悩みを専門家に相談する</p>
-                    @if(Cookie::has('token'))
-                        <a href="{{route('post.create')}}" class="btn btn-outline-orange mx-2">今すぐ登録して、専門家に相談する</a>
-                    @else
-                        <a href="{{route('entry')}}" class="btn btn-outline-orange mx-2">今すぐ登録して、専門家に相談する</a>
-                    @endif
+                </div>
+                <div class="overviewCard col">
+                    <div id="title">役に立った回答</div>
+                    <div class="inline-block">
+                        <h1 id="number">4,554</h1>
+                        <span id="unit">件</span>
+                    </div>
+                </div>
+                <div class="overviewCard col">
+                    <div id="title">回答率</div>
+                    <div class="inline-block">
+                        <h1 id="number">99.8</h1>
+                        <span id="unit">件</span>
+                    </div>
+                </div>
+                <div class="overviewCard col">
+                    <div id="title">協力専門家</div>
+                    <div class="inline-block">
+                        <h1 id="number">124</h1>
+                        <span id="unit">人</span>
+                    </div>
+                </div>
+                <div class="overviewCard col">
+                    <div id="title">会員数</div>
+                    <div class="inline-block">
+                        <h1 id="number">6,124</h1>
+                        <span id="unit">人</span>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
     </div>
 </div>
+
+<div class="sectionbar2">
+    <div class="container" id="row1">
+        <div class="row justify-content-center">
+            <p class="title">こんなお悩みありませんか？</p>
+        </div>
+    </div>
+    <div class="container" id="row2">
+        <div class="row align-items-end">
+            <div class="col">
+                <div style="width:208px;height:280px;border:0px">
+                    <img src="/images/svg/img-problem-1.svg">
+                    <p class="text1" style="padding-top:15px;">お金の悩みを相談できる人が周りにいない</p>
+                </div>
+            </div>
+            <div class="col">
+                <div style="width:243px;height:305px;border:0px">
+                    <img src="/images/svg/img-problem-2.svg">
+                    <p class="text2" style="margin-left:34px">専門家は相談料が高いし気軽に相談できない</p>
+                </div>
+            </div>
+            <div class="col">
+                <div style="width:278px;height:305px;border:0px">
+                    <img src="/images/svg/img-problem-3.svg">
+                    <p class="text1" style="margin-left:34px">誰が書いたかもわからないネットの情報は信用できない</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="row3">
+        <div class="row justify-content-center">
+            <img src="/images/svg/img-logo-137-36.svg"><p class="title2 mb-0 ml-2">がそのお悩みを解決します！</p>
+            <p class="title2">低価格で使えるお金の相談パートナーです。</p>
+        </div>
+    </div>
+</div>
+
+<div class="sectionbar3">
+    <div class="container" id="row1">
+        <div class="row justify-content-center">
+            <p class="title mb-0">日本最大級のお金の悩み相談サービス</p>
+            <img src="/images/svg/img-logo-210-56.svg"><p class="title1">とは？</p>
+        </div>
+    </div>
+    <div class="container" id="row2">
+        <div class="row align-items-end">
+            <div class="col">
+                <article>
+                </article>
+            </div>
+            <div class="col">
+                <article>
+                </article>
+            </div>
+            <div class="col">
+                <article>
+                </article>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <div class="lightgreypanel">
     <div class="container p-3">
