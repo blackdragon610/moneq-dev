@@ -252,24 +252,27 @@ header .description a{
 .sectionbar3 {
     height: 842px !important;
     width: 100%;
-    background-color: #f3f3f3;
+    background-color: #fff9f2;
 }
 .sectionbar3 #row1 {
-    margin-top: 80px;
     width: 310px !important;
-    height: 97px !important;
 }
 .sectionbar3 #row1 .title {
+    margin-top: 80px;    
     font-family: NotoSans-JP-Medium;
     font-size: 18px !important;
     color: black;
-    margin : 0px;
 }
 .sectionbar3 #row1 .title1 {
     font-family: NotoSans-JP-Bold;
     font-size: 30px !important;
     color: black;
     padding-top: 0.75rem !important;
+}
+.sectionbar3 #row2 article {
+    width: 340px !important;
+    height: 405px !important;
+    background-color: red;
 }
 
 

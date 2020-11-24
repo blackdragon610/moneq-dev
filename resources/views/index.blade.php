@@ -111,11 +111,26 @@
 <div class="sectionbar3">
     <div class="container" id="row1">
         <div class="row justify-content-center">
-            <p class="title">日本最大級のお金の悩み相談サービス</p>
+            <p class="title mb-0">日本最大級のお金の悩み相談サービス</p>
             <img src="/images/svg/img-logo-210-56.svg"><p class="title1">とは？</p>
         </div>
     </div>
-
+    <div class="container" id="row2">
+        <div class="row align-items-end">
+            <div class="col">
+                <article>
+                </article>
+            </div>
+            <div class="col">
+                <article>
+                </article>
+            </div>
+            <div class="col">
+                <article>
+                </article>
+            </div>
+        </div>
+    </div>
 </div>
 
 
