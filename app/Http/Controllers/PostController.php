@@ -177,7 +177,7 @@ class PostController extends Controller
         $postReport->user_id = Auth::user()->id;
         $postReport->body = $request->body;
         $postReport->save();
-        return view('consultdetail.reportadditionend');
+        return view('consultdetail.reportadditionend', ['postId'=>$request->post_id]);
     }
 
 }

@@ -19,7 +19,7 @@
 
                         <section>
                             <div class="d-flex justify-content-end">
-                                <button class="btnSubmit">次へ</button>
+                                <button class="btnSubmit">変更を送信</button>
                             </div>
                         </section>
                     {{Form::close()}}

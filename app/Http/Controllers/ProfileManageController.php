@@ -140,7 +140,7 @@ class ProfileManageController extends Controller
 
         $inputs = ['nickname'=>$user->nickname, 'gender'=>$user->gender, 'date_birth_year'=>$birthDay->format('Y'),
                    'date_birth_month'=>$birthDay->format('m'), 'date_birth_day'=>$birthDay->format('d'),
-                   'prefecture'=>$user->prefecture, 'job'=>$user->job, 'marriage'=>$user->marriage, 'child'=>$user->marriage,
+                   'prefecture'=>$user->prefecture, 'job'=>$user->job, 'marriage'=>$user->marriage, 'child'=>$user->child,
                    'trouble'=>$user->trouble, 'income'=>$user->income, 'family'=>$user->family, 'live'=>$user->live];
 
 
@@ -159,7 +159,7 @@ class ProfileManageController extends Controller
         $user->changeJsonAll();
         $user->date_birth = $datas["date_birth_year"] . "-" . sprintf("%02d", $datas["date_birth_month"]) . "-" . sprintf("%02d", $datas["date_birth_day"]);
 
-        $user->update();
+        $user->save();
 
         return redirect()->route('profiles.manage');
     }

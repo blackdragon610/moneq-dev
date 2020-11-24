@@ -45,7 +45,6 @@
     function viewConfig($file, $hex = '', $keyValue, $is_select=true){
 
         $hex = json_decode($hex, true);
-
         $option = [];
 
         if ($keyValue){

@@ -35,13 +35,13 @@
                         </div>
                         <section>
                             <div class="d-flex justify-content-end">
-                                <button class="btnSubmit">次へ</button>
+                                <button class="btnSubmit">変更する</button>
                             </div>
                         </section>
                         {{Form::close()}}
                         {{Form::open(['url'=> route('profiles.manage'),'method'=>'GET', 'files' => false, 'id' => 'form'])}}
                             <section style="position:absolute; bottom:0px;">
-                                <button class="btnUnselected">入力をスキップする</button>
+                                <button class="btnUnselected">会員情報に戻る</button>
                             </section>
                         {{Form::close()}}
                 </div>

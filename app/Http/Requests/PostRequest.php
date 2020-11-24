@@ -52,6 +52,7 @@ class PostRequest extends FormRequest
             "post_name" => ["required", "stringMax:255,全角"],
             "sub_category_id" => ["required"],
             "body" => ["required", "stringMax:800,全角"],
+            "tag" => 'required',
 
         ];
 

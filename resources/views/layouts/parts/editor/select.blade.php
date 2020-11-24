@@ -4,7 +4,8 @@
     }
 
 
-	$selects = viewConfig($file, getVariable($inputs, $name), $keyValue, false);
+    $selects = viewConfig($file, getVariable($inputs, $name), $keyValue, false);
+    // if($name=='child')   dd($selects);
 ?>
 
 
