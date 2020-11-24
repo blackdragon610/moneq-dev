@@ -180,7 +180,75 @@ header .description a{
     background-color: #221815;
     margin-top: 70px;
 }
+.sectionbar1 #overview {
+    min-width: 960px !important;
+    height: 75px !important;
+    text-align: center;
+}
+.sectionbar1 .overviewCard #title {
+    font-family: NotoSans-JP-Medium;
+    font-size: 20px !important;
+    color: white;
+}
+.sectionbar1 .overviewCard #number {
+    font-family: NotoSans-JP-Medium;
+    font-size: 29px !important;
+    color: white;
+    display: inline-block;
+}
+.sectionbar1 .overviewCard #unit {
+    font-family: NotoSans-JP-Regular;
+    font-size: 15px !important;
+    color: white;
+    display: inline-block;
+}
 
+.sectionbar2 {
+    height: 671px !important;
+    width: 100%;
+    background-color: white;
+}
+
+.sectionbar2 #row1 .title {
+    margin-top: 80px;
+    width: 420px !important;
+    height: 46px !important;
+    font-family: NotoSans-JP-Bold;
+    font-size: 32px !important;
+    color: black;
+}
+.sectionbar2 #row2 {
+    width: 860px !important;
+    height: 305px !important;
+}
+.sectionbar2 #row2 .text1 {
+    font-family: NotoSans-JP-Regular;
+    font-size: 16px !important;
+    color: black;
+    text-align: center;
+    border: 0px;
+    /* width: 208px !important;
+    height: 48px !important; */
+}
+.sectionbar2 #row2 .text2 {
+    font-family: NotoSans-JP-Regular;
+    font-size: 16px !important;
+    color: black;
+    text-align: center;
+    border: 0px;
+    /* width: 178px !important;
+    height: 48px !important; */
+}
+.sectionbar2 #row3 {
+    margin-top: 50px;
+    width: 656px !important;
+    height: 95px !important;
+}
+.sectionbar2 #row3 .title2 {
+    font-family: NotoSans-JP-Bold;
+    font-size: 32px !important;
+    color: black;
+}
 
 
 /* ------------- */
