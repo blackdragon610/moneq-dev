@@ -37,7 +37,13 @@ Route::group(['middleware' => 'common:user'], function () {
         Route::get('post/create', 'PostController@create')->name('post.create');
         Route::post('post/store', 'PostController@store')->name('post.store');
         Route::get('post/end', 'PostController@end')->name('post.end');
-        Route::get('post/detail/{id}', 'PostController@end')->name('post.detail');
+        Route::get('post/detail/{id}', 'PostController@detail')->name('post.detail');
+        Route::get('post/data/{pid}/{val}', 'PostController@postDataEntry')->name('post.data');
+        Route::get('post/answer/{pid}/{aid}', 'PostController@postAnswerCheck')->name('post.answer.check');
+        Route::get('post/report/{pId}', 'PostController@report')->name('post.report');
+        Route::post('post/report/end', 'PostController@reportEnd')->name('post.report.end');
+        Route::get('post/report/add/{pId}', 'PostController@reportAdd')->name('post.report.add');
+        Route::post('post/report/add/end', 'PostController@reportAddEnd')->name('post.report.add.end');
     // });
 
     //相談の投稿検索

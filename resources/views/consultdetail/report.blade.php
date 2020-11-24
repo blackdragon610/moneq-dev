@@ -11,9 +11,10 @@
                     <p class="keepTwoLine">「<span><b>保険のことで質問です<b></span>」が不適切な相談だと思う場合は、その理由をご記入のうえ、送信ください。
                     なお、対応結果やその理由につきましてはご返答いたしかねますので予めご了承いただければ幸いです。</p>
 
-                    {{Form::open(['url'=> route('profile.update'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
+                    {{Form::open(['url'=> route('post.report.end'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
+                            <input type="hidden" name="post_id", value="{{$postId}}">
                             <p>通報内容</p>
-                            <textarea rows = "5" cols = "100%" name = "description">
+                            <textarea rows = "5" cols = "100%" name = "body">
                             </textarea><br>
                         <section>
                             <div class="row">

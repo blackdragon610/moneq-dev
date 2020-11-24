@@ -35,10 +35,24 @@
                             <div class="tab-content" id="myTabContent">
                                 <div class="tab-pane fade active show" id="question-1" role="tabpanel" aria-labelledby="question-1-tab">
                                     <div class="row">
-                                        @include('layouts.parts.custom.answerinfo', ["type" => "answerinfo", 'name' => 'answer', 'contents' => ''])
-                                        @include('layouts.parts.custom.answerinfo', ["type" => "answerinfo", 'name' => 'answer', 'contents' => ''])
-                                        @include('layouts.parts.custom.answerinfo', ["type" => "answerinfo", 'name' => 'answer', 'contents' => ''])
-                                    </div>                                    
+                                        @foreach ($weekExperts as $item)
+                                            @include('layouts.parts.custom.answerinfo', ["type" => "answerinfo", 'name' => 'answer', 'contents' => $item])
+                                        @endforeach
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade show" id="question-2" role="tabpanel" aria-labelledby="question-2-tab">
+                                    <div class="row">
+                                        @foreach ($monthExperts as $item)
+                                            @include('layouts.parts.custom.answerinfo', ["type" => "answerinfo", 'name' => 'answer', 'contents' => $item])
+                                        @endforeach
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade show" id="question-3" role="tabpanel" aria-labelledby="question-3-tab">
+                                    <div class="row">
+                                        @foreach ($totalExperts as $item)
+                                            @include('layouts.parts.custom.answerinfo', ["type" => "answerinfo", 'name' => 'answer', 'contents' => $item])
+                                        @endforeach
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col text-center">
@@ -52,28 +66,29 @@
                 </div>
             <!-- </section> -->
         </div>
-        
+
         <div class="col-12 col-sm-9 order-sm-1 order-2" id="main">
             <div class="container">
                 <section>
-                    <div class="row">
-                        <div class="container-fluid whitepanel">
-                            @include('layouts.parts.custom.articledetail', ["type" => "articledetail", 'name' => 'article', 'contents' => ''])
-                        </div>
+                    <div class="container-fluid whitepanel">
+                        @include('layouts.parts.custom.articledetail', ["type" => "articledetail", 'name' => 'article',
+                                                                        'post'=>$post, 'postAdd'=>$postAdd, 'isUser'=>$isUser])
                     </div>
                 </section>
             </div>
 
             <div class="container">
                 <section>
-                    <div class="row">
-                        <div class="container-fluid whitepanel">
-                            <h5 class="font-weight-bold p-2">2名の専門科が回答しています</h5>
-                            <hr class="mt-2 mb-3"/>
-                            @include('layouts.parts.custom.answer', ["type" => "answer", 'name' => 'answer', 'contents' => ''])
-                            @include('layouts.parts.custom.answer', ["type" => "answer", 'name' => 'answer', 'contents' => ''])
-                        </div>
-                    </div>
+                    <div class="container-fluid whitepanel" id="expertA">
+                        <h5 class="font-weight-bold p-2">2名の専門科が回答しています</h5>
+                        <hr class="mt-2 mb-3"/>
+                        @foreach ($postAnswer as $item)
+                            @include('layouts.parts.custom.answer', ["type" => "answer", 'name' => 'answer',
+                                                                     'contents' => $item, 'isUser'=>$isUser,
+                                                                     'memberFlag'=>$post->user->pay_status,
+                                                                     'postAnswerId'=>$post->post_answer_id])
+                        @endforeach
+                    @if($post->user->pay_status == 1)
                     <div class="row">
                         <div class="container-fluid whitepanel pb-3 pt-3">
                             <div class="container border border-dark pb-3">
@@ -92,10 +107,11 @@
                             </div>
                         </div>
                     </div>
+                    @endif
                 </section>
             </div>
 
-            <div class="container">
+            <div class="container" id="relationQ">
                 <section>
                     <div class="row">
                         <div class="container-fluid whitepanel pb-3">
@@ -111,8 +127,4 @@
         </div>
     </div>
 </div>
-
-
-
-
 @endsection

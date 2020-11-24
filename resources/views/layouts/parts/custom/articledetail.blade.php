@@ -1,47 +1,88 @@
 <article class="col-12 bg-white">
     <div class="row">
         <img src="/images/insurance-icon.png" alt="">
-        <h5 class="font-weight-bold pl-2">保険のことで質問です</h5>
-        <img src="/images/solved-icon.png" class="ml-auto">
+        <h5 class="font-weight-bold pl-2">{{$post->post_name}}</h5>
+        @if($post->post_answer_id != 0)
+            <img src="/images/solved-icon.png" class="ml-auto">
+        @endif
     </div>
     <div class="row">
-        <span class="name">テスト太郎さん</span>
-        <span class="age">30代/男</span>
-        <span class="ml-auto pr-1">2020/09/16</span>
+        <span class="name">{{$post->user->nickname.'さん'}}</span>
+        <span class="age">{{$post->user->date_birth}}</span>
+        <span class="ml-auto pr-1">{{$post->created_at->format('Y/m/d')}}</span>
     </div>
     <div class="row">
-        <p class="pt-2">主人の生命保険のことで相談があります。がん保険は入ったほうがよろしいでしょうか？主人の生命保険のことで相
-談があります。がん保険は入ったほうがよろしいでしょうか？主人の生命保険のことで相談があります。がん保険は入ったほうがよろしいでしょうか？主人の生命保険のことで相談があります。がん保険は入ったほうがよろしいでしょうか？主人の生命保険のことで相談があります。がん保険は入ったほうがよろしいでしょうか？がん保険は入ったほうがよろしいでしょうか？がん保険は入ったほうがよろしいでしょうか？がん保険は入ったほうがよろしいでしょうか？</p>
+        <p class="pt-2">{{$post->body}}</p>
     </div>
-    <div class="row">
-        <span class="age text-danger">2020/10/2</span>
-        <span class="age text-danger">追記</span>
-    </div>
-    <div class="row">
-        <p class="pt-2 keepOneLine text-danger">主人の生命保険のことで相談があります。</p>
-    </div>
-    <div class="row">
-        <button class="btn btn-default" type="button">
-            <i class="fa fa-bookmark-o"></i> 保存する
-        </button>
-        <button class="btn btn-default" type="button">
-            <i class="fa fa-heart-o"></i> 参考になった
-        </button>
-        <button class="btn btn-default ml-auto" type="button">
-            <i class="fa fa-warning"></i> 通報する
-        </button>
-    </div>
+    @if($postAdd)
+        @foreach ($postAdd as $item)
+            <div class="row">
+                <span class="age text-danger">{{'('.$item->created_at->format('Y/m/d')}}</span>
+                <span class="age text-danger">追記)</span>
+            </div>
+            <div class="row">
+                <p class="pt-2 keepOneLine text-danger">{{$item->body}}</p>
+            </div>
+        @endforeach
+    @endif
+    {{-- @if($isUser == 0) --}}
+        <div class="row">
+            <button class="btn btn-default" type="button" id="dataSave">
+                <i class="fa fa-bookmark-o"></i> 保存する
+            </button>
+            <button class="btn btn-default" type="button" id="dataHelp">
+                <i class="fa fa-heart-o"></i> 参考になった
+            </button>
+        <a class="btn btn-default ml-auto" type="button" href="{{route('post.report', ['pId'=>$post->id])}}">
+                <i class="fa fa-warning"></i> 通報する
+            </a>
+        </div>
+    {{-- @endif --}}
     <div class="container-fluid">
         <div class="row text-center">
             <div class="col-12 col-sm-4 pt-2">
-                <a href="#" class="btnSelected btn">専門家回答</a>
+                <a href="#expertA" class="btnSelected btn">専門家回答</a>
             </div>
             <div class="col-12 col-sm-4 pt-2">
-                <a href="#" class="btnSelected btn" >関連する質問</a>
+                <a href="#relationQ" class="btnSelected btn" >関連する質問</a>
             </div>
             <div class="col-12 col-sm-4 pt-2">
-                <a href="#" class="btnSelected btn" >相談に追記</a>
+                <a href="{{route('post.report.add', ['pId'=>$post->id])}}" class="btnSelected btn" >相談に追記</a>
             </div>
         </div>
     </div>
 </article>
+<script>
+    $('#dataSave').on('click',function(){
+
+        $.ajax({
+            type: "GET",
+            url: "{{url('/post/data/')}}" + '/' + '{{$post->id}}' + '/2',
+            success: function (data) {
+                if(data == 1){
+
+                }
+            },
+            error: function (data) {
+                console.log('Error:', data);
+            }
+        });
+    });
+    $('#dataHelp').on('click',function(){
+
+        $.ajax({
+            type: "GET",
+            url: "{{url('/post/data/')}}" + '/' + '{{$post->id}}' + '/2',
+            success: function (data) {
+                if(data == 1){
+
+                }
+            },
+            error: function (data) {
+                console.log('Error:', data);
+            }
+        });
+    });
+
+</script>
+

@@ -11,7 +11,7 @@
                     <h5 class="font-weight-bold p-2">パスワード</h5>
                     <hr class="mt-2 mb-3"/>
 
-                    {{Form::open(['url'=> route('profile.updatePlus'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
+                    {{Form::open(['url'=> route('profiles.password.update'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
                         <section>
                             <label for="" >パスワード</label>
                             @include('layouts.parts.editor.text', ["type" => "password", 'name' => 'pass', 'contents' => 'class="form-control" placeholder="パスワード"'])<br />
@@ -27,7 +27,7 @@
                         </section>
                     {{Form::close()}}
 
-                    {{Form::open(['url'=> route('profile.updatePlus'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
+                    {{Form::open(['url'=> route('profiles.manage'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
                         <section style="position:absolute; bottom:0px;">
                             <button class="btnUnselected">会員情報に戻る</button>
                         </section>
