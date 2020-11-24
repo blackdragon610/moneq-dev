@@ -31,36 +31,36 @@
 <div class="sectionbar1">
     <div class="row">
         <div class="container">
-            <div class="row align-items-center justify-content-center" id="overview">
-                <div class="overviewCard col">
+            <div class="row align-items-center justify-content-center col-md-12" id="overview">
+                <div class="overviewCard col-sm-2">
                     <div id="title">Q&amp;A</div>
                     <div class="inline-block">
                         <h1 id="number">14,054</h1>
                         <span id="unit">件</span>
                     </div>
                 </div>
-                <div class="overviewCard col">
+                <div class="overviewCard col-sm-2">
                     <div id="title">役に立った回答</div>
                     <div class="inline-block">
                         <h1 id="number">4,554</h1>
                         <span id="unit">件</span>
                     </div>
                 </div>
-                <div class="overviewCard col">
+                <div class="overviewCard col-sm-2">
                     <div id="title">回答率</div>
                     <div class="inline-block">
                         <h1 id="number">99.8</h1>
                         <span id="unit">件</span>
                     </div>
                 </div>
-                <div class="overviewCard col">
+                <div class="overviewCard col-sm-2">
                     <div id="title">協力専門家</div>
                     <div class="inline-block">
                         <h1 id="number">124</h1>
                         <span id="unit">人</span>
                     </div>
                 </div>
-                <div class="overviewCard col">
+                <div class="overviewCard col-sm-2">
                     <div id="title">会員数</div>
                     <div class="inline-block">
                         <h1 id="number">6,124</h1>

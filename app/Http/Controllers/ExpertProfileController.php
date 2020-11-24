@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ExpertRequest;
 use App\Models\Expert;
 use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-
+use App\Models\PostAnswer;
+use App\Models\PostData;
 class ExpertProfileController extends Controller
 {
 
@@ -60,6 +61,26 @@ class ExpertProfileController extends Controller
         return view('expert_profiles.end',[
                                   ]
         );
+    }
+
+    public function detail(PostAnswer $PostAnswer, PostData $PostData, $expertId){
+        $expert = Expert::where('id',$expertId)->first();
+        $expert->date_birth = getEra($expert->date_birth);
+
+        $gender = configJson('custom/gender');
+        $prefecture = configJson('custom/prefecture');
+
+        $expert->gender = $gender[$expert->gender];
+        $expert->prefecture_area = $prefecture[$expert->prefecture_area];
+        // $expert
+        $answerNumber = count($PostAnswer->where('expert_id', $expertId)->get());
+        $helpNumber = 33; // count($PostData->where([['expert_id',$expertId], ['type', 2]]));
+        $answers = $PostAnswer->where('expert_id', $expertId)->paginate(10);
+        $weekExperts = $PostAnswer->weekHighExpert();
+        $monthExperts = $PostAnswer->monthHighExpert();
+        $totalExperts = $PostAnswer->totalHighExpert();
+
+        return view('experts.index', compact('expert', 'answers', 'weekExperts', 'monthExperts', 'totalExperts', 'answerNumber', 'helpNumber'));
     }
 
 }
