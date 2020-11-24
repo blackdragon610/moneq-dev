@@ -81,21 +81,21 @@
     <div class="container" id="row2">
         <div class="row align-items-end">
             <div class="col">
-                <div class="card" style="width:208px;height:280px;border:0px">
+                <div style="width:208px;height:280px;border:0px">
                     <img src="/images/svg/img-problem-1.svg">
-                    <p class="card-footer text1" style="padding-top:25px;">お金の悩みを相談できる人が周りにいない</p>
+                    <p class="text1" style="padding-top:15px;">お金の悩みを相談できる人が周りにいない</p>
                 </div>
             </div>
             <div class="col">
-                <div class="card" style="width:243px;height:305px;border:0px">
+                <div style="width:243px;height:305px;border:0px">
                     <img src="/images/svg/img-problem-2.svg">
-                    <p class="card-footer text2">専門家は相談料が高いし気軽に相談できない</p>
+                    <p class="text2" style="margin-left:34px">専門家は相談料が高いし気軽に相談できない</p>
                 </div>
             </div>
             <div class="col">
-                <div class="card" style="width:278px;height:305px;border:0px">
+                <div style="width:278px;height:305px;border:0px">
                     <img src="/images/svg/img-problem-3.svg">
-                    <p class="card-footer text1">誰が書いたかもわからないネットの情報は信用できない</p>
+                    <p class="text1" style="margin-left:34px">誰が書いたかもわからないネットの情報は信用できない</p>
                 </div>
             </div>
         </div>
@@ -108,6 +108,15 @@
     </div>
 </div>
 
+<div class="sectionbar3">
+    <div class="container" id="row1">
+        <div class="row justify-content-center">
+            <p class="title">日本最大級のお金の悩み相談サービス</p>
+            <img src="/images/svg/img-logo-210-56.svg"><p class="title1">とは？</p>
+        </div>
+    </div>
+
+</div>
 
 
 <div class="lightgreypanel">
