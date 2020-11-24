@@ -601,15 +601,32 @@ article #article #date {
     color: #9B9B9B;
     vertical-align: middle;
 }
-article #article #answers {
+article #article #solved {
     font-family: NotoSans-JP-Regular;
     font-size: 14px !important;
     color: red;
     margin-left: 30px;
 }
-
-
-
+article #article #dashline {
+    border-style: dotted;
+    background-color: #9B9B9B;
+    height: 1px !important;
+}
+article #article .avatar{
+    border-radius: 50% !important;
+    border: 1px solid #9b9b9b;
+}
+article #article #answers {
+    font-family: NotoSans-JP-Regular;
+    font-size: 14px !important;
+    color: black;
+}
+article #article #persons {
+    font-family: NotoSans-JP-Regular;
+    font-size: 16px !important;
+    color: #ffd800;
+    margin-left: 10px;
+}
 
 
 /* ------------- */
