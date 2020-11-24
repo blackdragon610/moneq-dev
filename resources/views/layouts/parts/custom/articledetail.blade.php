@@ -25,28 +25,64 @@
             </div>
         @endforeach
     @endif
-    <div class="row">
-        <button class="btn btn-default" type="button">
-            <i class="fa fa-bookmark-o"></i> 保存する
-        </button>
-        <button class="btn btn-default" type="button">
-            <i class="fa fa-heart-o"></i> 参考になった
-        </button>
-        <button class="btn btn-default ml-auto" type="button">
-            <i class="fa fa-warning"></i> 通報する
-        </button>
-    </div>
+    {{-- @if($isUser == 0) --}}
+        <div class="row">
+            <button class="btn btn-default" type="button" id="dataSave">
+                <i class="fa fa-bookmark-o"></i> 保存する
+            </button>
+            <button class="btn btn-default" type="button" id="dataHelp">
+                <i class="fa fa-heart-o"></i> 参考になった
+            </button>
+        <a class="btn btn-default ml-auto" type="button" href="{{route('post.report', ['pId'=>$post->id])}}">
+                <i class="fa fa-warning"></i> 通報する
+            </a>
+        </div>
+    {{-- @endif --}}
     <div class="container-fluid">
         <div class="row text-center">
             <div class="col-12 col-sm-4 pt-2">
-                <a href="#" class="btnSelected btn">専門家回答</a>
+                <a href="#expertA" class="btnSelected btn">専門家回答</a>
             </div>
             <div class="col-12 col-sm-4 pt-2">
-                <a href="#" class="btnSelected btn" >関連する質問</a>
+                <a href="#relationQ" class="btnSelected btn" >関連する質問</a>
             </div>
             <div class="col-12 col-sm-4 pt-2">
-                <a href="#" class="btnSelected btn" >相談に追記</a>
+                <a href="{{route('post.report.add', ['pId'=>$post->id])}}" class="btnSelected btn" >相談に追記</a>
             </div>
         </div>
     </div>
 </article>
+<script>
+    $('#dataSave').on('click',function(){
+
+        $.ajax({
+            type: "GET",
+            url: "{{url('/post/data/')}}" + '/' + '{{$post->id}}' + '/2',
+            success: function (data) {
+                if(data == 1){
+
+                }
+            },
+            error: function (data) {
+                console.log('Error:', data);
+            }
+        });
+    });
+    $('#dataHelp').on('click',function(){
+
+        $.ajax({
+            type: "GET",
+            url: "{{url('/post/data/')}}" + '/' + '{{$post->id}}' + '/2',
+            success: function (data) {
+                if(data == 1){
+
+                }
+            },
+            error: function (data) {
+                console.log('Error:', data);
+            }
+        });
+    });
+
+</script>
+

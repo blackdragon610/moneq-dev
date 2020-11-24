@@ -244,4 +244,11 @@
         return $age->y;
     }
 
+    function isUser($id){
+        if($id == \Auth::user()->id){
+            return 1;
+        }else{
+            return 0;
+        }
+    }
 ?>
