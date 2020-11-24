@@ -468,12 +468,25 @@ header .description #heading3 {
     color: white;
 }
 
+/* ----------- */
+
+.sectionbar7 {
+    background-color: white;
+}
+.sectionbar7 .title1 {
+    font-family: NotoSans-JP-Bold;
+    font-size: 32px !important;
+    color: #221815;
+}
+.sectionbar7 #row1 {
+    width: 1140px !important;
+}
+.sectionbar7 #tab1 {
+    margin-top: 40px !important;
+}
 
 
-
-
-
-
+/* ----------- */
 .bdyellow {
     border-bottom: 2px solid #ffd800;
 }
@@ -515,19 +528,91 @@ header .description #heading3 {
     font-family: NotoSans-JP-Regular;
     font-size: 13px !important;
     color: black;
+    border : 1px solid black;
+}
+
+.nav .nav-link {
+    color: #9B9B9B;
+    border-bottom: 2px solid #9B9B9B;
+    font-family: NotoSans-JP-Medium;
+    font-size: 20px !important;
+    padding: 0.25rem 0.0rem;
+    margin-right: 1.0rem;
+}
+.nav .nav-link.active {
+    color: black;
+    border-bottom: 2px solid #ffd800;
+}
+.nav > li.active > a, .nav > li.active > a:hover, .nav > li.active > a:focus {
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+    cursor: default;
+}
+.nav > li {
+    float: left;
+    margin-bottom: -1px;
+}
+
+/* ----------- */
+article #article {
+    padding:30px !important;
+    border: 1px solid #9b9b9b;
+}
+article #article #tag {
+    width: 44px !important;
+    height: 22px !important;
+    background-color: #ffd800;
+    font-family: NotoSans-JP-Regular;
+    font-size: 14px !important;
+}
+article #article #title {
+    font-family: NotoSans-JP-Bold;
+    font-size: 24px !important;
+    color: #221815;
+    margin-top: 10px !important;
+}
+article #article #description {
+    font-family: NotoSans-JP-Regular;
+    font-size: 16px !important;
+    color: #221815;
+    margin-top: 12px !important;
+}
+article #article #avatar {
+    width: 60px !important;
+    height: 60px !important;
+}
+article #article #name {
+    font-family: NotoSans-JP-Medium;
+    font-size: 18px !important;
+    color: #221815;
+    margin-left: 20px;
+}
+article #article #age {
+    font-family: NotoSans-JP-Regular;
+    font-size: 14px !important;
+    color: #9B9B9B;
+    margin-left: 10px;
+}
+article #article #date {
+    font-family: NotoSans-JP-Regular;
+    font-size: 14px !important;
+    color: #9B9B9B;
+    vertical-align: middle;
+}
+article #article #answers {
+    font-family: NotoSans-JP-Regular;
+    font-size: 14px !important;
+    color: red;
+    margin-left: 30px;
 }
 
 
 
 
 
-
-
-
-
-
-
-
+/* ------------- */
 /* ------------- */
 .blackpanel {
     background-color: black;
@@ -568,47 +653,7 @@ header .description #heading3 {
     padding: 5px 5px 0 5px;
 }
 
-.nav-tabs {
-    border-bottom: none;
-}
-
-.nav-tabs .nav-link {
-    color: #ffffff;
-    background-color: #FF7820;
-}
-
-.nav-link {
-    font-size: 1.25rem;
-    margin-left: 5px;
-}
-
-.tab-content {
-    background-color: #ffffff;
-    padding: 25px;
-}
-
-.nav-tabs .nav-link.active {
-    font-weight: 700;
-    font-size : 1.2rem;
-    color: black;
-    background-color: #fff;
-    border-color: #ffffff #ffffff #fff;
-}
-
-.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
-    color: #555;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-bottom-color: transparent;
-    cursor: default;
-}
-
-.nav-tabs > li {
-    float: left;
-    margin-bottom: -1px;
-}
-
-span.name, span.age, .mright {
+.mright {
     margin-right: 10px;
 }
 

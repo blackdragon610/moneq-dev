@@ -23,7 +23,11 @@
         </div>
         <p id="heading3" class="mt-0 mb-0">\ さっそく、お金の悩みを専門家に相談する /</p>
         <div class="text-center">
-            <a href="{{ url('/login') }}" class="btn yellow-roundbtn" style="margin-top: 20px !important;">今すぐ登録して、専門家に相談する</a>
+            @if(Cookie::has('token'))
+                <a href="{{route('post.create')}}" class="btn yellow-roundbtn" style="margin-top: 20px !important;">今すぐ登録して、専門家に相談する</a>
+            @else
+                <a href="{{route('entry')}}" class="btn yellow-roundbtn" style="margin-top: 20px !important;">今すぐ登録して、専門家に相談する</a>
+            @endif
         </div>
     </div>
 </header>
@@ -162,7 +166,11 @@
         </div>
 
         <div class="text-center">
-            <a href="{{ url('/login') }}" class="btn yellow-roundbtn" style="margin-top: 80px !important;">今すぐ登録して、専門家に相談する</a>
+            @if(Cookie::has('token'))
+                <a href="{{route('post.create')}}" class="btn yellow-roundbtn" style="margin-top: 80px !important;">今すぐ登録して、専門家に相談する</a>
+            @else
+                <a href="{{route('entry')}}" class="btn yellow-roundbtn" style="margin-top: 80px !important;">今すぐ登録して、専門家に相談する</a>
+            @endif
         </div>
 
     </div>
@@ -220,7 +228,11 @@
         </div>
 
         <div class="text-center">
-            <a href="{{ url('/login') }}" class="btn yellow-roundbtn" style="margin-top: 50px !important;">今すぐ登録して、専門家に相談する</a>
+            @if(Cookie::has('token'))
+                <a href="{{route('post.create')}}" class="btn yellow-roundbtn" style="margin-top: 50px !important;">今すぐ登録して、専門家に相談する</a>
+            @else
+                <a href="{{route('entry')}}" class="btn yellow-roundbtn" style="margin-top: 50px !important;">今すぐ登録して、専門家に相談する</a>
+            @endif
         </div>
 
     </div>
@@ -289,7 +301,6 @@
     </div>
 </div>
 
-
 <div class="sectionbar6">
     <div class="container" id="row1">
         <div class="row justify-content-center">
@@ -300,257 +311,54 @@
         </div>
     </div>
     <div class="text-center">
-        <a href="{{ url('/login') }}" class="btn yellow-roundbtn" style="margin-top: 42px !important;">会員登録</a>
+        <a href="{{route('entry')}}" class="btn yellow-roundbtn" style="margin-top: 42px !important;">会員登録</a>
     </div>
 </div>
+
+<div class="sectionbar7">
+    <div class="container" id="row1">
+        <div class="row justify-content-center">
+            <p class="title1" style="margin-top:80px">お金の相談</p>
+        </div>
+        <div class="container-fluid">
+            <ul class="nav" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="consult-money-1-tab" data-toggle="tab" href="#consult-money-1" role="tab" aria-controls="consult-money-1" aria-selected="false">注目</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="consult-money-2-tab" data-toggle="tab" href="#consult-money-2" role="tab" aria-controls="consult-money-2" aria-selected="false">新着質問</a>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="tab1">
+                <div class="tab-pane fade active show" id="consult-money-1" role="tabpanel" aria-labelledby="consult-money-1-tab">
+                    @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])
+                    @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])
+                </div>
+                <div class="tab-pane fade" id="consult-money-2" role="tabpanel" aria-labelledby="consult-money-2-tab">
+                    @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])
+                    @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])
+                </div>
+                <div class="row">
+                    <div class="col text-center">
+                        <a href="{{route('entry')}}" class="btn yellow-roundbtn" style="margin-top: 50px !important; letter-spacing:3px">もっと見る</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+
 
 <div class="lightgreypanel">
     <div class="container p-3">
 
         <section>
 
-            <div class="row">
-                <div class="col text-center">
-                    <h4 class="font-weight-bold">こんなお悩みありませんか？</h4>
-                </div>
-            </div>
-            <div class="row d-flex justify-content-center text-center">
-                <article >
-                    <h5>お金のことを 信頼して相談できる人が 周りにいない</h5>
-                    <img src="http://placehold.it/200x50?text=Image" alt="">
-                </article>
-                <article >
-                    <h5>ちょっとした お金の疑問で 専門家に相談できない</h5>
-                    <img src="http://placehold.it/200x50?text=Image" alt="">
-                </article>
-                <article >
-                    <h5>FPに相談すると 保険を売られるのではないか 不安</h5>
-                    <img src="http://placehold.it/200x50?text=Image" alt="">
-                </article>
-                <article >
-                    <h5>ネットのお金の情報は 執筆者が見えないので 信用できない</h5>
-                    <img src="http://placehold.it/200x50?text=Image" alt="">
-                </article>
-                <article >
-                    <h5>自分の状況にあった お金に関する アドバイスが欲しい</h5>
-                    <img src="http://placehold.it/200x50?text=Image" alt="">
-                </article>
-                <article >
-                    <h5>ファイナンシャルコーチ などを頼みたいが 料金が高額</h5>
-                    <img src="http://placehold.it/200x50?text=Image" alt="">
-                </article>
-            </div>
-            <div class="row">
-                <div class="col text-center">
-                    <h4 class="font-weight-bold">「MoneQ」がそのお悩みを解決します！</h4>
-                    <h4 class="font-weight-bold">「MoneQ」は、低価格で使えるお金の相談パートナーです。</h4>
-                </div>
-            </div>
-
-        </section>
-
-    </div>
-</div>
-<div class="bg-white">
-    <div class="container p-3">
-
-        <section>
-
-            <div class="row">
-                <div class="col-sm-8 offset-sm-2 text-center">
-                    <h4 class="font-weight-bold">日本最大級のお金相談サービス「MoneQ」とは？</h4>
-                </div>
-            </div>
-            <div class="row d-flex justify-content-center text-center">
-                <article>
-                    <h5>1. お金の相談をする</h5>
-                    <p>家計・貯蓄・保険・投資・相続・住宅ローンなど、どんな相談でも構いません</p>
-                    <img src="http://placehold.it/200x50?text=Image" alt="">
-                </article>
-                <article>
-                    <h5>2. 専門家が回答する</h5>
-                    <p>相談に対して、100名以上のお金の専門家（FP、税理士、会計士など）が回答します。</p>
-                    <img src="http://placehold.it/200x50?text=Image" alt="">
-                </article>
-                <article>
-                    <h5>3. 悩みが解決する</h5>
-                    <p>複数の専門家からの回答により、悩みが解決します。追加で質問することも可能です。</p>
-                    <img src="http://placehold.it/200x50?text=Image" alt="">
-                </article>
-            </div>
-            <div class="row">
-                <div class="col text-center">
-                    @if(Cookie::has('token'))
-                        <a href="{{route('post.create')}}" class="btn btn-outline-orange mx-2">今すぐ登録して、専門家に相談する</a>
-                    @else
-                        <a href="{{route('entry')}}" class="btn btn-outline-orange mx-2">今すぐ登録して、専門家に相談する</a>
-                    @endif
-                </div>
-            </div>
-
-        </section>
-    </div>
-</div>
-<div class="lightgreypanel">
-    <div class="container p-3">
-
-        <section>
-
-            <div class="row">
-                <div class="col text-center">
-                    <h4 class="font-weight-bold">「MoneQ」が選ばれる理由</h4>
-                </div>
-            </div>
-            <div class="row d-flex justify-content-center text-center">
-                <article>
-                    <h5>実務経験豊富な専門家が回答</h5>
-                    <p>MoneQで回答してくれる専門家は、資格を保有していて、実務経験の豊富な方を厳選しています。</p>
-                    <img src="http://placehold.it/200x50?text=Image" alt="">
-                </article>
-                <article>
-                    <h5>最短5分で回答</h5>
-                    <p>相談に対して、速ければ最短5分で回答がきます。お金のお悩みを迅速に解決することができます。</p>
-                    <img src="http://placehold.it/200x50?text=Image" alt="">
-                </article>
-                <article>
-                    <h5>格安の料金体系</h5>
-                    <p>費用は、月額300円（税別）です。1日10円という低コストで24時間365日利用できるサービスです。</p>
-                    <img src="http://placehold.it/200x50?text=Image" alt="">
-                </article>
-            </div>
-            <div class="row">
-                <div class="col text-center">
-                    <a href="#" class="btn btn-outline-orange mx-2">今すぐ登録して、専門家に相談する</a>
-                </div>
-            </div>
-
-        </section>
-    </div>
-</div>
-<div class="bg-white">
-    <div class="container p-3">
-
-        <section>
-
-            <div class="row">
-                <div class="col text-center">
-                    <h4>プラン</h4>
-                </div>
-            </div>
-            <div class="container-fluid">
-                <table id="plantable" class="table table-bordered">
-                    <colgroup>
-                        <col class="first">
-                        <col class="second">
-                        <col class="third">
-                        <col class="fourth">
-                    </colgroup>
-                    <tbody>
-                        <tr>
-                            <td>-</td>
-                            <td style="background-color:#ffe699">資格を保有</td>
-                            <td style="background-color:#f8cbad">迅速に解決することができます</td>
-                            <td>専門家に</td>
-                        </tr>
-                        <tr>
-                            <td>専門</td>
-                            <td>迅速に解決することができます</td>
-                            <td>迅速に解決することができます</td>
-                            <td>専門</td>
-                        </tr>
-                        <tr>
-                            <td>-</td>
-                            <td>@twitter</td>
-                            <td>@twitter</td>
-                            <td>@twitter</td>
-                        </tr>
-                        <tr>
-                            <td>-</td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <td>-</td>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <td>-</td>
-                            <td>@twitter</td>
-                            <td>@twitter</td>
-                            <td>@twitter</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-        </section>
-    </div>
-</div>
-<div class="blackpanel">
-    <div class="container p-3">
-
-        <section>
-
-            <div class="row">
-                <div class="col text-center">
-                    <h4 class="text-light">いつでも、気軽に、お金の相談ができる</h4>
-                    <h4 class="text-light">あなたのマネーパートナーを手に入れましょう！</h4>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col text-center pt-4">
-                    <a href="{{route('entry')}}" class="btn btn-outline-orange mx-2">会員登録</a>
-                </div>
-            </div>
-
-        </section>
-
-    </div>
-</div>
-<div class="lightgreypanel">
-    <div class="container p-3">
-
-        <section>
-
-            <div class="row">
-                <div class="col text-center">
-                    <h4 class="font-weight-bold">お金の相談</h4>
-                </div>
-            </div>
-            <section class="pt-4">
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                    <li class="nav-item waves-effect waves-light">
-                        <a class="nav-link active" id="consult-money-1-tab" data-toggle="tab" href="#consult-money-1" role="tab" aria-controls="consult-money-1" aria-selected="false">新着</a>
-                    </li>
-                    <li class="nav-item waves-effect waves-light">
-                        <a class="nav-link" id="consult-money-2-tab" data-toggle="tab" href="#consult-money-2" role="tab" aria-controls="consult-money-2" aria-selected="false">新着質問</a>
-                    </li>
-                </ul>
-                <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade active show" id="consult-money-1" role="tabpanel" aria-labelledby="consult-money-1-tab">
-                        @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])
-                        @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])
-                        @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])
-                        @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])
-                    </div>
-                    <div class="tab-pane fade" id="consult-money-2" role="tabpanel" aria-labelledby="consult-money-2-tab">
-                        @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])
-                        @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])
-                    </div>
-                    <div class="row">
-                        <div class="col text-center">
-                            @if(Cookie::has('token'))
-                            <a href="{{route('post.create')}}" class="btn btn-outline-orange mx-2">今すぐ登録して、専門家に相談する</a>
-                            @else
-                                <a href="{{route('entry')}}" class="btn btn-outline-orange mx-2">今すぐ登録して、専門家に相談する</a>
-                            @endif
-                        </div>
-                    </div>
-                </div>
-            </section>
 
         </section>
 
