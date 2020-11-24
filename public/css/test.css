@@ -455,6 +455,18 @@ header .description #heading3 {
     background-color: white;
 }
 
+/* ----------- */
+
+.sectionbar6 {
+    height: 345px !important;
+    width: 100%;
+    background-image: url('../images/image-mask-1.png');
+}
+.sectionbar6 #row1 .title1 {
+    font-family: NotoSans-JP-Bold;
+    font-size: 32px !important;
+    color: white;
+}
 
 
 

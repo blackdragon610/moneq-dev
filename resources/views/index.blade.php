@@ -290,7 +290,19 @@
 </div>
 
 
-
+<div class="sectionbar6">
+    <div class="container" id="row1">
+        <div class="row justify-content-center">
+            <p class="title1 mb-0" style="margin-top:80px">いつでも、気軽に、お金の相談ができる</p>
+        </div>
+        <div class="row justify-content-center">
+            <p class="title1">あなたのマネーパートナーを手に入れましょう！</p>
+        </div>
+    </div>
+    <div class="text-center">
+        <a href="{{ url('/login') }}" class="btn yellow-roundbtn" style="margin-top: 42px !important;">会員登録</a>
+    </div>
+</div>
 
 <div class="lightgreypanel">
     <div class="container p-3">
