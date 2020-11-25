@@ -521,6 +521,16 @@
 
         </div>
     </div>
+    <div class="container-fluid" style="background-color:white">
+        <div class="container p-0" id="row4">
+            <div class="row justify-content-center">
+                <p class="title1">お知らせ</p>
+            </div>
+        </div>
+        <div>
+        </div>
+    </div>
+
 
 </div>
 
@@ -528,15 +538,6 @@
 
 <div class="lightgreypanel">
  
-    <div class="container p-3">
-        <section>
-            <section class="pt-4 bg-white">
-                <div class="row pl-4">
-                </div>
-            </section>
-
-        </section>
-    </div>
 
     <div class="container p-3">
 

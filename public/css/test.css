@@ -518,6 +518,12 @@ header .description #heading3 {
     color: #221815;  
 }
 
+.sectionbar7 #row4 {
+    width: 1140px !important;
+    /* height: 590px !important; */
+    margin-top: 80px;
+}
+
 /* ----------- */
 .bdyellow {
     border-bottom: 2px solid #ffd800;
