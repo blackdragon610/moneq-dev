@@ -477,6 +477,10 @@ header .description #heading3 {
     font-family: NotoSans-JP-Bold;
     font-size: 32px !important;
     color: #221815;
+    margin-bottom: 0px !important;
+}
+.sectionbar7 ul {
+    margin-top: 50px;
 }
 .sectionbar7 #row1 {
     width: 1140px !important;
@@ -485,6 +489,34 @@ header .description #heading3 {
     margin-top: 40px !important;
 }
 
+.sectionbar7 #row2 {
+    width: 1140px !important;
+    margin-top: 80px;
+    border-top: 1px solid #9B9B9B;
+}
+.sectionbar7 #tab2 {
+    margin-top: 40px !important;
+}
+.sectionbar7 #tab2 .userinfo {
+    width: 565px !important;
+    height: 170px !important;
+}
+
+.sectionbar7 #row3 {
+    width: 1140px !important;
+    /* height: 590px !important; */
+    margin-top: 80px;
+}
+.sectionbar7 #row3 #title1 {
+    font-family: NotoSans-JP-Medium;
+    font-size: 20px !important;
+    color: #221815;  
+}
+.sectionbar7 #row3 span {
+    font-family: NotoSans-JP-Regular;
+    font-size: 14px !important;
+    color: #221815;  
+}
 
 /* ----------- */
 .bdyellow {
@@ -579,7 +611,7 @@ article #article #description {
     color: #221815;
     margin-top: 12px !important;
 }
-article #article #avatar {
+.avatar {
     width: 60px !important;
     height: 60px !important;
 }
@@ -639,8 +671,55 @@ article #article #wait {
     color: #ffd800;
 }
 
-
 /* ------------- */
+article #userinfo {
+    border: 1px solid #9b9b9b;
+    margin:5px;
+}
+article .ranking {
+    position: absolute;
+    top:0px;
+}
+article #userinfo #avatar {
+    margin-top:35px;
+    margin-left:35px;
+    margin-bottom:50px;
+}
+article #userinfo #content {
+    margin-left: 20px;
+    margin-top: 30px;
+}
+article #userinfo #name {
+    font-family: NotoSans-JP-Medium;
+    font-size: 18px !important;
+    color: #221815;
+}
+article #userinfo #name1 {
+    font-family: NotoSans-JP-Regular;
+    font-size: 16px !important;
+    color: #9B9B9B;
+    margin-left: 15px;
+}
+article #userinfo #card {
+    font-family: NotoSans-JP-Regular;
+    font-size: 14px !important;
+    color: #221815;
+}
+article #userinfo #number {
+    font-family: NotoSans-JP-Regular;
+    font-size: 18px !important;
+    color: #221815;
+}
+
+
+
+
+
+
+
+
+
+
 /* ------------- */
 .blackpanel {
     background-color: black;

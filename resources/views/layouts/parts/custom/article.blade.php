@@ -1,4 +1,4 @@
-<article class="col-12">
+<article class="col-12 pl-0 pr-0">
     <div id="article">
         <div class="row m-0">
             <div id="tag" class="text-center">保険</div>
