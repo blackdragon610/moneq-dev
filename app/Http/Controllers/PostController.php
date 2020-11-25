@@ -25,9 +25,11 @@ class PostController extends Controller
      * @param  Category  $Category
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function create(Request $request, Category $Category)
+    public function create(Request $request, Category $Category, Post $Post)
     {
-        // $this->isPost();
+        $this->isPost();
+
+        $isFirst = $Post->isFirst();
 
         $member = Auth::user()->pay_status;
 
@@ -35,14 +37,14 @@ class PostController extends Controller
 
         return view('posts.input',
             [
-                "categories" => $categories,
+                "categories" => $categories, "isFirst" => $isFirst
             ]
         );
     }
 
     public function store(PostRequest $request, Category $Category, Post $Post, PostTag $PostTag)
     {
-        // $this->isPost();
+        $this->isPost();
 
         $datas = $this->checkForm($request);
 

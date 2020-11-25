@@ -14,10 +14,10 @@
                     {{Form::open(['url'=> route('profiles.password.update'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
                         <section>
                             <label for="" >パスワード</label>
-                            @include('layouts.parts.editor.text', ["type" => "password", 'name' => 'pass', 'contents' => 'class="form-control" placeholder="パスワード"'])<br />
+                            @include('layouts.parts.editor.text', ["type" => "password", 'name' => 'password', 'contents' => 'class="form-control" placeholder="パスワード"'])<br />
 
                             <label for="" >パスワード(確認用)</label>
-                            @include('layouts.parts.editor.text', ["type" => "password", 'name' => 'passconfirm', 'contents' => 'class="form-control" placeholder="パスワードを確認用を入力"'])<br />
+                            @include('layouts.parts.editor.text', ["type" => "password", 'name' => 'password_confirmation', 'contents' => 'class="form-control" placeholder="パスワードを確認用を入力"'])<br />
                         </section>
 
                         <section>

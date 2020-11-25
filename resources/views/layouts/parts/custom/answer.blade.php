@@ -5,7 +5,7 @@
 @endif
     <div class="row">
         <div class="col-sm-1 pt-2">
-            <img src="http://placehold.it/50x50?text=P" alt="">
+            <a href="{{route('expert.detail', $contents->expert_id)}}"><img src="http://placehold.it/50x50?text=P" alt=""></a>
         </div>
         <div class="col-sm-8 pt-2">
             <div class="container-fluid">

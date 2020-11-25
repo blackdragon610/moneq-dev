@@ -4,10 +4,12 @@
 @section('main')
 <div class="container-fluid lightgreypanel">
     <div class="container p-3">
-    
+
         <div class="container bg-white p-3 pl-5">
 
-        {{Form::open(['url'=> route('profile.update'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
+        {{Form::open(['url'=> route('expert.message.send'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
+
+            <input type="hidden" value={{$expertId}} name = 'expert_id'>
             <section>
                 <div class="row">
                     <img src="http://placehold.it/50x50?text=P" alt="">
@@ -45,20 +47,19 @@
             </section>
 
             <section>
-                <p>相談・問い合わせ内容（任意)</p>
-                <textarea rows = "5" cols = "100%" name = "description">
-                </textarea>
+                <label for="" >相談内容</label><span class="text-danger">(必須)</span>
+                @include('layouts.parts.editor.textarea', ['name' => 'description', "contents" => ""])<br />
             </section>
 
             <section>
                 <div class="row">
                     <div class="col">
                         <label class="font-weight-bold">電話によるご連絡を希望の方</label><span class="text-danger">(必須)</span><br />
-                        @include('layouts.parts.editor.select', ['name' => 'job', "file" => configJson("custom/job"), "keyValue" => "", 'contents' => 'class="form-control textCenter p-0 "'])
+                        @include('layouts.parts.editor.select', ['name' => 'kind', "file" => $categories, "keyValue" => "", 'contents' => 'class="form-control textCenter p-0 "'])
                     </div>
                     <div class="col">
                         <label class="font-weight-bold">ご希望の連絡時間</label><span class="text-danger">(必須)</span><br />
-                        @include('layouts.parts.editor.select', ['name' => 'job', "file" => configJson("custom/job"), "keyValue" => "", 'contents' => 'class="form-control textCenter p-0 "'])
+                        @include('layouts.parts.editor.text', ["type" => "text", 'name' => 'hopetime', 'contents' => 'class="form-control", placeholder=""'])
                     </div>
                 </div>
             </section>

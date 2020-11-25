@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ExpertRequest;
@@ -9,6 +10,11 @@ use App\Models\Expert;
 use App\Models\User;
 use App\Models\PostAnswer;
 use App\Models\PostData;
+use App\Models\Category;
+use App\Models\SubCategory;
+use App\Libs\MailClass;
+use App\Mails\ExpertSendMail;
+
 class ExpertProfileController extends Controller
 {
 
@@ -72,15 +78,56 @@ class ExpertProfileController extends Controller
 
         $expert->gender = $gender[$expert->gender];
         $expert->prefecture_area = $prefecture[$expert->prefecture_area];
-        // $expert
-        $answerNumber = count($PostAnswer->where('expert_id', $expertId)->get());
-        $helpNumber = 33; // count($PostData->where([['expert_id',$expertId], ['type', 2]]));
+
         $answers = $PostAnswer->where('expert_id', $expertId)->paginate(10);
         $weekExperts = $PostAnswer->weekHighExpert();
         $monthExperts = $PostAnswer->monthHighExpert();
         $totalExperts = $PostAnswer->totalHighExpert();
 
-        return view('experts.index', compact('expert', 'answers', 'weekExperts', 'monthExperts', 'totalExperts', 'answerNumber', 'helpNumber'));
+        return view('experts.index', compact('expert', 'answers', 'weekExperts', 'monthExperts', 'totalExperts'));
     }
 
+    public function message(Category $Category, $expertId){
+
+        if (Auth::user()->pay_status == 1){
+            header("Location:/error/notsee");
+            exit();
+        }
+
+        $categories = $Category->getSelectAll();
+        return view('experts.message', compact('expertId', 'categories'));
+    }
+
+    public function send(Expert $Expert, Category $Category, SubCategory $subCategory, Request $request, ExpertSendMail $ExpertSendMail, MailClass $MailClass)
+    {
+        //エラーチェック
+        $validator = Validator::make($request->all(), [
+            'surname' => 'required',
+            'lastname' => 'required',
+            'surnameen' => 'required',
+            'lastnameen' => 'required',
+            'job' => 'required',
+            'description' => 'required',
+            'kind' => 'required',
+            'hopetime' => 'required',
+        ]);
+
+        if($validator->fails()){
+            return back()->withErrors($validator)->withInput();
+        }
+
+        //トークンの保存と送信
+        $job = configJson('custom/job');
+        $data = $request->all();
+        $categories = $subCategory->where('id', $request->kind)->first();
+        $data['kind'] = $categories->sub_name;
+        $data['job'] = $job[$request->job];
+        $ExpertSendMail->datas = $data;
+        $expert = $Expert->where('id', $request->expert_id)->first();
+        $expertAddress = $expert->email;
+
+        $MailClass->send($ExpertSendMail, $expertAddress);
+        return redirect('/');
+
+    }
 }

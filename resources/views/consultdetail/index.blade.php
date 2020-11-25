@@ -59,7 +59,7 @@
             <!-- </section> -->
         </div>
 
-        <div class="col-12 col-sm-9 order-sm-1 order-3" id="main">
+        <div class="col-12 col-sm-9 order-sm-1" id="main">
             <div class="container">
                 <section>
                     <div class="container-fluid whitepanel">
@@ -68,7 +68,7 @@
                     </div>
                 </section>
                 <section >
-                    <div class="row">
+                    <div class="row pt-5">
                         <div class="container-fluid whitepanel" id="expertA">
                             <h5 class="font-weight-bold p-2">2名の専門科が回答しています</h5>
                             <hr class="mt-2 mb-3"/>
@@ -78,25 +78,25 @@
                                                                         'memberFlag'=>$post->user->pay_status,
                                                                         'postAnswerId'=>$post->post_answer_id])
                             @endforeach
-                        @if($post->user->pay_status == 1)
-                        <div class="container-fluid whitepanel pb-3 pt-3">
-                            <div class="container border border-dark pb-3">
-                                <h5 class="font-weight-bold text-center p-2">有料会員になるとお金の専門家に相談できます</h5>
-                                <hr class="mt-2 mb-3"/>
-                                <ul>
-                                    <li><i class="fa fa-check"></i>月300円（税別）</li>
-                                    <li><i class="fa fa-check"></i>毎月3回まで質問が可能</li>
-                                    <li><i class="fa fa-check"></i>最短5分で回答可能</li>
-                                    <li><i class="fa fa-check"></i>100名超の認定専門家が回答</li>
-                                    <li><i class="fa fa-check"></i>回答率99％</li>
-                                </ul>
-                                <div class="col text-center ">
-                                    <button class="btnSelected">専門家に相談をする（有料会員）</button>
+                            @if($post->user->pay_status == 1)
+                            <div class="container-fluid whitepanel pb-3 pt-3">
+                                <div class="container border border-dark pb-3">
+                                    <h5 class="font-weight-bold text-center p-2">有料会員になるとお金の専門家に相談できます</h5>
+                                    <hr class="mt-2 mb-3"/>
+                                    <ul>
+                                        <li><i class="fa fa-check"></i>月300円（税別）</li>
+                                        <li><i class="fa fa-check"></i>毎月3回まで質問が可能</li>
+                                        <li><i class="fa fa-check"></i>最短5分で回答可能</li>
+                                        <li><i class="fa fa-check"></i>100名超の認定専門家が回答</li>
+                                        <li><i class="fa fa-check"></i>回答率99％</li>
+                                    </ul>
+                                    <div class="col text-center ">
+                                        <button class="btnSelected">専門家に相談をする（有料会員）</button>
+                                    </div>
                                 </div>
                             </div>
+                            @endif
                         </div>
-                    </div>
-                    @endif
                 </section>
             </div>
 

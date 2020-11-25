@@ -72,8 +72,7 @@
                 <section>
                     <div class="row">
                         <div class="container-fluid whitepanel">
-                            @include('layouts.parts.custom.userinfodetail', ["type" => "userinfodetail", 'name' => 'userinfo', 'contents' => $expert,
-                                                                             'answerNumber'=>$answerNumber, 'helpNumber'=>$helpNumber])
+                            @include('layouts.parts.custom.userinfodetail', ["type" => "userinfodetail", 'name' => 'userinfo', 'contents' => $expert])
                         </div>
                     </div>
                 </section>
@@ -85,8 +84,10 @@
                         <div class="container-fluid whitepanel">
                             <h5 class="font-weight-bold p-2">テスト太郎さんの回答一覧</h5>
                             <hr class="mt-2 mb-3"/>
-                            @include('layouts.parts.custom.answer1', ["type" => "answer1", 'name' => 'answer1', 'contents' => ''])
-                            @include('layouts.parts.custom.answer1', ["type" => "answer1", 'name' => 'answer1', 'contents' => ''])
+                            @foreach ($answers as $item)
+
+                            @endforeach
+                            @include('layouts.parts.custom.answer1', ["type" => "answer1", 'name' => 'answer1', 'contents' => $item])
                         </div>
                     </div>
 

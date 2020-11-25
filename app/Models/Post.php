@@ -48,6 +48,13 @@ class Post extends ModelClass
         return $Model->count();
     }
 
+    public function isFirst(){
+        $Model = clone $this;
+        $model = $Model->whereUserId(Auth::user()->id)->first();
+        if($model)  return 0;
+        else    return 1;
+    }
+
     /**
      *  ステータスが2（公開済み）飲み取得
      * @param $query

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 use App\Modles\User;
 use App\Models\Expert;
-
+use App\Models\Post;
 
 
 class PostAnswer extends ModelClass
@@ -22,6 +22,9 @@ class PostAnswer extends ModelClass
 
     public function expert(){
         return $this->belongsTo(Expert::class);
+    }
+    public function post(){
+        return $this->belongsTo(Post::class);
     }
 
     public function weekHighExpert(){

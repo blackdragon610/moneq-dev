@@ -46,6 +46,8 @@ Route::group(['middleware' => 'common:user'], function () {
         Route::post('post/report/add/end', 'PostController@reportAddEnd')->name('post.report.add.end');
 
         Route::get('expert/detail/{id}', 'ExpertProfileController@detail')->name('expert.detail');
+        Route::get('expert/message/{id}', 'ExpertProfileController@message')->name('expert.message');
+        Route::post('expert/message/send', 'ExpertProfileController@send')->name('expert.message.send');
     // });
 
     //相談の投稿検索
