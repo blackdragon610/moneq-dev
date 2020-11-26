@@ -1,6 +1,8 @@
 <article class="col-12 p-1">
     <div class="row">
+        @if (isset($ranking))
         <img src="/images/svg/img-ranking-{{ $ranking }}.svg" class="ranking">
+        @endif
         <div id="userinfo" class="row container-fluid">
             <img src="/images/img-avatar-sample.png" id="avatar" class="avatar">
             <div id="content">
