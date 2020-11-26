@@ -371,13 +371,34 @@
                 <div class="tab-pane fade active show" id="expert-money-1" role="tabpanel" aria-labelledby="expert-money-1-tab">
                     <div class="row">
                         <div class="col-6 userinfo">
-                            @include('layouts.parts.custom.userinfo', ["type" => "userinfo", 'name' => 'userinfo', 'contents' => ''])
+                            @include('layouts.parts.custom.userinfo', ["ranking"=>"1", "type" => "userinfo", 'name' => 'userinfo', 'contents' => ''])
                         </div>
                         <div class="col-6 userinfo">
-                            @include('layouts.parts.custom.userinfo', ["type" => "userinfo", 'name' => 'userinfo', 'contents' => ''])
+                            @include('layouts.parts.custom.userinfo', ["ranking"=>"2", "type" => "userinfo", 'name' => 'userinfo', 'contents' => ''])
                         </div>
                         <div class="col-6 userinfo">
-                            @include('layouts.parts.custom.userinfo', ["type" => "userinfo", 'name' => 'userinfo', 'contents' => ''])
+                            @include('layouts.parts.custom.userinfo', ["ranking"=>"3", "type" => "userinfo", 'name' => 'userinfo', 'contents' => ''])
+                        </div>
+                        <div class="col-6 userinfo">
+                            @include('layouts.parts.custom.userinfo', ["ranking"=>"4", "type" => "userinfo", 'name' => 'userinfo', 'contents' => ''])
+                        </div>
+                        <div class="col-6 userinfo">
+                            @include('layouts.parts.custom.userinfo', ["ranking"=>"5", "type" => "userinfo", 'name' => 'userinfo', 'contents' => ''])
+                        </div>
+                        <div class="col-6 userinfo">
+                            @include('layouts.parts.custom.userinfo', ["ranking"=>"6", "type" => "userinfo", 'name' => 'userinfo', 'contents' => ''])
+                        </div>
+                        <div class="col-6 userinfo">
+                            @include('layouts.parts.custom.userinfo', ["ranking"=>"7", "type" => "userinfo", 'name' => 'userinfo', 'contents' => ''])
+                        </div>
+                        <div class="col-6 userinfo">
+                            @include('layouts.parts.custom.userinfo', ["ranking"=>"8", "type" => "userinfo", 'name' => 'userinfo', 'contents' => ''])
+                        </div>
+                        <div class="col-6 userinfo">
+                            @include('layouts.parts.custom.userinfo', ["ranking"=>"9", "type" => "userinfo", 'name' => 'userinfo', 'contents' => ''])
+                        </div>
+                        <div class="col-6 userinfo">
+                            @include('layouts.parts.custom.userinfo', ["ranking"=>"10", "type" => "userinfo", 'name' => 'userinfo', 'contents' => ''])
                         </div>
                     </div>
                 </div>
@@ -526,49 +547,21 @@
             <div class="row justify-content-center">
                 <p class="title1">お知らせ</p>
             </div>
-        </div>
-        <div>
-        </div>
-    </div>
-
-
-</div>
-
-
-
-<div class="lightgreypanel">
- 
-
-    <div class="container p-3">
-
-        <section>
-            <div class="row">
+            <div class="row" id="content">
+                @include('layouts.parts.custom.notice', ["type" => "notice", 'name' => 'notice', 'contents' => ''])
+                @include('layouts.parts.custom.notice', ["type" => "notice", 'name' => 'notice', 'contents' => ''])
+                <div style="height:1px; width:100%"></div>
+            </div>
+            <div class="row" style="padding-bottom:80px">
                 <div class="col text-center">
-                    <h4 class="font-weight-bold">お知らせ</h4>
+                    <a href="http://127.0.0.1:8000/entry" class="btn yellow-roundbtn" style="margin-top: 50px !important; letter-spacing:3px">もっと見る</a>
                 </div>
             </div>
-            <div class="container pt-5">
-                <div class="row">
-                    <div class="meta col col-sm-4">
-                        <h5 class="font-weight-bold float-sm-right">2020/10/4</h5>
-                    </div>
-                    <div class="col col-sm-8">
-                        <p class="underlineFor">******************************</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="meta col col-sm-4">
-                        <h5 class="font-weight-bold float-sm-right">2020/10/4</h5>
-                    </div>
-                    <div class="col col-sm-8">
-                        <p class="underlineFor">******************************</p>
-                    </div>
-                </div>
-            </div>
-
-        </section>
-
+        </div>
     </div>
+
+
 </div>
+
 
 @endsection

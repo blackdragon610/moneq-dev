@@ -3,7 +3,7 @@
 
             <nav class="navbar navbar-expand-sm navbar-light p-0 col-12">
             <img src="{{ url('/images/svg/img-logo-v2.svg') }}" id="logo">
-            <span id="title">お金の悩み相談サービス「マネク」</span>
+            <!-- <span id="title">お金の悩み相談サービス「マネク」</span> -->
 
             <!-- AFTER LOGIN -->
             @if(Cookie::has('token'))
