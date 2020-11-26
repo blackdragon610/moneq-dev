@@ -27,9 +27,7 @@ class PostRequest extends FormRequest
      */
     public function messages()
     {
-        return [
-
-        ];
+        return [];
     }
 
     protected function failedValidation(Validator $validator)
@@ -49,10 +47,9 @@ class PostRequest extends FormRequest
     public function rules()
     {
         return [
-            "post_name" => ["required", "stringMax:255,全角"],
+            "post_name" => ["required", "stringMax:255,半角"],
             "sub_category_id" => ["required"],
-            "body" => ["required", "stringMax:800,全角"],
-            "tag" => 'required',
+            "body" => ["required", "stringMax:1600,半角"]
 
         ];
 

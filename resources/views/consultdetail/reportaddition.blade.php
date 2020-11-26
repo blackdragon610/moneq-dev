@@ -8,15 +8,14 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <p class="keepTwoLine">「<span><b>保険のことで質問です</b></span>」の内容に追記します</p>
+                    <p class="keepTwoLine">「<span><b>{{$post->post_name}}</b></span>」の内容に追記します</p>
 
                     {{Form::open(['url'=> route('post.report.add.end'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
-                        <input type="hidden" name="post_id", value="{{$postId}}">
+                        <input type="hidden" name="post_id", value="{{$post->id}}">
                         <section>
                             <div class="row">
                                 <label for="question" class="col-sm-1">質問</label>
-                                <label name="question" class="col-sm-11">主人の生命保険のことで相談があります。がん保険は入ったほうがよろしいでしょうか？主人の生命保険のことで相
-                                    談があります。がん保険は入ったほうがよろしいでしょうか？主人の生命保険のことで相談があります。がん保険は入ったほうがよろしいでしょうか？主人の生命保険のことで相談があります。がん保険は入ったほうがよろしいでしょうか？主人の生命保険のことで相談があります。がん保険は入ったほうがよろしいでしょうか？がん保険は入ったほうがよろしいでしょうか？がん保険は入ったほうがよろしいでしょうか？がん保険は入ったほうがよろしいでしょうか？
+                                <label name="question" class="col-sm-11">{{$post->body}}
                                 </label>
                             </div>
                         </section>

@@ -59,6 +59,15 @@
         </nav>
 
     </div>
+    <div role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-autohide="false" style="float: right;">
+        <div class="toast-header">
+            <strong class="mr-auto">OK!</strong>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+
 </div>
 <div class="behind-bar">
 </div>

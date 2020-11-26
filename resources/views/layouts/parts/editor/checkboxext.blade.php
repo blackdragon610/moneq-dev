@@ -28,13 +28,13 @@
 		<?php foreach ($checkboxs as $key => $checkbox){ ?>
             <?php if ($checkbox['select']){ ?>
                 {{$checkbox['value']}}
-                <input type="hidden" name="{{$name}}[{{$key}}]" value="{{$key}}">
+                <input type="hidden" name="{{$name}}[{{$key}}]" id="{{$name}}[{{$key}}]" value="{{$key}}">
             <?php } ?>
 
 		<?php } ?>
 <?php }else{ ?>
 		<?php foreach ($checkboxs as $key => $checkbox){ ?>
-        <input type="checkbox" id="{{$name}}[{{$key}}]" name="{{$name}}[{{$key}}]" {!! $contents !!} value="{{$key}}"<?php if ($checkbox['select']){ ?> checked="checked"<?php } ?> />
+        <input type="checkbox" id="{{$name}}[{{$key}}]" name="{{$name}}[{{$key}}]" id="{{$name}}[{{$key}}]" {!! $contents !!} value="{{$key}}"<?php if ($checkbox['select']){ ?> checked="checked"<?php } ?> />
         <label for="{{$name}}[{{$key}}]">
             <span class="btnUnselected">{{$checkbox['value']}}</span>
         </label>

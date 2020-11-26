@@ -8,11 +8,11 @@
 
             <div class="row">
                 <div class="col-md-12 col-lg-12">
-                    <p class="keepTwoLine">「<span><b>保険のことで質問です<b></span>」が不適切な相談だと思う場合は、その理由をご記入のうえ、送信ください。
+                    <p class="keepTwoLine">「<span><b>{{$post->post_name}}<b></span>」が不適切な相談だと思う場合は、その理由をご記入のうえ、送信ください。
                     なお、対応結果やその理由につきましてはご返答いたしかねますので予めご了承いただければ幸いです。</p>
 
                     {{Form::open(['url'=> route('post.report.end'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
-                        <input type="hidden" name="post_id", value="{{$postId}}">
+                        <input type="hidden" name="post_id", value="{{$post->id}}">
                         <section>
                             <label for="" >相談内容</label><span class="text-danger">(必須)</span>
                             @include('layouts.parts.editor.textarea', ['name' => 'body', "contents" => ""])<br />

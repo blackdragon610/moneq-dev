@@ -11,6 +11,10 @@ use App\Models\PostAdd;
 use App\Models\PostAnswer;
 use App\Models\PostReport;
 use App\Models\User;
+use App\Models\Expert;
+use App\Mails\AdminSendMail;
+use App\Libs\MailClass;
+
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
@@ -27,44 +31,78 @@ class PostController extends Controller
      */
     public function create(Request $request, Category $Category, Post $Post)
     {
-        $this->isPost();
-
-        $isFirst = $Post->isFirst();
-
-        $member = Auth::user()->pay_status;
-
+        // $this->isPost();
         $categories = $Category->getSelectAll();
+        $inputs['post_id'] = 0;
+
+        $post = $Post->getRepost();
+        if($post){
+            $inputs['post_id'] = $post->id;
+            $inputs['post_name'] = $post->post_name;
+            $inputs['sub_category_id'] = $post->sub_category_id;
+            $inputs['body'] = $post->body;
+
+            // dd($post->post_name);
+            return view('posts.input',
+                [
+                    "categories" => $categories,
+                    "inputs" => $inputs
+                ]
+            );
+        }
 
         return view('posts.input',
             [
-                "categories" => $categories, "isFirst" => $isFirst
+                "categories" => $categories, 'inputs'=>$inputs
             ]
         );
     }
 
     public function store(PostRequest $request, Category $Category, Post $Post, PostTag $PostTag)
     {
-        $this->isPost();
+        // $this->isPost();
 
         $datas = $this->checkForm($request);
 
-        $datas["status"] = 2;
-
-        if ((!$request->input('end')) || (!empty($datas['errors']))){
+        if (!empty($datas['errors'])){
             $categories = $Category->getSelectAll();
 
             return view('posts.input', [
                 "errors" => $datas["errors"],
                 "inputs" => $datas["inputs"],
-                "categories" => $categories,
-                "isConfirmation" => $datas["isConfirmation"],
+                "categories" => $categories
             ]);
         }else{
-            $post = $Post->saveEntry($datas, Auth::user()->id);
-            $post_tag = $PostTag->saveEntry($datas['tag'], Auth::user()->id);
+            if($request->post_id == 0){
+                $post = $Post->saveEntry($datas['inputs'], Auth::user()->id, 2);
+            }else{
+                $post = $Post->updateEntry($datas['inputs'], $request->post_id, 2);
+            }
+            // $PostTag->saveEntry($datas['tag'], Auth::user()->id);
         }
 
         return redirect()->route('post.end', ["postId" => $post->id]);
+    }
+
+
+    public function preStore(PostRequest $request, Category $Category, Post $Post)
+    {
+        // dd("234");
+        $datas = $this->checkForm($request);
+
+        if (!empty($datas['errors'])){
+            $categories = $Category->getSelectAll();
+
+            return response()->json($datas);
+        }else{
+            if($request->post_id == 0){
+                $post = $Post->saveEntry($datas['inputs'], Auth::user()->id, 1);
+            }else{
+                $post = $Post->updateEntry($datas['inputs'], $request->post_id, 1);
+            }
+        }
+
+        return response()->json(['ok'=>$post->id]);
     }
 
     public function end(Request $request)
@@ -79,6 +117,9 @@ class PostController extends Controller
 
 
         $post = $Post->find($postId);
+        $post->post_answer_id = $Post->isAnswerCheck($post);
+        $Post->updatePostReadCount($post);
+
         $postAdd = $post->find($postId)->adds;
         $postAnswer = $post->find($postId)->answers;
 
@@ -100,6 +141,8 @@ class PostController extends Controller
         $totalExperts = $PostAnswer->totalHighExpert();
 
         $post->user->date_birth = getAge($post->user->date_birth);
+        $gender = configJson('custom/gender');
+        $post->user->gender = $gender[$post->user->gender];
 
         return view('consultdetail.index', compact('post', 'postAdd', 'postAnswer', 'weekExperts',
                                                      'monthExperts', 'totalExperts', 'isUser', 'postStoreFlag', 'postHelpFlag'));
@@ -117,6 +160,36 @@ class PostController extends Controller
             $postData->post_id = $postId;
             $postData->type = $value;
             $postData->save();
+            return response()->json('1');
+        }
+    }
+
+    public function postAnswerEntry($answerId, $expertId){
+        // dd('werwer');
+        $postData = PostData::where([['post_id', $answerId],['user_id', $expertId], ['type', 4]])->first();
+        if($postData){
+            $expert = Expert::where('id', $expertId)->first();
+            $count = $expert->count_useful;
+            $count--;
+            $expert->count_useful = $count;
+            $expert->update();
+
+            $postData->delete();
+
+            return response()->json('0');
+        }else{
+            $postData = new PostData();
+            $postData->user_id = $expertId;
+            $postData->post_id = $answerId;
+            $postData->type = 4;
+            $postData->save();
+
+            $expert = Expert::where('id', $expertId)->first();
+            $count = $expert->count_useful;
+            $count++;
+            $expert->count_useful = $count;
+            $expert->update();
+
             return response()->json('1');
         }
     }
@@ -139,10 +212,11 @@ class PostController extends Controller
     }
 
     public function report($postId){
-        return view('consultdetail.report', compact('postId'));
+        $post = Post::where('id', $postId)->first();
+        return view('consultdetail.report', compact('post'));
     }
 
-    public function reportEnd(Request $request){
+    public function reportEnd(Request $request, AdminSendMail $AdminSendMail, MailClass $MailClass){
 
         $validator = Validator::make($request->all(), [
             'body' => 'required',
@@ -157,11 +231,21 @@ class PostController extends Controller
         $postReport->user_id = Auth::user()->id;
         $postReport->body = $request->body;
         $postReport->save();
-        return view('consultdetail.reportend');
+
+        $post = Post::where('id', $request->post_id)->first();
+        $datas['body'] = $request->body;
+        $datas['post_name'] = $post->post_name;
+        $AdminSendMail->datas = $datas;
+        $adminAddress = env('MAIL_USERNAME');
+
+        $MailClass->send($AdminSendMail, $adminAddress);
+
+        return view('consultdetail.reportend', compact('post'));
     }
 
     public function reportAdd($postId){
-        return view('consultdetail.reportaddition', compact('postId'));
+        $post = Post::where('id', $postId)->first();
+        return view('consultdetail.reportaddition', compact('post'));
     }
 
     public function reportAddEnd(Request $request){

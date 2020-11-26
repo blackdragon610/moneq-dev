@@ -8,7 +8,7 @@
 
             <div class="row">
                 <div class="col-md-12 col-lg-12">
-                    <p class="keepTwoLine">「<span><b>保険のことで質問です</b></span>」の通報が完了しました。</p>
+                    <p class="keepTwoLine">「<span><b>{{$post->post_name}}</b></span>」の通報が完了しました。</p>
 
                         <section>
                             <div class="row">

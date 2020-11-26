@@ -13,6 +13,7 @@
                     <hr class="mt-2 mb-3"/>
 
                     {{Form::open(['url'=> route('profiles.email.update'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
+                        <input type="hidden" name="mode" value="email"/>
                         <section>
                             @include('layouts.parts.editor.text', ["type" => "email", 'name' => 'email', 'contents' => 'class="form-control" placeholder="メールアドレスを入力"'])<br />
                         </section>

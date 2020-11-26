@@ -11,15 +11,17 @@
         <div class="container-fluid">
             <div class="row pl-2">
                 <span class="name">今月はあと 3回 相談ができます。</span>
-                <span class="age">再質問権 0件</span>
+                <a id="reQ" class="text-dark">再質問権 0件</a>
             </div>
         </div>
 
         {{Form::open(['url'=> route('post.store'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
+            <meta name="csrf-token" content="{{ csrf_token() }}" />
+            <input type="hidden" name="post_id" id="post_id" value="{{$inputs['post_id']}}">
             <section>
                 <div class="container-fluid pl-2">
-                    <p><a href="#" class="text-dark" target="_blank"><i class="fa fa-warning"></i> はじめて専門家に相談する方へ</a></p>
-                    <p><a href="#" class="text-dark" target="_blank"><i class="fa fa-stop"></i> 相談の禁止事項</a></p>
+                    <p><a id="firstQ" class="text-dark"><i class="fa fa-warning"></i> はじめて専門家に相談する方へ</a></p>
+                    <p><i class="fa fa-stop"></i> 相談の禁止事項</p>
                     <p>よくある相談の禁止事項</p>
                     <ul>
                         <li><i class="fa fa-check"></i>個人情報の記載</li>
@@ -69,18 +71,13 @@
                 @include('layouts.parts.editor.textarea', ['name' => 'body', "contents" => ""])<br />
             </section>
             <section>
-                <label for="" >タグ</label><span class="text-danger">(必須)</span>
-                @include('layouts.parts.editor.text', ["type" => "text", 'name' => 'tag',  'contents' => 'placeholder=""'])<br />
-            </section>
-
-            <section>
                 <div class="row">
                     <div class="col text-center btnLayer">
                         @if (!empty($isConfirmation))
                             {!! Form::submit('修正', ['class' => 'btnSubmit', 'name' => 'reInput']) !!}
                             {!! Form::submit('確定', ['class' => 'btnSubmit', 'name' => 'end']) !!}
                         @else
-                            <button class="btnSubmit">一時保存</button>
+                            <button class="btnSubmit" id="preSave">一時保存</button>
                             <button class="btnSubmit">相談を投稿</button>
                         @endif
                     </div>
@@ -92,7 +89,68 @@
 
     </div>
 </div>
+@include('layouts.modals.firstQuery')
+@include('layouts.modals.reQuery')
 
-<div
+<script>
+    $("#preSave").click(function (e) {
+
+        $('.error-box').remove();
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        })
+
+        e.preventDefault();
+        var formData = {
+            post_id: $('#post_id').val(),
+            post_name: $('#post_name').val(),
+            sub_category_id: $('#sub_category_id').val(),
+            body: $('#body').val()
+        }
+
+        var type = "POST"; //for creating new resource
+        $.ajax({
+            type: type,
+            url: "{{route('post.preStore')}}",
+            data: formData,
+            success: function (data) {
+                console.log(data['ok']);
+                if(!data['ok']){
+                    $.each(data.errors, function (i, error) {
+                        var el = $(document).find('[name="'+i+'"]');
+                        el.after($('<p class="error-box">'+error[0]+'</p>'));
+                    });
+                }else{
+                    $('#post_id').val(data['ok']);
+                    $('.toast').toast('show');
+                }
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+    });
+
+    $('#firstQ').click(function(e){
+        $('#firstModal').modal('show');
+    })
+
+    $('#reQ').click(function(e){
+        $('#rQModal').modal('show');
+    })
+
+    $('#fBtn').click(function(e){
+        $('#firstModal').modal('hide');
+    })
+
+    $('#rBtn').click(function(e){
+        $('#rQModal').modal('hide');
+    })
+</script>
+
 
 @endsection
+

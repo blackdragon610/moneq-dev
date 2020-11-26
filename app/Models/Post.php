@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\User;
 use App\Models\PostAnswer;
 use App\Models\PostAdd;
+use App\Models\PostData;
 use App\Models\Expert;
 
 class Post extends ModelClass
@@ -17,9 +18,10 @@ class Post extends ModelClass
     ];
 
 
-    public function saveEntry(array $datas, int $userId)
+    public function saveEntry(array $datas, int $userId, int $flag)
     {
         $datas["user_id"] = $userId;
+        $datas['status'] = $flag;
 
         $Model = clone $this;
 
@@ -30,6 +32,33 @@ class Post extends ModelClass
         return $Model;
     }
 
+    public function updateEntry(array $datas, $id, int $flag)
+    {
+
+        $Model = clone $this;
+        $model = $Model->where('id',$id)->first();
+        $datas['status'] = $flag;
+
+        $model->setModel($datas);
+        $model->save();
+
+        return $model;
+    }
+
+    public function updatePostReadCount(Post $post){
+        if($post->user_id == \Auth::user()->id) return;
+
+        $count = $post->count_access;
+        $count++;
+        $post->count_access = $count;
+        $post->update();
+    }
+
+    public function getRepost() {
+        $Model = clone $this;
+        $Model = $Model->where([['user_id', \Auth::user()->id],['status', 1]])->first();
+        return $Model;
+    }
     /**
      * 相談数の取得
      * @param  User  $User
@@ -48,13 +77,21 @@ class Post extends ModelClass
         return $Model->count();
     }
 
-    public function isFirst(){
-        $Model = clone $this;
-        $model = $Model->whereUserId(Auth::user()->id)->first();
-        if($model)  return 0;
-        else    return 1;
-    }
 
+    public function isAnswerCheck(Post $post){
+        $answerId = $post->post_answer_id;
+        if($answerId != 0)  return $answerId;
+        else{
+            $postDate = date_create($post->created_at);
+            $curDate = date_create(date('Y-m-d'));
+
+            $interval = date_diff($curDate, $postDate);
+            $misDay = $interval->format('%a');
+            if($misDay > 30)    return -1;
+            else    return 0;
+
+        }
+    }
     /**
      *  ステータスが2（公開済み）飲み取得
      * @param $query
@@ -75,4 +112,5 @@ class Post extends ModelClass
     public function adds(){
         return $this->hasMany(PostAdd::class);
     }
+
 }

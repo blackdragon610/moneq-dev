@@ -2,13 +2,18 @@
     <div class="row">
         <img src="/images/insurance-icon.png" alt="">
         <h5 class="font-weight-bold pl-2">{{$post->post_name}}</h5>
-        @if($post->post_answer_id != 0)
-            <img src="/images/solved-icon.png" class="ml-auto">
-        @endif
+        <div id="dataHelpAlert" class="ml-auto">
+            @if($post->post_answer_id != 0)
+                <img src="/images/solved-icon.png">
+            @else
+                <p>回答待ち</p>
+            @endif
+        </div>
     </div>
     <div class="row">
         <span class="name">{{$post->user->nickname.'さん'}}</span>
         <span class="age">{{$post->user->date_birth}}</span>
+        <span class="gender">{{'/'.$post->user->gender}}</span>
         <span class="ml-auto pr-1">{{$post->created_at->format('Y/m/d')}}</span>
     </div>
     <div class="row">
@@ -25,7 +30,7 @@
             </div>
         @endforeach
     @endif
-    @if($isUser == 0)
+    @if($isUser == 1)
         <div class="row">
             <button class="btn btn-default" type="button" id="dataSave">
                 <i class="fa fa-bookmark-o <?php if($sPost !=0) echo 'fa_custom'?>" id="fa"></i> 保存する
@@ -59,6 +64,7 @@
             type: "GET",
             url: "{{url('/post/data/')}}" + '/' + '{{$post->id}}' + '/2',
             success: function (data) {
+                console.log('Error:', data);
                 if(data == 1){
                     $('#fa').addClass('fa_custom');
                 }else{
@@ -74,7 +80,7 @@
 
         $.ajax({
             type: "GET",
-            url: "{{url('/post/data/')}}" + '/' + '{{$post->id}}' + '/2',
+            url: "{{url('/post/data/')}}" + '/' + '{{$post->id}}' + '/3',
             success: function (data) {
                 if(data == 1){
                     $('#heart').addClass('fa_custom');

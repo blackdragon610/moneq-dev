@@ -89,10 +89,10 @@ class ExpertProfileController extends Controller
 
     public function message(Category $Category, $expertId){
 
-        if (Auth::user()->pay_status == 1){
-            header("Location:/error/notsee");
-            exit();
-        }
+        // if (Auth::user()->pay_status == 1){
+        //     header("Location:/error/notsee");
+        //     exit();
+        // }
 
         $categories = $Category->getSelectAll();
         return view('experts.message', compact('expertId', 'categories'));

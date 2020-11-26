@@ -22,14 +22,14 @@ class PostData extends ModelClass
 
     public function getPostStoreData($userId, $postId){
         $PostData = clone $this;
-        $postData = $PostData->where([['user_id',$userId],['post_id', $postId], ['type',2]]);
+        $postData = $PostData->where([['user_id',$userId],['post_id', $postId], ['type',2]])->first();
         if($postData)   return 1;
         else    return 0;
     }
 
     public function getPostHelpData($userId, $postId){
         $PostData = clone $this;
-        $postData = $PostData->where([['user_id',$userId],['post_id', $postId], ['type',3]]);
+        $postData = $PostData->where([['user_id',$userId],['post_id', $postId], ['type',3]])->first();
         if($postData)   return 1;
         else    return 0;
     }

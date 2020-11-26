@@ -14,7 +14,9 @@
                         <section>
                             <div class="container">
                                 <div class="col text-center">
-                                    <p class="keepTwoLine">相談投稿を完了しました。専門家から回答が来るまで少々お待ちください。相談の詳細は下記から確認できます。</p>
+                                    <p>相談投稿を完了しました。</p>
+                                    <p>専門家から回答が来るまで少々お待ちください。</p>
+                                    <p>相談の詳細は下記から確認できます。</p>
                                 </div>
                             </div>
                             <div class="row">

@@ -70,13 +70,12 @@
                 <section >
                     <div class="row pt-5">
                         <div class="container-fluid whitepanel" id="expertA">
-                            <h5 class="font-weight-bold p-2">2名の専門科が回答しています</h5>
+                        <h5 class="font-weight-bold p-2">{{count($postAnswer)}}名の専門科が回答しています</h5>
                             <hr class="mt-2 mb-3"/>
                             @foreach ($postAnswer as $item)
                                 @include('layouts.parts.custom.answer', ["type" => "answer", 'name' => 'answer',
                                                                         'contents' => $item, 'isUser'=>$isUser,
-                                                                        'memberFlag'=>$post->user->pay_status,
-                                                                        'postAnswerId'=>$post->post_answer_id])
+                                                                        'post'=>$post])
                             @endforeach
                             @if($post->user->pay_status == 1)
                             <div class="container-fluid whitepanel pb-3 pt-3">
@@ -116,4 +115,5 @@
         </div>
     </div>
 </div>
+
 @endsection

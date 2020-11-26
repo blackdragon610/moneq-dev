@@ -34,10 +34,10 @@
         @endif
     @endif
 
-	<input type="hidden" name="{{$name}}" value="{{getVariable($inputs, $name)}}">
+	<input type="hidden" name="{{$name}}" id="{{$name}}" value="{{getVariable($inputs, $name)}}">
 @else
 
-	<select class="form-control" name="{{$name}}" {!! $contents !!} >
+	<select class="form-control" name="{{$name}}" id="{{$name}}" {!! $contents !!} >
 		@if (isset($first))
 			<option value="0">{!! $first !!}</option>
 		@endif

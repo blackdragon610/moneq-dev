@@ -6,15 +6,15 @@
 
 <script>
 $(function(){
-	$('.date').pickadate();		
+	$('.date').pickadate();
 });
 </script>
 
 @if (!empty($isConfirmation))
 	{{getVariable($inputs, $name)}}
-	<input type="hidden" name="{{$name}}" value="{{getVariable($inputs, $name)}}">		
+	<input type="hidden" name="{{$name}}" id="{{$name}}" value="{{getVariable($inputs, $name)}}">
 @else
-	<input type="text" class="date @if (isset($class)){{$class}}@endif" name="{{$name}}" <?php echo $contents; ?> value="@if (isset($inputs)){{getVariable($inputs, $name)}}@endif" />
-	
+	<input type="text" class="date @if (isset($class)){{$class}}@endif" name="{{$name}}"  id="{{$name}}"<?php echo $contents; ?> value="@if (isset($inputs)){{getVariable($inputs, $name)}}@endif" />
+
 	@include('layouts.parts.editor.error')
 @endif

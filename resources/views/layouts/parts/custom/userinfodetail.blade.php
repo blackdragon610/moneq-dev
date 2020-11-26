@@ -44,11 +44,6 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col text-center">
-                        <h5 class="font-weight-bold">個別相談」対応分野</h5>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col text-center">
                         <a href="" class="btnGreen">保険</a>
                         <a href="" class="btnBlue">ライフプラン・家計相談</a>
                     </div>
@@ -60,11 +55,6 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col text-center">
-                        <h5 class="font-weight-bold">「個別相談」対応エリア</h5>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col text-center">
                         <span>東京都</span>
                     </div>
                 </div>
@@ -72,10 +62,12 @@
         </div>
     </div>
 
-    <div class="container-fluid">
+    <div class="container-fluid pt-3">
+        <div class='text-center'>
+            <a class="btnSubmit" href='{{route('expert.message', $contents->id)}}' class='pb-3'>テスト太郎さんへ個別相談・問い合わせ</a>
+        </div>
         <div class="row">
             <div class="col text-center btnLayer">
-                <a class="btnSubmit" href='{{route('expert.message', $contents->id)}}'>テスト太郎さんへ個別相談・問い合わせ</a>
                 <div class="container">
                     <div class="col text-center">
                         <p>※個別相談は、当サービスの利用料金とは別の費用が発生する可能性があります。詳しくは専門家にお問い合わせください。

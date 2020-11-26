@@ -7,6 +7,13 @@
         <p class="keepTwoLine">{{$contents->body}}</p>
     </div>
     <div class="row pl-3">
-        <span class="ml-auto pr-3">{{$contents->created_at}}</span>
+        @if(count($contents->postData()) > 0)
+            <p class="ml-auto pr-3">役に立った : {{count($contents->postData())}}件</p>
+        @endif
+    </div>
+    <div class="row pl-3">
+            <span class="ml-auto pr-3">
+                {{$contents->created_at->format('Y/m/d')}}
+            </span>
     </div>
 </article>

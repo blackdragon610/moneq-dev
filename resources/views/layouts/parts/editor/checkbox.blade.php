@@ -5,7 +5,7 @@
 <?php if (getVariable($inputs, $name)){ ?>{{$checkValue}}<?php } ?>
 
 <?php }else{ ?>
-<label><input type="checkbox" name="{{$name}}[{{$key}}]" {{$contents}} value="1"<?php if (getVariable($inputs, $name)){ ?> checked="checked"<?php } ?> />{{$checkValue}}</label>
+<label><input type="checkbox" name="{{$name}}[{{$key}}]" id="{{$name}}[{{$key}}]" {{$contents}} value="1"<?php if (getVariable($inputs, $name)){ ?> checked="checked"<?php } ?> />{{$checkValue}}</label>
 <?php } ?>
 
 
@@ -26,13 +26,13 @@
 		<?php foreach ($checkboxs as $key => $checkbox){ ?>
             <?php if ($checkbox['select']){ ?>
                 {{$checkbox['value']}}
-                <input type="hidden" name="{{$name}}[{{$key}}]" value="{{$key}}">
+                <input type="hidden" name="{{$name}}[{{$key}}]" id="{{$name}}[{{$key}}]" value="{{$key}}">
             <?php } ?>
 
 		<?php } ?>
 <?php }else{ ?>
 		<?php foreach ($checkboxs as $key => $checkbox){ ?>
-		<label><input type="checkbox" name="{{$name}}[{{$key}}]" {{$contents}} value="{{$key}}"<?php if ($checkbox['select']){ ?> checked="checked"<?php } ?> />{{$checkbox['value']}}</label>
+		<label><input type="checkbox" name="{{$name}}[{{$key}}]" id="{{$name}}[{{$key}}]" {{$contents}} value="{{$key}}"<?php if ($checkbox['select']){ ?> checked="checked"<?php } ?> />{{$checkbox['value']}}</label>
 		<?php } ?>
 
     @include('layouts.parts.editor.error')

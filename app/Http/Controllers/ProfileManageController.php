@@ -63,8 +63,11 @@ class ProfileManageController extends Controller
 
         $datas = $this->checkForm($request);
 
-        if (!empty($datas['errors']->email)) {
-            return back()->withErrors($datas['errors'])->withInput();
+        if (!empty($datas['errors'])){
+            return view('profiles.edit.email', [
+                "errors" => $datas['errors'],
+                "inputs" => $datas["inputs"],
+            ]);
         }
 
 
@@ -99,8 +102,11 @@ class ProfileManageController extends Controller
     public function passwordUpdate(ChangeToken $ChangeToken, PasswordRequest $request, MailClass $MailClass, PasswordChangeMail $passwordMail){
         $datas = $this->checkForm($request);
 
-        if (!empty($datas['errors'])) {
-            return back()->withErrors($datas)->withInput();
+        if (!empty($datas['errors'])){
+            return view('profiles.edit.password', [
+                "errors" => $datas['errors'],
+                "inputs" => $datas["inputs"],
+            ]);
         }
 
         $ChangeToken->setTransaction("トークン登録時にエラー", function() use($ChangeToken, $datas, $MailClass, $passwordMail){
@@ -150,6 +156,29 @@ class ProfileManageController extends Controller
     }
 
     public function profileUpdate(Request $request, User $User){
+
+        // $datas = $this->checkForm($request);
+
+        // if (!empty($datas['errors'])){
+        //     return view('profiles.edit.profile', [
+        //         "errors" => $datas['errors'],
+        //         "inputs" => $datas["inputs"],
+        //     ]);
+        // }
+
+        $validator = Validator::make($request->all(), [
+            'nickname' => 'required',
+            'gender' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            // return view('profiles.edit.profile', [
+            //     "errors" => $validator->errors(),
+            //     "inputs" => $request->input(),
+            // ]);
+            return redirect()->route('profiles.profile.update')->withErrors($validator)->withInput();
+        }
+
         foreach ($request->input() as $key => $value){
             $datas[$key] = $value;
         }

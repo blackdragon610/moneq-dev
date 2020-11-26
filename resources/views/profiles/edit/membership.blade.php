@@ -22,9 +22,11 @@
                                     <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>1つの質問につき最大3回まで追加質問が可能</p>
                                     <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>過去Q&Aはすべて見放題</p>
                                     <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>回答したお金の専門家に具体的な有料相談を行うことが可能</p>
+                                    @if($user->pay_status != 2)
                                     <div class="col text-center btnLayer">
-                                        <a href="#" class="btnSelected" id="btnPlan1">選択中</a>
+                                        <a href="#" class="btnSelected" id="btnPlan1">選択する</a>
                                     </div>
+                                    @endif
                                 </article>
                             </div>
 
@@ -35,9 +37,11 @@
                                     <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>1つの質問につき最大3回まで追加質問が可能</p>
                                     <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>過去Q&Aはすべて見放題</p>
                                     <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>回答したお金の専門家に具体的な有料相談を行うことが可能</p>
+                                    @if($user->pay_status == 1)
                                     <div class="col text-center btnLayer">
-                                        <a href="#" class="btnUnselected" id="btnPlan2">選択する</a>
+                                        <a href="#" class="btnSelected" id="btnPlan2">選択する</a>
                                     </div>
+                                    @endif
                                 </article>
                             </div>
                     </section>
@@ -48,7 +52,9 @@
                     <p></p>
                     <p>無料会員への変更は即時対応します。残っている質問は引き続き今月中は使用できます。</p>
                     <p>変更のキャンセルはできませんので、予めご了承ください。</p>
+                    @if($user->pay_status != 1)
                         <a href="{{route('profiles.membership.payment.delete')}}" class="text-dark">課金停止</a>
+                    @endif
                     <p></p>
                 </div>
             </div>
@@ -56,23 +62,5 @@
 
     </div>
 </div>
-
-<script>
-$('#btnPlan1').click(function(e) {
-    $('#btnPlan1').addClass('btnSelected').removeClass('btnUnselected');
-    $('#btnPlan2').addClass('btnUnselected').removeClass('btnSelected');
-    $('#btnPlan1').html('選択中');
-    $('#btnPlan3').html('選択する');
-});
-
-$('#btnPlan2').click(function(e) {
-    $('#btnPlan2').addClass('btnSelected').removeClass('btnUnselected');
-    $('#btnPlan1').addClass('btnUnselected').removeClass('btnSelected');
-    $('#btnPlan2').html('選択中');
-    $('#btnPlan1').html('選択する');
-});
-
-
-</script>
 
 @endsection

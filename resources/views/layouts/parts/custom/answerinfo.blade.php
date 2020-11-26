@@ -1,6 +1,9 @@
 <article>
+
     <div class="col-3 pt-2">
-        <img src="http://placehold.it/50x50?text=P" alt="">
+        <a style="width:30px;height:30px;" href="{{route('expert.detail', $contents->id)}}">
+            <img src="http://placehold.it/50x50?text=P" alt="">
+        </a>
     </div>
     <div class="col-9 pt-2">
             <div class="container-fluid">
