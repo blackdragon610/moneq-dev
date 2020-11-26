@@ -685,6 +685,18 @@ div .grey-round-tag {
     margin-bottom: -1px;
 }
 
+.title-medium {
+    font-family: NotoSans-JP-Medium;
+    font-size: 32px !important;
+    color: #221815; 
+    margin-top:72px;   
+}
+.label-medium {
+    font-family: NotoSans-JP-Medium;
+    font-size: 16px !important;
+    color: #221815; 
+}
+
 /* ----------- */
 article #article {
     padding:30px !important;
@@ -917,33 +929,64 @@ span.answers {
 }
 
 .line {
-    background-color: #00ff00;
+    background-color: #00B900;
     color: white;
     width:100%;
+    height: 50px;
+    font-family: NotoSans-JP-Medium;
+    font-size: 16px !important;
+    line-height: 34px !important;
 }
 
+.left-icon-holder {
+    position:relative;
+}
+.left-icon-holder .fa {
+    position:absolute;
+    line-height: 34px;
+    top:50%;
+    margin-top: -17px; /* Half of line height to keep left middle postion of container */
+    left: 10px;
+}
 .yahoo {
-    background-color: red;
+    background-color: #DD4B39;
     color: white;
     width:100%;
+    height: 50px;
+    font-family: NotoSans-JP-Medium;
+    font-size: 16px !important;
+    line-height: 34px !important;
 }
 
 .fb {
-    background-color: #3B5998;
+    background-color: #3C5B9B;
     color: white;
     width:100%;
+    height: 50px;
+    font-family: NotoSans-JP-Medium;
+    font-size: 16px !important;
+    line-height: 34px !important;
 }
 
 .twitter {
-    background-color: #55ACEE;
+    background-color: #2DAAE1;
     color: white;
     width:100%;
+    height: 50px;
+    font-family: NotoSans-JP-Medium;
+    font-size: 16px !important;
+    line-height: 34px !important;
 }
 
 .google {
-    background-color: #dd4b39;
-    color: white;
+    background-color: white;
+    color: #DD4B39;
+    border: 1px solid #DD4B39;
     width:100%;
+    height: 50px;
+    font-family: NotoSans-JP-Medium;
+    font-size: 16px !important;
+    line-height: 34px !important;
 }
 
 .btn {
