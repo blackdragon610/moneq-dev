@@ -115,6 +115,7 @@
         @include('layouts.parts.editor.radioV', ['name' => 'experts', "data" => $experts , "keyValue" => "", 'contents' => 'class="form-control"'])
     </div>
 
+    <button class="yellow-btn-fluid">専門家に相談する</button>
 </div>
 
 <script>
