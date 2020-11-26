@@ -172,6 +172,25 @@ header .description #heading3 {
     letter-spacing: 2px;
 }
 
+div#searchbar.input-group {
+    margin-top: 12px;
+    height: 50px;
+    font-family: NotoSansCJK-JP-Medium;
+    font-size: 17px !important;
+}
+div#searchbar.input-group input {
+    width: 520px;
+    border: 1px solid #e3e3e3;
+    padding: 0px 0px 0px 10px;
+}
+div#searchbar.input-group button {
+    max-width: 52px !important;
+    min-width: 52px !important;
+    background-color: #ee7800;
+    border-radius: 0px 6px 6px 0px;
+    border: 1px solid #e3e3e3;
+}
+
 footer #description {
     font-family: NotoSans-Regular;
     font-size: 14px !important;
@@ -572,6 +591,15 @@ footer p {
     font-size: 13px !important;
     color: white;
 }
+.orange-btn-200-50{
+    background-color: #ee7800;
+    width: 200px !important;
+    height: 50px !important;
+    line-height: 34px !important;
+    font-family: NotoSans-JP-Medium;
+    font-size: 16px !important;
+    color: white;
+}
 .yellow-roundbtn-150-30{
     background-color: #ffd800;
     width: 150px !important;
@@ -579,6 +607,14 @@ footer p {
     border-radius: 15px !important;
     font-family: NotoSans-JP-Regular;
     font-size: 13px !important;
+    color: black;
+}
+.yellow-btn-106-35 {
+    width: 106px !important;
+    height: 35px !important;
+    background-color: #ffd800;
+    font-family: NotoSans-JP-Regular;
+    font-size: 14px !important;
     color: black;
 }
 .white-roundbtn-150-30{
@@ -614,6 +650,9 @@ div .grey-round-tag {
     border-radius: 12px !important;
 }
 
+.breadcrumb-item + .breadcrumb-item::before {
+    content: ">";
+}
 .nav .nav-link {
     color: #9B9B9B;
     border-bottom: 2px solid #9B9B9B;
@@ -785,7 +824,18 @@ article .notice p#description {
 
 
 
-
+/* ---------------- */
+.collapsible {
+    background-color: white;
+    color: #221815;
+    cursor: pointer;
+    width: 100%;
+    border-bottom: 1px solid #b8b8b8;
+    text-align: left;
+    outline: none;
+    font-family: NotoSans-JP-Medium;
+    font-size: 14px;
+}  
 
 
 
@@ -851,7 +901,7 @@ span.answers {
 .keepTwoLine {
     overflow: hidden;
     line-height: 1.5em;
-    height: 3.5em;
+    height: 3.25em;
 }
 
 .underlineFor {
@@ -892,6 +942,19 @@ span.answers {
     border-radius: 0px;
 }
 
+.btn-tag-brown {
+    background-color: #221815; /* Green */
+    border: none;
+    color: white;
+    padding: 2px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+  
 .fa-bell-o[data-count]:after{
     position:absolute;
     right:15%;
