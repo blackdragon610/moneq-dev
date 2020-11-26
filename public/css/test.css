@@ -24,6 +24,10 @@
     src: url('../fonts/NotoSansJP-Regular.otf');
 }
 @font-face {
+    font-family: NotoSans-Regular;
+    src: url('../fonts/NotoSans-Regular.ttf');
+}
+@font-face {
     font-family: SFProText-Regular;
     src: url('../fonts/FontsFree-Net-SFProText-Regular.ttf');
 }
@@ -168,6 +172,21 @@ header .description #heading3 {
     letter-spacing: 2px;
 }
 
+footer #description {
+    font-family: NotoSans-Regular;
+    font-size: 14px !important;
+    color: white;
+    margin-top: 15px;
+}
+
+footer a{
+    font-family: NotoSans-JP-Medium;
+    font-size: 14px !important;
+    color: black;
+}
+footer p {
+    margin-bottom: 6px;    
+}
 /* ------------- */
 
 .sectionbar1 {
@@ -773,7 +792,7 @@ article .notice p#description {
 
 /* ------------- */
 .blackpanel {
-    background-color: black;
+    background-color: #221815;
 }
 
 .lightgreypanel {

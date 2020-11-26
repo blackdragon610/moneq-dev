@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta http-equiv="Pragma" content="no-cache">
 		<meta http-equiv="Cache-Control" content="no-cache">
@@ -28,7 +28,7 @@
         @endif
 	</head>
 
-	<body class="lightgreypanel">
+	<body class="whitepanel">
 		@include('layouts.parts.header')
 		@yield('main')
 		@include('layouts.parts.footer')
