@@ -256,6 +256,12 @@ class PostController extends Controller
     }
 
     public function reportAdd($postId){
+
+        if(isLogin() == -1){
+            header("Location:/error/notsee");
+            exit();
+        }
+
         $post = Post::where('id', $postId)->first();
         return view('consultdetail.reportaddition', compact('post'));
     }
