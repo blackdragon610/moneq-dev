@@ -1,5 +1,7 @@
 <p>------------------------------</p>
 
+<p>下記内容の相談がありました。</p>
+<br/>
 <p>姓名 : {{$datas['data']['surname'].$datas['data']['lastname']}}</p>
 <p>メールアドレス : {{$datas['data']['userEmail']}}</p>
 <p>相談・問い合わせの種類 : {{$datas['data']['kind']}}</p>

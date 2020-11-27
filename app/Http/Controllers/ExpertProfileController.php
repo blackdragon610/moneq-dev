@@ -134,7 +134,7 @@ class ExpertProfileController extends Controller
 
         $datas = array(
             'email' => $expertAddress,
-            'subject' => 'Testing',
+            'subject' => '相談がありました',
             'data' => $data,
           );
 

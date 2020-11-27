@@ -241,7 +241,7 @@ class PostController extends Controller
 
         $datas = array(
             'email' => 'again5651@gmail.com',
-            'subject' => 'Testing',
+            'subject' => '通報がありました',
             'data' => $data,
           );
 
