@@ -9,7 +9,7 @@
 
         {{Form::open(['url'=> route('expert.message.send'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
 
-            <input type="hidden" value={{$expertId}} name = 'expert_id'>
+            <input type="hidden" value='{{$expertId}}' name = 'expert_id'>
             <section>
                 <div class="row">
                     <img src="http://placehold.it/50x50?text=P" alt="">
@@ -55,7 +55,7 @@
                 <div class="row">
                     <div class="col">
                         <label class="font-weight-bold">電話によるご連絡を希望の方</label><span class="text-danger">(必須)</span><br />
-                        @include('layouts.parts.editor.select', ['name' => 'kind', "file" => $categories, "keyValue" => "", 'contents' => 'class="form-control textCenter p-0 "'])
+                        @include('layouts.parts.editor.text', ["type" => "text", 'name' => 'hope', 'contents' => 'class="form-control", placeholder=""'])
                     </div>
                     <div class="col">
                         <label class="font-weight-bold">ご希望の連絡時間</label><span class="text-danger">(必須)</span><br />

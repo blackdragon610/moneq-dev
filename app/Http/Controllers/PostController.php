@@ -123,7 +123,9 @@ class PostController extends Controller
         $postAdd = $post->find($postId)->adds;
         $postAnswer = $post->find($postId)->answers;
 
-        $isUser = isUser($post->user->id);
+        if(isLogin() == 1){
+            $isUser = isUser($post->user->id);
+        }else $isUser = -1;
 
         if($isUser == 0){
             $postData = $PostData->getPostHistoryData($post->user->id, $postId);
@@ -233,12 +235,22 @@ class PostController extends Controller
         $postReport->save();
 
         $post = Post::where('id', $request->post_id)->first();
-        $datas['body'] = $request->body;
-        $datas['post_name'] = $post->post_name;
-        $AdminSendMail->datas = $datas;
-        $adminAddress = env('MAIL_USERNAME');
+        $data['body'] = $request->body;
+        $data['post_name'] = $post->post_name;
+        // $adminAddress = env('MAIL_USERNAME');
 
-        $MailClass->send($AdminSendMail, $adminAddress);
+        $datas = array(
+            'email' => 'again5651@gmail.com',
+            'subject' => 'Testing',
+            'data' => $data,
+          );
+
+        \Mail::send('messages.emails.expert_send', compact('datas'), function($message) use ($datas){
+            $message->to($datas['email']);
+            $message->from(config('mail.username'));
+            $message->subject($datas['subject']);
+        });
+
 
         return view('consultdetail.reportend', compact('post'));
     }

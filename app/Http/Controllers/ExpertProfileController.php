@@ -70,6 +70,11 @@ class ExpertProfileController extends Controller
     }
 
     public function detail(PostAnswer $PostAnswer, PostData $PostData, $expertId){
+
+        if(isLogin() == -1){
+            header("Location:/error/notsee");
+            exit();
+        }
         $expert = Expert::where('id',$expertId)->first();
         $expert->date_birth = getEra($expert->date_birth);
 
@@ -93,7 +98,7 @@ class ExpertProfileController extends Controller
         //     header("Location:/error/notsee");
         //     exit();
         // }
-
+            // dd($expertId);
         $categories = $Category->getSelectAll();
         return view('experts.message', compact('expertId', 'categories'));
     }
@@ -108,7 +113,7 @@ class ExpertProfileController extends Controller
             'lastnameen' => 'required',
             'job' => 'required',
             'description' => 'required',
-            'kind' => 'required',
+            'hope' => 'required',
             'hopetime' => 'required',
         ]);
 
@@ -120,13 +125,26 @@ class ExpertProfileController extends Controller
         $job = configJson('custom/job');
         $data = $request->all();
         $categories = $subCategory->where('id', $request->kind)->first();
+        $data['userEmail'] = \Auth::user()->email;
         $data['kind'] = $categories->sub_name;
         $data['job'] = $job[$request->job];
         $ExpertSendMail->datas = $data;
         $expert = $Expert->where('id', $request->expert_id)->first();
+
         $expertAddress = $expert->email;
 
-        $MailClass->send($ExpertSendMail, $expertAddress);
+        $datas = array(
+            'email' => $expertAddress,
+            'subject' => 'Testing',
+            'data' => $data,
+          );
+
+        \Mail::send('messages.emails.expert_send', compact('datas'), function($message) use ($datas){
+            $message->to($datas['email']);
+            $message->from(config('mail.username'));
+            $message->subject($datas['subject']);
+        });
+
         return redirect('/');
 
     }

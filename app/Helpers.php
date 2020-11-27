@@ -255,8 +255,9 @@
             if($sub>5)  $sub = '代後半';
             else    $sub = '代前半';
             return $year.$sub;
+        }else{
+            return '10歳未満';
         }
-        return $age;
     }
 
     function isUser($id){
@@ -265,5 +266,13 @@
         }else{
             return 0;
         }
+    }
+
+    function isLogin(){
+        $token = \Cookie::get('custom_token');
+        if($token){
+            return 1;
+        }else return -1;
+
     }
 ?>

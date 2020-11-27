@@ -23,7 +23,7 @@
         </div>
         <p id="heading3" class="mt-0 mb-0">\ さっそく、お金の悩みを専門家に相談する /</p>
         <div class="col text-center">
-            @if(Cookie::has('token'))
+            @if(Cookie::has('custom_token'))
                 <a href="{{route('post.create')}}" class="btn">今すぐ登録して、専門家に相談する</a>
             @else
                 <a href="{{route('entry')}}" class="btn">今すぐ登録して、専門家に相談する</a>
@@ -233,7 +233,7 @@
             </div>
             <div class="row">
                 <div class="col text-center">
-                    @if(Cookie::has('token'))
+                    @if(Cookie::has('custom_token'))
                         <a href="{{route('post.create')}}" class="btn btn-outline-orange mx-2">今すぐ登録して、専門家に相談する</a>
                     @else
                         <a href="{{route('entry')}}" class="btn btn-outline-orange mx-2">今すぐ登録して、専門家に相談する</a>
@@ -395,7 +395,7 @@
                     </div>
                     <div class="row">
                         <div class="col text-center">
-                            @if(Cookie::has('token'))
+                            @if(Cookie::has('custom_token'))
                             <a href="{{route('post.create')}}" class="btn btn-outline-orange mx-2">今すぐ登録して、専門家に相談する</a>
                             @else
                                 <a href="{{route('entry')}}" class="btn btn-outline-orange mx-2">今すぐ登録して、専門家に相談する</a>

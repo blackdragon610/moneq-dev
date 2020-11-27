@@ -46,7 +46,6 @@ class Post extends ModelClass
     }
 
     public function updatePostReadCount(Post $post){
-        if($post->user_id == \Auth::user()->id) return;
 
         $count = $post->count_access;
         $count++;

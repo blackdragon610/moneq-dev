@@ -19,6 +19,8 @@ class MailClass
         }
 
         $this->class = $class;
+        $this->class->from = Array(env('MAIL_HOST'));
+        $this->class->to = Array($to);
 
         $this->class->datas["domain"] = getMyURL();
 
@@ -30,6 +32,7 @@ class MailClass
     }
 
     public function mail(){
-        Mail::to($this->to)->send($this->class);
+        // dd(Mail::to([$this->to]));
+        Mail::to([$this->to])->send($this->class);
     }
 }

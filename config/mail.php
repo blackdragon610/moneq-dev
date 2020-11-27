@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_HOST'),
-        'name' => "moneq",
+        'address' => null,
+        'name' => null,
     ],
     // 'to' => [
     //     'address' => env('MAIL_TO_ADDRESS', 'makoto@tejima.jp'),

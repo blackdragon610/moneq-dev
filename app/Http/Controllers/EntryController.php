@@ -147,7 +147,7 @@ class EntryController extends Controller
 
             $custom_token = Common::tokenSet(0, $user_id, $email);
 
-            Cookie::queue('token', $custom_token, 120);
+            Cookie::queue('custom_token', $custom_token, 120);
 
             $userToken->delete();
 

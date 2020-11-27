@@ -6,7 +6,7 @@
         </div>
         <nav class="navbar navbar-expand-sm navbar-light col-sm-3">
             <!-- AFTER LOGIN -->
-            @if(Cookie::has('token'))
+            @if(Cookie::has('custom_token'))
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-3" aria-controls="navbarSupportedContent-3" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -48,7 +48,7 @@
             @endif
 
             <!-- Before LOGIN  -->
-            @if(!Cookie::has('token'))
+            @if(!Cookie::has('custom_token'))
             <div class="nav navbar-nav ml-auto p-0">
                 <div class="btn-toolbar d-flex justify-content-end p-0 align-items-center">
                     <a href="{{ url('/entry') }}" id="btnRegister"><span class="bdyellow">@lang('string.register')</span></a>

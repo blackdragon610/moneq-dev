@@ -1,16 +1,10 @@
+<p>------------------------------</p>
 
-----------------------------
-姓名     {{$item->surname.$$item->lastname}}
-セイメイ {{$item->surenameen.$item->lastnameen}}
+<p>姓名 : {{$datas['data']['surname'].$datas['data']['lastname']}}</p>
+<p>メールアドレス : {{$datas['data']['userEmail']}}</p>
+<p>相談・問い合わせの種類 : {{$datas['data']['kind']}}</p>
+<p>相談・問い合わせ内容 : {{$datas['data']['description']}}</p>
+<p>電話によるご連絡を希望の方 : {{$datas['data']['hope']}}</p>
+<p>ご希望の連絡時間 : {{$datas['data']['hopetime']}}</p>
 
-
-相談・問い合わせの種類 {{$item->job}}
-
-相談・問い合わせ内容   {{$item->description}}
-
-電話によるご連絡を希望の方 {{$item->kind}}
-ご希望の連絡時間          {{$item->hopetime}}
-
-------------------------------
-
-
+<p>------------------------------</p>

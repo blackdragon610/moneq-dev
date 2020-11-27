@@ -72,11 +72,13 @@
                         <div class="container-fluid whitepanel" id="expertA">
                         <h5 class="font-weight-bold p-2">{{count($postAnswer)}}名の専門科が回答しています</h5>
                             <hr class="mt-2 mb-3"/>
-                            @foreach ($postAnswer as $item)
-                                @include('layouts.parts.custom.answer', ["type" => "answer", 'name' => 'answer',
-                                                                        'contents' => $item, 'isUser'=>$isUser,
-                                                                        'post'=>$post])
-                            @endforeach
+                            @if($isUser != -1)
+                                @foreach ($postAnswer as $item)
+                                    @include('layouts.parts.custom.answer', ["type" => "answer", 'name' => 'answer',
+                                                                            'contents' => $item, 'isUser'=>$isUser,
+                                                                            'post'=>$post])
+                                @endforeach
+                            @endif
                             @if($post->user->pay_status == 1)
                             <div class="container-fluid whitepanel pb-3 pt-3">
                                 <div class="container border border-dark pb-3">

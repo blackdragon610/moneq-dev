@@ -15,7 +15,7 @@ class PostData extends ModelClass
 
     public function getPostHistoryData($userId, $postId){
         $PostData = clone $this;
-        $postData = $PostData->where([['user_id',$userId],['post_id', $postId]]);
+        $postData = $PostData->where([['user_id',$userId],['post_id', $postId]])->first();
         if($postData)   return $postData;
         else    return $PostData;
     }
