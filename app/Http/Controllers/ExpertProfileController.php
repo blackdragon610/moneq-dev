@@ -113,6 +113,7 @@ class ExpertProfileController extends Controller
             'lastnameen' => 'required',
             'job' => 'required',
             'description' => 'required',
+            'kind' => 'required',
             'hope' => 'required',
             'hopetime' => 'required',
         ]);
@@ -122,12 +123,10 @@ class ExpertProfileController extends Controller
         }
 
         //トークンの保存と送信
-        $job = configJson('custom/job');
         $data = $request->all();
         $categories = $subCategory->where('id', $request->kind)->first();
         $data['userEmail'] = \Auth::user()->email;
         $data['kind'] = $categories->sub_name;
-        $data['job'] = $job[$request->job];
         $ExpertSendMail->datas = $data;
         $expert = $Expert->where('id', $request->expert_id)->first();
 

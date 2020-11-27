@@ -43,7 +43,7 @@
 
             <section>
                 <label class="font-weight-bold">相談・問い合わせの種類</label><span class="text-danger">(必須)</span><br />
-                @include('layouts.parts.editor.select', ['name' => 'job', "file" => configJson("custom/job"), "keyValue" => "", 'contents' => 'class="form-control textCenter p-0"'])
+                @include('layouts.parts.editor.select', ['name' => 'kind', "file" => $categories, "keyValue" => "", 'contents' => 'class="form-control textCenter p-0"'])
             </section>
 
             <section>

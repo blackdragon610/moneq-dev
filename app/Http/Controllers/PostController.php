@@ -245,7 +245,7 @@ class PostController extends Controller
             'data' => $data,
           );
 
-        \Mail::send('messages.emails.expert_send', compact('datas'), function($message) use ($datas){
+        \Mail::send('messages.emails.admin', compact('datas'), function($message) use ($datas){
             $message->to($datas['email']);
             $message->from(config('mail.username'));
             $message->subject($datas['subject']);
