@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9ace4e403e450d8077e03764533422b7",
+    "content-hash": "1c730cae1ac97512d255595f797690b3",
     "packages": [
         {
             "name": "brozot/laravel-fcm",
@@ -3936,6 +3936,115 @@
                 "source": "https://github.com/rize/UriTemplate/tree/master"
             },
             "time": "2017-06-14T03:57:53+00:00"
+        },
+        {
+            "name": "sanmai/gmopg",
+            "version": "v1.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sanmai/gmopg.git",
+                "reference": "75d738be28a6b4b24bf5654b66f6bd379106ed45"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sanmai/gmopg/zipball/75d738be28a6b4b24bf5654b66f6bd379106ed45",
+                "reference": "75d738be28a6b4b24bf5654b66f6bd379106ed45",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6",
+                "php": "^7.0",
+                "sanmai/pipeline": "^0.3.2|^2.0|^3.0.1"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.6",
+                "php-coveralls/php-coveralls": ">=1.0",
+                "phpunit/phpunit": "^6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "GMO\\": "src/GMO"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexey Kopytko",
+                    "email": "alexey@kopytko.com"
+                }
+            ],
+            "description": "GMO Payment Gateway API for simple credit card payments",
+            "support": {
+                "issues": "https://github.com/sanmai/gmopg/issues",
+                "source": "https://github.com/sanmai/gmopg/tree/v1.1.3"
+            },
+            "abandoned": true,
+            "time": "2019-05-21T05:21:50+00:00"
+        },
+        {
+            "name": "sanmai/pipeline",
+            "version": "v3.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sanmai/pipeline.git",
+                "reference": "07a532743086cc01af9313d28eedacbaf77ea70e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sanmai/pipeline/zipball/07a532743086cc01af9313d28eedacbaf77ea70e",
+                "reference": "07a532743086cc01af9313d28eedacbaf77ea70e",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "codacy/coverage": "^1.4",
+                "friendsofphp/php-cs-fixer": "^2.13",
+                "infection/infection": ">=0.10.5",
+                "league/pipeline": "^1.0 || ^0.3",
+                "mockery/mockery": "^1.0",
+                "phan/phan": "^1.1 || ^2.0",
+                "php-coveralls/php-coveralls": "^2.0",
+                "phpstan/phpstan": ">=0.10",
+                "phpunit/phpunit": "^7.4 || ^8.1",
+                "vimeo/psalm": "^2.0 || ^3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Pipeline\\": "src/"
+                },
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Alexey Kopytko",
+                    "email": "alexey@kopytko.com"
+                }
+            ],
+            "description": "General-purpose collections pipeline",
+            "support": {
+                "issues": "https://github.com/sanmai/pipeline/issues",
+                "source": "https://github.com/sanmai/pipeline/tree/v3.1.4"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sanmai",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-10-21T01:57:59+00:00"
         },
         {
             "name": "superbalist/flysystem-google-storage",
