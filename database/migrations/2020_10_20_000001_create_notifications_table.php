@@ -19,6 +19,7 @@ class CreateNotificationsTable extends Migration
             $table->softDeletes();                      //削除日時
 
             $table->bigInteger("user_id")->comment("ユーザーのID")->index();
+            $table->bigInteger("expert_id")->comment("専門家のID")->index();
             $table->integer("type")->comment("種類")->index();
             $table->bigInteger("serial")->comment("紐づけるID")->index();
             $table->integer("unread")->comment("既読")->default(1)->index();

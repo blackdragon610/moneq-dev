@@ -33,4 +33,5 @@ class PostData extends ModelClass
         if($postData)   return 1;
         else    return 0;
     }
+
 }

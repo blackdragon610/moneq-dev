@@ -44,20 +44,25 @@ class PostAnswer extends ModelClass
         return $weekExperts;
     }
 
-    public function monthHighExpert(){
+    public function monthHighExpert($limit = 0){
         $date = new \DateTime();
         $month = $date->format("Y-m");
         $sql = "SELECT t1.*, amount from(SELECT expert_id, count(*) as amount from post_answers where DATE_FORMAT(created_at,'%Y-%m')='".$month.
         "' GROUP BY expert_id order by count(*) desc LIMIT 5) total LEFT JOIN(SELECT*FROM experts)t1 on(total.expert_id=t1.id)";
+
+        if($limit != 0) $sql .= "limit ".$limit;
+
         $monthExperts = \DB::select($sql);
 
         return $monthExperts;
     }
 
-    public function totalHighExpert(){
+    public function totalHighExpert($limit = 0){
         $sql = "SELECT t1.*, amount from(SELECT expert_id, count(*) as amount from post_answers GROUP BY expert_id order by count(*) desc LIMIT 5) total
         LEFT JOIN(SELECT*FROM experts)t1 on(total.expert_id=t1.id)";
         $totalExperts = \DB::select($sql);
+
+        if($limit != 0) $sql .= "limit ".$limit;
 
         return $totalExperts;
     }

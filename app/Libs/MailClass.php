@@ -32,7 +32,6 @@ class MailClass
     }
 
     public function mail(){
-        // dd(Mail::to([$this->to]));
         Mail::to([$this->to])->send($this->class);
     }
 }

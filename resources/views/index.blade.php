@@ -14,12 +14,14 @@
         <div id="static2">
         </div>
         <div class="input-group" id="searchbar">
-            <input type="text" placeholder="お金の悩みを検索" >
-            <div class="input-group-append">
-                <button type="button" class="btn btn-secondary">
-                    <i class="fa fa-search fa-1x"></i>
-                </button>
-            </div>
+            {{Form::open(['url'=> route('profile.update'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
+                <div class='form-row'>
+                    <input type="text" class="form-control" placeholder="お金の悩みを検索" id="searchTxt">
+                    <button type="button" class="btn btn-secondary form-control">
+                        <i class="fa fa-search fa-1x"></i>
+                    </button>
+                </div>
+            {{Form::close()}}
         </div>
         <p id="heading3" class="mt-0 mb-0">\ さっそく、お金の悩みを専門家に相談する /</p>
         <div class="col text-center">
@@ -384,22 +386,18 @@
                 </ul>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade active show" id="consult-money-1" role="tabpanel" aria-labelledby="consult-money-1-tab">
-                        @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])
-                        @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])
-                        @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])
-                        @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])
+                        @foreach($accessTopPost as $post)
+                            @include('layouts.parts.custom.article', ["type" => "article", 'contents' => $post, 'gender'=>$gender])
+                        @endforeach
                     </div>
                     <div class="tab-pane fade" id="consult-money-2" role="tabpanel" aria-labelledby="consult-money-2-tab">
-                        @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])
-                        @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])
+                        @foreach($newTopPost as $post)
+                            @include('layouts.parts.custom.article', ["type" => "article", 'contents' => $post, 'gender'=>$gender])
+                        @endforeach
                     </div>
                     <div class="row">
                         <div class="col text-center">
-                            @if(Cookie::has('custom_token'))
-                            <a href="{{route('post.create')}}" class="btn btn-outline-orange mx-2">今すぐ登録して、専門家に相談する</a>
-                            @else
-                                <a href="{{route('entry')}}" class="btn btn-outline-orange mx-2">今すぐ登録して、専門家に相談する</a>
-                            @endif
+                            <a href="#" class="btn btn-outline-orange mx-2">もっと見る</a>
                         </div>
                     </div>
                 </div>
@@ -435,9 +433,28 @@
                 </ul>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade active show" id="expert-money-1" role="tabpanel" aria-labelledby="expert-money-1-tab">
-                        @include('layouts.parts.custom.userinfo', ["type" => "userinfo", 'name' => 'userinfo', 'contents' => ''])
-                        @include('layouts.parts.custom.userinfo', ["type" => "userinfo", 'name' => 'userinfo', 'contents' => ''])
-                        @include('layouts.parts.custom.userinfo', ["type" => "userinfo", 'name' => 'userinfo', 'contents' => ''])
+                        @foreach($monthAnswers as $expert)
+                            @include('layouts.parts.custom.expertmonthinfo', ["type" => "expertinfo", 'contents' => $expert, 'gender'=>$gender,
+                                                                         'pre'=>$prefecture, 'spec' => $specialties])
+                        @endforeach
+                    </div>
+                    <div class="tab-pane fade show" id="expert-money-2" role="tabpanel" aria-labelledby="expert-money-2-tab">
+                        @foreach($totalAnswers as $expert)
+                            @include('layouts.parts.custom.expertinfo', ["type" => "expertinfo", 'contents' => $expert, 'gender'=>$gender,
+                                                                         'pre'=>$prefecture, 'spec' => $specialties])
+                        @endforeach
+                    </div>
+                    <div class="tab-pane fade show" id="expert-money-3" role="tabpanel" aria-labelledby="expert-money-3-tab">
+                        @foreach($monthHelps as $expert)
+                            @include('layouts.parts.custom.expertmonthinfo', ["type" => "expertinfo", 'contents' => $expert, 'gender'=>$gender,
+                                                                          'pre'=>$prefecture, 'spec' => $specialties])
+                        @endforeach
+                    </div>
+                    <div class="tab-pane fade show" id="expert-money-4" role="tabpanel" aria-labelledby="expert-money-4-tab">
+                        @foreach($totalHelps as $expert)
+                            @include('layouts.parts.custom.expertinfo', ["type" => "expertinfo", 'contents' => $expert, 'gender'=>$gender,
+                                                                         'pre'=>$prefecture, 'spec' => $specialties])
+                        @endforeach
                     </div>
                     <div class="row">
                         <div class="col text-center">
@@ -585,27 +602,50 @@
                 </div>
             </div>
             <div class="container pt-5">
+                @foreach($notifications as $item)
                 <div class="row">
                     <div class="meta col col-sm-4">
-                        <h5 class="font-weight-bold float-sm-right">2020/10/4</h5>
+                        <h5 class="font-weight-bold float-sm-right">{{$item->created_at}}</h5>
                     </div>
                     <div class="col col-sm-8">
-                        <p class="underlineFor">******************************</p>
+                        <a class="underlineFor" href="{{route('notification.route', [$item->type, $item->id])}}">
+                            {{$item->post_name}}に関して、{{$item->ext_name}}さんから回答がありました。</a>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="meta col col-sm-4">
-                        <h5 class="font-weight-bold float-sm-right">2020/10/4</h5>
-                    </div>
-                    <div class="col col-sm-8">
-                        <p class="underlineFor">******************************</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
 
         </section>
 
     </div>
 </div>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $(document).ready(function(){
 
+        $('#searchTxt').on('keyup', function(){
+
+            var text = $('#searchTxt').val();
+
+            $.ajax({
+
+                type:"GET",
+                url: "{{url('search')}}" + '/' + text,
+                success: function(response) {
+                    var keyArray= [];
+                    response = JSON.parse(response);
+                    for (var patient of response) {
+                        keyArray.push(patient['keyword']);
+                    }
+                    $( "#searchTxt" ).autocomplete({
+                        source: keyArray
+                    });
+                }
+            });
+        });
+
+    });
+</script>
 @endsection

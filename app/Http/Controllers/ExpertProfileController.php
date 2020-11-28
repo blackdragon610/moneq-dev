@@ -111,15 +111,20 @@ class ExpertProfileController extends Controller
             'lastname' => 'required',
             'surnameen' => 'required',
             'lastnameen' => 'required',
-            'job' => 'required',
             'description' => 'required',
             'kind' => 'required',
             'hope' => 'required',
             'hopetime' => 'required',
         ]);
 
+
         if($validator->fails()){
-            return back()->withErrors($validator)->withInput();
+            $expertId = $request->expert_id;
+            $categories = $Category->getSelectAll();
+            $inputs = $request->input();
+            $errors = $validator->errors();
+
+            return view('experts.message', compact('expertId', 'categories', 'inputs', 'errors'));
         }
 
         //トークンの保存と送信
@@ -130,10 +135,8 @@ class ExpertProfileController extends Controller
         $ExpertSendMail->datas = $data;
         $expert = $Expert->where('id', $request->expert_id)->first();
 
-        $expertAddress = $expert->email;
-
         $datas = array(
-            'email' => $expertAddress,
+            'email' => $expert->email,
             'subject' => '相談がありました',
             'data' => $data,
           );

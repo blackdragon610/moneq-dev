@@ -89,4 +89,52 @@ class Expert extends ModelClass implements JWTSubject
         return $this->belongsTo(Specialtie::class);
     }
 
+    public function monthAnswerHighExpert($limit = 0){
+        $date = new \DateTime();
+        $month = $date->format("Y-m");
+        $sql = "SELECT t1.*, amount, hAmount from(SELECT expert_id, count(*) as amount from post_answers where isnull(deleted_at) and DATE_FORMAT(created_at,'%Y-%m')='".$month.
+        "' GROUP BY expert_id order by count(*) desc LIMIT 5) total
+        LEFT JOIN(SELECT*FROM experts where isnull(deleted_at))t1 on(total.expert_id=t1.id) left join(select user_id, count(*) as hAmount from post_data where isnull(deleted_at) and type=4 and DATE_FORMAT(created_at,'%Y-%m')='".$month."' group by user_id)t3 on(total.expert_id=t3.user_id)";
+
+        if($limit != 0) $sql .= " limit ".$limit;
+
+        $monthExperts = \DB::select($sql);
+        // dd($monthExperts);
+
+        return $monthExperts;
+    }
+
+    public function totalAnswerHighExpert($limit = 0){
+        $sql = "select *from experts where isnull(deleted_at) order by count_answer desc";
+
+        if($limit != 0) $sql .= " limit ".$limit;
+
+        $experts = \DB::select($sql);
+
+        return $experts;
+    }
+
+    public function monthHelpHighExpert($limit = 0){
+        $date = new \DateTime();
+        $month = $date->format("Y-m");
+        $sql = "SELECT t1.*, amount, hAmount from(SELECT user_id, count(*) as hAmount from post_data where isnull(deleted_at) and type=4 and DATE_FORMAT(created_at,'%Y-%m')='".$month.
+        "' GROUP BY user_id order by count(*) desc LIMIT 5) total LEFT JOIN(SELECT*FROM experts where isnull(deleted_at))t1 on(total.user_id=t1.id) left join(select expert_id, count(*) as amount from post_answers where isnull(deleted_at) and DATE_FORMAT(created_at,'%Y-%m')='".$month."' group by expert_id)t3 on(total.user_id=t3.expert_id)";
+
+        if($limit != 0) $sql .= "limit ".$limit;
+
+        $monthExperts = \DB::select($sql);
+
+        return $monthExperts;
+    }
+
+    public function totalHelpHighExpert($limit = 0){
+        $sql = "select *from experts where isnull(deleted_at) order by count_useful desc";
+
+        if($limit != 0) $sql .= " limit ".$limit;
+
+        $experts = \DB::select($sql);
+
+        return $experts;
+    }
+
 }

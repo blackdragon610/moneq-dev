@@ -6,7 +6,7 @@
 
 //フロント
 Route::group(['middleware' => 'common:user'], function () {
-    // Route::group(['middleware' => 'auth:user'], function () {
+    Route::group(['middleware' => 'auth:user'], function () {
         //通常の人のプロフィール
         Route::get('profile/edit', 'ProfileController@edit')->name('profile.edit');
         Route::post('profile/update', 'ProfileController@update')->name('profile.update');
@@ -50,7 +50,11 @@ Route::group(['middleware' => 'common:user'], function () {
         Route::get('expert/detail/{id}', 'ExpertProfileController@detail')->name('expert.detail');
         Route::get('expert/message/{id}', 'ExpertProfileController@message')->name('expert.message');
         Route::post('expert/message/send', 'ExpertProfileController@send')->name('expert.message.send');
-    // });
+
+        Route::post('search', 'SearchController@index')->name('search.category');
+        Route::get('notification', 'TopController@notification')->name('notification');
+        Route::get('notification/route/{type}/{id}', 'TopController@route')->name('notification.route');
+    });
 
     //相談の投稿検索
     Route::get('post/search', 'PostController@search')->name('post.search');
@@ -104,6 +108,7 @@ Route::group(['middleware' => 'common:user'], function () {
     Route::get('error/{mode}', 'ErrorController@other')->name('error');
     Route::get('error', 'ErrorController@index')->name('error');
     Route::get('', 'TopController@index')->name('top');
+    Route::get('search/{key}', 'TopController@searchEngine')->name('search');
 
     //画像
     Route::get('api/image', 'ImageController@index')->name('api.image');

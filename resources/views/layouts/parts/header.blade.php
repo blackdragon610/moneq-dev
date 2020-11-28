@@ -13,12 +13,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent-3">
                 <ul class="navbar-nav ml-auto nav-flex-icons" style="padding-right:40px">
                     <li class="nav-item dropdown">
-                        <a class="nav-link waves-effect waves-light" id="navbarDropdownBell" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fa fa-bell-o fa-lg has-badge" data-count="2"></i>
+                        <a id="badge" class="nav-link waves-effect waves-light" id="navbarDropdownBell" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-bell-o fa-lg has-badge"></i>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownBell">
-                            <a class="dropdown-item waves-effect waves-light" href="#">○○○に関して、○○○さんからメッセージがありました。</a>
-                            <a class="dropdown-item waves-effect waves-light" href="#">○○○に関して、○○○さんから回答がありました。</a>
+                        <div id="contents" class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownBell">
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -87,3 +85,38 @@
         </div>
     </div>
 </div> -->
+
+<script>
+    var myVar = setInterval(myTimer, 1000);
+
+    function myTimer() {
+        $.ajax({
+            type:"GET",
+            url: "{{url('notification')}}",
+            success: function(response) {
+                var count = 0;
+                var bodyHtml = '';
+                for(i in response){
+                    if(i == 'count'){
+                        count = response[i][0]['count'];
+                    }
+                    if(i == 'notification'){
+                        bodyArray = response[i];
+                        for(j in bodyArray){
+                            bodyHtml += '<a class="dropdown-item waves-effect waves-light" href="{{url('notification/route')}}'+ '/'
+                                     + bodyArray[j]['type'] + '/' + bodyArray[j]['id']+'">'+bodyArray[j]['post_name'] + 'に関して、'+ bodyArray[j]['ext_name']+ 'さんから回答がありました。' +'</a>'
+                        }
+                    }
+                }
+                if(count != 0){
+                    var htmlBadge = '<i class="fa fa-bell-o fa-lg has-badge" data-count="'+ count + '" ></i>'
+                    $('#badge').empty().html(htmlBadge);
+                }else{
+                    var htmlBadge = '<i class="fa fa-bell-o fa-lg has-badge"></i>'
+                    $('#badge').empty().html(htmlBadge);
+                }
+                $('#contents').empty().html(bodyHtml);
+            }
+        });
+    }
+</script>

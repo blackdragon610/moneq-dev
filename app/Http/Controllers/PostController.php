@@ -117,7 +117,7 @@ class PostController extends Controller
 
 
         $post = $Post->find($postId);
-        $post->post_answer_id = $Post->isAnswerCheck($post);
+        $post->post_answer_id = $post->isAnswerCheck();
         $Post->updatePostReadCount($post);
 
         $postAdd = $post->find($postId)->adds;
@@ -225,7 +225,11 @@ class PostController extends Controller
         ]);
 
         if($validator->fails()){
-            return back()->withErrors($validator)->withInput();
+            $post = Post::where('id', $request->post_id)->first();
+            $inputs = $request->input();
+            $errors = $validator->errors();
+
+            return view('consultdetail.report', compact('post', 'inputs', 'errors'));
         }
 
         $postReport = new PostReport();

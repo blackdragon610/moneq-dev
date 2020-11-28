@@ -47,7 +47,7 @@ class EntryController extends Controller
      * @param  SmsClass  $SmsClass
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function send(UserLoginRequest $request, UserToken $UserToken, EntryMail $EntryMail, EntryExpertMail $EntryExpertMail, MailClass $MailClass, SmsClass $SmsClass)
+    public function send(UserLoginRequest $request, UserToken $UserToken, EntryMail $EntryMail, SmsClass $SmsClass)
     {
         //エラーチェック
         $datas = $this->checkForm($request);
@@ -61,18 +61,33 @@ class EntryController extends Controller
         }
 
         //トークンの保存と送信
-        $UserToken->setTransaction("トークン登録時にエラー", function() use($UserToken, $request, $datas, $MailClass, $EntryMail, $SmsClass, $EntryExpertMail){
+        $UserToken->setTransaction("トークン登録時にエラー", function() use($UserToken, $request, $datas, $EntryMail, $SmsClass){
             $userToken = $UserToken->saveEntry($request->input("mode"), $datas["inputs"], intval($request->get("expert")));
-            $EntryExpertMail->datas = $EntryMail->datas = $datas["inputs"];
-            $EntryExpertMail->datas["token"] = $EntryMail->datas["token"] = $userToken->token;
+            $EntryMail->datas = $datas["inputs"];
+            $item["token"] = $userToken->token;
+            $item['domain'] = getMyURL();
 
+            $data = array(
+                'email' => $datas['inputs']['email'],
+                'subject' => '仮登録の完了',
+                'item' => $item,
+              );
             if ($request->get("expert")){
                 //専門家
-                $MailClass->send($EntryExpertMail, $datas["inputs"]["email"]);
+                \Mail::send('messages.emails.entry_expert', compact('data'), function($message) use ($data){
+                    $message->to($data['email']);
+                    $message->from(config('mail.username'));
+                    $message->subject($data['subject']);
+                });
             }else{
                 //通常
                 if ($request->input("mode") == "email"){
-                    $MailClass->send($EntryMail, $datas["inputs"]["email"]);
+                    \Mail::send('messages.emails.entry', compact('data'), function($message) use ($data){
+                        $message->to($data['email']);
+                        $message->from(config('mail.username'));
+                        $message->subject($data['subject']);
+                    });
+                            // $MailClass->send($EntryMail, $datas["inputs"]["email"]);
                 }
 
                 if ($request->input("mode") == "monitor"){

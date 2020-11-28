@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\User;
 use App\Models\PostAnswer;
 use App\Models\PostAdd;
+use App\Models\SubCategory;
 use App\Models\PostData;
 use App\Models\Expert;
 
@@ -76,12 +77,29 @@ class Post extends ModelClass
         return $Model->count();
     }
 
+    public function getAccessTopPosts(){
+        $model = Post::where('id', '>' ,0)
+                ->orderBy('count_access', 'desc')
+                ->orderBy('count_usuful', 'desc')
+                ->paginate(10);
 
-    public function isAnswerCheck(Post $post){
-        $answerId = $post->post_answer_id;
+        return $model;
+    }
+
+    public function getNewTopPosts(){
+        $Model = Post::where('id', '>' ,0)
+                ->orderBy('created_at', 'desc')
+                ->paginate(10);
+        return $Model;
+    }
+
+
+    public function isAnswerCheck(){
+        // dd($this->post_answer_id);
+        $answerId = $this->post_answer_id;
         if($answerId != 0)  return $answerId;
         else{
-            $postDate = date_create($post->created_at);
+            $postDate = date_create($this->created_at);
             $curDate = date_create(date('Y-m-d'));
 
             $interval = date_diff($curDate, $postDate);
@@ -108,8 +126,16 @@ class Post extends ModelClass
         return $this->hasMany(PostAnswer::class);
     }
 
+    public function answerCount(){
+        $postAnswers = PostAnswer::where('post_id', $this->id)->get();
+        return count($postAnswers);
+    }
+
     public function adds(){
         return $this->hasMany(PostAdd::class);
     }
 
+    public function category(){
+        return $this->belongsTo(SubCategory::class);
+    }
 }
