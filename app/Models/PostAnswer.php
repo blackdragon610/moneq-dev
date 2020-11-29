@@ -34,6 +34,12 @@ class PostAnswer extends ModelClass
         return $postData;
     }
 
+    public function getAnswerCount(){
+        $model = $this->selectRaw("count(*) as answerCount")->first();
+
+        return $model->answerCount;
+    }
+
     public function weekHighExpert(){
         $date = new \DateTime();
         $week = $date->format("W");

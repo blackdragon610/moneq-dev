@@ -109,6 +109,12 @@ class Post extends ModelClass
 
         }
     }
+
+    public function getPostCount(){
+        $model = $this->selectRaw("count(*) as postCount")->first();
+
+        return $model->postCount;
+    }
     /**
      *  ステータスが2（公開済み）飲み取得
      * @param $query

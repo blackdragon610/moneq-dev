@@ -109,6 +109,7 @@ Route::group(['middleware' => 'common:user'], function () {
     Route::get('error', 'ErrorController@index')->name('error');
     Route::get('', 'TopController@index')->name('top');
     Route::get('search/{key}', 'TopController@searchEngine')->name('search');
+    Route::post('search', 'TopController@search')->name('search.post');
 
     //画像
     Route::get('api/image', 'ImageController@index')->name('api.image');

@@ -34,4 +34,9 @@ class PostData extends ModelClass
         else    return 0;
     }
 
+    public function getHelpCount(){
+        $model = $this->selectRaw("count(*) as helpCount")->first();
+
+        return number_format($model->helpCount);
+    }
 }

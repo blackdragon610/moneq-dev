@@ -202,4 +202,9 @@ class User  extends ModelClass implements JWTSubject
         if(!$user)   return 1;
     }
 
+    public function getUserCount(){
+        $model = $this->selectRaw("count(*) as userCount")->first();
+
+        return number_format($model->userCount);
+    }
 }

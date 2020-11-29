@@ -11,6 +11,7 @@ use App\Models\PostTag;
 use App\Models\PostData;
 use App\Models\PostAdd;
 use App\Models\PostAnswer;
+use App\Models\User;
 use App\Models\Expert;
 use App\Models\Specialtie;
 use App\Models\Notification;
@@ -20,7 +21,7 @@ class TopController extends Controller
     /**
      * トップ
      */
-    public function index(Post $Post, Expert $Expert, Specialtie $Specialtie, Notification $Notification)
+    public function index(Post $Post, PostAnswer $PostAnswer, PostData $PostData, Expert $Expert, User $User, Specialtie $Specialtie, Notification $Notification)
     {
 
         // posts
@@ -36,17 +37,27 @@ class TopController extends Controller
 
 
         //notifications
-        // $notifications = $Notification->getNewNotification();
         $notifications = $this->bottomNotification();
+
+        //counter
+        $questions = $Post->getPostCount();
+        $answers = $PostAnswer->getAnswerCount();
+        $helps = $PostData->getHelpCount();
+        $experts = $Expert->getExpertCount();
+        $users = $User->getUserCount();
 
         $gender = configJson('custom/gender');
         $prefecture = configJson('custom/prefecture');
         $specialties = $Specialtie->getSelect();
 
         return view('index', compact('accessTopPost', 'newTopPost', 'monthAnswers', 'totalAnswers', 'monthHelps',
-                                     'totalHelps', 'gender', 'prefecture', 'specialties', 'notifications'));
+                                     'totalHelps', 'gender', 'prefecture', 'specialties', 'notifications', 'questions',
+                                     'answers', 'helps', 'experts', 'users'));
     }
 
+    public function search(Request $request){
+
+    }
     public function searchEngine($keyword){
         $sql = "select keyword from keywords where keyword like '%".$keyword."%' order by keyword";
         $searchs = \DB::select($sql);

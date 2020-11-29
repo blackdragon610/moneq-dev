@@ -89,6 +89,12 @@ class Expert extends ModelClass implements JWTSubject
         return $this->belongsTo(Specialtie::class);
     }
 
+    public function getExpertCount(){
+        $model = $this->selectRaw("count(*) as expertCount")->first();
+
+        return number_format($model->expertCount);
+    }
+
     public function monthAnswerHighExpert($limit = 0){
         $date = new \DateTime();
         $month = $date->format("Y-m");

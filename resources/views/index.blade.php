@@ -14,7 +14,7 @@
         <div id="static2">
         </div>
         <div class="input-group" id="searchbar">
-            {{Form::open(['url'=> route('profile.update'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
+            {{Form::open(['url'=> route('search.post'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
                 <div class='form-row'>
                     <input type="text" class="form-control" placeholder="お金の悩みを検索" id="searchTxt">
                     <button type="button" class="btn btn-secondary form-control">
@@ -42,35 +42,35 @@
                 <div class="overviewCard col-sm-2">
                     <div id="title">Q&amp;A</div>
                     <div class="inline-block">
-                        <h1 id="number">14,054</h1>
+                        <h1 id="number">{{number_format($questions+$answers)}}</h1>
                         <span id="unit">件</span>
                     </div>
                 </div>
                 <div class="overviewCard col-sm-2">
                     <div id="title">役に立った回答</div>
                     <div class="inline-block">
-                        <h1 id="number">4,554</h1>
+                        <h1 id="number">{{number_format($answers/$questions, 1)}}</h1>
                         <span id="unit">件</span>
                     </div>
                 </div>
                 <div class="overviewCard col-sm-2">
                     <div id="title">回答率</div>
                     <div class="inline-block">
-                        <h1 id="number">99.8</h1>
+                        <h1 id="number">{{number_format($helps)}}</h1>
                         <span id="unit">件</span>
                     </div>
                 </div>
                 <div class="overviewCard col-sm-2">
                     <div id="title">協力専門家</div>
                     <div class="inline-block">
-                        <h1 id="number">124</h1>
+                        <h1 id="number">{{$experts}}</h1>
                         <span id="unit">人</span>
                     </div>
                 </div>
                 <div class="overviewCard col-sm-2">
                     <div id="title">会員数</div>
                     <div class="inline-block">
-                        <h1 id="number">6,124</h1>
+                        <h1 id="number">{{$users}}</h1>
                         <span id="unit">人</span>
                     </div>
                 </div>
