@@ -1,10 +1,10 @@
 <div class="moneq-navbar fixed-top">
     <div class="row align-items-center" style="overflow: visible;">
-        <div class="col-sm-9">
-            <a class="navbar-brand" href="{{url('/')}}"><img src="{{ url('/images/svg/logo.svg') }}" id="logo"></a>
-            <span id="title">お金の悩み相談サービス「マネク」</span>
-        </div>
-        <nav class="navbar navbar-expand-sm navbar-light col-sm-3">
+
+            <nav class="navbar navbar-expand-sm navbar-light p-0 col-12">
+            <img src="{{ url('/images/svg/img-logo-v2.svg') }}" id="logo">
+            <!-- <span id="title">お金の悩み相談サービス「マネク」</span> -->
+
             <!-- AFTER LOGIN -->
             @if(Cookie::has('custom_token'))
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-3" aria-controls="navbarSupportedContent-3" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,24 +67,38 @@
     </div>
 
 </div>
-<div class="behind-bar">
+<div class="behind-bar"> 
+    <!-- 70px bar  -->
 </div>
 
-<!-- <div class="container-fluid yellowpanel">
-    <div class="row">
-        <div class="container-fluid">
-            <form action="#" method="post">
-                <div class="input-group pb-2 pt-2">
+<div class="container-fluid yellowpanel">
+    <form action="#" method="post">
+        <div class="container" style="height:74px">
+            <div class="row">
+
+                <div class="input-group" id="searchbar">
+                    <input type="text" placeholder="お金の悩みを検索">
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-secondary">
+                            <i class="fa fa-search fa-1x"></i>
+                        </button>
+                    </div>
+                    <a href="#" class="btn orange-btn-200-50 ml-auto">@lang('string.consult_btn')</a>
+                </div>
+
+                <!-- <div class="input-group pb-2 pt-2">
                     <input class="form-control py-1 col-sm-6" type="text" placeholder="Search" aria-label="Search">
                     <div class="input-group-append">
                         <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fa fa-search text-grey"></i></span>
                     </div>
                     <a href="#" class="btn btn-danger offset-sm-2 col-sm-4 offset-md-3 col-md-3 mt-2 mt-sm-0">@lang('string.consult_btn')</a>
-                </div>
-            </form>
+                </div> -->
+
+
+            </div>
         </div>
-    </div>
-</div> -->
+    </form>
+</div>
 
 <script>
     var myVar = setInterval(myTimer, 1000);

@@ -7,7 +7,7 @@
         <!-- right sticky sidebar -->
         <div class="col-12 col-sm-3 order-sm-2 order-1" id="sticky-sidebar">
             <div class="sticky-top">
-                @include('searches.search-rightpane', ["type" => "search", 'name' => 'rightpane', 'contents' => ''])
+                @include('searches.experts-rightpane', ["type" => "search", 'name' => 'rightpane', 'contents' => ''])
             </div>
         </div>
         <div class="col-12 col-sm-9 order-sm-1 order-2" id="main">
@@ -23,7 +23,7 @@
                             </div>
                             <div class="container-fluid p-0">
                                 <div class="d-flex pt-2">
-                                    <h5 class="font-weight-bold text-danger mright">保険に該当する相談</h5>
+                                    <h5 class="font-weight-bold text-danger mright">お金の専門家一覧</h5>
                                     <span class="mright">検索結果数</span>
                                     <span class="text-danger">1000</span>
                                     <div class="dropdown ml-auto">
@@ -43,18 +43,13 @@
                             
                             <hr class="mt-2 mb-3"/>
 
-                            @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])                        
-                            @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])                        
-                            @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])                        
-                            @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])                        
-                            @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])                        
-                            @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])                        
-                            @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])                        
-                            @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])                        
-                            @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])                        
-                            @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])                        
-                            @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])                        
-                            @include('layouts.parts.custom.article', ["type" => "article", 'name' => 'article', 'contents' => ''])                        
+                            @include('layouts.parts.custom.userinfo', ["type" => "userinfo", 'name' => 'userinfo', 'contents' => ''])
+                            @include('layouts.parts.custom.userinfo', ["type" => "userinfo", 'name' => 'userinfo', 'contents' => ''])
+                            @include('layouts.parts.custom.userinfo', ["type" => "userinfo", 'name' => 'userinfo', 'contents' => ''])
+                            @include('layouts.parts.custom.userinfo', ["type" => "userinfo", 'name' => 'userinfo', 'contents' => ''])
+                            @include('layouts.parts.custom.userinfo', ["type" => "userinfo", 'name' => 'userinfo', 'contents' => ''])
+                            @include('layouts.parts.custom.userinfo', ["type" => "userinfo", 'name' => 'userinfo', 'contents' => ''])
+                            @include('layouts.parts.custom.userinfo', ["type" => "userinfo", 'name' => 'userinfo', 'contents' => ''])
 
                         <!-- </div>     -->
                     <!-- </div> -->

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta http-equiv="Pragma" content="no-cache">
 		<meta http-equiv="Cache-Control" content="no-cache">
@@ -19,6 +19,8 @@
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 		<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 		<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+		<link rel="icon" href="/images/svg/logo.svg" type = "image/x-icon"> 
 		<title>MoneQ</title>
 
         @if (env("APP_DEBUG"))
@@ -26,7 +28,7 @@
         @endif
 	</head>
 
-	<body class="lightgreypanel">
+	<body class="whitepanel">
 		@include('layouts.parts.header')
 		@yield('main')
 		@include('layouts.parts.footer')
