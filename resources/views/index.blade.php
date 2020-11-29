@@ -49,15 +49,15 @@
                 <div class="overviewCard col-sm-2">
                     <div id="title">役に立った回答</div>
                     <div class="inline-block">
-                        <h1 id="number">{{number_format($answers/$questions, 1)}}</h1>
+                        <h1 id="number">{{number_format($helps)}}</h1>
                         <span id="unit">件</span>
                     </div>
                 </div>
                 <div class="overviewCard col-sm-2">
                     <div id="title">回答率</div>
                     <div class="inline-block">
-                        <h1 id="number">{{number_format($helps)}}</h1>
-                        <span id="unit">件</span>
+                        <h1 id="number">{{number_format(($answers/$questions)*100, 1)}}</h1>
+                        <span id="unit">%</span>
                     </div>
                 </div>
                 <div class="overviewCard col-sm-2">
@@ -352,7 +352,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="container p-0" id="row2">
         <div class="row justify-content-center">
             <p class="title1" style="margin-top:80px">お金の専門家</p>
@@ -374,35 +374,48 @@
             </ul>
             <div class="tab-content" id="tab2">
                 <div class="tab-pane fade active show" id="expert-money-1" role="tabpanel" aria-labelledby="expert-money-1-tab">
+                    <?php $i=0?>
+                    @foreach($monthAnswers as $expert)
+                    <?php $i++?>
+                        <div class="col-6 userinfo">
+                            @include('layouts.parts.custom.expertmonthinfo', ["ranking"=>"{{$i}}", "type" => "expertinfo", 'contents' => $expert, 'gender'=>$gender,
+                                                                        'pre'=>$prefecture, 'spec' => $specialties])
+                        </div>
+                    @endforeach
+                </div>
+                <div class="tab-pane fade show" id="expert-money-2" role="tabpanel" aria-labelledby="expert-money-2-tab">
+                    <?php $i=0?>
+                    @foreach($totalAnswers as $expert)
+                        <?php $i++?>
+                        <div class="col-6 userinfo">
+                            @include('layouts.parts.custom.expertinfo', ["ranking"=>"{{$i}}", "type" => "expertinfo", 'contents' => $expert, 'gender'=>$gender,
+                                                                        'pre'=>$prefecture, 'spec' => $specialties])
+                        </div>
+                    @endforeach
+                </div>
+                <div class="tab-pane fade show" id="expert-money-3" role="tabpanel" aria-labelledby="expert-money-3-tab">
+                    <?php $i=0?>
                     <div class="row">
-                        <!-- <div class="col-6 userinfo">
-                            @include('layouts.parts.custom.userinfo', ["ranking"=>"1", "type" => "userinfo", 'name' => 'userinfo', 'contents' => ''])
-                        </div> -->
-                        @foreach($monthAnswers as $expert)
+                        @foreach($monthHelps as $expert)
+                        <?php $i++?>
                             <div class="col-6 userinfo">
-                                @include('layouts.parts.custom.expertmonthinfo', ["type" => "expertinfo", 'contents' => $expert, 'gender'=>$gender,
-                                                                         'pre'=>$prefecture, 'spec' => $specialties])
+                            @include('layouts.parts.custom.expertmonthinfo', ["ranking"=>"{{$i}}", "type" => "expertinfo", 'contents' => $expert, 'gender'=>$gender,
+                                                                            'pre'=>$prefecture, 'spec' => $specialties])
                             </div>
                         @endforeach
                     </div>
                 </div>
-                <div class="tab-pane fade show" id="expert-money-2" role="tabpanel" aria-labelledby="expert-money-2-tab">
-                    @foreach($totalAnswers as $expert)
-                        @include('layouts.parts.custom.expertinfo', ["type" => "expertinfo", 'contents' => $expert, 'gender'=>$gender,
-                                                                        'pre'=>$prefecture, 'spec' => $specialties])
-                    @endforeach
-                </div>
-                <div class="tab-pane fade show" id="expert-money-3" role="tabpanel" aria-labelledby="expert-money-3-tab">
-                    @foreach($monthHelps as $expert)
-                        @include('layouts.parts.custom.expertmonthinfo', ["type" => "expertinfo", 'contents' => $expert, 'gender'=>$gender,
-                                                                        'pre'=>$prefecture, 'spec' => $specialties])
-                    @endforeach
-                </div>
                 <div class="tab-pane fade show" id="expert-money-4" role="tabpanel" aria-labelledby="expert-money-4-tab">
-                    @foreach($totalHelps as $expert)
-                        @include('layouts.parts.custom.expertinfo', ["type" => "expertinfo", 'contents' => $expert, 'gender'=>$gender,
-                                                                        'pre'=>$prefecture, 'spec' => $specialties])
-                    @endforeach
+                    <?php $i=0?>
+                    <div class="row">
+                        @foreach($totalHelps as $expert)
+                        <div class="col-6 userinfo">
+                            <?php $i++?>
+                            @include('layouts.parts.custom.expertinfo', ["ranking"=>"{{$i}}", "type" => "expertinfo", 'contents' => $expert, 'gender'=>$gender,
+                                                                            'pre'=>$prefecture, 'spec' => $specialties])
+                        </div>
+                        @endforeach
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col text-center">
@@ -566,11 +579,6 @@
 
 </div>
 
-
-
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
     $(document).ready(function(){
 

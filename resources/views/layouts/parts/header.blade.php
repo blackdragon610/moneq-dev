@@ -67,7 +67,7 @@
     </div>
 
 </div>
-<div class="behind-bar"> 
+<div class="behind-bar">
     <!-- 70px bar  -->
 </div>
 
@@ -77,7 +77,7 @@
             <div class="row">
 
                 <div class="input-group" id="searchbar">
-                    <input type="text" placeholder="お金の悩みを検索">
+                    <input type="text" placeholder="お金の悩みを検索" id="searchYellow">
                     <div class="input-group-append">
                         <button type="button" class="btn btn-secondary">
                             <i class="fa fa-search fa-1x"></i>
@@ -133,4 +133,30 @@
             }
         });
     }
+
+    $(document).ready(function(){
+
+        $('#searchYellow').on('keyup', function(){
+
+            var text = $('#searchYellow').val();
+
+            $.ajax({
+
+                type:"GET",
+                url: "{{url('search')}}" + '/' + text,
+                success: function(response) {
+                    var keyArray= [];
+                    response = JSON.parse(response);
+                    for (var patient of response) {
+                        keyArray.push(patient['keyword']);
+                    }
+                    $( "#searchYellow" ).autocomplete({
+                        source: keyArray
+                    });
+                }
+            });
+        });
+
+    });
+
 </script>

@@ -117,6 +117,7 @@ Route::group(['middleware' => 'common:user'], function () {
     Route::get('mockup', 'MockupUIController@index');
 
     //GMO
+    Route::get('payment', 'GMOManager@index')->name('payment');
     Route::get('payment/creditcard', 'GMOManager@paymentByCreditCard')->name('payment.creditcard');
     Route::get('payment/au', 'GMOManager@paymentByAu')->name('payment.au');
     Route::get('payment/docomo', 'GMOManager@paymentByDocomo')->name('payment.docomo');

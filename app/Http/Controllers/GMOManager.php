@@ -15,8 +15,9 @@ class GMOManager extends Controller
      */
     public function index(Request $request)
     {
+        return view('payment.index');
     }
-    
+
     public function paymentByCreditCard(Request $request)
     {
         Defaults::setShopId(env('GMO_SHOP_ID'));
@@ -60,7 +61,7 @@ class GMOManager extends Controller
 
     }
 
-    public function paymentByAu(Request $request) 
+    public function paymentByAu(Request $request)
     {
         Defaults::setShopId(env('GMO_SHOP_ID'));
         Defaults::setShopName(env('GMO_SHOP_NAME'));
@@ -158,7 +159,7 @@ class GMOManager extends Controller
 
     }
 
-    public function paymentByDocomo(Request $request) 
+    public function paymentByDocomo(Request $request)
     {
         Defaults::setShopId(env('GMO_SHOP_ID'));
         Defaults::setShopName(env('GMO_SHOP_NAME'));
@@ -254,7 +255,7 @@ class GMOManager extends Controller
         return true;
     }
 
-    public function paymentBySoftbank(Request $request) 
+    public function paymentBySoftbank(Request $request)
     {
         Defaults::setShopId(env('GMO_SHOP_ID'));
         Defaults::setShopName(env('GMO_SHOP_NAME'));
