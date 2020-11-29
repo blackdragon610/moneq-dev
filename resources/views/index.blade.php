@@ -56,6 +56,7 @@
                 <div class="overviewCard col-sm-2">
                     <div id="title">回答率</div>
                     <div class="inline-block">
+                        <?php if($questions == 0) $questions = 1;?>
                         <h1 id="number">{{number_format(($answers/$questions)*100, 1)}}</h1>
                         <span id="unit">%</span>
                     </div>
@@ -169,7 +170,7 @@
         </div>
 
         <div class="text-center">
-            @if(Cookie::has('token'))
+            @if(Cookie::has('custom_token'))
                 <a href="{{route('post.create')}}" class="btn yellow-roundbtn" style="margin-top: 80px !important;">今すぐ登録して、専門家に相談する</a>
             @else
                 <a href="{{route('entry')}}" class="btn yellow-roundbtn" style="margin-top: 80px !important;">今すぐ登録して、専門家に相談する</a>
@@ -346,7 +347,7 @@
                 </div>
                 <div class="row">
                     <div class="col text-center">
-                        <a href="{{route('entry')}}" class="btn yellow-roundbtn" style="margin-top: 50px !important; letter-spacing:3px">もっと見る</a>
+                        <a href="#" class="btn yellow-roundbtn" style="margin-top: 50px !important; letter-spacing:3px">もっと見る</a>
                     </div>
                 </div>
             </div>
@@ -375,23 +376,27 @@
             <div class="tab-content" id="tab2">
                 <div class="tab-pane fade active show" id="expert-money-1" role="tabpanel" aria-labelledby="expert-money-1-tab">
                     <?php $i=0?>
-                    @foreach($monthAnswers as $expert)
-                    <?php $i++?>
+                    <div class="row">
+                        @foreach($monthAnswers as $expert)
+                        <?php $i++?>
                         <div class="col-6 userinfo">
                             @include('layouts.parts.custom.expertmonthinfo', ["ranking"=>"{{$i}}", "type" => "expertinfo", 'contents' => $expert, 'gender'=>$gender,
                                                                         'pre'=>$prefecture, 'spec' => $specialties])
                         </div>
-                    @endforeach
+                        @endforeach
+                    </div>
                 </div>
                 <div class="tab-pane fade show" id="expert-money-2" role="tabpanel" aria-labelledby="expert-money-2-tab">
                     <?php $i=0?>
-                    @foreach($totalAnswers as $expert)
+                    <div class="row">
+                        @foreach($totalAnswers as $expert)
                         <?php $i++?>
                         <div class="col-6 userinfo">
                             @include('layouts.parts.custom.expertinfo', ["ranking"=>"{{$i}}", "type" => "expertinfo", 'contents' => $expert, 'gender'=>$gender,
                                                                         'pre'=>$prefecture, 'spec' => $specialties])
                         </div>
-                    @endforeach
+                        @endforeach
+                    </div>
                 </div>
                 <div class="tab-pane fade show" id="expert-money-3" role="tabpanel" aria-labelledby="expert-money-3-tab">
                     <?php $i=0?>
@@ -419,7 +424,7 @@
                 </div>
                 <div class="row">
                     <div class="col text-center">
-                        <a href="{{route('entry')}}" class="btn yellow-roundbtn" style="margin-top: 50px !important; letter-spacing:3px">もっと見る</a>
+                        <a href="#" class="btn yellow-roundbtn" style="margin-top: 50px !important; letter-spacing:3px">もっと見る</a>
                     </div>
                 </div>
             </div>
@@ -568,11 +573,13 @@
                 @endforeach
                 <div style="height:1px; width:100%"></div>
             </div>
+            @if($notifications)
             <div class="row" style="padding-bottom:80px">
                 <div class="col text-center">
-                    <a href="http://127.0.0.1:8000/entry" class="btn yellow-roundbtn" style="margin-top: 50px !important; letter-spacing:3px">もっと見る</a>
+                    <a href="#" class="btn yellow-roundbtn" style="margin-top: 50px !important; letter-spacing:3px">もっと見る</a>
                 </div>
             </div>
+            @endif
         </div>
     </div>
 
