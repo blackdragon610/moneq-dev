@@ -24,7 +24,7 @@
                                     <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>回答したお金の専門家に具体的な有料相談を行うことが可能</p>
                                     @if($user->pay_status != 2)
                                         <div class="col text-center btnLayer">
-                                            <a href="{{url('payments/input/1/2')}}" class="btnUnselected" id="btnPlan1">選択する</a>
+                                            <a href="{{url('payment/1/2')}}" class="btnUnselected" id="btnPlan1">選択する</a>
                                         </div>
                                     @endif
                                 </article>
@@ -39,7 +39,7 @@
                                     <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>回答したお金の専門家に具体的な有料相談を行うことが可能</p>
                                     @if($user->pay_status == 1)
                                         <div class="col text-center btnLayer">
-                                            <a href="{{url('payments/input/1/3')}}" class="btnUnselected" id="btnPlan2">選択する</a>
+                                            <a href="{{url('payment/1/3')}}" class="btnUnselected" id="btnPlan2">選択する</a>
                                         </div>
                                     @endif
                                 </article>
