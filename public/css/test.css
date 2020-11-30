@@ -885,7 +885,11 @@ article #profilecard #caption {
     font-size: 14px;
 }  
 
-
+.cl-switch .label {
+    font-family: NotoSans-JP-Medium !important;
+    font-size: 18px !important;
+    color: #373A3C !important;
+}
 
 
 /* ------------- */
