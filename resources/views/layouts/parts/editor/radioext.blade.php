@@ -21,7 +21,7 @@
 		@foreach ($checkboxs as $key => $checkbox)
 			<input type="radio" class="radio-input" id="{{$name}}{{$key}}" name="{{$name}}" value="{{$key}}"@if ($checkbox['select']) checked="checked"@endif />
 			<label class="radio-label" for="{{$name}}{{$key}}">
-				<span class="btnUnselected">{{$checkbox['value']}}</span>
+				<span class="btn-radio-ext">{{$checkbox['value']}}</span>
 			</label>
 		@endforeach
 	@endif
