@@ -21,9 +21,9 @@
                     @include('layouts.parts.custom.profilecard', ["url" => "manage/membership", 'name' => '会員ステータス', 'contents' => $membership])
                 </div>
                 @if($payment != '')
-                <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 p-2">
-                    @include('layouts.parts.custom.profilecard', ["url" => "manage/payment", 'name' => '決済情報', 'contents' => $payment])
-                </div>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 p-2">
+                        @include('layouts.parts.custom.profilecard', ["url" => "manage/payment", 'name' => '決済情報', 'contents' => $payment])
+                    </div>
                 @endif
             </div>
         </section>

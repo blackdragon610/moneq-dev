@@ -6,6 +6,8 @@
     <div class="container p-3">
 
     {{Form::open(['url'=> route('entry.password.end'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
+        <input type="hidden" name="member" id="member" value="2">
+        <input type="hidden" name="mode" value="mode">
     <section>
         <div class="row">
             <div class="col-sm-12 bg-white">
@@ -18,7 +20,7 @@
                 <label for="password_conform">パスワード(確認用)</label><span class="text-danger">(必須)</span>
                 @include('layouts.parts.editor.text', ["type" => "password", 'name' => 'password_confirmation', 'contents' => 'class="form-control" placeholder="パスワードを確認用を入力"'])<br />
 
-            </div>    
+            </div>
         </div>
     </section>
     <section>
@@ -31,7 +33,7 @@
                     <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>過去Q&Aはすべて見放題</p>
                     <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>回答したお金の専門家に具体的な有料相談を行うことが可能</p>
                     <div class="col text-center btnLayer">
-                        <a href="#" class="btnSelected" id="btnPlan1">選択中</a>
+                        <div class="btnSelected" id="btnPlan1">選択中</div>
                     </div>
                 </article>
             </div>
@@ -44,14 +46,10 @@
                     <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>過去Q&Aはすべて見放題</p>
                     <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>回答したお金の専門家に具体的な有料相談を行うことが可能</p>
                     <div class="col text-center btnLayer">
-                        <a href="#" class="btnUnselected" id="btnPlan2">選択する</a>
+                        <div class="btnUnselected" id="btnPlan2">選択する</div>
                     </div>
                 </article>
             </div>
-
-            <!-- <input type="radio" name="pay_status" value="1">無料<br />
-            <input type="radio" name="pay_status" value="2">年払会員<br />
-            <input type="radio" name="pay_status" value="3">月払会員<br /> -->
 
         </div>
     </section>
@@ -62,7 +60,7 @@
                     <h5 class="font-weight-bold mb-2">無料会員</h5>
                     <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>月最大3回までQ&Aが見れる</p>
                     <div class="col text-center btnLayer">
-                        <a href="#" class="btnUnselected" id="btnPlan3">選択する</a>
+                        <div class="btnUnselected" id="btnPlan3">選択する</div>
                     </div>
                 </article>
             </div>
@@ -87,6 +85,7 @@ $('#btnPlan1').click(function(e) {
     $('#btnPlan1').html('選択中');
     $('#btnPlan2').html('選択する');
     $('#btnPlan3').html('選択する');
+    $('#member').val(2);
 });
 
 $('#btnPlan2').click(function(e) {
@@ -96,6 +95,7 @@ $('#btnPlan2').click(function(e) {
     $('#btnPlan2').html('選択中');
     $('#btnPlan1').html('選択する');
     $('#btnPlan3').html('選択する');
+    $('#member').val(3);
 });
 
 $('#btnPlan3').click(function(e) {
@@ -105,6 +105,7 @@ $('#btnPlan3').click(function(e) {
     $('#btnPlan3').html('選択中');
     $('#btnPlan1').html('選択する');
     $('#btnPlan2').html('選択する');
+    $('#member').val(1);
 });
 
 </script>

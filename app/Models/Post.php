@@ -10,6 +10,7 @@ use App\Models\PostAdd;
 use App\Models\SubCategory;
 use App\Models\PostData;
 use App\Models\Expert;
+use Illuminate\Support\Facades\DB;
 
 class Post extends ModelClass
 {
@@ -82,7 +83,6 @@ class Post extends ModelClass
                 ->orderBy('count_access', 'desc')
                 ->orderBy('count_usuful', 'desc')
                 ->paginate(10);
-
         return $model;
     }
 
@@ -93,6 +93,12 @@ class Post extends ModelClass
         return $Model;
     }
 
+    public function getSelfPosts(){
+        $Model = $this->where('user_id', \Auth::user()->id)
+                      ->orderBy('created_at', 'desc')
+                      ->paginate(3);
+        return $Model;
+    }
 
     public function isAnswerCheck(){
         // dd($this->post_answer_id);
@@ -141,7 +147,8 @@ class Post extends ModelClass
         return $this->hasMany(PostAdd::class);
     }
 
-    public function category(){
+    public function sub_category(){
+        // dd($this->belongsTo(SubCategory::class));
         return $this->belongsTo(SubCategory::class);
     }
 }

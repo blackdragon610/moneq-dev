@@ -14,6 +14,7 @@ use App\Mails\PasswordChangeMail;
 use App\Models\ChangeToken;
 use App\Http\Requests\UserLoginRequest;
 use App\Http\Requests\PasswordRequest;
+use App\Models\UserPayment;
 
 
 class ProfileManageController extends Controller
@@ -45,6 +46,7 @@ class ProfileManageController extends Controller
         if($user->is_send_master == 1){$master = 'オン';} else{ $master = 'オフ';}
 
         $genderArray = configJson("custom/gender");
+        $paymentArray = configJson("custom/payment");
         $email = array($user->email=> '');
         $password = array('**************' => '');
         $profile = array('ニックネーム' => $user->nickname, '性別' => $genderArray[$user->gender]);
@@ -53,7 +55,8 @@ class ProfileManageController extends Controller
         if($user->pay_status == 1){
             $payment = "";
         }else{
-            $payment = array('クレジットカード' => '');
+            $pay = \Cookie::get('paytype');
+            $payment = array($paymentArray[$pay] => '');
         }
 
         return view('profiles.edit.index', compact('email', 'password', 'profile', 'notification', 'membership', 'payment'));
@@ -220,12 +223,29 @@ class ProfileManageController extends Controller
 
     public function memberPayment(Request $request){
 
-    }
-
-    public function memberPayDelete(Request $request){
         return view('profiles.edit.payment');
     }
 
-    public function payment(Request $request){
+    public function memberPayDelete(Request $request){
+
+        $user_id = \Auth::user()->id;
+        $userModel = User::where('id', $user_id)->first();
+        $userModel->pay_status = 1;
+        $userModel->save();
+
+        $PayModel = UserPayment::where('user_id', $user_id);
+        $PayModel->delete();
+        return redirect()->route('profiles.manage');
+    }
+
+    public function paymentInfo(Request $request){
+
+        return view('profiles.edit.payment');
+    }
+
+    public function paymentInfoUpdate(Request $request, $type){
+        \Cookie::queue('paytype', $type);
+
+        return redirect()->route('profiles.manage');
     }
 }

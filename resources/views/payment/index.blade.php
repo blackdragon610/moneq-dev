@@ -5,7 +5,8 @@
 <div class="container-fluid lightgreypanel p-3">
     <div class="container p-3">
 
-    {{Form::open(['url'=> route('entry.password.end'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
+    {{-- {{Form::open(['url'=> route('entry.password.end'),'method'=>'POST', 'files' => false, 'id' => 'form'])}} --}}
+    <input type="hidden" id="sheet" value="{{$sheetId}}">
     <section>
         <div class="row">
             <div class="col-sm-12 col-md-6 pl-0 pr-0 pr-md-2">
@@ -16,7 +17,17 @@
                     <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>過去Q&Aはすべて見放題</p>
                     <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>回答したお金の専門家に具体的な有料相談を行うことが可能</p>
                     <div class="col text-center btnLayer">
-                        <a href="#" class="btnSelected" id="btnPlan1">選択中</a>
+                        @if($sheetId == 1)
+                            <button class="btnSelected" id="btnPlan1">選択中</button>
+                            <input type="hidden" name="member" id="member" value="2">
+                        @elseif($sheetId == 2)
+                            @if($member == 2)
+                                    <button class="btnSelected" id="btnPlan1">選択中</button>
+                                    <input type="hidden" name="member" id="member" value="2">
+                            @else
+                                    <button class="btnUnselected" id="btnPlan1">選択する</button>
+                            @endif
+                        @endif
                     </div>
                 </article>
             </div>
@@ -29,7 +40,16 @@
                     <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>過去Q&Aはすべて見放題</p>
                     <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>回答したお金の専門家に具体的な有料相談を行うことが可能</p>
                     <div class="col text-center btnLayer">
-                        <a href="#" class="btnUnselected" id="btnPlan2">選択する</a>
+                        @if($sheetId == 1 && $member != 3)
+                            <button class="btnUnselected" id="btnPlan2">選択する</button>
+                        @elseif($sheetId == 2)
+                            @if($member == 3)
+                                    <input type="hidden" name="member" id="member" value="3">
+                                    <button class="btnSelected" id="btnPlan2">選択中</button>
+                            @else
+                                    <button class="btnUnselected" id="btnPlan2">選択する</button>
+                            @endif
+                        @endif
                     </div>
                 </article>
             </div>
@@ -53,20 +73,24 @@
 
                     </div>
                     <div class="col text-center">
-                        <button class="btn btn-danger" id="btnPlan3">選択する</button>
+                        @if($sheetId == 1)
+                            <a class="btn btn-danger" href="{{url('payments/input/1').'/'.$member}}" id="cardBtn">クレジット決済を押す</a>
+                        @elseif($sheetId == 2)
+                            <a class="btn btn-danger" href="{{url('payments/input/2').'/'.$member}}" id="cardBtn">クレジット決済を押す</a>
+                        @endif
                     </div>
                 </div>
                 <hr>
                 <div class="row justify-content-center">
-                    <a class="btn btn-danger"><img src="/images/svg/img-ranking-1.svg"></a>
-                    <a class="btn btn-danger"><img src="/images/svg/img-ranking-2.svg"></a>
-                    <a class="btn btn-danger"><img src="/images/svg/img-ranking-3.svg"></a>
+                    <a id="car1" class="btn btn-danger" href="{{url('paymenta/au/2')}}"><img src="/images/svg/img-ranking-1.svg"></a>
+                    <a id="car2" class="btn btn-danger" href="{{url('paymenta/docomo/2')}}"><img src="/images/svg/img-ranking-2.svg"></a>
+                    <a id="car3" class="btn btn-danger" href="{{url('paymenta/softbank/2')}}"><img src="/images/svg/img-ranking-3.svg"></a>
                 </div>
                 </article>
     </section>
     </div>
 
-    {{Form::close()}}
+    {{-- {{Form::close()}} --}}
 
     </div>
 </div>
@@ -77,6 +101,11 @@
         $('#btnPlan2').addClass('btnUnselected').removeClass('btnSelected');
         $('#btnPlan1').html('選択中');
         $('#btnPlan2').html('選択する');
+        var sheet = $('#sheet').val();
+        $('#cardBtn').attr("href", "{{url('payments/input')}}" + '/' + sheet + '/2');
+        $('#car1').attr("href", "{{url('payment/au')}}" + '/' +'2');
+        $('#car2').attr("href", "{{url('payment/docomo')}}" + '/' +'2');
+        $('#car3').attr("href", "{{url('payment/softbank')}}" + '/' +'2');
     });
 
     $('#btnPlan2').click(function(e) {
@@ -84,6 +113,11 @@
         $('#btnPlan1').addClass('btnUnselected').removeClass('btnSelected');
         $('#btnPlan2').html('選択中');
         $('#btnPlan1').html('選択する');
+        var sheet = $('#sheet').val();
+        $('#cardBtn').attr("href", "{{url('payments/input')}}" + '/' + sheet + '/3');
+        $('#car1').attr("href", "{{url('payment/au')}}" + '/' +'3');
+        $('#car2').attr("href", "{{url('payment/docomo')}}" + '/' +'3');
+        $('#car3').attr("href", "{{url('payment/softbank')}}" + '/' +'3');
     });
 
 </script>

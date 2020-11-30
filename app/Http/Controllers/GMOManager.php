@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use GMO\API\Defaults;
 use GMO\ImmediatePayment;
+use App\Models\UserPayment;
+use Illuminate\Support\Facades\Validator;
 
 class GMOManager extends Controller
 {
@@ -13,72 +15,101 @@ class GMOManager extends Controller
      *
      * @return Factory|View
      */
-    public function index(Request $request)
+    public function index(Request $request, $sheetId, $member)
     {
-        return view('payment.index');
+        return view('payment.index', compact('sheetId', 'member'));
     }
 
-    public function paymentByCreditCard(Request $request)
+    public function input($sheetId, $member){
+        return view('payment.payment', compact('sheetId', 'member'));
+    }
+
+    public function end(){
+
+    }
+    public function paymentByCreditCard(Request $request, UserPayment $UserPayment)
     {
+
+        $validator = Validator::make($request->all(),[
+            'cardno' => 'required|numeric|digits_between:10,16',
+            'holdername' => 'required',
+            'securitycode' => 'required'
+        ]);
+
+        // dd($request->member);
+        if($validator->fails()){
+            $inputs = $request->input();
+            $errors = $validator->errors();
+            return view('payment.payment', [
+                'inputs' => $inputs,
+                'errors' => $errors,
+                'member' => $request->member,
+            ]);
+        }
+
         Defaults::setShopId(env('GMO_SHOP_ID'));
         Defaults::setShopName(env('GMO_SHOP_NAME'));
         Defaults::setPassword(env('GMO_SHOP_PASSWORD'));
-        define('GMO_TRIAL_MODE', true);
-        //テスト環境
-        // A wrapper object that does everything for you.
-        $payment = new ImmediatePayment();
-        // Unique ID for every payment; probably should be taken from an auto-increment field from the database.
-        $payment->paymentId = 1234332434112;
-        $payment->amount = 1000;
-        // This card number can be used for tests.
-        $payment->cardNumber = '4111111111111111';
-        // A date in the future.
-        $payment->cardYear = '2021';
-        $payment->cardMonth = '7';
-        $payment->cardCode = '123';
+        define('GMO_TRIAL_MODE', false);
 
         //本番環境
 
-        // $payment = new ImmediatePayment();
-        // $payment->paymentId = 123; // Unique ID for every payment; see above
-        // $payment->amount = 1000;
-        // $payment->token = $_POST['token'];
+        $payment = new ImmediatePayment();
+        $payment->paymentId = $this->getOrderId(); // Unique ID for every payment; see above
+        $payment->amount = config('app.memberCost')[$request->member];
+        $payment->token = $request->pay_token;
 
         // Returns false on an error.
         if (!$payment->execute()) {
             $errors = $payment->getErrors();
-            dd($errors);
+            $errorStr = '';
             foreach ($errors as $errorCode => $errorDescription) {
-                // Show an error code and a description to the customer? Your choice.
-                // Probably you want to log the error too.
+                $errorStr .= $errorDescription.' ';
             }
-            return;
+
+            $inputs = $request->input();
+            $errors = $validator->errors();
+            return view('payment.payment', [
+                'inputs' => $inputs,
+                'errors' => $errors,
+                'member' => $request->member,
+                'errorStr' => $errorStr,
+            ]);
         }
 
         // Success!
         $response = $payment->getResponse();
-        dd($response);
+
+        $UserPayment->savePayment($response->OrderID, $request->member, config('app.memberCost')[$request->member]);
+
+        if($request->sheet == 2){
+            return redirect()->route('profile.edit');
+        }
+        return view('payment.end');
+        dd($response->OrderID);
 
     }
 
-    public function paymentByAu(Request $request)
+    public function paymentByAu(Request $request, UserPayment $UserPayment, $member)
     {
         Defaults::setShopId(env('GMO_SHOP_ID'));
         Defaults::setShopName(env('GMO_SHOP_NAME'));
         Defaults::setPassword(env('GMO_SHOP_PASSWORD'));
-        define('GMO_TRIAL_MODE', true);
+        define('GMO_TRIAL_MODE', false);
         // リクエストコネクションの設定
         $curl=curl_init();
         curl_setopt( $curl, CURLOPT_POST, true );
         curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
         curl_setopt( $curl, CURLOPT_URL, 'https://pt01.mul-pay.jp/payment/EntryTranAu.idPass' );
+
+        $orderId = $this->getOrderId();
         $param = [
             'ShopID'    => env('GMO_SHOP_ID'),
             'ShopPass'  => env('GMO_SHOP_PASSWORD'),
-            'OrderID'   => '1112112',
+            'OrderID'   => $orderId,
             'JobCd'     => 'AUTH',
-            'Amount'    => '1000',
-            'Tax'       => '100'
+            'Amount'    => config('app.memberCost')[$request->member],
+            'Tax'       => config('app.memberCost')[$request->member]/config('app.tex')
         ];
         // リクエストボディの生成
         curl_setopt( $curl, CURLOPT_POSTFIELDS, http_build_query( $param ) );
@@ -95,6 +126,7 @@ class GMOManager extends Controller
             return false;
         }
 
+
         // レスポンスのエラーチェック
         parse_str( $response, $data );
         if( array_key_exists( 'ErrCode', $data ) ){
@@ -102,6 +134,9 @@ class GMOManager extends Controller
 
             return false;
         }
+
+        $UserPayment->savePayment($orderId, $member, config('app.memberCost')[$member]);
+        return view('payment.end');
         dd($response);
 
         // 正常
@@ -159,24 +194,25 @@ class GMOManager extends Controller
 
     }
 
-    public function paymentByDocomo(Request $request)
+    public function paymentByDocomo(Request $request, UserPayment $UserPayment, $member)
     {
         Defaults::setShopId(env('GMO_SHOP_ID'));
         Defaults::setShopName(env('GMO_SHOP_NAME'));
         Defaults::setPassword(env('GMO_SHOP_PASSWORD'));
-        define('GMO_TRIAL_MODE', true);
+        define('GMO_TRIAL_MODE', false);
         // リクエストコネクションの設定
         $curl=curl_init();
         curl_setopt( $curl, CURLOPT_POST, true );
         curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
         curl_setopt( $curl, CURLOPT_URL, 'https://pt01.mul-pay.jp/payment/EntryTranDocomo.idPass' );
+        $orderId = $this->getOrderId();
         $param = [
             'ShopID'    => env('GMO_SHOP_ID'),
             'ShopPass'  => env('GMO_SHOP_PASSWORD'),
-            'OrderID'   => '11111',
+            'OrderID'   => $orderId,
             'JobCd'     => 'AUTH',
-            'Amount'    => '1000',
-            'Tax'       => '100'
+            'Amount'    => config('app.memberCost')[$request->member],
+            'Tax'       => config('app.memberCost')[$request->member]/config('app.tex')
         ];
         // リクエストボディの生成
         curl_setopt( $curl, CURLOPT_POSTFIELDS, http_build_query( $param ) );
@@ -202,6 +238,8 @@ class GMOManager extends Controller
         }
 
         // 正常
+        $UserPayment->savePayment($orderId, $member, config('app.memberCost')[$member]);
+        return view('payment.end');
         dd($response);
 
         // リクエストコネクションの設定
@@ -255,24 +293,25 @@ class GMOManager extends Controller
         return true;
     }
 
-    public function paymentBySoftbank(Request $request)
+    public function paymentBySoftbank(Request $request, UserPayment $UserPayment, $member)
     {
         Defaults::setShopId(env('GMO_SHOP_ID'));
         Defaults::setShopName(env('GMO_SHOP_NAME'));
         Defaults::setPassword(env('GMO_SHOP_PASSWORD'));
-        define('GMO_TRIAL_MODE', true);
+        define('GMO_TRIAL_MODE', false);
         // リクエストコネクションの設定
         $curl=curl_init();
         curl_setopt( $curl, CURLOPT_POST, true );
         curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
         curl_setopt( $curl, CURLOPT_URL, 'https://pt01.mul-pay.jp/payment/EntryTranSb.idPass' );
+        $orderId = $this->getOrderId();
         $param = [
             'ShopID'    => env('GMO_SHOP_ID'),
             'ShopPass'  => env('GMO_SHOP_PASSWORD'),
-            'OrderID'   => '11111',
+            'OrderID'   => $orderId,
             'JobCd'     => 'AUTH',
-            'Amount'    => '1000',
-            'Tax'       => '100'
+            'Amount'    => config('app.memberCost')[$request->member],
+            'Tax'       => config('app.memberCost')[$request->member]/config('app.tex')
         ];
         // リクエストボディの生成
         curl_setopt( $curl, CURLOPT_POSTFIELDS, http_build_query( $param ) );
@@ -298,6 +337,8 @@ class GMOManager extends Controller
         }
 
         // 正常
+        $UserPayment->savePayment($orderId, $member, config('app.memberCost')[$member]);
+        return view('payment.end');
         dd($response);
 
         // リクエストコネクションの設定
@@ -343,6 +384,13 @@ class GMOManager extends Controller
         // 正常
 
         return true;
+    }
+
+    public function getOrderId(){
+        $dateTime = new \DateTime();
+        $orderId = $dateTime->getTimestamp().\Auth::user()->id;
+
+        return $orderId;
     }
 }
 ?>

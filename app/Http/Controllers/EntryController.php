@@ -168,7 +168,12 @@ class EntryController extends Controller
 
         });
 
-        return redirect()->route('profile.edit');
+        $member = $request->member;
+        if($member == 1){
+            return redirect()->route('profile.edit');
+        }else{
+            return redirect()->route('payment', ['sheetId'=>2, 'member'=>$member]);
+        }
     }
 
     /**

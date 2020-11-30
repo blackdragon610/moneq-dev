@@ -50,7 +50,6 @@ class PasswordRequest extends FormRequest
     {
         return [
             "password" => ["required", "password", 'same:password_confirmation'],
-            "passwrod_confirmation" => ['required']
         ];
 
     }

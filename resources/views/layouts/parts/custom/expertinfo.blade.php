@@ -3,9 +3,9 @@
         @if (isset($ranking))
             <img src="/images/svg/img-ranking-{{ $ranking }}.svg" class="ranking">
         @endif
-        
+
         <div id="userinfo" class="row container-fluid">
-            <img src="/images/img-avatar-sample.png" id="avatar" class="avatar">
+            <img src="{{$contents->image}}" id="avatar" class="avatar">
             <div id="content">
                 <span id="name">{{$contents->expert_name_first.$contents->expert_name_second}}さん</span>
                 <span id="name1">({{$contents->expert_name_kana_first.$contents->expert_name_kana_second}})</span>

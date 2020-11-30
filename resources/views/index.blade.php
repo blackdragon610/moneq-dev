@@ -26,7 +26,11 @@
         <p id="heading3" class="mt-0 mb-0">\ さっそく、お金の悩みを専門家に相談する /</p>
         <div class="text-center">
             @if(Cookie::has('custom_token'))
-                <a href="{{route('post.create')}}" class="btn yellow-roundbtn" style="margin-top: 20px !important;">今すぐ登録して、専門家に相談する</a>
+                @if(\Auth::user()->pay_status != 1)
+                    <a href="{{route('post.create')}}" class="btn yellow-roundbtn" style="margin-top: 50px !important;">今すぐ登録して、専門家に相談する</a>
+                @else
+                    <a href="{{route('payment', ['sheetId'=>1, 'member'=>\Auth::user()->pay_status])}}" class="btn yellow-roundbtn" style="margin-top: 50px !important;">今すぐ登録して、専門家に相談する</a>
+                @endif
             @else
                 <a href="{{route('entry')}}" class="btn yellow-roundbtn" style="margin-top: 20px !important;">今すぐ登録して、専門家に相談する</a>
             @endif
@@ -171,7 +175,11 @@
 
         <div class="text-center">
             @if(Cookie::has('custom_token'))
-                <a href="{{route('post.create')}}" class="btn yellow-roundbtn" style="margin-top: 80px !important;">今すぐ登録して、専門家に相談する</a>
+                @if(\Auth::user()->pay_status != 1)
+                    <a href="{{route('post.create')}}" class="btn yellow-roundbtn" style="margin-top: 50px !important;">今すぐ登録して、専門家に相談する</a>
+                @else
+                    <a href="{{route('payment', ['sheetId'=>1, 'member'=>\Auth::user()->pay_status])}}" class="btn yellow-roundbtn" style="margin-top: 50px !important;">今すぐ登録して、専門家に相談する</a>
+                @endif
             @else
                 <a href="{{route('entry')}}" class="btn yellow-roundbtn" style="margin-top: 80px !important;">今すぐ登録して、専門家に相談する</a>
             @endif
@@ -233,7 +241,11 @@
 
         <div class="text-center">
             @if(Cookie::has('custom_token'))
-                <a href="{{route('post.create')}}" class="btn yellow-roundbtn" style="margin-top: 50px !important;">今すぐ登録して、専門家に相談する</a>
+                @if(\Auth::user()->pay_status != 1)
+                    <a href="{{route('post.create')}}" class="btn yellow-roundbtn" style="margin-top: 50px !important;">今すぐ登録して、専門家に相談する</a>
+                @else
+                    <a href="{{route('payment', ['sheetId'=>1, 'member'=>\Auth::user()->pay_status])}}" class="btn yellow-roundbtn" style="margin-top: 50px !important;">今すぐ登録して、専門家に相談する</a>
+                @endif
             @else
                 <a href="{{route('entry')}}" class="btn yellow-roundbtn" style="margin-top: 50px !important;">今すぐ登録して、専門家に相談する</a>
             @endif
@@ -269,7 +281,11 @@
                     <li>無制限</li>
                     <li>1件の質問につき3回</li>
                     <li>可能</li>
-                    <li><a href="{{ url('/login') }}" class="btn orange-roundbtn-150-30" >登録はこちら</a></li>
+                    @if(isLogin() == -1)
+                        <li><a href="{{ url('/entry') }}" class="btn orange-roundbtn-150-30" >登録はこちら</a></li>
+                    @else
+                        <li><a href="{{ url('profile/manage/membership') }}" class="btn orange-roundbtn-150-30" >登録はこちら</a></li>
+                    @endif
                 </ul>
             </div>
 
@@ -286,7 +302,11 @@
                     <li>無制限</li>
                     <li>1件の質問につき3回</li>
                     <li>可能</li>
-                    <li><a href="{{ url('/login') }}" class="btn yellow-roundbtn-150-30" >登録はこちら</a></li>
+                    @if(isLogin() == -1)
+                        <li><a href="{{ url('/entry') }}" class="btn orange-roundbtn-150-30" >登録はこちら</a></li>
+                    @else
+                        <li><a href="{{ url('profile/manage/membership') }}" class="btn orange-roundbtn-150-30" >登録はこちら</a></li>
+                    @endif
                 </ul>
             </div>
 
@@ -298,7 +318,11 @@
                     <li>月3件閲覧可能</li>
                     <li>-</li>
                     <li>可能</li>
-                    <li><a href="{{ url('/login') }}" class="btn white-roundbtn-150-30" >登録はこちら</a></li>
+                    @if(isLogin() == -1)
+                        <li><a href="{{ url('/entry') }}" class="btn orange-roundbtn-150-30" >登録はこちら</a></li>
+                    @else
+                        <li><a href="{{ url('profile/manage/membership') }}" class="btn orange-roundbtn-150-30" >登録はこちら</a></li>
+                    @endif
                 </ul>
             </div>
         </div>

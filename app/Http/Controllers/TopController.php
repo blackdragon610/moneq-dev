@@ -66,7 +66,7 @@ class TopController extends Controller
     }
 
     public function bottomNotification(){
-        $sql = "SELECT t2.post_name, ext_name, t2.body, t2.pId as id, t1.type, DATE_FORMAT(t1.created_at,'%Y/%m/%d') as created_at from(select * from notifications where unread = 1 and type=1 )t1
+        $sql = "SELECT t2.post_name, ext_name, t2.body, t2.pId as id, t1.type, DATE_FORMAT(t1.created_at,'%Y年%m月%d日') as created_at from(select * from notifications where unread = 1 and type=1 )t1
         LEFT JOIN (SELECT post_name, t2.id as pId, ext_name, post_answers.id, body from post_answers
         LEFT JOIN (SELECT id, concat(expert_name_first,expert_name_second) as ext_name from experts)t1
            on(post_answers.expert_id=t1.id)
@@ -80,11 +80,12 @@ class TopController extends Controller
     public function notification(){
         $maxId = 0;
         if(\Cookie::get('custom_token')){
+            $user_id = \Auth::user()->id;
             $sendArray = array();
             $sql = "select count(*) as count from notifications where unread = 1 ";
             $count = \DB::select($sql);
 
-            $sql = "SELECT t2.post_name, ext_name, t2.body, pId as id, t1.type from(select * from notifications where unread = 1 and type=1 )t1
+            $sql = "SELECT t2.post_name, ext_name, t2.body, pId as id, t1.type from(select * from notifications where user_id=".$user_id." and unread = 1 and type=1 )t1
                      LEFT JOIN (SELECT post_name, t2.id as pId, ext_name, post_answers.id, body from post_answers
                      LEFT JOIN (SELECT id, concat(expert_name_first,expert_name_second) as ext_name from experts)t1
                         on(post_answers.expert_id=t1.id)
@@ -96,6 +97,8 @@ class TopController extends Controller
                 $sendArray = ['count'=>$count, 'notification'=>$models];
                 return response()->json($sendArray);
             }
+
+            return response()->json('ok', 200);
         }
     }
 

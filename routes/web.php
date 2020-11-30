@@ -5,6 +5,9 @@
 */
 
 //フロント
+
+use App\Http\Controllers\GMOManager;
+
 Route::group(['middleware' => 'common:user'], function () {
     Route::group(['middleware' => 'auth:user'], function () {
         //通常の人のプロフィール
@@ -29,6 +32,8 @@ Route::group(['middleware' => 'common:user'], function () {
         Route::get('profile/manage/membership', 'ProfileManageController@membership')->name('profiles.membership');
         Route::get('profile/manage/membership/payment', 'ProfileManageController@memberPayment')->name('profiles.membership.payment');
         Route::get('profile/manage/membership/payment/delete', 'ProfileManageController@memberPayDelete')->name('profiles.membership.payment.delete');
+        Route::get('profile/manage/payment', 'ProfileManageController@paymentInfo')->name('payment.info');
+        Route::get('profile/manage/payment/update/{type}', 'ProfileManageController@paymentInfoupdate')->name('payment.update');
 
         //ポスト検索
 
@@ -54,6 +59,20 @@ Route::group(['middleware' => 'common:user'], function () {
         Route::post('search', 'SearchController@index')->name('search.category');
         Route::get('notification', 'TopController@notification')->name('notification');
         Route::get('notification/route/{type}/{id}', 'TopController@route')->name('notification.route');
+
+        //GMO
+        Route::get('payment/{sheetId}/{member}', 'GMOManager@index')->name('payment');
+        Route::get('payments/input/{sheetId}/{member}', 'GMOManager@input')->name('payment.input');
+        Route::post('payment/creditcard', 'GMOManager@paymentByCreditCard')->name('payment.creditcard');
+        Route::get('paymenta/au/{member}', 'GMOManager@paymentByAu')->name('payment.au');
+        Route::get('paymenta/docomo/{member}', 'GMOManager@paymentByDocomo')->name('payment.docomo');
+        Route::get('paymenta/softbank/{member}', 'GMOManager@paymentBySoftbank')->name('payment.softbank');
+        Route::get('payment/end', 'GMOManager@end')->name('payment.end');
+
+        Route::get('other/self', 'OtherController@selfPostData')->name('other.self');
+        Route::get('other/access', 'OtherController@accessPostData')->name('other.access');
+        Route::get('other/store', 'OtherController@storePostData')->name('other.store');
+
     });
 
     //相談の投稿検索
@@ -115,12 +134,5 @@ Route::group(['middleware' => 'common:user'], function () {
     Route::get('api/image', 'ImageController@index')->name('api.image');
 
     Route::get('mockup', 'MockupUIController@index');
-
-    //GMO
-    Route::get('payment', 'GMOManager@index')->name('payment');
-    Route::get('payment/creditcard', 'GMOManager@paymentByCreditCard')->name('payment.creditcard');
-    Route::get('payment/au', 'GMOManager@paymentByAu')->name('payment.au');
-    Route::get('payment/docomo', 'GMOManager@paymentByDocomo')->name('payment.docomo');
-    Route::get('payment/softbank', 'GMOManager@paymentBySoftbank')->name('payment.softbank');
 
 });

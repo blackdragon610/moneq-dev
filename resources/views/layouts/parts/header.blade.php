@@ -2,7 +2,7 @@
     <div class="row align-items-center" style="overflow: visible;">
 
             <nav class="navbar navbar-expand-sm navbar-light p-0 col-12">
-            <img src="{{ url('/images/svg/img-logo-v2.svg') }}" id="logo">
+            <a href="/"><img src="{{ url('/images/svg/img-logo-v2.svg') }}" id="logo"></a>
             <!-- <span id="title">お金の悩み相談サービス「マネク」</span> -->
 
             <!-- AFTER LOGIN -->
@@ -30,11 +30,11 @@
                             <hr>
                             <a class="dropdown-item waves-effect waves-light" href="#">@lang('string.expert_search')</a>
                             <hr>
-                            <a class="dropdown-item waves-effect waves-light" href="#">@lang('string.post_in')</a>
+                            <a class="dropdown-item waves-effect waves-light" href="{{url('other/self')}}">@lang('string.post_in')</a>
                             <hr>
-                            <a class="dropdown-item waves-effect waves-light" href="#">@lang('string.search_history')</a>
+                            <a class="dropdown-item waves-effect waves-light" href="{{url('other/access')}}">@lang('string.search_history')</a>
                             <hr>
-                            <a class="dropdown-item waves-effect waves-light" href="#">@lang('string.saved')</a>
+                            <a class="dropdown-item waves-effect waves-light" href="{{url('other/store')}}">@lang('string.saved')</a>
                             <hr>
                             <a class="dropdown-item waves-effect waves-light" href="{{route('profiles.manage')}}">@lang('string.infomation')</a>
                             <hr>
@@ -83,7 +83,16 @@
                             <i class="fa fa-search fa-1x"></i>
                         </button>
                     </div>
-                    <a href="#" class="btn orange-btn-200-50 ml-auto">@lang('string.consult_btn')</a>
+                    @if(Cookie::has('custom_token'))
+                        @if(\Auth::user()->pay_status != 1)
+                            <a href="{{route('post.create')}}" class="btn orange-btn-200-50 ml-auto">@lang('string.consult_btn')</a>
+                        @else
+                            <a href="{{route('payment', ['sheetId'=>1, 'member'=>\Auth::user()->pay_status])}}" class="btn orange-btn-200-50 ml-auto">@lang('string.consult_btn')</a>
+                        @endif
+                    @else
+                        <a href="{{route('entry')}}" class="btn orange-btn-200-50 ml-auto" >@lang('string.consult_btn')</a>
+                    @endif
+
                 </div>
 
                 <!-- <div class="input-group pb-2 pt-2">
