@@ -3,18 +3,6 @@
 @section('main')
 <div class="whitepanel">
     <div class="container">
-
-        <?php 
-            $email['メールアドレス'] = "test@test.jp";
-            $password['パスワード'] = "321";
-            $profile['ニックネーム'] = "テスト太郎";
-            $profile['性別'] = "男性";
-            $notification['回答通知'] = "オン";
-            $notification['メッセージ通知'] = "オン";
-            $membership['有料プラン(年間払い)'] = "membership";
-            $payment['ニックネーム'] = "テスト太郎";
-            $payment['性別'] = "男性";
-        ?>
         
         <div class="row" style="margin-top:80px; margin-bottom:80px" >
             <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 p-2">
