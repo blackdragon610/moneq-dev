@@ -18,8 +18,12 @@
                     <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>回答したお金の専門家に具体的な有料相談を行うことが可能</p>
                     <div class="col text-center btnLayer">
                         @if($sheetId == 1)
-                            <button class="btnSelected" id="btnPlan1">選択中</button>
-                            <input type="hidden" name="member" id="member" value="2">
+                            @if($member == 2)
+                                <button class="btnSelected" id="btnPlan1">選択中</button>
+                                <input type="hidden" name="member" id="member" value="2">
+                            @else
+                                <button class="btnUnselected" id="btnPlan1">選択する</button>
+                            @endif
                         @elseif($sheetId == 2)
                             @if($member == 2)
                                     <button class="btnSelected" id="btnPlan1">選択中</button>
@@ -40,8 +44,10 @@
                     <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>過去Q&Aはすべて見放題</p>
                     <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>回答したお金の専門家に具体的な有料相談を行うことが可能</p>
                     <div class="col text-center btnLayer">
-                        @if($sheetId == 1 && $member != 3)
-                            <button class="btnUnselected" id="btnPlan2">選択する</button>
+                        @if($sheetId == 1)
+                            @if($member != 2)
+                                <button class="btnSelected" id="btnPlan2">選択中</button>
+                            @endif
                         @elseif($sheetId == 2)
                             @if($member == 3)
                                     <input type="hidden" name="member" id="member" value="3">
