@@ -98,7 +98,7 @@ class GMOManager extends Controller
 
     }
 
-    public function paymentByAu(Request $request, UserPayment $UserPayment, $member)
+    public function paymentByAu(Request $request, UserPayment $UserPayment, User $User, $member)
     {
         Defaults::setShopId(env('GMO_SHOP_ID'));
         Defaults::setShopName(env('GMO_SHOP_NAME'));
@@ -144,6 +144,7 @@ class GMOManager extends Controller
         }
 
         $UserPayment->savePayment($orderId, $member, config('app.memberCost')[$member]);
+        $User->setPayStatus($request->member);
         \Cookie::queue('paytype', 2);
         return redirect()->route('payment.end');
         dd($response);
@@ -203,7 +204,7 @@ class GMOManager extends Controller
 
     }
 
-    public function paymentByDocomo(Request $request, UserPayment $UserPayment, $member)
+    public function paymentByDocomo(Request $request, UserPayment $UserPayment, User $User, $member)
     {
         Defaults::setShopId(env('GMO_SHOP_ID'));
         Defaults::setShopName(env('GMO_SHOP_NAME'));
@@ -248,6 +249,7 @@ class GMOManager extends Controller
 
         // 正常
         $UserPayment->savePayment($orderId, $member, config('app.memberCost')[$member]);
+        $User->setPayStatus($request->member);
         \Cookie::queue('paytype', 3);
         return redirect()->route('payment.end');
         dd($response);
@@ -303,7 +305,7 @@ class GMOManager extends Controller
         return true;
     }
 
-    public function paymentBySoftbank(Request $request, UserPayment $UserPayment, $member)
+    public function paymentBySoftbank(Request $request, UserPayment $UserPayment, User $User, $member)
     {
         Defaults::setShopId(env('GMO_SHOP_ID'));
         Defaults::setShopName(env('GMO_SHOP_NAME'));
@@ -348,6 +350,7 @@ class GMOManager extends Controller
 
         // 正常
         $UserPayment->savePayment($orderId, $member, config('app.memberCost')[$member]);
+        $User->setPayStatus($request->member);
         \Cookie::queue('paytype', 4);
         return redirect()->route('payment.end');
         dd($response);
