@@ -66,6 +66,7 @@
 <script>
 
     function submitPay(){
+        $('#payment').hide();
         var cardno = $('#cardno').val();
         var expire = $('#year').val() + $('#month').val();
         var securitycode = $('#securitycode').val();
@@ -84,6 +85,7 @@
     function someCallbackFunction ( response ){
         if( response.resultCode != '000' ){
             window.alert( '購入処理中にエラーが発生しました' )
+            $('#payment').show();
         }else{
             //カード情報は念のため値を除去
             // $('#cardno').val('');

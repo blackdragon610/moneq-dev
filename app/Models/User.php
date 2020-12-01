@@ -106,6 +106,11 @@ class User  extends ModelClass implements JWTSubject
         return $user;
     }
 
+    public function setPayStatus($status){
+        $user = User::where('id', \Auth::user()->id)->first();
+        $user->pay_status = $status;
+        $user->save();
+    }
 
     /**
      *  対象の配列のjson化

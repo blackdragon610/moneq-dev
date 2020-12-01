@@ -52,7 +52,7 @@ class OtherController extends Controller
                             ->select(DB::raw('posts.*, sub_name, nickname, date_birth, gender, posts.id as pId'))
                             ->where('post_data.type', 1)
                             ->where('post_data.user_id', \Auth::user()->id)
-                            ->orderBy('post_data.created_at', 'desc')
+                            ->orderBy('post_data.updated_at', 'desc')
                             ->paginate(2);
         $gender = configJson('custom/gender');
 

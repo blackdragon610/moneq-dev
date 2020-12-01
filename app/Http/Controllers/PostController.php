@@ -117,7 +117,13 @@ class PostController extends Controller
 
 
         $post = $Post->find($postId);
-        $post->post_answer_id = $post->isAnswerCheck();
+        if($post)
+            $post->post_answer_id = $post->isAnswerCheck();
+        else{
+            header("Location:/error/notsee");
+            exit();
+        }
+
         $Post->updatePostReadCount($post);
 
         $postAdd = $post->find($postId)->adds;
@@ -125,12 +131,10 @@ class PostController extends Controller
 
         if(isLogin() == 1){
             $isUser = isUser($post->user->id);
-        }else $isUser = -1;
-
-        if($isUser == 0){
-            $postData = $PostData->getPostHistoryData($post->user->id, $postId);
-            $postData->user_id =$post->user->id;
+            $postData = $PostData->getPostHistoryData(\Auth::user()->id, $postId);
+            $postData->user_id = \Auth::user()->id;
             $postData->post_id = $postId;
+            $postData->updated_at = new \DateTime();
             $postData->type = 1;
             $postData->save();
         }

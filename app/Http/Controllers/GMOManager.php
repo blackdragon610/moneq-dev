@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use GMO\API\Defaults;
 use GMO\ImmediatePayment;
+use App\Models\User;
 use App\Models\UserPayment;
 use Illuminate\Support\Facades\Validator;
 
@@ -25,9 +26,10 @@ class GMOManager extends Controller
     }
 
     public function end(){
+        return view('payment.end');
 
     }
-    public function paymentByCreditCard(Request $request, UserPayment $UserPayment)
+    public function paymentByCreditCard(Request $request, UserPayment $UserPayment, User $User)
     {
 
         $validator = Validator::make($request->all(),[
@@ -44,13 +46,14 @@ class GMOManager extends Controller
                 'inputs' => $inputs,
                 'errors' => $errors,
                 'member' => $request->member,
+                'sheetId' => $request->sheet
             ]);
         }
 
         Defaults::setShopId(env('GMO_SHOP_ID'));
         Defaults::setShopName(env('GMO_SHOP_NAME'));
         Defaults::setPassword(env('GMO_SHOP_PASSWORD'));
-        define('GMO_TRIAL_MODE', false);
+        define('GMO_TRIAL_MODE', true);
 
         //本番環境
 
@@ -73,6 +76,7 @@ class GMOManager extends Controller
                 'inputs' => $inputs,
                 'errors' => $errors,
                 'member' => $request->member,
+                'sheetId' => $request->sheet,
                 'errorStr' => $errorStr,
             ]);
         }
@@ -80,12 +84,16 @@ class GMOManager extends Controller
         // Success!
         $response = $payment->getResponse();
 
+        $User->setPayStatus($request->member);
         $UserPayment->savePayment($response->OrderID, $request->member, config('app.memberCost')[$request->member]);
+
+        \Cookie::queue('paytype', 1);
+
 
         if($request->sheet == 2){
             return redirect()->route('profile.edit');
         }
-        return view('payment.end');
+        return redirect()->route('payment.end');
         dd($response->OrderID);
 
     }
@@ -136,7 +144,8 @@ class GMOManager extends Controller
         }
 
         $UserPayment->savePayment($orderId, $member, config('app.memberCost')[$member]);
-        return view('payment.end');
+        \Cookie::queue('paytype', 2);
+        return redirect()->route('payment.end');
         dd($response);
 
         // 正常
@@ -239,7 +248,8 @@ class GMOManager extends Controller
 
         // 正常
         $UserPayment->savePayment($orderId, $member, config('app.memberCost')[$member]);
-        return view('payment.end');
+        \Cookie::queue('paytype', 3);
+        return redirect()->route('payment.end');
         dd($response);
 
         // リクエストコネクションの設定
@@ -338,7 +348,8 @@ class GMOManager extends Controller
 
         // 正常
         $UserPayment->savePayment($orderId, $member, config('app.memberCost')[$member]);
-        return view('payment.end');
+        \Cookie::queue('paytype', 4);
+        return redirect()->route('payment.end');
         dd($response);
 
         // リクエストコネクションの設定

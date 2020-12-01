@@ -1,4 +1,5 @@
-<article class="col-12 pl-0 pr-0">
+<a href="{{url('post/detail').'/'.$contents->id}}">
+<article class="col-12 pl-0 pr-0" id="postId{{$contents->id}}">
     <div id="article">
         <div class="row m-0">
             <div id="tag" class="text-center">{{$contents->sub_category->sub_name}}</div>
@@ -30,3 +31,6 @@
         </div>
     </div>
 </article>
+</a>
+<script>
+</script>

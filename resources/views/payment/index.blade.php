@@ -18,7 +18,7 @@
                     <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>回答したお金の専門家に具体的な有料相談を行うことが可能</p>
                     <div class="col text-center btnLayer">
                         @if($sheetId == 1)
-                            @if($member == 2)
+                            @if($member != 3)
                                 <button class="btnSelected" id="btnPlan1">選択中</button>
                                 <input type="hidden" name="member" id="member" value="2">
                             @else
@@ -45,8 +45,11 @@
                     <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>回答したお金の専門家に具体的な有料相談を行うことが可能</p>
                     <div class="col text-center btnLayer">
                         @if($sheetId == 1)
-                            @if($member != 2)
+                            @if($member == 3)
                                 <button class="btnSelected" id="btnPlan2">選択中</button>
+                                <input type="hidden" name="member" id="member" value="3">
+                            @elseif($member == 1)
+                                <button class="btnUnselected" id="btnPlan2">選択する</button>
                             @endif
                         @elseif($sheetId == 2)
                             @if($member == 3)
@@ -80,17 +83,19 @@
                     </div>
                     <div class="col text-center">
                         @if($sheetId == 1)
+                            @if($member == 1)   <?php $member = 2?> @endif
                             <a class="btn btn-danger" href="{{url('payments/input/1').'/'.$member}}" id="cardBtn">クレジット決済を押す</a>
                         @elseif($sheetId == 2)
+                        @if($member == 1)   <?php $member = 2?> @endif
                             <a class="btn btn-danger" href="{{url('payments/input/2').'/'.$member}}" id="cardBtn">クレジット決済を押す</a>
                         @endif
                     </div>
                 </div>
                 <hr>
                 <div class="row justify-content-center">
-                    <a id="car1" class="btn btn-danger" href="{{url('paymenta/au/2')}}"><img src="/images/svg/img-ranking-1.svg"></a>
-                    <a id="car2" class="btn btn-danger" href="{{url('paymenta/docomo/2')}}"><img src="/images/svg/img-ranking-2.svg"></a>
-                    <a id="car3" class="btn btn-danger" href="{{url('paymenta/softbank/2')}}"><img src="/images/svg/img-ranking-3.svg"></a>
+                    <a id="car1" class="btn btn-danger" href="{{url('paymenta/au').'/'.$member}}"><img src="/images/svg/img-ranking-1.svg"></a>
+                    <a id="car2" class="btn btn-danger" href="{{url('paymenta/docomo').'/'.$member}}"><img src="/images/svg/img-ranking-2.svg"></a>
+                    <a id="car3" class="btn btn-danger" href="{{url('paymenta/softbank').'/'.$member}}"><img src="/images/svg/img-ranking-3.svg"></a>
                 </div>
                 </article>
     </section>
