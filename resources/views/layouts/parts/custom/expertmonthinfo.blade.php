@@ -1,3 +1,4 @@
+<a href="{{route('expert.detail', $contents->id)}}">
 <article class="col-12 p-1">
     <div class="row">
         @if (isset($ranking))
@@ -24,3 +25,4 @@
         </div>
     </div>
 </article>
+</a>

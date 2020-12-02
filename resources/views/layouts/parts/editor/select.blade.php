@@ -46,11 +46,11 @@
                     @if (isset($select['value']["groups"]))
                         <optgroup label="{{$select['value']["name"]}}">
                             @foreach ($select['value']["groups"] as $key2 => $group)
-                                <option value="{{$key2}}"@if (getVariable($inputs, $name) == $key2) selected @endif>{{$group}}</option>
+                                <option value="<?php if(isset($other)) echo $other?>{{$key2}}"@if (getVariable($inputs, $name) == $key2) selected @endif>{{$group}}</option>
                             @endforeach
                         </optgroup>
                     @else
-    					<option value="{{$key}}"@if ($select['select']) selected @endif>{{$select['value']}}</option>
+    					<option value="<?php if(isset($other)) echo $other?>{{$key}}"@if ($select['select']) selected @endif>{{$select['value']}}</option>
                     @endif
 				@endforeach
 			@endif

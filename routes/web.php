@@ -76,7 +76,10 @@ Route::group(['middleware' => 'common:user'], function () {
     });
 
     //相談の投稿検索
-    Route::get('post/search', 'PostController@search')->name('post.search');
+    Route::post('post/search', 'SearchController@index')->name('search.post');
+    Route::get('post/search/tema', 'SearchController@searchTema')->name('search.tema');
+    Route::get('post/search/category', 'SearchController@searchCategory')->name('search.category');
+    Route::get('expert/search', 'SearchController@searchExpert')->name('search.expert');
 
 
     Route::group(['middleware' => 'auth:expert'], function () {

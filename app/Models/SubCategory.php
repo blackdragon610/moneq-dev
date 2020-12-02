@@ -13,4 +13,10 @@ class SubCategory extends ModelClass
     protected $hidden = [
     ];
 
+    public function getCategoryName($id){
+        $model = $this->find($id);
+
+        return $model->sub_name;
+    }
+
 }

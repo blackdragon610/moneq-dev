@@ -30,7 +30,7 @@
             </div>
         @endforeach
     @endif
-    @if($isUser != 1)
+    @if($isUser != 1 && isLogin() == 1)
         <div class="row">
             <button class="btn btn-default" type="button" id="dataSave">
                 <i class="fa fa-bookmark-o <?php if($sPost !=0) echo 'fa_custom'?>" id="fa"></i> 保存する

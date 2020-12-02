@@ -6,7 +6,7 @@
             <div id="tag" class="text-center">{{$contents->sub_name}}</div>
             <div class="ml-auto">
                 <img src="/images/svg/img-clock-grey.svg">
-                <span id="date">{{$contents->created_at->format('Y/m/d')}}</span>
+                <span id="date">{{getDateFormat($contents->created_at)}}</span>
             </div>
         </div>
         <div id="title">{{$contents->post_name}}</div>
@@ -22,7 +22,7 @@
         <div class="row m-0 align-items-center" style="padding-top:10px">
             <img src="/images/svg/img-avatar-grandfa.svg" class="avatar">
             <img src="/images/svg/img-avatar-young.svg" class="avatar" style="margin-left:10px">
-            <span id="persons">{{$contents->answerCount($contents->pId)}}名</span><span id="answers">が回答</span>
+            <span id="persons">{{$contents->count_answer}}名</span><span id="answers">が回答</span>
             <!-- <span id="wait">専門家回答待ち</span> -->
         </div>
     </div>

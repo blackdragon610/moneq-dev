@@ -53,7 +53,7 @@ class GMOManager extends Controller
         Defaults::setShopId(env('GMO_SHOP_ID'));
         Defaults::setShopName(env('GMO_SHOP_NAME'));
         Defaults::setPassword(env('GMO_SHOP_PASSWORD'));
-        define('GMO_TRIAL_MODE', true);
+        define('GMO_TRIAL_MODE', env('GMO_TRIAL_MODE'));
 
         //本番環境
 
@@ -94,8 +94,6 @@ class GMOManager extends Controller
             return redirect()->route('profile.edit');
         }
         return redirect()->route('payment.end');
-        dd($response->OrderID);
-
     }
 
     public function paymentByAu(Request $request, UserPayment $UserPayment, User $User, $member)
@@ -103,19 +101,19 @@ class GMOManager extends Controller
         Defaults::setShopId(env('GMO_SHOP_ID'));
         Defaults::setShopName(env('GMO_SHOP_NAME'));
         Defaults::setPassword(env('GMO_SHOP_PASSWORD'));
-        define('GMO_TRIAL_MODE', false);
+        define('GMO_TRIAL_MODE', env('GMO_TRIAL_MODE'));
         // リクエストコネクションの設定
         $curl=curl_init();
         curl_setopt( $curl, CURLOPT_POST, true );
         curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
-        curl_setopt( $curl, CURLOPT_URL, 'https://pt01.mul-pay.jp/payment/EntryTranAu.idPass' );
+        curl_setopt( $curl, CURLOPT_URL, 'https://p01.mul-pay.jp/payment/EntryTranAu.idPass' );
 
         $orderId = $this->getOrderId();
         $param = [
             'ShopID'    => env('GMO_SHOP_ID'),
             'ShopPass'  => env('GMO_SHOP_PASSWORD'),
             'OrderID'   => $orderId,
-            'JobCd'     => 'AUTH',
+            'JobCd'     => 'CAPTURE',
             'Amount'    => config('app.memberCost')[$request->member],
             'Tax'       => config('app.memberCost')[$request->member]/config('app.tex')
         ];
@@ -147,61 +145,6 @@ class GMOManager extends Controller
         $User->setPayStatus($request->member);
         \Cookie::queue('paytype', 2);
         return redirect()->route('payment.end');
-        dd($response);
-
-        // 正常
-        // リクエストコネクションの設定
-        // $curl=curl_init();
-        curl_setopt( $curl, CURLOPT_POST, true );
-        curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
-        curl_setopt( $curl, CURLOPT_URL, 'https://pt01.mul-pay.jp/payment/ExecTranAu.idPass' );
-        $param = [
-            'ShopID'          => 'YourShopId',
-            'ShopPass'        => 'YourShopPassword',
-            'AccessID'        => 'SampleAccessID',
-            'AccessPass'      => 'SampleAccessPass',
-            'OrderID'         => 'SampleOrderID',
-            'SiteID'          => 'YourSiteId',
-            'SitePass'        => 'YourSitePassword',
-            'MemberID'        => 'SampleMemberID',
-            'MemberName'      => 'SampleMemberName',
-            'CreateMember'    => '1',
-            'ClientField1'    => 'SampleClientField1',
-            'ClientField2'    => 'SampleClientField2',
-            'ClientField3'    => 'SampleClientField3',
-            'Commodity'       => '全角文字',
-            'RetURL'          => 'https://example.com/xxxxx',
-            'PaymentTermSec'  => '120',
-            'ServiceName'     => '全角文字',
-            'ServiceTel'      => '03xxxxxxxx'
-        ];
-        // リクエストボディの生成
-        curl_setopt( $curl, CURLOPT_POSTFIELDS, http_build_query( $param ) );
-
-        // リクエスト送信
-        $response = curl_exec( $curl );
-        $curlinfo = curl_getinfo( $curl );
-        curl_close( $curl );
-
-        // レスポンスチェック
-        if( $curlinfo[ 'http_code' ] != 200 ){
-            // エラー
-
-            return false;
-        }
-
-        // レスポンスのエラーチェック
-        parse_str( $response, $data );
-        if( array_key_exists( 'ErrCode', $data ) ){
-            // エラー
-
-            return false;
-        }
-
-        // 正常
-
-        return true;
-
     }
 
     public function paymentByDocomo(Request $request, UserPayment $UserPayment, User $User, $member)
@@ -209,18 +152,18 @@ class GMOManager extends Controller
         Defaults::setShopId(env('GMO_SHOP_ID'));
         Defaults::setShopName(env('GMO_SHOP_NAME'));
         Defaults::setPassword(env('GMO_SHOP_PASSWORD'));
-        define('GMO_TRIAL_MODE', false);
+        define('GMO_TRIAL_MODE', env('GMO_TRIAL_MODE'));
         // リクエストコネクションの設定
         $curl=curl_init();
         curl_setopt( $curl, CURLOPT_POST, true );
         curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
-        curl_setopt( $curl, CURLOPT_URL, 'https://pt01.mul-pay.jp/payment/EntryTranDocomo.idPass' );
+        curl_setopt( $curl, CURLOPT_URL, 'https://p01.mul-pay.jp/payment/EntryTranDocomo.idPass' );
         $orderId = $this->getOrderId();
         $param = [
             'ShopID'    => env('GMO_SHOP_ID'),
             'ShopPass'  => env('GMO_SHOP_PASSWORD'),
             'OrderID'   => $orderId,
-            'JobCd'     => 'AUTH',
+            'JobCd'     => 'CAPTURE',
             'Amount'    => config('app.memberCost')[$request->member],
             'Tax'       => config('app.memberCost')[$request->member]/config('app.tex')
         ];
@@ -252,57 +195,6 @@ class GMOManager extends Controller
         $User->setPayStatus($request->member);
         \Cookie::queue('paytype', 3);
         return redirect()->route('payment.end');
-        dd($response);
-
-        // リクエストコネクションの設定
-        $curl=curl_init();
-        curl_setopt( $curl, CURLOPT_POST, true );
-        curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
-        curl_setopt( $curl, CURLOPT_URL, 'https://pt01.mul-pay.jp/payment/ExecTranDocomo.idPass' );
-        $param = [
-            'ShopID'          => 'YourShopID',
-            'ShopPass'        => 'YourShopPassword',
-            'AccessID'        => 'SampleAccessID',
-            'AccessPass'      => 'SampleAccessPass',
-            'OrderID'         => 'SampleOrderID',
-            'ClientField1'    => 'SampleClientField1',
-            'ClientField2'    => 'SampleClientField2',
-            'ClientField3'    => 'SampleClientField3',
-            'DocomoDisp1'     => 'SampleDocomoDisp1',
-            'DocomoDisp2'     => 'SampleDocomoDisp2',
-            'RetURL'          => 'https://example.com/xxxxx',
-            'PaymentTermSec'  => '180',
-            'DispShopName'    => 'YourShopName',
-            'DispPhoneNumber' => '03xxxxxxxx',
-            'DispMailAddress' => 'SampleShopMailAddress',
-            'DispShopUrl'     => 'https://example.com/xxxxx'
-        ];
-        // リクエストボディの生成
-        curl_setopt( $curl, CURLOPT_POSTFIELDS, http_build_query( $param ) );
-
-        // リクエスト送信
-        $response = curl_exec( $curl );
-        $curlinfo = curl_getinfo( $curl );
-        curl_close( $curl );
-
-        // レスポンスチェック
-        if( $curlinfo[ 'http_code' ] != 200 ){
-            // エラー
-
-            return false;
-        }
-
-        // レスポンスのエラーチェック
-        parse_str( $response, $data );
-        if( array_key_exists( 'ErrCode', $data ) ){
-            // エラー
-
-            return false;
-        }
-
-        // 正常
-
-        return true;
     }
 
     public function paymentBySoftbank(Request $request, UserPayment $UserPayment, User $User, $member)
@@ -310,18 +202,18 @@ class GMOManager extends Controller
         Defaults::setShopId(env('GMO_SHOP_ID'));
         Defaults::setShopName(env('GMO_SHOP_NAME'));
         Defaults::setPassword(env('GMO_SHOP_PASSWORD'));
-        define('GMO_TRIAL_MODE', false);
+        define('GMO_TRIAL_MODE', env('GMO_TRIAL_MODE'));
         // リクエストコネクションの設定
         $curl=curl_init();
         curl_setopt( $curl, CURLOPT_POST, true );
         curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
-        curl_setopt( $curl, CURLOPT_URL, 'https://pt01.mul-pay.jp/payment/EntryTranSb.idPass' );
+        curl_setopt( $curl, CURLOPT_URL, 'https://p01.mul-pay.jp/payment/EntryTranSb.idPass' );
         $orderId = $this->getOrderId();
         $param = [
             'ShopID'    => env('GMO_SHOP_ID'),
             'ShopPass'  => env('GMO_SHOP_PASSWORD'),
             'OrderID'   => $orderId,
-            'JobCd'     => 'AUTH',
+            'JobCd'     => 'CAPTURE',
             'Amount'    => config('app.memberCost')[$request->member],
             'Tax'       => config('app.memberCost')[$request->member]/config('app.tex')
         ];
@@ -353,51 +245,6 @@ class GMOManager extends Controller
         $User->setPayStatus($request->member);
         \Cookie::queue('paytype', 4);
         return redirect()->route('payment.end');
-        dd($response);
-
-        // リクエストコネクションの設定
-        $curl=curl_init();
-        curl_setopt( $curl, CURLOPT_POST, true );
-        curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
-        curl_setopt( $curl, CURLOPT_URL, 'https://pt01.mul-pay.jp/payment/ExecTranSb.idPass' );
-        $param = [
-            'ShopID'          => 'YourShopID',
-            'ShopPass'        => 'YourShopPassword',
-            'AccessID'        => 'SampleAccessID',
-            'AccessPass'      => 'SampleAccessPass',
-            'OrderID'         => 'SampleOrderID',
-            'ClientField1'    => 'SampleClientField1',
-            'ClientField2'    => 'SampleClientField2',
-            'ClientField3'    => 'SampleClientField3',
-            'RetURL'          => 'https://example.com/xxxxx',
-            'PaymentTermSec'  => '180'
-        ];
-        // リクエストボディの生成
-        curl_setopt( $curl, CURLOPT_POSTFIELDS, http_build_query( $param ) );
-
-        // リクエスト送信
-        $response = curl_exec( $curl );
-        $curlinfo = curl_getinfo( $curl );
-        curl_close( $curl );
-
-        // レスポンスチェック
-        if( $curlinfo[ 'http_code' ] != 200 ){
-            // エラー
-
-            return false;
-        }
-
-        // レスポンスのエラーチェック
-        parse_str( $response, $data );
-        if( array_key_exists( 'ErrCode', $data ) ){
-            // エラー
-
-            return false;
-        }
-
-        // 正常
-
-        return true;
     }
 
     public function getOrderId(){

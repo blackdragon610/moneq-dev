@@ -14,7 +14,7 @@
                         <p><i class="fa fa-clock-o"></i> 実務経験豊富な専門家が</p>
                         <p><i class="fa fa-clock-o"></i> 回答率99％</p>
                         <div class="col text-center ">
-                            <button class="btnSubmit">専門家に相談する</button>
+                            <a href="{{route('search.expert')}}" class="btn btnSelected mx-2">専門家に相談する</a>
                         </div>
                     </div>
                     <div class="container-fluid pt-2 pb-2">
@@ -56,7 +56,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col text-center">
-                                        <a href="#" class="btn btnSelected mx-2">お金の専門家一覧</a>
+                                        <a href="{{route('search.expert')}}" class="btn btnSelected mx-2">お金の専門家一覧</a>
                                     </div>
                                 </div>
                             </div>

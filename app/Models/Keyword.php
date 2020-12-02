@@ -12,4 +12,9 @@ class Keyword extends ModelClass
     protected $hidden = [
     ];
 
+    public function saveKeyword($keyword){
+        $Model = clone $this;
+        $Model->keyword = $keyword;
+        $Model->save();
+    }
 }

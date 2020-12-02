@@ -235,6 +235,15 @@
         return $Model->uploadType;
     }
 
+    function getDateFormat($date){
+        $curDate = new \DateTime($date);
+        return $curDate->format("Y/m/d");
+    }
+
+    function getDateTFormat($date){
+        $curDate = new \DateTime($date);
+        return $curDate->format("Y年m月");
+    }
     function getAge(string $birthDay) : string
     {
         $curDate = new \DateTime(date("Y-m-d"));

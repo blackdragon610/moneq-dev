@@ -24,11 +24,11 @@
                             <i class="fa fa-user-o fa-lg"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownUser">
-                            <a class="dropdown-item waves-effect waves-light" href="#">@lang('string.tema_search')</a>
+                            <a class="dropdown-item waves-effect waves-light" href="{{route('search.tema')}}">@lang('string.tema_search')</a>
                             <hr>
-                            <a class="dropdown-item waves-effect waves-light" href="#">@lang('string.money_free')</a>
+                            <a class="dropdown-item waves-effect waves-light" href="{{route('search.category')}}">@lang('string.money_free')</a>
                             <hr>
-                            <a class="dropdown-item waves-effect waves-light" href="#">@lang('string.expert_search')</a>
+                            <a class="dropdown-item waves-effect waves-light" href="{{route('search.expert')}}">@lang('string.expert_search')</a>
                             <hr>
                             <a class="dropdown-item waves-effect waves-light" href="{{url('other/self')}}">@lang('string.post_in')</a>
                             <hr>
@@ -72,17 +72,17 @@
 </div>
 
 <div class="container-fluid yellowpanel">
-    <form action="#" method="post">
+    {{Form::open(['url'=> route('search.post'),'method'=>'POST', 'files' => false, 'id' => 'yform'])}}
         <div class="container" style="height:74px">
             <div class="row">
 
                 <div class="input-group" id="searchbar">
-                    <input type="text" placeholder="お金の悩みを検索" id="searchYellow">
-                    <div class="input-group-append">
-                        <button type="button" class="btn btn-secondary">
-                            <i class="fa fa-search fa-1x"></i>
-                        </button>
-                    </div>
+                        <input type="text" placeholder="お金の悩みを検索" name="searchTxt" id="searchYellow">
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-secondary">
+                                <i class="fa fa-search fa-1x"></i>
+                            </button>
+                        </div>
                     @if(Cookie::has('custom_token'))
                         @if(\Auth::user()->pay_status != 1)
                             <a href="{{route('post.create')}}" class="btn orange-btn-200-50 ml-auto">@lang('string.consult_btn')</a>
@@ -106,7 +106,7 @@
 
             </div>
         </div>
-    </form>
+    {{Form::close()}}
 </div>
 
 <script>

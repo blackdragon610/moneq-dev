@@ -129,6 +129,9 @@ class PostController extends Controller
         $postAdd = $post->find($postId)->adds;
         $postAnswer = $post->find($postId)->answers;
 
+        $postStoreFlag = 0;
+        $postHelpFlag = 0;
+
         if(isLogin() == 1){
             $isUser = isUser($post->user->id);
             $postData = $PostData->getPostHistoryData(\Auth::user()->id, $postId);
@@ -137,10 +140,10 @@ class PostController extends Controller
             $postData->updated_at = new \DateTime();
             $postData->type = 1;
             $postData->save();
-        }
+            $postStoreFlag = $PostData->getPostStoreData(\Auth::user()->id, $postId);
+            $postHelpFlag = $PostData->getPostHelpData(\Auth::user()->id, $postId);
+            }else   $isUser = -1;
 
-        $postStoreFlag = $PostData->getPostStoreData($post->user->id, $postId);
-        $postHelpFlag = $PostData->getPostHelpData($post->user->id, $postId);
 
         $weekExperts = $PostAnswer->weekHighExpert();
         $monthExperts = $PostAnswer->monthHighExpert();
@@ -209,12 +212,6 @@ class PostController extends Controller
         }else{
             return response()->json('0');
         }
-    }
-
-    public function search(Request $request){
-        $post = clone $this;
-        $post->where(['id', '>', '0'])->paginate(100);
-        return view('posts/search', compact('post'));
     }
 
     public function report($postId){

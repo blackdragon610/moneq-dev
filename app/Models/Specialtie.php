@@ -25,4 +25,16 @@ class Specialtie extends ModelClass
 
         return $result;
     }
+
+    public function getSearchSelect() : array
+    {
+        $selects = $this->get();
+
+        foreach ($selects as $select){
+            $result['5-'.$select->id] = $select->specialtie_name;
+        }
+
+
+        return $result;
+    }
 }

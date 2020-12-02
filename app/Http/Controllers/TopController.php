@@ -21,7 +21,7 @@ class TopController extends Controller
     /**
      * トップ
      */
-    public function index(Post $Post, PostAnswer $PostAnswer, PostData $PostData, Expert $Expert, User $User, Specialtie $Specialtie, Notification $Notification)
+    public function index(Post $Post, PostAnswer $PostAnswer, PostData $PostData, Expert $Expert, User $User, Specialtie $Specialtie, Notification $Notification, Category $Category)
     {
 
         // posts
@@ -39,6 +39,9 @@ class TopController extends Controller
         //notifications
         $notifications = $this->bottomNotification();
 
+        //categories
+        $categories = $Category->getSelectAll();
+
         //counter
         $questions = $Post->getPostCount();
         $answers = $PostAnswer->getAnswerCount();
@@ -52,7 +55,7 @@ class TopController extends Controller
 
         return view('index', compact('accessTopPost', 'newTopPost', 'monthAnswers', 'totalAnswers', 'monthHelps',
                                      'totalHelps', 'gender', 'prefecture', 'specialties', 'notifications', 'questions',
-                                     'answers', 'helps', 'experts', 'users'));
+                                     'answers', 'helps', 'experts', 'users', 'categories'));
     }
 
     public function search(Request $request){
