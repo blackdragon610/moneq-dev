@@ -34,7 +34,7 @@
                 }');
         ?>
     @include('layouts.parts.editor.select', ['name' => 'evaluation', "file" => $evaluation, "keyValue" => "",
-                'contents' => 'class="col-12" style="margin-top:6px; margin-bottom:12px;"', 'other'=>'5-'])
+                'contents' => 'class="col-12" style="margin-top:6px; margin-bottom:12px;"', 'other'=>'4-'])
     </div>
 
     <button type="button" class="collapsible">役に立った数</button>
@@ -58,7 +58,7 @@
     <button type="button" class="collapsible">回答専門家</button>
     <div class="content">
         @include('layouts.parts.editor.radioV', ['name' => 'experts', "data" => $spec , "keyValue" => "",
-                 'contents' => 'class="form-control"', 'other'=>'4-'])
+                 'contents' => 'class="form-control"'])
     </div>
     @if(Cookie::has('custom_token'))
         @if(\Auth::user()->pay_status != 1)
@@ -79,76 +79,136 @@
     $('#evaluation').change(function(){
         var tema = $(this).val();
         var aa = $("#evaluation option:selected").text();
+        var alias = $(this).attr('name');
+
         $('#tema').tagsinput({
             allowDuplicates: false,
                 itemValue: 'val',  // this will be used to set id of tag
-                itemText: 'label' // this will be used to set text of tag
+                itemText: 'label', // this will be used to set text of tag
+                alias : 'alias'
             });
 
-        $('#tema').tagsinput('add', { val: tema , label: aa});
+            var ss = $('#tema').tagsinput('items');
 
+            $.each(ss, function(i, data){
+                if(data.alias == alias)
+                    $('#tema').tagsinput('remove', data);
+            });
+            if(aa != '全て')
+                $('#tema').tagsinput('add', { val: tema , label: aa, alias: alias});
+            else
+                loadMoreData(0);
     });
 
     $('#help').change(function(){
         var tema = $(this).val();
         var aa = $("#help option:selected").text();
+        var alias = $(this).attr('name');
+
         $('#tema').tagsinput({
             allowDuplicates: false,
                 itemValue: 'val',  // this will be used to set id of tag
-                itemText: 'label' // this will be used to set text of tag
+                itemText: 'label', // this will be used to set text of tag
+                alias : 'alias'
             });
 
-        $('#tema').tagsinput('add', { val: tema , label: aa});
+            var ss = $('#tema').tagsinput('items');
 
+            $.each(ss, function(i, data){
+                if(data.alias == alias)
+                    $('#tema').tagsinput('remove', data);
+            });
+            if(aa != '全て')
+                $('#tema').tagsinput('add', { val: tema , label: aa, alias: alias});
+            else
+                loadMoreData(0);
     });
 
     $('#answers').change(function(){
         var tema = $(this).val();
         var aa = $("#answers option:selected").text();
+        var alias = $(this).attr('name');
+
         $('#tema').tagsinput({
             allowDuplicates: false,
                 itemValue: 'val',  // this will be used to set id of tag
-                itemText: 'label' // this will be used to set text of tag
+                itemText: 'label', // this will be used to set text of tag
+                alias : 'alias'
             });
 
-        $('#tema').tagsinput('add', { val: tema , label: aa});
+            var ss = $('#tema').tagsinput('items');
+
+            $.each(ss, function(i, data){
+                if(data.alias == alias)
+                    $('#tema').tagsinput('remove', data);
+            });
+            if(aa != '全て')
+                $('#tema').tagsinput('add', { val: tema , label: aa, alias: alias});
+            else{
+                loadMoreData(0);
+            }
 
     });
 
     $('#prefecture_area').change(function(){
         var tema = $(this).val();
         var aa = $("#prefecture_area option:selected").text();
+        var alias = $(this).attr('name');
+
         $('#tema').tagsinput({
             allowDuplicates: false,
                 itemValue: 'val',  // this will be used to set id of tag
-                itemText: 'label' // this will be used to set text of tag
+                itemText: 'label', // this will be used to set text of tag
+                alias : 'alias'
             });
 
-        $('#tema').tagsinput('add', { val: tema , label: aa});
+            var ss = $('#tema').tagsinput('items');
+
+            $.each(ss, function(i, data){
+                if(data.alias == alias)
+                    $('#tema').tagsinput('remove', data);
+            });
+            if(aa != '全て')
+                $('#tema').tagsinput('add', { val: tema , label: aa, alias: alias});
+            else{
+                loadMoreData(0);
+            }
     });
 
     $('.radio-input').click(function(){
             var tema = $(this).val();
             var temaId = $(this).attr('id');
             var aa = $('#for' + temaId).text();
+            var alias = $(this).attr('name');
 
-            $('#tema').tagsinput({
+        $('#tema').tagsinput({
             allowDuplicates: false,
                 itemValue: 'val',  // this will be used to set id of tag
-                itemText: 'label' // this will be used to set text of tag
+                itemText: 'label', // this will be used to set text of tag
+                alias : 'alias'
             });
 
-            $('#tema').tagsinput('add', { val: tema , label: aa});
+            var ss = $('#tema').tagsinput('items');
+
+            $.each(ss, function(i, data){
+                if(data.alias == alias)
+                    $('#tema').tagsinput('remove', data);
+            });
+            if(aa != '全て')
+                $('#tema').tagsinput('add', { val: tema , label: aa, alias: alias});
+            else{
+                loadMoreData(0);
+            }
+
         })
 
         $('#tema').on('itemAdded', function(event) {
             loadMoreData(0);
         });
 
-        $('#tema').on('itemRemoved', function(event) {
+        $(document).on('click','span[data-role]',function(){
             loadMoreData(0);
         });
-
 
         $(document).on('click', '.pagination a', function(e) {
             e.preventDefault();

@@ -22,11 +22,12 @@
     <div class="col-12 m-0 p-0 mb-4">
         <input type="text" id="tema" class="form-control"/>
     </div>
-
+    <?php $i=0;?>
     @foreach($categories as $category)
         <button type="button" class="collapsible">{{$category['name']}}</button>
         <div class="content">
-            @include('layouts.parts.editor.radioV', ['name' => 'cat', "data" => $category['groups'] , "keyValue" => "",
+            <?php $i++;?>
+            @include('layouts.parts.editor.radioV', ['name' => 'cat'.$i, "data" => $category['groups'] , "keyValue" => "",
                                                      'contents' => 'class="form-control"', 'other'=>'3333-'])
         </div>
     @endforeach
@@ -53,24 +54,35 @@
         var tema = $(this).val();
         var temaId = $(this).attr('id');
         var aa = $('#for' + temaId).text();
+        var alias = $(this).attr('name');
+        console.log(tema);
 
         $('#tema').tagsinput({
         allowDuplicates: false,
             itemValue: 'val',  // this will be used to set id of tag
-            itemText: 'label' // this will be used to set text of tag
+            itemText: 'label', // this will be used to set text of tag
+            alias : 'alias'
         });
 
-        $('#tema').tagsinput('add', { val: tema , label: aa});
+        var ss = $('#tema').tagsinput('items');
+
+        $.each(ss, function(i, data){
+            if(data.alias == alias)
+                $('#tema').tagsinput('remove', data);
+        });
+        if(aa != '全て')
+            $('#tema').tagsinput('add', { val: tema , label: aa, alias: alias});
+        else
+            loadMoreData(0);
     })
 
     $('#tema').on('itemAdded', function(event) {
         loadMoreData(0);
     });
 
-    $('#tema').on('itemRemoved', function(event) {
+    $(document).on('click','span[data-role]',function(){
         loadMoreData(0);
     });
-
 
     $(document).on('click', '.pagination a', function(e) {
         e.preventDefault();

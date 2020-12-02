@@ -26,7 +26,7 @@ class OtherController extends Controller
         // posts
         $posts = $Post->where('user_id', \Auth::user()->id)
                                 ->orderBy('created_at', 'desc')
-                                ->paginate(3);
+                                ->paginate(env('PER_PAGE'));
         $gender = configJson('custom/gender');
 
         $view = '';
@@ -53,7 +53,7 @@ class OtherController extends Controller
                             ->where('post_data.type', 1)
                             ->where('post_data.user_id', \Auth::user()->id)
                             ->orderBy('post_data.updated_at', 'desc')
-                            ->paginate(2);
+                            ->paginate(env('PER_PAGE'));
         $gender = configJson('custom/gender');
 
         $view = '';
@@ -80,7 +80,7 @@ class OtherController extends Controller
                             ->where('post_data.type', 2)
                             ->where('post_data.user_id', \Auth::user()->id)
                             ->orderBy('post_data.created_at', 'desc')
-                            ->paginate(30);
+                            ->paginate(env('PER_PAGE'));
         $gender = configJson('custom/gender');
 
         $view = '';

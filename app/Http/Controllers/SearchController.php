@@ -42,7 +42,6 @@ class SearchController extends Controller
         if ($request->ajax()) {
             $keyword = $request->keyword;
             $filter = $request->filter;
-            $area = $request->area;
             $order = $request->order;
 
             $orderStr = '';
@@ -55,14 +54,10 @@ class SearchController extends Controller
                 $where .= " and (post_name like '%".$keyword."%' or body like '%".$keyword."%')";
             }
 
-            if($area != 0){
-                $where .= " and prefecture = ".$area;
-            }
-
             if($filter != ''){
                 $total = array();
                 $total = explode(',', $filter);
-                $q1 = array(); $q2 = array(); $q3 = array(); $q4 = array(); $q5 = array();
+                $q1 = array(); $q2 = array(); $q3 = array(); $q4 = array(); $q5 = array(); $q6 = array();
                 foreach($total as $item){
                     $temp = array();
                     $temp = explode('-', $item);
@@ -81,6 +76,9 @@ class SearchController extends Controller
                             break;
                         case 5:
                             array_push($q5, $temp[1]);
+                            break;
+                        case 6:
+                            array_push($q6, $temp[1]);
                             break;
 
                     }
@@ -170,22 +168,31 @@ class SearchController extends Controller
                             break;
                         }
                 }
+
                 $sql5 = '';
                 foreach($q5 as $key=>$val){
                     if($key != 0)   $sql5 .= ' or ';
                     $sql5 .= 'specialtie_id = '.$val;
                 }
+
+                $sql6 = '';
+                foreach($q6 as $key=>$val){
+                    if($key != 0)   $sql6 .= ' or ';
+                    $sql6 .= 'prefecture_area = '.$val;
+                }
+
                 if($sql1 != '') $where .= ' and ('.$sql1.')';
                 if($sql2 != '') $where .= ' and ('.$sql2.')';
                 if($sql3 != '') $where .= ' and ('.$sql3.')';
                 if($sql4 != '') $where .= ' and ('.$sql4.')';
                 if($sql5 != '') $where .= ' and ('.$sql5.')';
+                if($sql6 != '') $where .= ' and ('.$sql6.')';
             }
 
             $totalSql = "SELECT t1.id, t1.created_at, t1.updated_at, post_name, body, count_answer, count_usuful, count_access, nickname,
-                         gender, era, child, marriage, date_birth, sub_name, specialtie_id from
-                        (SELECT DISTINCT posts.* , specialtie_id from posts
-                         LEFT JOIN(SELECT post_id, specialtie_id from post_answers
+                         gender, era, child, marriage, date_birth, sub_name, specialtie_id, prefecture_area from
+                        (SELECT DISTINCT posts.* , specialtie_id, prefecture_area from posts
+                         LEFT JOIN(SELECT post_id, specialtie_id, prefecture_area from post_answers
                                    LEFT JOIN (SELECT *from experts)t1 on(post_answers.expert_id=t1.id))t1
                          on(posts.id=t1.post_id))t1
                          LEFT JOIN (select id, nickname, gender, floor(datediff(curdate(),date_birth) / 365) as era, child, marriage, date_birth from users)t2
@@ -233,7 +240,6 @@ class SearchController extends Controller
         if ($request->ajax()) {
             $keyword = $request->keyword;
             $filter = $request->filter;
-            $area = $request->area;
             $order = $request->order;
 
             $orderStr = '';
@@ -244,10 +250,6 @@ class SearchController extends Controller
             $where = '1';
             if($keyword != ''){
                 $where .= " and (post_name like '%".$keyword."%' or body like '%".$keyword."%')";
-            }
-
-            if($area != 0){
-                $where .= " and prefecture = ".$area;
             }
 
             if($filter != ''){
@@ -393,13 +395,13 @@ class SearchController extends Controller
                 $sql4 = '';
                 foreach($q4 as $key=>$val){
                     if($key != 0)   $sql4 .= ' or ';
-                        $sql4 .= "specialtie_id = ".$val;
+                        $sql4 .= "evaluation > ".$val;
                 }
 
                 $sql5 = '';
                 foreach($q5 as $key=>$val){
                     if($key != 0)   $sql5 .= ' or ';
-                        $sql5 .= "evaluation > ".$val;
+                        $sql5 .= "specialtie_id = ".$val;
                 }
 
                 if($sql1 != '') $where .= ' and ('.$sql1.')';

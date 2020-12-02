@@ -14,8 +14,6 @@
 
 <script>
 
-<script>
-
 var page = 1;
   $('*').scroll(function() {
       if($(this).scrollTop() + $(window).height() >= $(document).height()) {
@@ -52,5 +50,5 @@ var page = 1;
           });
   }
 
-</script></script>
+</script>
 @endsection

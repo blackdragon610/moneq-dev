@@ -106,7 +106,7 @@ class GMOManager extends Controller
         $curl=curl_init();
         curl_setopt( $curl, CURLOPT_POST, true );
         curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
-        curl_setopt( $curl, CURLOPT_URL, 'https://p01.mul-pay.jp/payment/EntryTranAu.idPass' );
+        curl_setopt( $curl, CURLOPT_URL, 'https://pt01.mul-pay.jp/payment/EntryTranAu.idPass' );
 
         $orderId = $this->getOrderId();
         $param = [
@@ -157,7 +157,7 @@ class GMOManager extends Controller
         $curl=curl_init();
         curl_setopt( $curl, CURLOPT_POST, true );
         curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
-        curl_setopt( $curl, CURLOPT_URL, 'https://p01.mul-pay.jp/payment/EntryTranDocomo.idPass' );
+        curl_setopt( $curl, CURLOPT_URL, 'https://pt01.mul-pay.jp/payment/EntryTranDocomo.idPass' );
         $orderId = $this->getOrderId();
         $param = [
             'ShopID'    => env('GMO_SHOP_ID'),
@@ -207,7 +207,7 @@ class GMOManager extends Controller
         $curl=curl_init();
         curl_setopt( $curl, CURLOPT_POST, true );
         curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
-        curl_setopt( $curl, CURLOPT_URL, 'https://p01.mul-pay.jp/payment/EntryTranSb.idPass' );
+        curl_setopt( $curl, CURLOPT_URL, 'https://pt01.mul-pay.jp/payment/EntryTranSb.idPass' );
         $orderId = $this->getOrderId();
         $param = [
             'ShopID'    => env('GMO_SHOP_ID'),
