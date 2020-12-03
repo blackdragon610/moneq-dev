@@ -78,7 +78,7 @@ class Post extends ModelClass
 
     public function getPostByCategory(){
         $Model = clone $this;
-        $Model = $Model->where('sub_category_id', $this->sub_category_id)->orderBy('created_at', 'desc')->paginate(5);
+        $Model = $Model->where([['id', $this->id], ['sub_category_id', $this->sub_category_id]])->orderBy('created_at', 'desc')->paginate(5);
 
         return $Model;
     }

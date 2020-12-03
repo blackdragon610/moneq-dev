@@ -88,11 +88,11 @@
             $('#payment').show();
         }else{
             //カード情報は念のため値を除去
-            $('#cardno').val('');
-            $('#year').val('')
-            $('#month').val('');
-            $('#securitycode').val('');
-            $('#holdername').val('');
+            // $('#cardno').val('');
+            // $('#year').val('')
+            // $('#month').val('');
+            // $('#securitycode').val('');
+            // $('#holdername').val('');
             //予め購入フォームに用意した token フィールドに、値を設定
             $('#pay_token').val(response.tokenObject.token);
             console.log(response.tokenObject.token);

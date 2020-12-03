@@ -234,6 +234,7 @@ class SearchController extends Controller
 
         $category = $request->category;
         $keyword = $request->keyword;
+        $category_name = $request->category_name;
         $gender = configJson('custom/gender');
         $spec = $Specialtie->getSearchSelect();
         $categories = $Category->getSelectAll();
@@ -304,7 +305,7 @@ class SearchController extends Controller
 
             $posts = $this->arrayPaginator($posts, $request);
 
-            $view = view('searches.category.tema', compact('posts', 'gender', 'keyword'))->render();
+            $view = view('searches.category.tema', compact('posts', 'gender', 'keyword', 'category_name'))->render();
             return response()->json(['html'=>$view]);
         }
 

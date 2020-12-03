@@ -13,7 +13,7 @@
                         <section>
                             <div class="row">
                                 <div class="col text-center btnLayer">
-                                    <a class="btnSubmit" href="{{url('/')}}">追記内容の相談に戻る</a>
+                                    <a class="btnSubmit" href="{{url('/')}}">トップ</a>
                                 </div>
                             </div>
                         </section>

@@ -1,5 +1,6 @@
 <div class="container">
 
+    <input type="hidden" name="category" id="category" value="{{$category_name}}">
     <input type="hidden" name="keyword" id="keyword" value="{{$keyword}}">
     <input type="hidden" name="order" id="order" value="1">
 
@@ -102,6 +103,7 @@
             keyword: $('#keyword').val(),
             filter: $('#tema').val(),
             area: $('#prefecture_area').val(),
+            category_name: $('#category_name').val(),
             order: order
         }
 	  $.ajax(
@@ -126,6 +128,7 @@
             keyword: $('#keyword').val(),
             filter: $('#tema').val(),
             area: $('#prefecture_area').val(),
+            category_name: $('#category_name').val(),
             order: order,
             page: page
         }

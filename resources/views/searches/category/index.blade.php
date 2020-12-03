@@ -13,7 +13,7 @@
         </div>
         <!-- main -->
         <div class="col-12 col-sm-9 order-sm-1 order-2" id="main">
-            @include('searches.category.tema', ['name' => 'main', 'posts' => $posts, 'gender'=>$gender, 'keyword'=>$keyword])
+            @include('searches.category.tema', ['name' => 'main', 'posts' => $posts, 'gender'=>$gender, 'keyword'=>$keyword, 'category_name'=>$category_name])
         </div>
     </div>
 </div>

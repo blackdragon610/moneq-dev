@@ -74,10 +74,21 @@ class ProfileManageController extends Controller
 
         $ChangeToken->setTransaction("トークン登録時にエラー", function() use($ChangeToken, $datas, $MailClass, $ChangeMail){
             $changeToken = $ChangeToken->saveEmailToken($datas["inputs"]);
-            // $EntryExpertMail->datas = $ChangeMail->datas = $datas["inputs"];
-            // $EntryExpertMail->datas["token"] = $ChangeMail->datas["token"] = $changeToken->token;
+            $item["token"] = $changeToken->token;
+            $item['domain'] = getMyURL();
 
-            $MailClass->send($ChangeMail, $datas["inputs"]["email"]);
+            $data = array(
+                'email' => $datas['inputs']['email'],
+                'subject' => 'メールアドレスの変更',
+                'item' => $item,
+              );
+
+            \Mail::send('messages.emails.entry', compact('data'), function($message) use ($data){
+                $message->to($data['email']);
+                $message->from(config('mail.username'));
+                $message->subject($data['subject']);
+
+            });
 
         });
 
@@ -112,11 +123,21 @@ class ProfileManageController extends Controller
 
         $ChangeToken->setTransaction("トークン登録時にエラー", function() use($ChangeToken, $datas, $MailClass, $passwordMail){
             $changeToken = $ChangeToken->savePasswordToken($datas["inputs"]);
-            // $EntryExpertMail->datas = $EntryMail->datas = $datas["inputs"];
-            // $EntryExpertMail->datas["token"] = $EntryMail->datas["token"] = $changeToken->token;
+            $item["token"] = $changeToken->token;
+            $item['domain'] = getMyURL();
 
-            $user = \Auth::user();
-            $MailClass->send($passwordMail, $user->email);
+            $data = array(
+                'email' => $datas['inputs']['email'],
+                'subject' => 'パスワードの変更',
+                'item' => $item,
+              );
+
+            \Mail::send('messages.emails.entry', compact('data'), function($message) use ($data){
+                $message->to($data['email']);
+                $message->from(config('mail.username'));
+                $message->subject($data['subject']);
+
+            });
 
         });
 

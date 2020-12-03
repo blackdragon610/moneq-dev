@@ -14,7 +14,7 @@
                     {{Form::open(['url'=> route('post.report.end'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
                         <input type="hidden" name="post_id", value="{{$post->id}}">
                         <section>
-                            <label for="" >相談内容</label><span class="text-danger">(必須)</span>
+                            <label for="" >通報内容</label><span class="text-danger">(必須)</span>
                             @include('layouts.parts.editor.textarea', ['name' => 'body', "contents" => ""])<br />
                         </section>
                         <section>

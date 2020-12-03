@@ -52,9 +52,11 @@
                 <div class="col-12 col-sm-4 pt-2">
                     <a href="#relationQ" class="btnSelected btn" >関連する質問</a>
                 </div>
-                <div class="col-12 col-sm-4 pt-2">
-                    <a href="{{route('post.report.add', ['pId'=>$post->id])}}" class="btnSelected btn" >相談に追記</a>
-                </div>
+                @if($isUser == 1 && isLogin() == 1)
+                    <div class="col-12 col-sm-4 pt-2">
+                        <a href="{{route('post.report.add', ['pId'=>$post->id])}}" class="btnSelected btn" >相談に追記</a>
+                    </div>
+                @endif
             </div>
         </div>
     </div>

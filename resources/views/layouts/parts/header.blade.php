@@ -30,11 +30,11 @@
                             <hr>
                             <a class="dropdown-item waves-effect waves-light" href="{{route('search.expert')}}">@lang('string.expert_search')</a>
                             <hr>
-                            <a class="dropdown-item waves-effect waves-light" href="{{url('other/self')}}">@lang('string.post_in')</a>
+                            <a class="dropdown-item waves-effect waves-light" href="<?php if(\Auth::user()->pay_status != 1) echo url('other/self'); else echo '#';?>">@lang('string.post_in')</a>
                             <hr>
                             <a class="dropdown-item waves-effect waves-light" href="{{url('other/access')}}">@lang('string.search_history')</a>
                             <hr>
-                            <a class="dropdown-item waves-effect waves-light" href="{{url('other/store')}}">@lang('string.saved')</a>
+                            <a class="dropdown-item waves-effect waves-light" href="<?php if(\Auth::user()->pay_status != 1) echo url('other/store'); else echo '#';?>">@lang('string.saved')</a>
                             <hr>
                             <a class="dropdown-item waves-effect waves-light" href="{{route('profiles.manage')}}">@lang('string.infomation')</a>
                             <hr>
