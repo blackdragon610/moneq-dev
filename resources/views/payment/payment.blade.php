@@ -5,11 +5,6 @@
 <div class="whitepanel">
     <div class="container">
 
-        <?php 
-            $member = '';
-            $sheetId = 1;
-        ?>
-
         <div class="row" style="margin-bottom:80px">
             <div class="col-md-12 col-lg-12 bg-white">
                 <p class="title-medium">クレジットカード入力</p>
