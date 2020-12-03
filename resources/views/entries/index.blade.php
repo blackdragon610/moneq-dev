@@ -12,14 +12,14 @@
                                          color:#9B9B9B" >ご入力のメールアドレスに会員登録用のURLを送信します。</p>
                 {{Form::open(['url'=> route('auth'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
 
-                    <label class="label-medium" for="email" style="margin-top:32px">メールアドレス</label>
+                    <label class="title-16px" for="email" style="margin-top:32px">メールアドレス</label>
 
                     @include('layouts.parts.editor.text', ["type" => "email", 'name' => 'email', 
                         'contents' => 'class="form-control" placeholder="メールアドレスを入力" 
                                        style="border: 1px solid #707070; border-radius:0% !important"'])
 
                     @if ($mode == "monitor")
-                    <label class="label-medium" for="password" style="margin-top:24px">SMS</label>
+                    <label class="title-16px" for="password" style="margin-top:24px">SMS</label>
                     @include('layouts.parts.editor.text', ["type" => "tel", 'name' => 'tel', 
                         'contents' => 'class="form-control" placeholder="電話番号を入力" 
                                        style="border: 1px solid #707070; border-radius:0% !important"'])

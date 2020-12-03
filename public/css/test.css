@@ -237,7 +237,9 @@ footer p {
 }
 
 /* ------------ */
-
+p {
+    margin-bottom: 10px !important;
+}
 .sectionbar2 {
     height: 671px !important;
     width: 100%;
@@ -591,6 +593,15 @@ footer p {
     color: #221815;
     line-height: 35px;
 }
+.white-btn-304-50{
+    background-color: white;
+    width: 304px !important;
+    height: 50px !important;
+    font-family: NotoSans-JP-Medium;
+    font-size: 16px !important;
+    color: #221815;
+    line-height: 35px;
+}
 .orange-roundbtn-150-30{
     background-color: #ee7800;
     width: 150px !important;
@@ -694,14 +705,30 @@ div .grey-round-tag {
     margin-bottom: -1px;
 }
 
+.title-16px {
+    font-family: NotoSans-JP-Medium;
+    font-size: 16px !important;
+    color: #221815; 
+}
+.title-21px {
+    font-family: NotoSans-JP-Medium;
+    font-size: 21px !important;
+    color: #221815; 
+}
+.title-small {
+    font-family: NotoSans-JP-Medium;
+    font-size: 28px !important;
+    color: #373A3C; 
+    margin-top:60px;   
+}
 .title-medium {
     font-family: NotoSans-JP-Medium;
     font-size: 32px !important;
     color: #221815; 
     margin-top:72px;   
 }
-.label-medium {
-    font-family: NotoSans-JP-Medium;
+.label-16px {
+    font-family: NotoSans-JP-Regular;
     font-size: 16px !important;
     color: #221815; 
 }
@@ -711,6 +738,14 @@ div .grey-round-tag {
     color: #221815; 
     margin-top: 24px;
     margin-right: 11px;
+}
+
+ol li {
+    list-style-type: decimal;
+    font-family: NotoSans-JP-Regular;
+    font-size: 16px !important;
+    color: #221815; 
+    margin-top: 10px;
 }
 
 /* ----------- */

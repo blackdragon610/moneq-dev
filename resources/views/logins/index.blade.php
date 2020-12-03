@@ -9,13 +9,13 @@
             <div class="col-6" style="padding-left:70px !important">
                 {{Form::open(['url'=> route('auth'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
 
-                    <label class="label-medium" for="email" style="margin-top:32px">メールアドレス</label>
+                    <label class="title-16px" for="email" style="margin-top:32px">メールアドレス</label>
 
                     @include('layouts.parts.editor.text', ["type" => "email", 'name' => 'email', 
                         'contents' => 'class="form-control" placeholder="メールアドレスを入力" 
                                        style="border: 1px solid #707070; border-radius:0% !important"'])
 
-                    <label class="label-medium" for="password" style="margin-top:24px">パスワード</label>
+                    <label class="title-16px" for="password" style="margin-top:24px">パスワード</label>
 
                     @include('layouts.parts.editor.text', ["type" => "password", 'name' => 'password', 
                         'contents' => 'class="form-control" placeholder="パスワード" 
