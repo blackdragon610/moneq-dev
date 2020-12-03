@@ -705,6 +705,11 @@ div .grey-round-tag {
     margin-bottom: -1px;
 }
 
+.title-bold-19px {
+    font-family: NotoSans-JP-Bold;
+    font-size: 19px !important;
+    color: #221815; 
+}
 .title-12px {
     font-family: NotoSans-JP-Medium;
     font-size: 12px !important;
