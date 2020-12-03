@@ -24,13 +24,10 @@ class LoginController extends Controller
         return view('logins.index',);
     }
 
-    public function logout(ApiClass $ApiClass, PushClass $PushClass, Request $request)
+    public function logout(Request $request)
     {
-        $PushClass->deleteToken($request->input("deviceToken"));
+
         auth()->logout();
-
-
-        return $ApiClass->responseOk([]);
 
     }
 

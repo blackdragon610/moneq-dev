@@ -113,8 +113,6 @@ class ExpertProfileController extends Controller
             'lastnameen' => 'required',
             'description' => 'required',
             'kind' => 'required',
-            'hope' => 'required',
-            'hopetime' => 'required',
         ]);
 
 
@@ -147,7 +145,11 @@ class ExpertProfileController extends Controller
             $message->subject($datas['subject']);
         });
 
-        return redirect('/');
+        return redirect()->route('expert.message.end');
 
+    }
+
+    public function messageEnd(){
+        return view('experts.end');
     }
 }

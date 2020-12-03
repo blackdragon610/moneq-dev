@@ -39,7 +39,7 @@
 
 .behind-bar {
     width: 100%;
-    height: 70px !important;    
+    height: 70px !important;
 }
 .moneq-navbar #logo {
     padding-left: 40px;
@@ -204,7 +204,7 @@ footer a{
     color: black;
 }
 footer p {
-    margin-bottom: 6px;    
+    margin-bottom: 6px;
 }
 /* ------------- */
 
@@ -423,7 +423,7 @@ footer p {
     transition: 0.3s;
 }
 .sectionbar5 #row2 .tag .tagheader{
-    border:0px solid transparent !important; 
+    border:0px solid transparent !important;
     background-color: transparent !important;
     height: 70px !important;
 }
@@ -548,12 +548,12 @@ footer p {
 .sectionbar7 #row3 #title1 {
     font-family: NotoSans-JP-Medium;
     font-size: 20px !important;
-    color: #221815;  
+    color: #221815;
 }
 .sectionbar7 #row3 span {
     font-family: NotoSans-JP-Regular;
     font-size: 14px !important;
-    color: #221815;  
+    color: #221815;
 }
 
 .sectionbar7 #row4 {
@@ -688,13 +688,13 @@ div .grey-round-tag {
 .title-medium {
     font-family: NotoSans-JP-Medium;
     font-size: 32px !important;
-    color: #221815; 
-    margin-top:72px;   
+    color: #221815;
+    margin-top:72px;
 }
 .label-medium {
     font-family: NotoSans-JP-Medium;
     font-size: 16px !important;
-    color: #221815; 
+    color: #221815;
 }
 
 /* ----------- */
@@ -703,7 +703,6 @@ article #article {
     border: 1px solid #9b9b9b;
 }
 article #article #tag {
-    width: 44px !important;
     height: 22px !important;
     background-color: #ffd800;
     font-family: NotoSans-JP-Regular;
@@ -825,7 +824,7 @@ article #userinfo span img {
 }
 
 article .notice {
-    border-top: 1px solid #9b9b9b; 
+    border-top: 1px solid #9b9b9b;
     border-bottom: 1px solid #9b9b9b;
     margin-bottom: 0px !important;
 }
@@ -855,7 +854,7 @@ article .notice p#description {
     outline: none;
     font-family: NotoSans-JP-Medium;
     font-size: 14px;
-}  
+}
 
 
 
@@ -1005,7 +1004,7 @@ span.answers {
     margin: 4px 2px;
     cursor: pointer;
 }
-  
+
 .fa-bell-o[data-count]:after{
     position:absolute;
     right:15%;

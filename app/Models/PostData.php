@@ -73,5 +73,14 @@ class PostData extends ModelClass
         return count($postAnswers);
     }
 
+    public function getCountUser(User $User, string $dateYearMonth="") : int
+    {
+        $Model = clone $this;
+
+        if ($dateYearMonth){
+            $Model = $Model->where([['user_id', '=', $User->id],["created_at", "LIKE", $dateYearMonth . "%"]]);
+        }
+        return $Model->count();
+    }
 
 }

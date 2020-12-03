@@ -47,7 +47,7 @@ class PostRequest extends FormRequest
     public function rules()
     {
         return [
-            "post_name" => ["required", "stringMax:255,半角"],
+            "post_name" => ["required", "stringMax:25,半角"],
             "sub_category_id" => ["required"],
             "body" => ["required", "stringMax:1600,半角"]
 

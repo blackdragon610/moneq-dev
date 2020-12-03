@@ -85,7 +85,7 @@
                             <h5 class="font-weight-bold p-2">テスト太郎さんの回答一覧</h5>
                             <hr class="mt-2 mb-3"/>
                             @foreach ($answers as $item)
-                                @include('layouts.parts.custom.answer1', ["type" => "answer1", 'name' => 'answer1', 'contents' => $item])
+                                @include('layouts.parts.custom.expertanswer', ["type" => "answer1", 'name' => 'answer1', 'contents' => $item])
                             @endforeach
                         </div>
                     </div>

@@ -14,9 +14,9 @@
         <div id="static2">
         </div>
         <div class="input-group" id="searchbar">
-            {{Form::open(['url'=> route('search.post'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
+            {{Form::open(['url'=> route('search.tema'),'method'=>'GET', 'files' => false, 'id' => 'form'])}}
                 <div class='form-row'>
-                    <input type="text" name="searchTxt" class="form-control" placeholder="お金の悩みを検索" id="searchTxt">
+                    <input type="text" name="keyword" class="form-control" placeholder="お金の悩みを検索" id="searchTxt">
                     <button type="submit" class="btn btn-secondary form-control">
                         <i class="fa fa-search fa-1x"></i>
                     </button>
@@ -26,11 +26,7 @@
         <p id="heading3" class="mt-0 mb-0">\ さっそく、お金の悩みを専門家に相談する /</p>
         <div class="text-center">
             @if(Cookie::has('custom_token'))
-                @if(\Auth::user()->pay_status != 1)
-                    <a href="{{route('post.create')}}" class="btn yellow-roundbtn" style="margin-top: 50px !important;">今すぐ登録して、専門家に相談する</a>
-                @else
-                    <a href="{{route('payment', ['sheetId'=>1, 'member'=>\Auth::user()->pay_status])}}" class="btn yellow-roundbtn" style="margin-top: 50px !important;">今すぐ登録して、専門家に相談する</a>
-                @endif
+                <a href="{{route('post.create')}}" class="btn yellow-roundbtn" style="margin-top: 50px !important;">今すぐ登録して、専門家に相談する</a>
             @else
                 <a href="{{route('entry')}}" class="btn yellow-roundbtn" style="margin-top: 20px !important;">今すぐ登録して、専門家に相談する</a>
             @endif
@@ -46,7 +42,7 @@
                 <div class="overviewCard col-sm-2">
                     <div id="title">Q&amp;A</div>
                     <div class="inline-block">
-                        <h1 id="number">{{number_format($questions+$answers)}}</h1>
+                        <h1 id="number">{{number_format($questions)}}</h1>
                         <span id="unit">件</span>
                     </div>
                 </div>
@@ -175,11 +171,7 @@
 
         <div class="text-center">
             @if(Cookie::has('custom_token'))
-                @if(\Auth::user()->pay_status != 1)
-                    <a href="{{route('post.create')}}" class="btn yellow-roundbtn" style="margin-top: 50px !important;">今すぐ登録して、専門家に相談する</a>
-                @else
-                    <a href="{{route('payment', ['sheetId'=>1, 'member'=>\Auth::user()->pay_status])}}" class="btn yellow-roundbtn" style="margin-top: 50px !important;">今すぐ登録して、専門家に相談する</a>
-                @endif
+                <a href="{{route('post.create')}}" class="btn yellow-roundbtn" style="margin-top: 50px !important;">今すぐ登録して、専門家に相談する</a>
             @else
                 <a href="{{route('entry')}}" class="btn yellow-roundbtn" style="margin-top: 80px !important;">今すぐ登録して、専門家に相談する</a>
             @endif
@@ -241,11 +233,7 @@
 
         <div class="text-center">
             @if(Cookie::has('custom_token'))
-                @if(\Auth::user()->pay_status != 1)
-                    <a href="{{route('post.create')}}" class="btn yellow-roundbtn" style="margin-top: 50px !important;">今すぐ登録して、専門家に相談する</a>
-                @else
-                    <a href="{{route('payment', ['sheetId'=>1, 'member'=>\Auth::user()->pay_status])}}" class="btn yellow-roundbtn" style="margin-top: 50px !important;">今すぐ登録して、専門家に相談する</a>
-                @endif
+                <a href="{{route('post.create')}}" class="btn yellow-roundbtn" style="margin-top: 50px !important;">今すぐ登録して、専門家に相談する</a>
             @else
                 <a href="{{route('entry')}}" class="btn yellow-roundbtn" style="margin-top: 50px !important;">今すぐ登録して、専門家に相談する</a>
             @endif

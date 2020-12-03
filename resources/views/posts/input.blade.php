@@ -10,8 +10,8 @@
         <hr class="mt-2 mb-4"/>
         <div class="container-fluid">
             <div class="row pl-2">
-                <span class="name">今月はあと 3回 相談ができます。</span>
-                <a id="reQ" class="text-dark">再質問権 0件</a>
+                <span class="name">今月はあと {{$possibleCount}}回 相談ができます。</span>
+                <a id="reQ" class="text-dark">再質問権 {{\Auth::user()->re_point}}件</a>
             </div>
         </div>
 
@@ -33,6 +33,7 @@
             <section>
                 <label for="" >相談テーマ</label><span class="text-danger">(必須)</span>
                 @include('layouts.parts.editor.text', ["type" => "text", 'name' => 'post_name',  'contents' => 'placeholder="例：お金のことで相談がある"'])<br />
+                <div class="text-right"><span id="name_length">0/25</span></div>
             </section>
 
             <section>
@@ -40,35 +41,9 @@
                 @include('layouts.parts.editor.select', ['name' => 'sub_category_id',  "file" => $categories, "keyValue" => "", "contents" => ""])<br />
             </section>
 
-            <section>
-                <div class="row">
-                    <article class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 p-2">
-                        <div class="container-fluid">
-                                    <p>【資産運用】</p>
-                                    <div class="row">
-                                        <span><a href="#" class="pr-3 text-dark">お金の貯め方全般</a></span>
-                                        <span><a href="#" class="pr-3 text-dark">貯金</a></span>
-                                        <span><a href="#" class="pr-3 text-dark">預金</a></span>
-                                        <span><a href="#" class="pr-3 text-dark">定期預金</a></span>
-                                        <span><a href="#" class="pr-3 text-dark">外貨預金</a></span>
-                                        <span><a href="#" class="pr-3 text-dark">積立株式投資</a></span>
-                                        <span><a href="#" class="pr-3 text-dark">NISA</a></span>
-                                        <span><a href="#" class="pr-3 text-dark">投資信託</a></span>
-                                        <span><a href="#" class="pr-3 text-dark">ETF</a></span>
-                                        <span><a href="#" class="pr-3 text-dark">REITFX</a></span>
-                                        <span><a href="#" class="pr-3 text-dark">金投資</a></span>
-                                        <span><a href="#" class="pr-3 text-dark">CFD</a></span>
-                                        <span><a href="#" class="pr-3 text-dark">先物取引</a></span>
-                                        <span><a href="#" class="pr-3 text-dark">仮想通貨不動産投資</a></span>
-                                        <span><a href="#" class="pr-3 text-dark">賃貸経営</a></span>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-            <section>
                 <label for="" >相談内容</label><span class="text-danger">(必須)</span>
                 @include('layouts.parts.editor.textarea', ['name' => 'body', "contents" => ""])<br />
+                <div class="text-right"><span id="post_length">0/1600</span></div>
             </section>
             <section>
                 <div class="row">
@@ -117,7 +92,6 @@
             url: "{{route('post.preStore')}}",
             data: formData,
             success: function (data) {
-                console.log(data['ok']);
                 if(!data['ok']){
                     $.each(data.errors, function (i, error) {
                         var el = $(document).find('[name="'+i+'"]');
@@ -149,6 +123,16 @@
     $('#rBtn').click(function(e){
         $('#rQModal').modal('hide');
     })
+
+    $('#post_name').on('keyup', function(){
+        var text = $(this).val().length;
+        $('#name_length').text(text + '/' + '25');
+    });
+
+    $('#body').on('keyup', function(){
+        var text = $(this).val().length;
+        $('#post_length').text(text + '/' + '1600');
+    });
 </script>
 
 

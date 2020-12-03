@@ -18,6 +18,7 @@ class GMOManager extends Controller
      */
     public function index(Request $request, $sheetId, $member)
     {
+
         return view('payment.index', compact('sheetId', 'member'));
     }
 
@@ -96,7 +97,7 @@ class GMOManager extends Controller
         return redirect()->route('payment.end');
     }
 
-    public function paymentByAu(Request $request, UserPayment $UserPayment, User $User, $member)
+    public function paymentByAu(Request $request, UserPayment $UserPayment, User $User, $sheet, $member)
     {
         Defaults::setShopId(env('GMO_SHOP_ID'));
         Defaults::setShopName(env('GMO_SHOP_NAME'));
@@ -142,12 +143,16 @@ class GMOManager extends Controller
         }
 
         $UserPayment->savePayment($orderId, $member, config('app.memberCost')[$member]);
-        $User->setPayStatus($request->member);
+        $User->setPayStatus($member);
         \Cookie::queue('paytype', 2);
+        if($sheet == 2){
+            return redirect()->route('profile.edit');
+        }
+
         return redirect()->route('payment.end');
     }
 
-    public function paymentByDocomo(Request $request, UserPayment $UserPayment, User $User, $member)
+    public function paymentByDocomo(Request $request, UserPayment $UserPayment, User $User, $sheet, $member)
     {
         Defaults::setShopId(env('GMO_SHOP_ID'));
         Defaults::setShopName(env('GMO_SHOP_NAME'));
@@ -192,12 +197,16 @@ class GMOManager extends Controller
 
         // 正常
         $UserPayment->savePayment($orderId, $member, config('app.memberCost')[$member]);
-        $User->setPayStatus($request->member);
+        $User->setPayStatus($member);
         \Cookie::queue('paytype', 3);
+        if($sheet == 2){
+            return redirect()->route('profile.edit');
+        }
+
         return redirect()->route('payment.end');
     }
 
-    public function paymentBySoftbank(Request $request, UserPayment $UserPayment, User $User, $member)
+    public function paymentBySoftbank(Request $request, UserPayment $UserPayment, User $User, $sheet, $member)
     {
         Defaults::setShopId(env('GMO_SHOP_ID'));
         Defaults::setShopName(env('GMO_SHOP_NAME'));
@@ -242,8 +251,11 @@ class GMOManager extends Controller
 
         // 正常
         $UserPayment->savePayment($orderId, $member, config('app.memberCost')[$member]);
-        $User->setPayStatus($request->member);
+        $User->setPayStatus($member);
         \Cookie::queue('paytype', 4);
+        if($sheet == 2){
+            return redirect()->route('profile.edit');
+        }
         return redirect()->route('payment.end');
     }
 

@@ -12,7 +12,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent-3">
                 <ul class="navbar-nav ml-auto nav-flex-icons" style="padding-right:40px">
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown" id="badgeNav">
                         <a id="badge" class="nav-link waves-effect waves-light" id="navbarDropdownBell" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fa fa-bell-o fa-lg has-badge"></i>
                         </a>
@@ -39,6 +39,10 @@
                             <a class="dropdown-item waves-effect waves-light" href="{{route('profiles.manage')}}">@lang('string.infomation')</a>
                             <hr>
                             <a class="dropdown-item waves-effect waves-light" href="#">@lang('string.help')</a>
+                            <hr>
+                            <a class="dropdown-item waves-effect waves-light" href="#">お問い合わせ</a>
+                            <hr>
+                            <a class="dropdown-item waves-effect waves-light" href="{{route('logout')}}">ログアウト</a>
                         </div>
                     </li>
                 </ul>
@@ -72,23 +76,19 @@
 </div>
 
 <div class="container-fluid yellowpanel">
-    {{Form::open(['url'=> route('search.post'),'method'=>'POST', 'files' => false, 'id' => 'yform'])}}
+    {{Form::open(['url'=> route('search.tema'),'method'=>'GET', 'files' => false, 'id' => 'yform'])}}
         <div class="container" style="height:74px">
             <div class="row">
 
                 <div class="input-group" id="searchbar">
-                        <input type="text" placeholder="お金の悩みを検索" name="searchTxt" id="searchYellow">
+                        <input type="text" placeholder="お金の悩みを検索" name="keyword" id="searchYellow">
                         <div class="input-group-append">
                             <button type="submit" class="btn btn-secondary">
                                 <i class="fa fa-search fa-1x"></i>
                             </button>
                         </div>
                     @if(Cookie::has('custom_token'))
-                        @if(\Auth::user()->pay_status != 1)
-                            <a href="{{route('post.create')}}" class="btn orange-btn-200-50 ml-auto">@lang('string.consult_btn')</a>
-                        @else
-                            <a href="{{route('payment', ['sheetId'=>1, 'member'=>\Auth::user()->pay_status])}}" class="btn orange-btn-200-50 ml-auto">@lang('string.consult_btn')</a>
-                        @endif
+                        <a href="{{route('post.create')}}" class="btn orange-btn-200-50 ml-auto">@lang('string.consult_btn')</a>
                     @else
                         <a href="{{route('entry')}}" class="btn orange-btn-200-50 ml-auto" >@lang('string.consult_btn')</a>
                     @endif
@@ -111,6 +111,7 @@
 
 <script>
     var myVar = setInterval(myTimer, 1000);
+    var myPTime = setInterval(myPost, 10000); //86400000
 
     function myTimer() {
         $.ajax({
@@ -139,6 +140,16 @@
                     $('#badge').empty().html(htmlBadge);
                 }
                 $('#contents').empty().html(bodyHtml);
+            }
+        });
+    }
+
+    function myPost() {
+        $.ajax({
+            type:"GET",
+            url: "{{url('repost')}}",
+            success: function(response) {
+                console.log('data');
             }
         });
     }

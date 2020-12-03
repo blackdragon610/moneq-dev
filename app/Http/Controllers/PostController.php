@@ -31,9 +31,24 @@ class PostController extends Controller
      */
     public function create(Request $request, Category $Category, Post $Post)
     {
-        // $this->isPost();
+        // $Post->rePostCreate();
+        if(isProfile() == 3){
+            if(\Auth::user()->pay_status == 1){
+                return redirect()->route('payment', ['sheetId'=>2, 'member'=>1]);
+            }
+            return redirect()->route('profile.edit');
+        }
+
+        $this->isPost();
+        $possibleCount = 0;
+        if(\Auth::user()->pay_status == 2){
+            $possibleCount = 3 - \Auth::user()->postCount();
+        }else if(\Auth::user()->pay_status == 3){
+            $possibleCount = 1;
+        }
         $categories = $Category->getSelectAll();
         $inputs['post_id'] = 0;
+
 
         $post = $Post->getRepost();
         if($post){
@@ -46,30 +61,37 @@ class PostController extends Controller
             return view('posts.input',
                 [
                     "categories" => $categories,
-                    "inputs" => $inputs
+                    "inputs" => $inputs,
+                    "possibleCount" => $possibleCount
                 ]
             );
         }
 
         return view('posts.input',
             [
-                "categories" => $categories, 'inputs'=>$inputs
+                "categories" => $categories, 'inputs'=>$inputs, 'possibleCount'=>$possibleCount
             ]
         );
     }
 
     public function store(PostRequest $request, Category $Category, Post $Post, PostTag $PostTag)
     {
-        // $this->isPost();
+        $this->isPost();
 
         $datas = $this->checkForm($request);
 
         if (!empty($datas['errors'])){
             $categories = $Category->getSelectAll();
+            if(\Auth::user()->pay_status == 2){
+                $possibleCount = 3 - \Auth::user()->postCount();
+            }else{
+                $possibleCount = 1;
+            }
 
             return view('posts.input', [
                 "errors" => $datas["errors"],
                 "inputs" => $datas["inputs"],
+                "possibleCount" => $possibleCount,
                 "categories" => $categories
             ]);
         }else{
@@ -77,6 +99,13 @@ class PostController extends Controller
                 $post = $Post->saveEntry($datas['inputs'], Auth::user()->id, 2);
             }else{
                 $post = $Post->updateEntry($datas['inputs'], $request->post_id, 2);
+            }
+
+            $count = Auth::user()->re_point;
+            $count--;
+            if($count >= 0){
+                Auth::user()->re_point = $count;
+                \Auth::user()->save();
             }
             // $PostTag->saveEntry($datas['tag'], Auth::user()->id);
         }
@@ -128,18 +157,17 @@ class PostController extends Controller
 
         $postAdd = $post->find($postId)->adds;
         $postAnswer = $post->find($postId)->answers;
+        $relationPosts = $post->getPostByCategory();
 
         $postStoreFlag = 0;
         $postHelpFlag = 0;
 
         if(isLogin() == 1){
             $isUser = isUser($post->user->id);
-            $postData = $PostData->getPostHistoryData(\Auth::user()->id, $postId);
-            $postData->user_id = \Auth::user()->id;
-            $postData->post_id = $postId;
-            $postData->updated_at = new \DateTime();
-            $postData->type = 1;
-            $postData->save();
+            $PostData->user_id = \Auth::user()->id;
+            $PostData->post_id = $postId;
+            $PostData->type = 1;
+            $PostData->save();
             $postStoreFlag = $PostData->getPostStoreData(\Auth::user()->id, $postId);
             $postHelpFlag = $PostData->getPostHelpData(\Auth::user()->id, $postId);
             }else   $isUser = -1;
@@ -153,7 +181,7 @@ class PostController extends Controller
         $gender = configJson('custom/gender');
         $post->user->gender = $gender[$post->user->gender];
 
-        return view('consultdetail.index', compact('post', 'postAdd', 'postAnswer', 'weekExperts',
+        return view('consultdetail.index', compact('post', 'postAdd', 'postAnswer', 'weekExperts', 'relationPosts',
                                                      'monthExperts', 'totalExperts', 'isUser', 'postStoreFlag', 'postHelpFlag'));
     }
 
@@ -265,10 +293,16 @@ class PostController extends Controller
         if(isLogin() == -1){
             header("Location:/error/notsee");
             exit();
+        }else{
+            $post = Post::where('id', $postId)->first();
+
+            if($post->user_id != Auth::user()->id){
+                header("Location:/error/notsee");
+                exit();
+            }
+            return view('consultdetail.reportaddition', compact('post'));
         }
 
-        $post = Post::where('id', $postId)->first();
-        return view('consultdetail.reportaddition', compact('post'));
     }
 
     public function reportAddEnd(Request $request){

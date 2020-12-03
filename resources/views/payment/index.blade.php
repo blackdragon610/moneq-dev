@@ -93,9 +93,9 @@
                 </div>
                 <hr>
                 <div class="row justify-content-center">
-                    <a id="car1" class="btn btn-danger" href="{{url('paymenta/au').'/'.$member}}"><img src="/images/svg/img-ranking-1.svg"></a>
-                    <a id="car2" class="btn btn-danger" href="{{url('paymenta/docomo').'/'.$member}}"><img src="/images/svg/img-ranking-2.svg"></a>
-                    <a id="car3" class="btn btn-danger" href="{{url('paymenta/softbank').'/'.$member}}"><img src="/images/svg/img-ranking-3.svg"></a>
+                    <a id="car1" class="btn btn-danger" href="{{url('paymenta/au').'/'.$sheetId.'/'.$member}}"><img src="/images/svg/img-ranking-1.svg"></a>
+                    <a id="car2" class="btn btn-danger" href="{{url('paymenta/docomo').'/'.$sheetId.'/'.$member}}"><img src="/images/svg/img-ranking-2.svg"></a>
+                    <a id="car3" class="btn btn-danger" href="{{url('paymenta/softbank').'/'.$sheetId.'/'.$member}}"><img src="/images/svg/img-ranking-3.svg"></a>
                 </div>
                 </article>
     </section>
@@ -114,9 +114,9 @@
         $('#btnPlan2').html('選択する');
         var sheet = $('#sheet').val();
         $('#cardBtn').attr("href", "{{url('payments/input')}}" + '/' + sheet + '/2');
-        $('#car1').attr("href", "{{url('payment/au')}}" + '/' +'2');
-        $('#car2').attr("href", "{{url('payment/docomo')}}" + '/' +'2');
-        $('#car3').attr("href", "{{url('payment/softbank')}}" + '/' +'2');
+        $('#car1').attr("href", "{{url('paymenta/au')}}" + '/' + sheet + '/' +'2');
+        $('#car2').attr("href", "{{url('paymenta/docomo')}}" + '/' + sheet + '/' +'2');
+        $('#car3').attr("href", "{{url('paymenta/softbank')}}" + '/' + sheet + '/' +'2');
     });
 
     $('#btnPlan2').click(function(e) {
@@ -126,9 +126,9 @@
         $('#btnPlan1').html('選択する');
         var sheet = $('#sheet').val();
         $('#cardBtn').attr("href", "{{url('payments/input')}}" + '/' + sheet + '/3');
-        $('#car1').attr("href", "{{url('payment/au')}}" + '/' +'3');
-        $('#car2').attr("href", "{{url('payment/docomo')}}" + '/' +'3');
-        $('#car3').attr("href", "{{url('payment/softbank')}}" + '/' +'3');
+        $('#car1').attr("href", "{{url('paymenta/au')}}" + '/' + sheet + '/' +'3');
+        $('#car2').attr("href", "{{url('paymenta/docomo')}}" + '/' + sheet + '/' +'3');
+        $('#car3').attr("href", "{{url('paymenta/softbank')}}" + '/' + sheet + '/' +'3');
     });
 
 </script>

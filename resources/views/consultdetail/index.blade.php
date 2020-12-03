@@ -72,7 +72,7 @@
                         <div class="container-fluid whitepanel" id="expertA">
                         <h5 class="font-weight-bold p-2">{{count($postAnswer)}}名の専門科が回答しています</h5>
                             <hr class="mt-2 mb-3"/>
-                            @if($isUser != -1 && isLogin() == 1)
+                            @if(isLogin() == 1 && \Auth::user()->isAnswer())
                                 @foreach ($postAnswer as $item)
                                     @include('layouts.parts.custom.answer', ["type" => "answer", 'name' => 'answer',
                                                                             'contents' => $item, 'isUser'=>$isUser,
@@ -96,25 +96,23 @@
                                         </div>
                                     </div>
                                 </div>
-                            @elseif(isLogin() == 1)
-                                @if(\Auth::user()->pay_status == 1)
-                                    <div class="container-fluid whitepanel pb-3 pt-3">
-                                        <div class="container border border-dark pb-3">
-                                            <h5 class="font-weight-bold text-center p-2">有料会員になるとお金の専門家に相談できます</h5>
-                                            <hr class="mt-2 mb-3"/>
-                                            <ul>
-                                                <li><i class="fa fa-check"></i>月300円（税別）</li>
-                                                <li><i class="fa fa-check"></i>毎月3回まで質問が可能</li>
-                                                <li><i class="fa fa-check"></i>最短5分で回答可能</li>
-                                                <li><i class="fa fa-check"></i>100名超の認定専門家が回答</li>
-                                                <li><i class="fa fa-check"></i>回答率99％</li>
-                                            </ul>
-                                            <div class="col text-center ">
-                                                <a href="{{route('payment', ['sheetId'=>1, 'member'=>\Auth::user()->pay_status])}}" class="btnSelected btn">専門家に相談をする（有料会員）</a>
-                                            </div>
+                            @elseif(\Auth::user()->pay_status == 1)
+                                <div class="container-fluid whitepanel pb-3 pt-3">
+                                    <div class="container border border-dark pb-3">
+                                        <h5 class="font-weight-bold text-center p-2">有料会員になるとお金の専門家に相談できます</h5>
+                                        <hr class="mt-2 mb-3"/>
+                                        <ul>
+                                            <li><i class="fa fa-check"></i>月300円（税別）</li>
+                                            <li><i class="fa fa-check"></i>毎月3回まで質問が可能</li>
+                                            <li><i class="fa fa-check"></i>最短5分で回答可能</li>
+                                            <li><i class="fa fa-check"></i>100名超の認定専門家が回答</li>
+                                            <li><i class="fa fa-check"></i>回答率99％</li>
+                                        </ul>
+                                        <div class="col text-center ">
+                                            <a href="{{route('payment', ['sheetId'=>1, 'member'=>\Auth::user()->pay_status])}}" class="btnSelected btn">専門家に相談をする（有料会員）</a>
                                         </div>
                                     </div>
-                                @endif
+                                </div>
                             @endif
                         </div>
                 </section>
@@ -126,8 +124,9 @@
                         <div class="container-fluid whitepanel pb-3">
                             <h5 class="font-weight-bold p-2">関連する質問</h5>
                             <hr class="mt-2 mb-3"/>
-                            @include('layouts.parts.custom.question', ["type" => "question", 'name' => 'question', 'contents' => ''])
-                            @include('layouts.parts.custom.question', ["type" => "question", 'name' => 'question', 'contents' => ''])
+                            @foreach($relationPosts as $item)
+                                @include('layouts.parts.custom.relation', ["type" => "question", 'name' => 'question', 'post' => $item])
+                            @endforeach
                         </div>
                     </div>
                 </section>

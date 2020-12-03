@@ -43,7 +43,6 @@ Route::group(['middleware' => 'common:user'], function () {
         Route::post('post/store', 'PostController@store')->name('post.store');
         Route::post('post/preStore', 'PostController@preStore')->name('post.preStore');
         Route::get('post/end', 'PostController@end')->name('post.end');
-        Route::get('post/detail/{id}', 'PostController@detail')->name('post.detail');
         Route::get('post/data/{pid}/{val}', 'PostController@postDataEntry')->name('post.data');
         Route::get('post/answer/{pid}/{aid}', 'PostController@postAnswerCheck')->name('post.answer.check');
         Route::get('post/answer/help/{aid}/{eid}', 'PostController@postAnswerEntry')->name('post.answer.help');
@@ -55,18 +54,20 @@ Route::group(['middleware' => 'common:user'], function () {
         Route::get('expert/detail/{id}', 'ExpertProfileController@detail')->name('expert.detail');
         Route::get('expert/message/{id}', 'ExpertProfileController@message')->name('expert.message');
         Route::post('expert/message/send', 'ExpertProfileController@send')->name('expert.message.send');
+        Route::get('expert/message/send/end', 'ExpertProfileController@messageEnd')->name('expert.message.end');
 
         Route::post('search', 'SearchController@index')->name('search.category');
         Route::get('notification', 'TopController@notification')->name('notification');
+        Route::get('repost', 'TopController@repost')->name('repost');
         Route::get('notification/route/{type}/{id}', 'TopController@route')->name('notification.route');
 
         //GMO
         Route::get('payment/{sheetId}/{member}', 'GMOManager@index')->name('payment');
         Route::get('payments/input/{sheetId}/{member}', 'GMOManager@input')->name('payment.input');
         Route::post('payment/creditcard', 'GMOManager@paymentByCreditCard')->name('payment.creditcard');
-        Route::get('paymenta/au/{member}', 'GMOManager@paymentByAu')->name('payment.au');
-        Route::get('paymenta/docomo/{member}', 'GMOManager@paymentByDocomo')->name('payment.docomo');
-        Route::get('paymenta/softbank/{member}', 'GMOManager@paymentBySoftbank')->name('payment.softbank');
+        Route::get('paymenta/au/{sheetId}/{member}', 'GMOManager@paymentByAu')->name('payment.au');
+        Route::get('paymenta/docomo/{sheetId}/{member}', 'GMOManager@paymentByDocomo')->name('payment.docomo');
+        Route::get('paymenta/softbank/{sheetId}/{member}', 'GMOManager@paymentBySoftbank')->name('payment.softbank');
         Route::get('payment/end', 'GMOManager@end')->name('payment.end');
 
         Route::get('other/self', 'OtherController@selfPostData')->name('other.self');
@@ -74,6 +75,10 @@ Route::group(['middleware' => 'common:user'], function () {
         Route::get('other/store', 'OtherController@storePostData')->name('other.store');
 
     });
+
+    //post detail
+    Route::get('post/detail/{id}', 'PostController@detail')->name('post.detail');
+
 
     //相談の投稿検索
     Route::post('post/search', 'SearchController@index')->name('search.post');
@@ -91,6 +96,7 @@ Route::group(['middleware' => 'common:user'], function () {
 
     //ログイン関連
     Route::get('login', 'LoginController@index')->name('login');
+    Route::get('logout', 'Auth\AuthController@logout')->name('logout');
     // Route::post("auth", "Auth\AuthController@login")->name("auth");
     Route::post('auth', 'Auth\AuthController@login')->name('auth');
     Route::get("auth/sns", "Auth\AuthController@snsLogin")->name("auth.sns");

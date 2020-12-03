@@ -25,6 +25,7 @@ class SearchController extends Controller
      */
     public function index(Category $Category, Request $request, Keyword $Keyword)
     {
+
         $categories = $Category->getSelectAll();
         $keyword = $request->searchTxt;
         if($keyword)
@@ -193,7 +194,7 @@ class SearchController extends Controller
                          gender, era, child, marriage, date_birth, sub_name, specialtie_id, prefecture_area from
                         (SELECT DISTINCT posts.* , specialtie_id, prefecture_area from posts
                          LEFT JOIN(SELECT post_id, specialtie_id, prefecture_area from post_answers
-                                   LEFT JOIN (SELECT *from experts)t1 on(post_answers.expert_id=t1.id))t1
+                                   LEFT JOIN (SELECT *from experts)t1 on(post_answers.expert_id=t1.id) where status=2)t1
                          on(posts.id=t1.post_id))t1
                          LEFT JOIN (select id, nickname, gender, floor(datediff(curdate(),date_birth) / 365) as era, child, marriage, date_birth from users)t2
                          on(t1.user_id=t2.id)
@@ -216,7 +217,7 @@ class SearchController extends Controller
                         (SELECT DISTINCT posts.* , specialtie_id from posts
                         LEFT JOIN(SELECT post_id, specialtie_id from post_answers
                                     LEFT JOIN (SELECT *from experts)t1 on(post_answers.expert_id=t1.id))t1
-                        on(posts.id=t1.post_id))t1
+                        on(posts.id=t1.post_id) where status=2)t1
                         LEFT JOIN (select id, nickname, gender, floor(datediff(curdate(),date_birth) / 365) as era, child, marriage, date_birth from users)t2
                         on(t1.user_id=t2.id)
                         LEFT JOIN(select sub_name, id from sub_categories)t3 on(t1.sub_category_id=t3.id)
@@ -290,7 +291,7 @@ class SearchController extends Controller
                         (SELECT DISTINCT posts.* , specialtie_id from posts
                          LEFT JOIN(SELECT post_id, specialtie_id from post_answers
                                    LEFT JOIN (SELECT *from experts)t1 on(post_answers.expert_id=t1.id))t1
-                         on(posts.id=t1.post_id))t1
+                         on(posts.id=t1.post_id) where status=2)t1
                          LEFT JOIN (select id, nickname, gender, floor(datediff(curdate(),date_birth) / 365) as era, child, marriage, date_birth from users)t2
                          on(t1.user_id=t2.id)
                          LEFT JOIN(select sub_name, id from sub_categories)t3 on(t1.sub_category_id=t3.id)";
@@ -312,7 +313,7 @@ class SearchController extends Controller
                         (SELECT DISTINCT posts.* , specialtie_id from posts
                         LEFT JOIN(SELECT post_id, specialtie_id from post_answers
                                     LEFT JOIN (SELECT *from experts)t1 on(post_answers.expert_id=t1.id))t1
-                        on(posts.id=t1.post_id))t1
+                        on(posts.id=t1.post_id) where status=2)t1
                         LEFT JOIN (select id, nickname, gender, floor(datediff(curdate(),date_birth) / 365) as era, child, marriage, date_birth from users)t2
                         on(t1.user_id=t2.id)
                         LEFT JOIN(select sub_name, id from sub_categories)t3 on(t1.sub_category_id=t3.id)
@@ -333,6 +334,10 @@ class SearchController extends Controller
     }
 
     public function searchExpert(Request $request, Specialtie $Specialtie){
+
+        if(isProfile() == 3){
+            return redirect()->route('profile.edit');
+        }
 
         $gender = configJson('custom/gender');
         $spec = $Specialtie->getSearchSelect();
@@ -414,13 +419,13 @@ class SearchController extends Controller
             if($order != 0 && $order != 3)    $orderStr = $orderStr.", updated_at desc";
             else    $orderStr .= "updated_at desc";
 
-            $experts = Expert::whereRaw($where)->orderByRaw($orderStr)->paginate(env('PER_PAGE'));
+            $experts = Expert::whereRaw($where)->orderByRaw($orderStr)->paginate(config('app.per_page'));
 
             $view = view('searches.expert.tema', compact('experts', 'gender', 'prefecture'))->render();
             return response()->json(['html'=>$view]);
         }
 
-        $experts = Expert::orderBy('updated_at', 'desc')->paginate(env('PER_PAGE'));
+        $experts = Expert::orderBy('updated_at', 'desc')->paginate(config('app.per_page'));
 
        return view('searches.expert.index', compact('experts', 'gender', 'spec', 'prefecture'));
     }
@@ -428,7 +433,7 @@ class SearchController extends Controller
     public function arrayPaginator($array, $request)
     {
         $page = $request->page ?:1;
-        $perPage = env('PER_PAGE');
+        $perPage = config('app.per_page');
         $offset = ($page * $perPage) - $perPage;
 
         return new LengthAwarePaginator(array_slice($array, $offset, $perPage, true), count($array), $perPage, $page,

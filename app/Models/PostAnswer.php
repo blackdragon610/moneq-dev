@@ -18,7 +18,7 @@ class PostAnswer extends ModelClass
     ];
 
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->withTrashed();
     }
 
     public function expert(){
@@ -72,4 +72,6 @@ class PostAnswer extends ModelClass
 
         return $totalExperts;
     }
+
+
 }

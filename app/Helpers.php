@@ -285,4 +285,13 @@
 
     }
 
+    function isProfile(){
+        $token = \Cookie::get('custom_token');
+        if($token){
+            if(\Auth::user()->gender == 0)
+                return 3;
+        }else{
+            return -1;
+        }
+    }
 ?>

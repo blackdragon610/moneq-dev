@@ -24,6 +24,12 @@ class TopController extends Controller
     public function index(Post $Post, PostAnswer $PostAnswer, PostData $PostData, Expert $Expert, User $User, Specialtie $Specialtie, Notification $Notification, Category $Category)
     {
 
+        if(isProfile() == 3){
+            if(\Auth::user()->pay_status == 1){
+                return redirect()->route('payment', ['sheetId'=>2, 'member'=>1]);
+            }
+            return redirect()->route('profile.edit');
+        }
         // posts
         $accessTopPost = $Post->getAccessTopPosts(10);
         // dd($accessTopPost);
@@ -73,7 +79,7 @@ class TopController extends Controller
         LEFT JOIN (SELECT post_name, t2.id as pId, ext_name, post_answers.id, body from post_answers
         LEFT JOIN (SELECT id, concat(expert_name_first,expert_name_second) as ext_name from experts)t1
            on(post_answers.expert_id=t1.id)
-        LEFT JOIN(SELECT id, post_name from posts)t2 on(post_answers.post_id=t2.id))t2
+        LEFT JOIN(SELECT id, post_name from posts where status=2)t2 on(post_answers.post_id=t2.id))t2
            on(t1.serial=t2.id) ORDER BY t1.created_at desc limit 3";
         $models = \DB::select($sql);
 
@@ -92,13 +98,15 @@ class TopController extends Controller
                      LEFT JOIN (SELECT post_name, t2.id as pId, ext_name, post_answers.id, body from post_answers
                      LEFT JOIN (SELECT id, concat(expert_name_first,expert_name_second) as ext_name from experts)t1
                         on(post_answers.expert_id=t1.id)
-                     LEFT JOIN(SELECT id, post_name from posts)t2 on(post_answers.post_id=t2.id))t2
+                     LEFT JOIN(SELECT id, post_name from posts where status=2)t2 on(post_answers.post_id=t2.id))t2
                         on(t1.serial=t2.id) ORDER BY t1.created_at desc limit 3";
             $models = \DB::select($sql);
-            if($models[0]->id != $maxId)
-            {
-                $sendArray = ['count'=>$count, 'notification'=>$models];
-                return response()->json($sendArray);
+            if(count($models) > 0){
+                if($models[0]->id != $maxId)
+                {
+                    $sendArray = ['count'=>$count, 'notification'=>$models];
+                    return response()->json($sendArray);
+                }
             }
 
             return response()->json('ok', 200);
@@ -107,7 +115,7 @@ class TopController extends Controller
 
     public function route(Request $request, Post $Post, PostAnswer $PostAnswer, PostData $PostData, Notification $notification, $type, $id){
         if($type == 1){
-            $post = $Post::where('id',$id)->first();
+            $post = $Post::where([['id',$id], ['status', 2]])->first();
             $post->post_answer_id = $post->isAnswerCheck();
             $notification->updateReady($post->post_answer_id);
             $Post->updatePostReadCount($post);
@@ -141,5 +149,11 @@ class TopController extends Controller
             return view('consultdetail.index', compact('post', 'postAdd', 'postAnswer', 'weekExperts',
                                                          'monthExperts', 'totalExperts', 'isUser', 'postStoreFlag', 'postHelpFlag'));
             }
+    }
+
+    public function repost(Post $Post){
+        $Post->rePostCreate();
+
+        return response()->json('ok');
     }
 }

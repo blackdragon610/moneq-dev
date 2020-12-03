@@ -82,6 +82,16 @@ use AuthenticatesUsers;
         }
     }
 
+    public function logout(Request $request)
+    {
+        $this->guard()->logout();
+        $request->session()->flush();
+        $request->session()->regenerate();
+
+        $cookie = \Cookie::forget('custom_token');
+
+        return redirect('/')->withCookie($cookie);
+    }
 
 
 

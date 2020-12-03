@@ -8,6 +8,7 @@
 
     use Nexmo\Client;
     use Nexmo\Client\Credentials\Basic;
+    use Nexmo\Laravel\Facade\Nexmo;
 
     class SmsClass{
 
@@ -31,17 +32,23 @@
 
             $to = "81" . str_replace("-", "", substr($tel, 1, strlen($tel)));
 
-            $sms = config("sms");
-            $basic  = new Basic($sms["API_KEY"], $sms["API_SECRET"]);
-            $client = new Client($basic);
+            Nexmo::message()->send([
+                'to'   => $to,
+                'from' => '8107014201488',
+                'text' => $text
+                ]);
+            // $sms = config("sms");
+            // $basic  = new Basic($sms["API_KEY"], $sms["API_SECRET"]);
+            // $client = new Client($basic);
+            // dd($client);
 
 
-            $message = $client->message()->send([
-                                                    'type' => 'unicode',
-                                                    'to' => $to,
-                                                    'from' => env("APP_NAME"),
-                                                    'text' => $text
-                                                ]);
+            // $message = $client->message()->send([
+            //                                         'type' => 'unicode',
+            //                                         'to' => $to,
+            //                                         'from' => env("APP_NAME"),
+            //                                         'text' => $text
+            //                                     ]);
 
         }
     }

@@ -109,7 +109,7 @@ class User  extends ModelClass implements JWTSubject
     public function setPayStatus($status){
         $user = User::where('id', \Auth::user()->id)->first();
         $user->pay_status = $status;
-        $user->save();
+        $user->update();
     }
 
     /**
@@ -152,27 +152,50 @@ class User  extends ModelClass implements JWTSubject
     public function isPost() :bool
     {
         if ($this->pay_status == 1){
+            if($this->re_point > 0) return true;
+
             return false;
         }
 
-        $Post = app("Post");
-        $count = $Post->getCountUser($this, date("Y-m"));
+        $count = $this->postCount();
 
 
 
         if ($this->pay_status == 2) {
 
-            if ($count >= 4){
+            if ($count >= 3 + $this->re_point){
                 return false;
             }
         }
 
         if ($this->pay_status == 3) {
-            if ($count >= 1){
+            if ($count >= 1 + $this->re_point){
                 return false;
             }
         }
 
+
+        return true;
+    }
+
+    //user post count
+    public function postCount(){
+        $Post = app("Post");
+        $count = $Post->getCountUser($this, date("Y-m"));
+        return $count;
+    }
+
+    //user answer display condition
+    public function isAnswer(){
+        $PostData = app("PostData");
+        $count = $PostData->getCountUser($this, date("Y-m"));
+
+        if ($this->pay_status == 1) {
+
+            if ($count >= 4){
+                return false;
+            }
+        }
 
         return true;
     }

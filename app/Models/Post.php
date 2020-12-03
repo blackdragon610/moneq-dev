@@ -70,16 +70,20 @@ class Post extends ModelClass
     {
         $Model = clone $this;
 
-        $Model = $Model->whereUserId($User->id)->whereView();
-
         if ($dateYearMonth){
-            $Model->where("created_at", "LIKE", $dateYearMonth . "%");
+            $Model = $Model->where([['user_id', $User->id],["created_at", "LIKE", $dateYearMonth . "%"], ['status', 2]])->withTrashed();
         }
         return $Model->count();
     }
 
+    public function getPostByCategory(){
+        $Model = clone $this;
+        $Model = $Model->where('sub_category_id', $this->sub_category_id)->orderBy('created_at', 'desc')->paginate(5);
+
+        return $Model;
+    }
     public function getAccessTopPosts(){
-        $model = Post::where('id', '>' ,0)
+        $model = Post::where('status', 2)
                 ->orderBy('count_access', 'desc')
                 ->orderBy('count_usuful', 'desc')
                 ->paginate(10);
@@ -87,14 +91,14 @@ class Post extends ModelClass
     }
 
     public function getNewTopPosts(){
-        $Model = Post::where('id', '>' ,0)
+        $Model = Post::where('status', 2)
                 ->orderBy('created_at', 'desc')
                 ->paginate(10);
         return $Model;
     }
 
     public function getSelfPosts(){
-        $Model = $this->where('user_id', \Auth::user()->id)
+        $Model = $this->where([['user_id', \Auth::user()->id], ['status', 2]])
                       ->orderBy('created_at', 'desc')
                       ->paginate(3);
         return $Model;
@@ -117,7 +121,7 @@ class Post extends ModelClass
     }
 
     public function getPostCount(){
-        $model = $this->selectRaw("count(*) as postCount")->first();
+        $model = $this->selectRaw("count(*) as postCount")->where('status', 2)->first();
 
         return $model->postCount;
     }
@@ -131,7 +135,7 @@ class Post extends ModelClass
     }
 
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->withTrashed();
     }
 
     public function answers(){
@@ -148,7 +152,21 @@ class Post extends ModelClass
     }
 
     public function sub_category(){
-        // dd($this->belongsTo(SubCategory::class));
         return $this->belongsTo(SubCategory::class);
+    }
+
+    public function rePostCreate(){
+        $models = clone $this;
+        $models = $models->whereRaw("floor(datediff(curdate(),updated_at)) > 1 and status='2'")->get();
+        foreach($models as $model){
+            if($model->answerCount() == 0){
+                $userModel = User::where('id', $model->user_id)->first();
+                $count = $userModel->re_point;
+                $count++;
+                $userModel->re_point = $count;
+                $userModel->save();
+                $model->delete();
+            }
+        }
     }
 }

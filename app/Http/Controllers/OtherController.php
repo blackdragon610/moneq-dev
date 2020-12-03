@@ -23,10 +23,17 @@ class OtherController extends Controller
     public function selfPostData(Post $Post, Request $request)
     {
 
+        if(isProfile() == 3){
+            if(\Auth::user()->pay_status == 1){
+                return redirect()->route('payment', ['sheetId'=>2, 'member'=>1]);
+            }
+            return redirect()->route('profile.edit');
+        }
+
         // posts
         $posts = $Post->where('user_id', \Auth::user()->id)
                                 ->orderBy('created_at', 'desc')
-                                ->paginate(env('PER_PAGE'));
+                                ->paginate(config('app.per_page'));
         $gender = configJson('custom/gender');
 
         $view = '';
@@ -45,6 +52,10 @@ class OtherController extends Controller
     public function accessPostData(PostData $PostData, Request $request)
     {
 
+        if(isProfile() == 3){
+            return redirect()->route('profile.edit');
+        }
+
         // posts
         $posts = $PostData->leftJoin('posts', 'posts.id', '=', 'post_data.post_id')
                             ->leftJoin('sub_categories', 'posts.sub_category_id', '=', 'sub_categories.id')
@@ -53,7 +64,7 @@ class OtherController extends Controller
                             ->where('post_data.type', 1)
                             ->where('post_data.user_id', \Auth::user()->id)
                             ->orderBy('post_data.updated_at', 'desc')
-                            ->paginate(env('PER_PAGE'));
+                            ->paginate(config('app.per_page'));
         $gender = configJson('custom/gender');
 
         $view = '';
@@ -72,6 +83,13 @@ class OtherController extends Controller
     public function storePostData(PostData $PostData, Request $request)
     {
 
+        if(isProfile() == 3){
+            if(\Auth::user()->pay_status == 1){
+                return redirect()->route('payment', ['sheetId'=>2, 'member'=>1]);
+            }
+            return redirect()->route('profile.edit');
+        }
+
         // posts
         $posts = $PostData->leftJoin('posts', 'posts.id', '=', 'post_data.post_id')
                             ->leftJoin('sub_categories', 'posts.sub_category_id', '=', 'sub_categories.id')
@@ -80,7 +98,7 @@ class OtherController extends Controller
                             ->where('post_data.type', 2)
                             ->where('post_data.user_id', \Auth::user()->id)
                             ->orderBy('post_data.created_at', 'desc')
-                            ->paginate(env('PER_PAGE'));
+                            ->paginate(config('app.per_page'));
         $gender = configJson('custom/gender');
 
         $view = '';

@@ -63,6 +63,7 @@ class EntryController extends Controller
         //トークンの保存と送信
         $UserToken->setTransaction("トークン登録時にエラー", function() use($UserToken, $request, $datas, $EntryMail, $SmsClass){
             $userToken = $UserToken->saveEntry($request->input("mode"), $datas["inputs"], intval($request->get("expert")));
+            $datas['inputs']['token'] = $userToken->token;
             $EntryMail->datas = $datas["inputs"];
             $item["token"] = $userToken->token;
             $item['domain'] = getMyURL();
@@ -91,6 +92,7 @@ class EntryController extends Controller
                 }
 
                 if ($request->input("mode") == "monitor"){
+                    // dd($EntryMail->datas);
                     $SmsClass->send($datas["inputs"]["tel"], "entry", $EntryMail->datas);
                 }
             }

@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use App\Models\Specialtie;
+use App\Models\ExpertLicense;
 
 class Expert extends ModelClass implements JWTSubject
 {

@@ -23,10 +23,7 @@ class ProfileManageController extends Controller
     public function index(){
         $user = Auth::user();
 
-        if($user->is_send_answer == 1){$answer = 'オン';} else{ $answer = 'オフ';}
-        if($user->is_send_message == 1){$message = 'オン';} else{ $message = 'オフ';}
-        if($user->is_send_master == 1){$master = 'オン';} else{ $master = 'オフ';}
-
+        if($user->pay_status)
         switch($user->pay_status){
             case 1:
                 $pay_status = '無料会員';
@@ -49,14 +46,15 @@ class ProfileManageController extends Controller
         $paymentArray = configJson("custom/payment");
         $email = array($user->email=> '');
         $password = array('**************' => '');
-        $profile = array('ニックネーム' => $user->nickname, '性別' => $genderArray[$user->gender]);
+        $profile = array('ニックネーム' => $user->nickname, '性別' => $user->gender?$genderArray[$user->gender]:'');
         $notification = array('回答通知' => $answer , 'メッセージ通知' => $message, 'MoneQからの通知' => $master);
         $membership = array($pay_status => '');
-        if($user->pay_status == 1){
-            $payment = "";
-        }else{
+
+        $payment = "";
+        if($user->pay_status != 1){
             $pay = \Cookie::get('paytype');
-            $payment = array($paymentArray[$pay] => '');
+            if(isset($pay))
+                $payment = array($paymentArray[$pay] => '');
         }
 
         return view('profiles.edit.index', compact('email', 'password', 'profile', 'notification', 'membership', 'payment'));
@@ -222,6 +220,16 @@ class ProfileManageController extends Controller
     }
 
     public function memberPayment(Request $request){
+
+        $possibleCount = 0;
+        if(\Auth::user()->pay_status == 2){
+            $possibleCount = 3 - \Auth::user()->postCount();
+        }else if(\Auth::user()->pay_status == 3){
+            $possibleCount = 1 - \Auth::user()->postCount();
+        }
+        $count = \Auth::user()->re_point;
+        \Auth::user()->re_point = $possibleCount + $count;
+        \Auth::user()->save();
 
         return view('profiles.edit.payment');
     }

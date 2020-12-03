@@ -45,8 +45,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col text-center">
-                        <a href="" class="btnGreen">保険</a>
-                        <a href="" class="btnBlue">ライフプラン・家計相談</a>
+                        <a href="" class="btnBlue">{{$contents->specialtie->specialtie_name}}</a>
                     </div>
                 </div>
             </div>

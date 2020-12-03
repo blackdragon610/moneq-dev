@@ -131,7 +131,8 @@ return [
 
     'tex' => 10,
 
-
+#Per-page
+    'per_page' => 10,
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
@@ -189,6 +190,7 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         App\YahooJpManager\MySocialServiceProvider::class,
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+        Nexmo\Laravel\NexmoServiceProvider::class,
     ],
 
     /*
@@ -244,6 +246,7 @@ return [
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
         'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
+        'Nexmo' => Nexmo\Laravel\Facade\Nexmo::class,
     ],
 
 ];

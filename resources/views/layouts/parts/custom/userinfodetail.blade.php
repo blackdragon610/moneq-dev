@@ -11,7 +11,6 @@
                 </div>
                 <div class="row">
                     <span class="age">{{$contents->date_birth.'/'.$contents->gender}}</span>
-                    <span class="address">{{$contents->prefecture_area}}</span>
                 </div>
             </div>
         </div>
@@ -31,7 +30,7 @@
         <div class="col-sm-8 col-lg-4 pt-2">
             <div class="container-fluid pl-0 pb-lg-1">
                 <h6 class="font-weight-bold">保有資格</h6>
-                <span class="mright keepTwoLine">{{$contents->specialtie->specialtie_name}}</span>
+                <span class="mright keepTwoLine"></span>
             </div>
         </div>
     </div>
@@ -40,22 +39,29 @@
     </div>
     <div class="row pl-3">
         <div class="col-12 col-sm-6">
-
             <div class="container-fluid">
                 <div class="row">
                     <div class="col text-center">
-                        <a href="" class="btnGreen">保険</a>
-                        <a href="" class="btnBlue">ライフプラン・家計相談</a>
+                        <h5><b>「個別相談」対応分野</b></h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col text-center">
+                        <span>{{$contents->specialtie->specialtie_name}}</span>
                     </div>
                 </div>
             </div>
-
         </div>
         <div class="col-12 col-sm-6">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col text-center">
-                        <span>東京都</span>
+                        <h5><b>「個別相談」対応エリア</b></h5>
+                    </div>
+                </div>
+                    <div class="row">
+                    <div class="col text-center">
+                        <span>{{$contents->prefecture_area}}</span>
                     </div>
                 </div>
             </div>
@@ -71,7 +77,7 @@
                 <div class="container">
                     <div class="col text-center">
                         <p>※個別相談は、当サービスの利用料金とは別の費用が発生する可能性があります。詳しくは専門家にお問い合わせください。
-                            <a href="" class="text-dark"><u>利用規約</u></a>
+                            <a href="#" class="text-dark"><u>利用規約</u></a>
                         </p>
                     </div>
                 </div>

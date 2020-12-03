@@ -6,7 +6,7 @@
 </div>
 <div class="container-fluid p-0">
     <div class="d-flex pt-2">
-        <h5 class="font-weight-bold text-danger mright">{{$keyword}}に該当する相談</h5>
+        <h5 class="font-weight-bold text-danger mright"><?php if($keyword) echo $keyword; else echo 'お金の悩みから探す';?>に該当する相談</h5>
         <span class="mright">検索結果数</span>
         <span class="text-danger">{{$posts->total()}}</span>
         <div class="dropdown ml-auto">
