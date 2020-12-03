@@ -6,7 +6,7 @@
     <div class="container">
 
         <div class="row" style="margin-bottom:80px">
-            <div class="col-md-12 col-lg-12 bg-white">
+            <div class="col-12 bg-white">
                 <p class="title-medium" style="padding-left:70px">会員ステータス</p>
                 <!-- <hr class="mt-2 mb-3"/> -->
                 <!-- <p>現在のプランは月払会員</p> -->
