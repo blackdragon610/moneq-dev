@@ -5,10 +5,6 @@
 <div class="whitepanel">
     <div class="container">
 
-    <?php
-    $postId =1;
-    ?>
-
         <div class="row" style="margin-bottom:80px">
             <div class="col-md-12 col-lg-12 bg-white">
 
