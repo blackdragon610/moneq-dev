@@ -585,21 +585,21 @@ p {
     letter-spacing: 3px;
 }
 .yellow-btn-304-50{
-    background-color: #ffd800;
+    background-color: #ffd800 !important;
     width: 304px !important;
     height: 50px !important;
     font-family: NotoSans-JP-Medium;
     font-size: 16px !important;
-    color: #221815;
+    color: #221815 !important;
     line-height: 35px;
 }
 .white-btn-304-50{
-    background-color: white;
+    background-color: white !important;
     width: 304px !important;
     height: 50px !important;
     font-family: NotoSans-JP-Medium;
     font-size: 16px !important;
-    color: #221815;
+    color: #221815 !important;
     line-height: 35px;
 }
 .orange-roundbtn-150-30{
@@ -1190,7 +1190,7 @@ article {
 
 .btnLayer {
     padding-top: 1.5rem !important;
-    padding-bottom: 0.25rem !important;
+    padding-bottom: 1.0rem !important;
 }
 
 .textCenter {
