@@ -3,64 +3,87 @@
 
 @section('main')
 
-<div class="container-fluid lightgreypanel p-3">
-    <div class="container bg-white p-3">
+<div class="whitepanel">
+    <div class="container">
 
-        <h5 class="font-weight-bold">相談の投稿</h5>
-        <hr class="mt-2 mb-4"/>
-        <div class="container-fluid">
-            <div class="row pl-2">
-                <span class="name">今月はあと {{$possibleCount}}回 相談ができます。</span>
-                <a id="reQ" class="text-dark">再質問権 {{\Auth::user()->re_point}}件</a>
+        <div class="row" style="margin-bottom:80px">
+            <div class="col-12 bg-white">
+
+                <p class="title-medium" style="padding-left:70px">相談の投稿</p>
+                <div class="container" style="padding-left:70px">
+                    <div class="row" style="padding-left:15px">
+                        <span class="title-16px" style="padding-top:8px">今月はあと</span>
+                        <span class="title-24px-red">{{$possibleCount}}</span>
+                        <span class="title-16px" style="padding-top:8px">回 相談ができます。</span>
+                        <a id="reQ" class="text-dark title-16px">再質問権 
+                            <span class="title-24px-red">{{\Auth::user()->re_point}}</span>件
+                        </a>
+                    </div>
+
+                    {{Form::open(['url'=> route('post.store'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
+                        <meta name="csrf-token" content="{{ csrf_token() }}" />
+                        <input type="hidden" name="post_id" id="post_id" value="{{$inputs['post_id']}}">
+
+                        <div class="container-fluid pl-2">
+                            <p class="title-16px" style="margin-top:20px">
+                                <u><a id="firstQ" class="text-dark"><img src="/images/svg/img-book-downside.svg"> はじめて専門家に相談する方へ</a></u>
+                            </p>
+                            <p class="title-16px" style="margin-top:24px">
+                                <img src="/images/svg/img-ban-solid.svg"> <u>相談の禁止事項</u>
+                            </p>
+
+                            <p class="title-16px" style="color:#707070">よくある相談の禁止事項</p>
+                            <ul>
+                                <li class="title-16px" style="list-style:disc;margin-left:24px">個人情報の記載</li>
+                                <li class="title-16px" style="list-style:disc;margin-left:24px">特定の企業、商品、サービスに関する記載</li>
+                                <li class="title-16px" style="list-style:disc;margin-left:24px">違法行為・犯罪に関連する投稿</li>
+                                <li class="title-16px" style="list-style:disc;margin-left:24px">質問や回答と関係のないURLの記載</li>
+                                <li class="title-16px" style="list-style:disc;margin-left:24px">お礼や報告など質問ではない投稿</li>
+                            </ul>
+
+                            <label for="post_name" class="label-regular" style="margin-top:48px">相談テーマ</label><span class="btn-tag-red">(必須)</span>                            
+                            @include('layouts.parts.editor.text', ["type" => "text", 'name' => 'post_name',  'contents' => 'placeholder="例：お金のことで相談がある"'])                            
+                            <div class="text-right"><span id="name_length">0/25</span></div>
+
+                            <label for="sub_category_id" class="label-regular">カテゴリ</label><span class="btn-tag-red">(必須)</span>
+                            @include('layouts.parts.editor.select', ['name' => 'sub_category_id',  "file" => $categories, "keyValue" => "", "contents" => ""])
+
+                            <label for="body" class="label-regular">相談内容</label><span class="btn-tag-red">(必須)</span>
+
+                            <div style="background-color:#FFF5E9">
+                                <p class="label-14px">
+                                    具体的な情報（数字や年数など）、相談の状況（年齢、年収、家族構成など）、聞きたいことを簡約にまとめると<br/>
+                                    より早く、より多くの専門家から回答される可能性が高くなります。
+                                </p>
+                                <ul>
+                                    <li class="label-14px" style="list-style:disc;margin-left:24px">年収（約650万円など</li>
+                                    <li class="label-14px" style="list-style:disc;margin-left:24px">ご自分の年齢（厳しい場合は「30代」などの年代でもかまいません）</li>
+                                    <li class="label-14px" style="list-style:disc;margin-left:24px">お子さんの年齢（厳しい場合は「幼稚園児」「小学生」などでも構いません）</li>
+                                </ul>
+                            </div>
+
+
+                            @include('layouts.parts.editor.textarea', ['name' => 'body', "contents" => ""])<br />                            
+                            <div class="text-right"><span id="post_length">0/1600</span></div>
+
+                            <div class="row">
+                                <div class="col text-center btnLayer">
+                                    @if (!empty($isConfirmation))
+                                        {!! Form::submit('修正', ['class' => 'btnSubmit', 'name' => 'reInput']) !!}
+                                        {!! Form::submit('確定', ['class' => 'btnSubmit', 'name' => 'end']) !!}
+                                    @else
+                                        <button class="btnSubmit white-btn-304-50" style="border:1px solid #221815;margin-right:24px" id="preSave">一時保存</button>
+                                        <button class="btnSubmit yellow-btn-304-50">相談を投稿</button>
+                                    @endif
+                                </div>
+                            </div>
+
+                        </div>
+                    {{Form::close()}}
+                </div>
+
             </div>
         </div>
-
-        {{Form::open(['url'=> route('post.store'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
-            <meta name="csrf-token" content="{{ csrf_token() }}" />
-            <input type="hidden" name="post_id" id="post_id" value="{{$inputs['post_id']}}">
-            <section>
-                <div class="container-fluid pl-2">
-                    <p><a id="firstQ" class="text-dark"><i class="fa fa-warning"></i> はじめて専門家に相談する方へ</a></p>
-                    <p><i class="fa fa-stop"></i> 相談の禁止事項</p>
-                    <p>よくある相談の禁止事項</p>
-                    <ul>
-                        <li><i class="fa fa-check"></i>個人情報の記載</li>
-                        <li><i class="fa fa-check"></i>特定の企業、商品、サービスに関する記載</li>
-                        <li><i class="fa fa-check"></i>違法行為・犯罪に関連する投稿</li>
-                        <li><i class="fa fa-check"></i>質問や回答と関係のないURLの記載</li>
-                        <li><i class="fa fa-check"></i>お礼や報告など質問ではない投稿</li>
-                    </ul>
-            <section>
-                <label for="" >相談テーマ</label><span class="text-danger">(必須)</span>
-                @include('layouts.parts.editor.text', ["type" => "text", 'name' => 'post_name',  'contents' => 'placeholder="例：お金のことで相談がある"'])<br />
-                <div class="text-right"><span id="name_length">0/25</span></div>
-            </section>
-
-            <section>
-                <label for="" >カテゴリ</label><span class="text-danger">(必須)</span>
-                @include('layouts.parts.editor.select', ['name' => 'sub_category_id',  "file" => $categories, "keyValue" => "", "contents" => ""])<br />
-            </section>
-
-                <label for="" >相談内容</label><span class="text-danger">(必須)</span>
-                @include('layouts.parts.editor.textarea', ['name' => 'body', "contents" => ""])<br />
-                <div class="text-right"><span id="post_length">0/1600</span></div>
-            </section>
-            <section>
-                <div class="row">
-                    <div class="col text-center btnLayer">
-                        @if (!empty($isConfirmation))
-                            {!! Form::submit('修正', ['class' => 'btnSubmit', 'name' => 'reInput']) !!}
-                            {!! Form::submit('確定', ['class' => 'btnSubmit', 'name' => 'end']) !!}
-                        @else
-                            <button class="btnSubmit" id="preSave">一時保存</button>
-                            <button class="btnSubmit">相談を投稿</button>
-                        @endif
-                    </div>
-                </div>
-            </section>
-
-        {{Form::close()}}
-
 
     </div>
 </div>

@@ -3,8 +3,8 @@
         <div class="modal-content">
             <div class="modal-header">
                 <p class="title-21px" id="myModalLabel" style="display:inline-block;margin-left:10px">はじめて相談する方へ</p>
-                <button type="button" class="close" style="float:right;margin-top:5px;
-                    background-color:white;margin-right:5px;border:0px" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" style="background-color:white;border:0px;
+                    position:absolute;right:20px" data-dismiss="modal" aria-label="Close">
                     <span class="fa fa-close"></span>
                 </button>
                 <hr class="mt-2 mb-3"/>

@@ -725,6 +725,11 @@ div .grey-round-tag {
     font-size: 16px !important;
     color: #221815; 
 }
+.title-24px-red {
+    font-family: NotoSans-JP-Medium;
+    font-size: 24px !important;
+    color: red; 
+}
 .title-21px {
     font-family: NotoSans-JP-Medium;
     font-size: 21px !important;
@@ -743,6 +748,11 @@ div .grey-round-tag {
     margin-top:72px;
 }
 
+.label-14px {
+    font-family: NotoSans-JP-Regular;
+    font-size: 14px !important;
+    color: #221815;
+}
 .label-16px {
     font-family: NotoSans-JP-Regular;
     font-size: 16px !important;
