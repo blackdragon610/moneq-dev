@@ -67,7 +67,8 @@ class CustomValidator extends Validator
 
     public function validateStringMax($attribute, $value, $parameters)
     {
-        if (strlen($value) <= $parameters[0]) {
+
+        if (strlen(utf8_decode($value)) <= $parameters[0]) {
             return true;
         }
 
@@ -90,7 +91,7 @@ class CustomValidator extends Validator
 
     public function validateStringMin($attribute, $value, $parameters)
     {
-        if (strlen($value) > $parameters[0]) {
+        if (strlen(utf8_decode($value)) > $parameters[0]) {
             return true;
         }
 

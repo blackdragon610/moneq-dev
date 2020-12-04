@@ -33,7 +33,7 @@
                     </span>
                 </div>
 
-                Form::open(['url'=> route('payment.creditcard'),'method'=>'POST', 'files' => false, 'id' => 'form']) 
+                {{Form::open(['url'=> route('payment.creditcard'),'method'=>'POST', 'files' => false, 'id' => 'form']) }}
                     <input type="hidden" name="pay_token" id="pay_token" value="">
                     <input type="hidden" name="member" value="{{$member}}">
                     <input type="hidden" name="sheet" value="{{$sheetId}}">
@@ -49,8 +49,8 @@
                                 <label for="birthday" class="label-regular">有効期限</label><span class="btn-tag-red">(必須)</span>
                                 <div class="row">
                                     <div class="col-6 input-group mt-3 mt-md-0">
-                                        @include('layouts.parts.editor.select', ['name' => 'year', 'id'=>'year', "file" => config("funcs.payyears"), "keyValue" => "", 'contents' => 'class="form-control textCenter p-0"']) 
-                                        <h6 class="font-weight-400 pl-2 textCenter" 
+                                        @include('layouts.parts.editor.select', ['name' => 'year', 'id'=>'year', "file" => config("funcs.payyears"), "keyValue" => "", 'contents' => 'class="form-control textCenter p-0"'])
+                                        <h6 class="font-weight-400 pl-2 textCenter"
                                             style="padding-top:10px;font-family:NotoSans-JP-Regular;font-size:16px !important;">年</h6>
                                     </div>
                                     <div class="col-6 input-group mt-3 mt-md-0">

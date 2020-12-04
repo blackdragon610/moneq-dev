@@ -16,9 +16,8 @@
                                     @if(isLogin() == 1)
                                         @if(\Auth::user()->pay_status == 2)
                                             <p>トップボタンをクリックしてトップページに戻る。</p>
-                                        @else {
+                                        @else
                                             <p>閲覧する場合は下記より有料会員にアップデートしてください。</p>
-                                        }
                                         @endif
                                     @else
                                         <p>閲覧する場合は下記より有料会員にアップデートしてください。</p>
@@ -32,7 +31,7 @@
                                             <a href="{{url('/')}}" class="btnSubmit">トップ</a>
                                         @else
                                             <a href="{{url('payment/1').'/'.\Auth::user()->pay_status}}" class="btnSubmit">有料アップデート</a>
-                                    @endif
+                                        @endif
                                     @else
                                         <a href="{{url('entry')}}" class="btnSubmit">有料アップデート</a>
                                     @endif

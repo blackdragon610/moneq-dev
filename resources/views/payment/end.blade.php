@@ -15,9 +15,9 @@
                     <p class="title-16px" style="margin-top:48px">\ さっそく、お金の悩みを専門家に相談する /</p>
 
                     <a href="{{route('post.create')}}" class="btn yellow-roundbtn">今すぐ、専門家に相談する</a>
-                    
+
                     <div class="input-group col-lg-6 offset-lg-3 col-md-12" style="margin-top:60px" id="searchbar">
-                        <input type="searchSubTxt" class="form-control py-1 amber-border" style="width:370px;height:48px" type="text" placeholder="お金の悩みを検索" >
+                        <input id="searchSubTxt" class="form-control py-1 amber-border" style="width:370px;height:48px" type="text" placeholder="お金の悩みを検索" >
                         <div class="input-group-append">
                             <button type="button" class="btn btn-secondary">
                                 <i class="fa fa-search fa-1x"></i>
@@ -28,7 +28,7 @@
 
             </div>
         </div>
-        
+
     </div>
 </div>
 

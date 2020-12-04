@@ -101,7 +101,7 @@
                     <div class="row" style="margin-top:32px">
                         <fieldset style="width:220px;height:130px;text-align:center;border:1px dashed #707070;margin-right:24px">
                             <legend style="width:40%">
-                                <a id="car1" href="{{url('paymenta/au').'/'.$sheetId.'/'.$member"><img src="/images/svg/img-payment-au-btn.svg"></a>
+                                <a id="car1" href="{{url('paymenta/au').'/'.$sheetId.'/'.$member}}"><img src="/images/svg/img-payment-au-btn.svg"></a>
                             </legend>
                             <p class="title-12px">auかんたん決済</p>
                         </fieldset>

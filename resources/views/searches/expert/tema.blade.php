@@ -1,7 +1,7 @@
 <div class="container-fluid p-0 bg-white">
     <ol class="breadcrumb m-0 p-0">
         <li class="breadcrumb-item"><i class="fa fa-home"></i><a href="{{url('/')}}">Home</a></li>
-        <li class="breadcrumb-item">"お金の専門家一覧</li>
+        <li class="breadcrumb-item">お金の専門家一覧</li>
     </ol>
 </div>
 <div class="container-fluid p-0">
