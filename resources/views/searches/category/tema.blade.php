@@ -1,7 +1,7 @@
 <div class="container-fluid p-0 bg-white">
     <ol class="breadcrumb m-0 p-0">
-        <li class="breadcrumb-item"><i class="fa fa-home"></i>Home</li>
-        <li class="breadcrumb-item">"{{$keyword}}" の検索結果</li>
+        <li class="breadcrumb-item"><i class="fa fa-home"></i><a href="{{url('/')}}">Home</a></li>
+        <li class="breadcrumb-item"><?php if($keyword) echo $keyword; else if($category_name) echo $category_name; else echo 'お金の悩みから探す';?>の検索結果</li>
     </ol>
 </div>
 <div class="container-fluid p-0">

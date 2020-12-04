@@ -78,6 +78,7 @@ class PostController extends Controller
     {
         $this->isPost();
 
+
         $datas = $this->checkForm($request);
 
         if (!empty($datas['errors'])){
@@ -273,7 +274,7 @@ class PostController extends Controller
         // $adminAddress = env('MAIL_USERNAME');
 
         $datas = array(
-            'email' => 'again5651@gmail.com',
+            'email' => env('ADMIN_MAIL_USERNAME'),
             'subject' => '通報がありました',
             'data' => $data,
           );

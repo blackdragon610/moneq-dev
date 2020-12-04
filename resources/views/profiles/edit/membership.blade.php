@@ -11,7 +11,13 @@
                 <div class="col-md-12 col-lg-12 bg-white">
                     <h5 class="font-weight-bold p-2">会員ステータス</h5>
                     <hr class="mt-2 mb-3"/>
-                    <p>現在のプランは月払会員</p>
+                    @if($user->pay_status == 1)
+                        <p>現在のプランは無料会員</p>
+                    @elseif($user->pay_status == 2)
+                        <p>現在のプランは年払会員</p>
+                    @else
+                        <p>現在のプランは月払会員</p>
+                    @endif
 
                     <section>
                         <div class="row">

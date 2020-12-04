@@ -13,13 +13,26 @@
                             <div class="container">
                                 <div class="col text-center">
                                     <p>このページは閲覧することができません。</p>
-                                    <p>閲覧する場合は下記より有料会員にアップデートしてください。</p>
+                                    @if(isLogin() == 1)
+                                        @if(\Auth::user()->pay_status == 2)
+                                            <p>トップボタンをクリックしてトップページに戻る。</p>
+                                        @else {
+                                            <p>閲覧する場合は下記より有料会員にアップデートしてください。</p>
+                                        }
+                                        @endif
+                                    @else
+                                        <p>閲覧する場合は下記より有料会員にアップデートしてください。</p>
+                                    @endif
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col text-center btnLayer">
-                                    @if(\Cookie::has('custom_token'))
-                                        <a href="{{url('payment/1').'/'.\Auth::user()->pay_status}}" class="btnSubmit">有料アップデート</a>
+                                    @if(isLogin() == 1)
+                                        @if(\Auth::user()->pay_status == 2)
+                                            <a href="{{url('/')}}" class="btnSubmit">トップ</a>
+                                        @else
+                                            <a href="{{url('payment/1').'/'.\Auth::user()->pay_status}}" class="btnSubmit">有料アップデート</a>
+                                    @endif
                                     @else
                                         <a href="{{url('entry')}}" class="btnSubmit">有料アップデート</a>
                                     @endif

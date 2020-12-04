@@ -67,11 +67,9 @@ class ProfileController extends Controller
     public function updatePlus(Request $request, User $User)
     {
         $datas = $User->getSession();
-
         foreach ($request->input() as $key => $value){
             $datas[$key] = $value;
         }
-
         $user = $User->find(Auth::user()->id);
         $user->setModel($datas);
         $user->changeJsonAll();

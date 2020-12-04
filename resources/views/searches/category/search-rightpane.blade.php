@@ -103,7 +103,7 @@
             keyword: $('#keyword').val(),
             filter: $('#tema').val(),
             area: $('#prefecture_area').val(),
-            category_name: $('#category_name').val(),
+            category_name: $('#category').val(),
             order: order
         }
 	  $.ajax(
@@ -128,7 +128,7 @@
             keyword: $('#keyword').val(),
             filter: $('#tema').val(),
             area: $('#prefecture_area').val(),
-            category_name: $('#category_name').val(),
+            category_name: $('#category').val(),
             order: order,
             page: page
         }
