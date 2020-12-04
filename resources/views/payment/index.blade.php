@@ -2,103 +2,126 @@
 
 
 @section('main')
-<div class="container-fluid lightgreypanel p-3">
-    <div class="container p-3">
+<div class="whitepanel">
+    <div class="container ">
 
     {{-- {{Form::open(['url'=> route('entry.password.end'),'method'=>'POST', 'files' => false, 'id' => 'form'])}} --}}
     <input type="hidden" id="sheet" value="{{$sheetId}}">
-    <section>
-        <div class="row">
-            <div class="col-sm-12 col-md-6 pl-0 pr-0 pr-md-2">
-                <article class="bg-white col-12">
-                    <h5 class="font-weight-bold mb-2">年払会員 (3,980円/年)</h5>
-                    <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>️️月最大3回お金の専門家に相談が可能</p>
-                    <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>1つの質問につき最大3回まで追加質問が可能</p>
-                    <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>過去Q&Aはすべて見放題</p>
-                    <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>回答したお金の専門家に具体的な有料相談を行うことが可能</p>
-                    <div class="col text-center btnLayer">
-                        @if($sheetId == 1)
-                            @if($member != 3)
-                                <button class="btnSelected" id="btnPlan1">選択中</button>
-                                <input type="hidden" name="member" id="member" value="2">
-                            @else
-                                <button class="btnUnselected" id="btnPlan1">選択する</button>
-                            @endif
-                        @elseif($sheetId == 2)
-                            @if($member == 2)
-                                    <button class="btnSelected" id="btnPlan1">選択中</button>
-                                    <input type="hidden" name="member" id="member" value="2">
-                            @else
-                                    <button class="btnUnselected" id="btnPlan1">選択する</button>
-                            @endif
-                        @endif
+
+    <div class="row" style="margin-bottom:80px">
+        <div class="col-12 bg-white">
+
+            <div>
+                <div class="row" style="margin-top:70px;padding-left:70px;padding-right:70px">
+
+                    <div class="col-12 col-sm-6">
+                        <article class="col-12 p-0" style="background-color:#FFF9F2; max-width:488px; min-height:402px">
+                            <p class="title-small text-center">年払会員 (3,980円/年)</p>
+                            <p class="title-16px" style="padding-left:65px;margin-top:27px"><img src="/images/svg/img-check-red.svg" style="margin-right:5px">月最大3回お金の専門家に相談が可能</p>
+                            <p class="title-16px" style="padding-left:65px"><img src="/images/svg/img-check-red.svg" style="margin-right:5px">1つの質問につき最大3回まで追加質問が可能</p>
+                            <p class="title-16px" style="padding-left:65px"><img src="/images/svg/img-check-red.svg" style="margin-right:5px">過去Q&Aはすべて見放題</p>
+                            <p class="title-16px" style="padding-left:65px"><img src="/images/svg/img-check-red.svg" style="margin-right:5px">回答した専門家に個別相談を依頼できる</p>
+                            <div class="col text-center" style="margin-top:48px;margin-bottom:48px">
+                                @if($sheetId == 1)
+                                    @if($member != 3)
+                                        <a href="#" class="btn yellow-btn-304-50" id="btnPlan1">選択中</a>
+                                        <input type="hidden" name="member" id="member" value="2">
+                                    @else
+                                        <a href="#" class="btn white-btn-304-50" id="btnPlan1">選択する</a>
+                                    @endif
+                                @elseif($sheetId == 2)
+                                    @if($member == 2)
+                                        <a href="#" class="btn yellow-btn-304-50" id="btnPlan1">選択中</a>
+                                            <input type="hidden" name="member" id="member" value="2">
+                                    @else
+                                        <a href="#" class="btn white-btn-304-50" id="btnPlan1">選択する</a>
+                                    @endif
+                                @endif
+                            </div>
+                        </article>
                     </div>
-                </article>
+
+                    <div class="col-12 col-sm-6">
+                        <article class="col-12 p-0" style="background-color:#F5F5F5; max-width:488px; min-height:402px">
+                            <p class="title-small text-center">月払会員 (330円/月)</p>
+                            <p class="title-16px" style="padding-left:65px;margin-top:27px"><img src="/images/svg/img-check-red.svg" style="margin-right:5px">月最大1回お金の専門家に相談が可能</p>
+                            <p class="title-16px" style="padding-left:65px"><img src="/images/svg/img-check-red.svg" style="margin-right:5px">1つの質問につき最大3回まで追加質問が可能</p>
+                            <p class="title-16px" style="padding-left:65px"><img src="/images/svg/img-check-red.svg" style="margin-right:5px">過去Q&Aはすべて見放題</p>
+                            <p class="title-16px" style="padding-left:65px"><img src="/images/svg/img-check-red.svg" style="margin-right:5px">回答した専門家に個別相談を依頼できる</p>
+                            <div class="col text-center btnLayer">
+                                @if($sheetId == 1)
+                                    @if($member == 3)
+                                        <a href="#" class="btn white-btn-304-50" id="btnPlan2">選択中</a>
+                                        <input type="hidden" name="member" id="member" value="3">
+                                    @elseif($member == 1)
+                                        <a href="#" class="btn white-btn-304-50" id="btnPlan2">選択する</a>
+                                    @endif
+                                @elseif($sheetId == 2)
+                                    @if($member == 3)
+                                            <input type="hidden" name="member" id="member" value="3">
+                                            <a href="#" class="btn white-btn-304-50" id="btnPlan2">選択中</a>
+                                    @else
+                                        <a href="#" class="btn white-btn-304-50" id="btnPlan2">選択する</a>
+                                    @endif
+                                @endif
+                            </div>
+                        </article>
+                    </div>
+
+
+                </div>
             </div>
 
-            <div class="col-sm-12 col-md-6 pl-0 pr-0 pl-md-2 mt-4 mt-md-0">
+            <div style="padding-left:70px;">
                 <article class="bg-white col-12">
-                    <h5 class="font-weight-bold mb-2">月払会員 (330円/月)</h5>
-                    <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>月最大1回お金の専門家に相談が可能</p>
-                    <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>1つの質問につき最大3回まで追加質問が可能</p>
-                    <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>過去Q&Aはすべて見放題</p>
-                    <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>回答したお金の専門家に具体的な有料相談を行うことが可能</p>
-                    <div class="col text-center btnLayer">
-                        @if($sheetId == 1)
-                            @if($member == 3)
-                                <button class="btnSelected" id="btnPlan2">選択中</button>
-                                <input type="hidden" name="member" id="member" value="3">
-                            @elseif($member == 1)
-                                <button class="btnUnselected" id="btnPlan2">選択する</button>
+                    <p class="title-medium">クレジットカード</p>
+                    <p class="title-16px" style="margin-top:32px">ご利用可能なクレジットカード</p>
+                    <p class="title-14px" style="margin-top:15px">VISA／Mastercard／JCB／AMEX／Diners／Orico／CF／JACCS／Life／eLIO</p>
+                    <div class="row">
+                        <div class="col">
+                            <img src="/images/svg/img-payment-jcb.svg">
+                            <img src="/images/svg/img-payment-mastercard.svg">
+                            <img src="/images/svg/img-payment-visa.svg">
+                            <img src="/images/svg/img-payment-americanexpress.svg">
+                            <img src="/images/svg/img-payment-dinersclub.svg">
+                            <img src="/images/svg/img-payment-discover.svg">
+                        </div>
+                        <div class="col text-center">
+                            @if($sheetId == 1)
+                                @if($member == 1)   <?php $member = 2?> @endif
+                                <a class="btn yellow-btn-304-50" href="{{url('payments/input/1').'/'.$member}}" id="cardBtn">クレジット決済を押す</a>
+                            @elseif($sheetId == 2)
+                            @if($member == 1)   <?php $member = 2?> @endif
+                                <a class="btn yellow-btn-304-50" href="{{url('payments/input/2').'/'.$member}}" id="cardBtn">クレジット決済を押す</a>
                             @endif
-                        @elseif($sheetId == 2)
-                            @if($member == 3)
-                                    <input type="hidden" name="member" id="member" value="3">
-                                    <button class="btnSelected" id="btnPlan2">選択中</button>
-                            @else
-                                    <button class="btnUnselected" id="btnPlan2">選択する</button>
-                            @endif
-                        @endif
+                        </div>
                     </div>
-                </article>
+
+                    <p class="title-medium">キャリア決済</p>
+                    <div class="row" style="margin-top:32px">
+                        <fieldset style="width:220px;height:130px;text-align:center;border:1px dashed #707070;margin-right:24px">
+                            <legend style="width:40%">
+                                <a id="car1" href="{{url('paymenta/au').'/'.$sheetId.'/'.$member"><img src="/images/svg/img-payment-au-btn.svg"></a>
+                            </legend>
+                            <p class="title-12px">auかんたん決済</p>
+                        </fieldset>
+                        <fieldset style="width:220px;height:130px;text-align:center;border:1px dashed #707070;margin-right:24px">
+                            <legend style="width:40%">
+                                <a id="car2" href="{{url('paymenta/docomo').'/'.$sheetId.'/'.$member}}"><img src="/images/svg/img-payment-docomo-btn.svg"></a>
+                            </legend>
+                            <p class="title-12px">ドコモ払い</p>
+                        </fieldset>
+                        <fieldset style="width:220px;height:130px;text-align:center;border:1px dashed #707070;margin-right:24px">
+                            <legend style="width:40%">
+                                <a id="car3" href="{{url('paymenta/softbank').'/'.$sheetId.'/'.$member}}"><img src="/images/svg/img-payment-softbank-btn.svg"></a>
+                            </legend>
+                            <p class="title-12px">ソフトバンクまとめで支払い</p>
+                        </fieldset>
+                    </div>
+                    </article>
             </div>
 
         </div>
-    </section>
-    <div class="row">
-        <section class="col-12">
-            <article class="bg-white col-12">
-                <h5 class="font-weight-bold mb-2">クレジットカード</h5>
-                <hr>
-                <p>ご利用可能なクレジットカード</p>
-                <p>VISA／Mastercard／JCB／AMEX／Diners／Orico／CF／JACCS／Life／eLIO</p>
-                <div class="row">
-                    <div class="col">
-                        <img src="/images/svg/img-ranking-1.svg">
-                        <img src="/images/svg/img-ranking-1.svg">
-                        <img src="/images/svg/img-ranking-1.svg">
-                        <img src="/images/svg/img-ranking-1.svg">
-                        <img src="/images/svg/img-ranking-1.svg">
-
-                    </div>
-                    <div class="col text-center">
-                        @if($sheetId == 1)
-                            @if($member == 1)   <?php $member = 2?> @endif
-                            <a class="btn btn-danger" href="{{url('payments/input/1').'/'.$member}}" id="cardBtn">クレジット決済を押す</a>
-                        @elseif($sheetId == 2)
-                        @if($member == 1)   <?php $member = 2?> @endif
-                            <a class="btn btn-danger" href="{{url('payments/input/2').'/'.$member}}" id="cardBtn">クレジット決済を押す</a>
-                        @endif
-                    </div>
-                </div>
-                <hr>
-                <div class="row justify-content-center">
-                    <a id="car1" class="btn btn-danger" href="{{url('paymenta/au').'/'.$sheetId.'/'.$member}}"><img src="/images/svg/img-ranking-1.svg"></a>
-                    <a id="car2" class="btn btn-danger" href="{{url('paymenta/docomo').'/'.$sheetId.'/'.$member}}"><img src="/images/svg/img-ranking-2.svg"></a>
-                    <a id="car3" class="btn btn-danger" href="{{url('paymenta/softbank').'/'.$sheetId.'/'.$member}}"><img src="/images/svg/img-ranking-3.svg"></a>
-                </div>
-                </article>
-    </section>
     </div>
 
     {{-- {{Form::close()}} --}}

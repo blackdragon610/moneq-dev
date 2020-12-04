@@ -36,7 +36,7 @@
 		<?php foreach ($checkboxs as $key => $checkbox){ ?>
         <input type="checkbox" id="{{$name}}[{{$key}}]" name="{{$name}}[{{$key}}]" id="{{$name}}[{{$key}}]" {!! $contents !!} value="{{$key}}"<?php if ($checkbox['select']){ ?> checked="checked"<?php } ?> />
         <label for="{{$name}}[{{$key}}]">
-            <span class="btnUnselected">{{$checkbox['value']}}</span>
+            <span class="btn-checkbox-ext">{{$checkbox['value']}}</span>
         </label>
 		<?php } ?>
 

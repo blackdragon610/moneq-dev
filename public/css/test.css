@@ -237,7 +237,9 @@ footer p {
 }
 
 /* ------------ */
-
+p {
+    margin-bottom: 10px !important;
+}
 .sectionbar2 {
     height: 671px !important;
     width: 100%;
@@ -582,6 +584,24 @@ footer p {
     font-size: 20px !important;
     letter-spacing: 3px;
 }
+.yellow-btn-304-50{
+    background-color: #ffd800;
+    width: 304px !important;
+    height: 50px !important;
+    font-family: NotoSans-JP-Medium;
+    font-size: 16px !important;
+    color: #221815;
+    line-height: 35px;
+}
+.white-btn-304-50{
+    background-color: white;
+    width: 304px !important;
+    height: 50px !important;
+    font-family: NotoSans-JP-Medium;
+    font-size: 16px !important;
+    color: #221815;
+    line-height: 35px;
+}
 .orange-roundbtn-150-30{
     background-color: #ee7800;
     width: 150px !important;
@@ -685,16 +705,63 @@ div .grey-round-tag {
     margin-bottom: -1px;
 }
 
+.title-bold-19px {
+    font-family: NotoSans-JP-Bold;
+    font-size: 19px !important;
+    color: #221815; 
+}
+.title-12px {
+    font-family: NotoSans-JP-Medium;
+    font-size: 12px !important;
+    color: #221815; 
+}
+.title-14px {
+    font-family: NotoSans-JP-Medium;
+    font-size: 16px !important;
+    color: #221815; 
+}
+.title-16px {
+    font-family: NotoSans-JP-Medium;
+    font-size: 16px !important;
+    color: #221815; 
+}
+.title-21px {
+    font-family: NotoSans-JP-Medium;
+    font-size: 21px !important;
+    color: #221815; 
+}
+.title-small {
+    font-family: NotoSans-JP-Medium;
+    font-size: 28px !important;
+    color: #373A3C; 
+    margin-top:60px;   
+}
 .title-medium {
     font-family: NotoSans-JP-Medium;
     font-size: 32px !important;
     color: #221815;
     margin-top:72px;
 }
-.label-medium {
-    font-family: NotoSans-JP-Medium;
+
+.label-16px {
+    font-family: NotoSans-JP-Regular;
     font-size: 16px !important;
     color: #221815;
+}
+.label-regular {
+    font-family: NotoSans-JP-Regular;
+    font-size: 16px !important;
+    color: #221815; 
+    margin-top: 24px;
+    margin-right: 11px;
+}
+
+ol li {
+    list-style-type: decimal;
+    font-family: NotoSans-JP-Regular;
+    font-size: 16px !important;
+    color: #221815; 
+    margin-top: 10px;
 }
 
 /* ----------- */
@@ -841,6 +908,18 @@ article .notice p#description {
     color: #221815;
 }
 
+article #profilecard #title {
+    font-family: NotoSans-JP-Medium;
+    font-size: 24px !important;
+    color: #221815;
+    margin-top: 30px;
+    margin-left: 14px;
+}
+article #profilecard #caption {
+    font-family: NotoSans-JP-Regular;
+    font-size: 16px !important;
+    margin-bottom: 5px !important;
+}
 
 
 /* ---------------- */
@@ -856,7 +935,11 @@ article .notice p#description {
     font-size: 14px;
 }
 
-
+.cl-switch .label {
+    font-family: NotoSans-JP-Medium !important;
+    font-size: 18px !important;
+    color: #373A3C !important;
+}
 
 
 /* ------------- */
@@ -1004,7 +1087,18 @@ span.answers {
     margin: 4px 2px;
     cursor: pointer;
 }
-
+.btn-tag-red {
+    background-color: red; /* Green */
+    border: none;
+    color: white;
+    padding: 2px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    margin: 4px 2px;
+    cursor: pointer;
+}  
 .fa-bell-o[data-count]:after{
     position:absolute;
     right:15%;
@@ -1028,6 +1122,8 @@ span.answers {
     padding-right: 3rem !important;
     background-color: black;
     color: white;
+    font-family: NotoSans-JP-Medium;
+    font-size: 16px !important;
 }
 
 .btnSelected {
@@ -1073,7 +1169,8 @@ span.answers {
     color: black;
     border: 1px solid;
     border-color: grey;
-    font-weight: bold;
+    font-family: NotoSans-JP-Medium;
+    font-size: 16px !important;
 }
 
 .btnUnselected:hover {
@@ -1110,21 +1207,50 @@ input[type="checkbox"].checkboxHidden {
 
 input[type="checkbox"] + label {
     font-size: 1rem;
-    padding-top: 0.5rem !important;
-    padding-bottom: 0.5rem !important;
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+}
+.btn-select {
+    padding-left: 15px !important;
+    color: black;
+    font-family: 'NotoSans-JP-Regular';
+    font-size: 16px !important;
+}
+.btn-radio-ext {
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+    background-color: white;
+    color: black;
+    border: 1px solid #DBDBDB;
+    font-family: NotoSans-JP-Regular;
+    font-size: 14px !important;
 }
 
+.btn-checkbox-ext {
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+    background-color: white;
+    color: black;
+    border: 1px solid #DBDBDB;
+    font-family: NotoSans-JP-Regular;
+    font-size: 14px !important;
+}
 input[type="checkbox"]:checked + label>span {
-    background-color: #FF7820;
+    background-color: black;
     color: white;
-    font-weight: bold;
-    border-color: #FF7820;
+    border-color: black;
 }
 
 .radio-input + label {
-    font-size: 1rem;
+    font-family: NotoSans-JP-Regular;
+    font-size: 14px !important;
+    padding-left: 0px !important;
     padding-top: 0.5rem !important;
-    padding-bottom: 0.5rem !important;
+    margin-right: 12px !important;
 }
 
 .radio-input:checked + label {
@@ -1141,10 +1267,9 @@ input[type="checkbox"]:checked + label>span {
 }
 
 .radio-input:checked + label>span {
-    background-color: #FF7820;
+    background-color: black;
     color: white;
-    font-weight: bold;
-    border-color: #FF7820;
+    border-color: black;
 }
 
 .checkbox-menu li label {
