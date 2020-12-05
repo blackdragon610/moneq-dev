@@ -2,77 +2,81 @@
 
 
 @section('main')
-<div class="container-fluid lightgreypanel p-3">
-    <div class="container p-3">
+<div class="whitepanel">
+    <div class="container">
 
-    {{Form::open(['url'=> route('entry.password.end'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
-        <input type="hidden" name="member" id="member" value="2">
-        <input type="hidden" name="mode" value="mode">
-    <section>
-        <div class="row">
-            <div class="col-sm-12 bg-white">
-                <h5 class="font-weight-bold p-2">パスワードの入力</h5>
-                <hr class="mt-2 mb-3"/>
+        <div class="row" style="margin-bottom:80px">
+            <div class="col-md-12 col-lg-12 bg-white">
+            <p class="title-medium">パスワード</p>
 
-                <label for="password">パスワード</label><span class="text-danger">(必須)</span>
-                @include('layouts.parts.editor.text', ["type" => "password", 'name' => 'password', 'contents' => 'class="form-control" placeholder="パスワードを入力"'])<br />
+            {{Form::open(['url'=> route('entry.password.end'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
+                <input type="hidden" name="member" id="member" value="2">
+                <input type="hidden" name="mode" value="mode">
 
-                <label for="password_conform">パスワード(確認用)</label><span class="text-danger">(必須)</span>
-                @include('layouts.parts.editor.text', ["type" => "password", 'name' => 'password_confirmation', 'contents' => 'class="form-control" placeholder="パスワードを確認用を入力"'])<br />
+                <div class="row">
+                    <div class="col-sm-12 bg-white">
 
-            </div>
-        </div>
-    </section>
-    <section>
-        <div class="row">
-            <div class="col-sm-12 col-md-6 pl-0 pr-0 pr-md-2">
-                <article class="bg-white col-12">
-                    <h5 class="font-weight-bold mb-2">年払会員 (3,980円/年)</h5>
-                    <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>️️月最大3回お金の専門家に相談が可能</p>
-                    <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>1つの質問につき最大3回まで追加質問が可能</p>
-                    <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>過去Q&Aはすべて見放題</p>
-                    <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>回答したお金の専門家に具体的な有料相談を行うことが可能</p>
-                    <div class="col text-center btnLayer">
-                        <div class="btnSelected" id="btnPlan1">選択中</div>
+                        <label for="password" class="label-regular">パスワード</label><span class="btn-tag-red">(必須)</span>
+                        @include('layouts.parts.editor.text', ["type" => "password", 'name' => 'password', 'contents' => 'class="form-control" placeholder="パスワードを入力"'])
+
+                        <label for="password_confirm" class="label-regular">パスワード(確認用)</label><span class="btn-tag-red">(必須)</span>
+                        @include('layouts.parts.editor.text', ["type" => "password", 'name' => 'password_confirmation', 'contents' => 'class="form-control" placeholder="パスワードを確認用を入力"'])
+
                     </div>
-                </article>
-            </div>
+                </div>
 
-            <div class="col-sm-12 col-md-6 pl-0 pr-0 pl-md-2 mt-4 mt-md-0">
-                <article class="bg-white col-12">
-                    <h5 class="font-weight-bold mb-2">月払会員 (330円/月)</h5>
-                    <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>月最大1回お金の専門家に相談が可能</p>
-                    <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>1つの質問につき最大3回まで追加質問が可能</p>
-                    <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>過去Q&Aはすべて見放題</p>
-                    <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>回答したお金の専門家に具体的な有料相談を行うことが可能</p>
-                    <div class="col text-center btnLayer">
-                        <div class="btnUnselected" id="btnPlan2">選択する</div>
+                <div class="row" style="margin-top:80px">
+                    <div class="col-12 col-sm-6">
+                        <article class="col-12 p-0" style="background-color:#FFF9F2; max-width:488px; max-height:402px">
+                            <p class="title-small text-center">年払会員 (3,980円/年)</p>
+                            <p class="title-16px" style="padding-left:65px;margin-top:27px"><img src="/images/svg/img-check-red.svg" style="margin-right:5px">月最大3回お金の専門家に相談が可能</p>
+                            <p class="title-16px" style="padding-left:65px"><img src="/images/svg/img-check-red.svg" style="margin-right:5px">1つの質問につき最大3回まで追加質問が可能</p>
+                            <p class="title-16px" style="padding-left:65px"><img src="/images/svg/img-check-red.svg" style="margin-right:5px">過去Q&Aはすべて見放題</p>
+                            <p class="title-16px" style="padding-left:65px"><img src="/images/svg/img-check-red.svg" style="margin-right:5px">回答した専門家に個別相談を依頼できる</p>
+
+                            <div class="col text-center" style="margin-top:48px;margin-bottom:48px">
+                                <a href="{{url('payment/1/2')}}" class="btn white-btn-304-50" id="btnPlan1">選択する</a>
+                            </div>
+                        </article>
                     </div>
-                </article>
-            </div>
 
-        </div>
-    </section>
-    <section>
-        <div class="row">
-            <div class="col-sm-12 offset-md-3 col-md-6 pl-0 pr-0">
-                <article class="bg-white col-12">
-                    <h5 class="font-weight-bold mb-2">無料会員</h5>
-                    <p><i class="fa fa-6x fa-check color-primary margin-b-20"></i>月最大3回までQ&Aが見れる</p>
-                    <div class="col text-center btnLayer">
-                        <div class="btnUnselected" id="btnPlan3">選択する</div>
+                    <div class="col-12 col-sm-6">
+                        <article class="col-12 p-0" style="background-color:#F5F5F5; max-width:488px; max-height:402px">
+                            <p class="title-small text-center">月払会員 (330円/月)</p>
+                            <p class="title-16px" style="padding-left:65px;margin-top:27px"><img src="/images/svg/img-check-red.svg" style="margin-right:5px">月最大1回お金の専門家に相談が可能</p>
+                            <p class="title-16px" style="padding-left:65px"><img src="/images/svg/img-check-red.svg" style="margin-right:5px">1つの質問につき最大3回まで追加質問が可能</p>
+                            <p class="title-16px" style="padding-left:65px"><img src="/images/svg/img-check-red.svg" style="margin-right:5px">過去Q&Aはすべて見放題</p>
+                            <p class="title-16px" style="padding-left:65px"><img src="/images/svg/img-check-red.svg" style="margin-right:5px">回答した専門家に個別相談を依頼できる</p>
+
+                            <div class="col text-center" style="margin-top:48px;margin-bottom:48px">
+                                <a href="{{url('payment/1/3')}}" class="btn white-btn-304-50" id="btnPlan2">選択する</a>
+                            </div>
+                        </article>
                     </div>
-                </article>
+                </div>
+
+                <div class="row" style="margin-top:24px">
+                    <div class="col-sm-12 offset-md-3 col-md-6 pl-0 pr-0">
+                        <article class="col-12 p-0" style="background-color:#F5F5F5; max-width:488px; min-height:402px">
+                            <p class="title-small text-center">無料会員</p>
+                            <p class="title-16px" style="padding-left:65px;margin-top:27px"><img src="/images/svg/img-check-red.svg" style="margin-right:5px">月最大3回までQ&Aが見れる</p>
+
+                            <div class="col text-center" style="margin-top:48px;margin-bottom:48px">
+                                <div class="btnUnselected" id="btnPlan3">選択する</div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+            <div class="row mt-4">
+                <div class="col text-center">
+                    <button class="btnSubmit yellow-btn-304-50">次へ</button>
+                </div>
+            </div>
+            {{Form::close()}}
+
             </div>
         </div>
-    </section>
-
-    <div class="row mt-4">
-        <div class="col text-center">
-            <button class="btnSubmit">次へ</button>
-        </div>
-    </div>
-    {{Form::close()}}
 
     </div>
 </div>
