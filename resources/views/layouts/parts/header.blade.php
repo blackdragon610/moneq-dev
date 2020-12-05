@@ -78,7 +78,7 @@
 <div class="behind-bar">
     <!-- 70px bar  -->
 </div>
-
+@if(!isset($isTop))
 <div class="container-fluid yellowpanel">
     {{Form::open(['url'=> route('search.tema'),'method'=>'GET', 'files' => false, 'id' => 'yform'])}}
         <div class="container" style="height:74px">
@@ -112,7 +112,7 @@
         </div>
     {{Form::close()}}
 </div>
-
+@endif
 <script>
     var myVar = setInterval(myTimer, 1000);
     var myPTime = setInterval(myPost, 10000); //86400000
@@ -181,6 +181,11 @@
             });
         });
 
+        $('#gotoPro').click(function(){
+            location.href = "{{route('profiles.manage')}}";
+        })
+
     });
+
 
 </script>

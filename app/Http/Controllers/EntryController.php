@@ -51,6 +51,7 @@ class EntryController extends Controller
     {
         //エラーチェック
         $datas = $this->checkForm($request);
+        // dd($request->input("mode"));
 
         if (!empty($datas['errors'])){
             return view('entries.index', [

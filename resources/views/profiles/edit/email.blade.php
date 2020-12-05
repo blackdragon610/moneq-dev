@@ -17,12 +17,13 @@
                                                style="border: 1px solid #707070"'])
                     </section>
 
-                    <section>
-                        <div class="d-flex justify-content-center">
-                            <a href="{{route('profiles.manage')}}" class="btnUnselected" style="width:300px">会員情報に戻る</a>
-                            <button class="btnSubmit" style="width:300px;height:50px;background-color:#FFD800;color:black">変更を送信</button>
-                        </div>
-                    </section>
+                    <div class="row mt-3">
+                        <div class="col"></div>
+                        <div class="col-sm-4 text-center"><button type="button" id="gotoPro" class="btnUnselected">会員情報に戻る</button></div>
+                        <div class="col-sm-4 text-center"><button class="proSubmit">変更を送信</button></div>
+                        <div class="col"></div>
+                    </div>
+
                 {{Form::close()}}
 
             </div>

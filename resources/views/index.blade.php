@@ -11,24 +11,24 @@
         <div id="static1">
             <p class="text-center">日本最大級のお金の悩み相談サービス</p>
         </div>
-        <div id="static2">
+        <div id="static2" class="text-center">
         </div>
         <div class="input-group" id="searchbar">
             {{Form::open(['url'=> route('search.tema'),'method'=>'GET', 'files' => false, 'id' => 'form'])}}
                 <div class='form-row'>
-                    <input type="text" name="keyword" class="form-control" placeholder="お金の悩みを検索" id="searchTxt">
+                    <input type="text" name="keyword" placeholder="お金の悩みを検索" id="searchTxt">
                     <button type="submit" class="btn btn-secondary form-control">
                         <i class="fa fa-search fa-1x"></i>
                     </button>
                 </div>
             {{Form::close()}}
         </div>
-        <p id="heading3" class="mt-0 mb-0">\ さっそく、お金の悩みを専門家に相談する /</p>
-        <div class="text-center">
+        <div class="text-center mt-2">
+            <p id="heading3" class="mt-0 mb-0">\ さっそく、お金の悩みを専門家に相談する /</p>
             @if(Cookie::has('custom_token'))
-                <a href="{{route('post.create')}}" class="btn yellow-roundbtn" style="margin-top: 50px !important;">今すぐ登録して、専門家に相談する</a>
+                <a href="{{route('post.create')}}" class="btn yellow-roundbtn mt-2" >今すぐ登録して、専門家に相談する</a>
             @else
-                <a href="{{route('entry')}}" class="btn yellow-roundbtn" style="margin-top: 20px !important;">今すぐ登録して、専門家に相談する</a>
+                <a href="{{route('entry')}}" class="btn yellow-roundbtn mt-2">今すぐ登録して、専門家に相談する</a>
             @endif
         </div>
 
@@ -207,7 +207,7 @@
                 <article class="col-12 p-0 text-center">
                     <div class="container">
                         <div class="row justify-content-center">
-                            <p id="tagline1">最短<span class="bdred">5分</span>で回答</p>
+                            <p id="tagline1" style="z-index:10">最短<span class="bdred">5分</span>で回答</p>
                         </div>
                     </div>
                     <img src="/images/svg/img-answer-2.svg" style="margin-top:-14px">

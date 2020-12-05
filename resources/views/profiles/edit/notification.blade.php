@@ -33,17 +33,17 @@
                                 <input type="checkbox" <?php if($user->is_send_master == 1) echo 'checked'?> name="is_send_master"/>
                                 <span class="switcher"></span>
                             </label>
-                        </div>                        
+                        </div>
                     </div>
                     <div class="col-5" style="width:300px">
                         <div class="row">
-                            <a href="{{route('profiles.notification.update')}}" class="btn yellow-btn-304-50">変更を送信</a>
-                        </div>                        
+                            <button class="btn yellow-btn-304-50">変更を送信</button>
+                        </div>
                         <div class="row" style="margin-top:12px">
-                            <a href="{{route('profiles.manage')}}" class="btnUnselected" style="width:300px">会員情報に戻る</a>
-                        </div>                        
+                            <button type="button" id="gotoPro" class="btnUnselected">会員情報に戻る</button>
+                        </div>
                     </div>
-                    
+
                 </div>
             </div>
             {{Form::close()}}

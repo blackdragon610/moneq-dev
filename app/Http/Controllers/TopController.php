@@ -55,13 +55,15 @@ class TopController extends Controller
         $experts = $Expert->getExpertCount();
         $users = $User->getUserCount();
 
+        $isTop = 1;
+
         $gender = configJson('custom/gender');
         $prefecture = configJson('custom/prefecture');
         $specialties = $Specialtie->getSelect();
 
         return view('index', compact('accessTopPost', 'newTopPost', 'monthAnswers', 'totalAnswers', 'monthHelps',
                                      'totalHelps', 'gender', 'prefecture', 'specialties', 'notifications', 'questions',
-                                     'answers', 'helps', 'experts', 'users', 'categories'));
+                                     'answers', 'helps', 'experts', 'users', 'categories', 'isTop'));
     }
 
     public function search(Request $request){

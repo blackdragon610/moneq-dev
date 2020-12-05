@@ -23,7 +23,7 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-2 input-group mt-3 mt-md-0">
                                 @include('layouts.parts.editor.select', ['name' => 'date_birth_year', "file" => config("funcs.years"), "keyValue" => "", 'contents' => 'class="form-control btn-select p-0"'])
-                                <h6 class="font-weight-400 pl-2 textCenter" 
+                                <h6 class="font-weight-400 pl-2 textCenter"
                                     style="padding-top:10px;font-family:NotoSans-JP-Regular;font-size:16px !important;">年</h6>
                             </div>
 
@@ -75,7 +75,7 @@
                             <label for="" class="label-regular">家族構成</label><span class="btn-tag-red">(複数選択)</span><br/>
                             @include('layouts.parts.editor.checkboxext', ['name' => 'family', "file" => configJson("custom/family"), "keyValue" => "", 'contents' => 'class="checkboxHidden"'])
                         </section>
-                        
+
                         <label for="" class="label-regular">住まい</label>
                         <div class="row">
                             <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
@@ -85,12 +85,12 @@
 
                     </section>
 
-                    <section>
-                        <div class="d-flex justify-content-center">
-                            <button class="btnUnselected" style="margin-right:24px;width:300px;height:50px;">会員情報に戻る</button>
-                            <button class="btnSubmit" style="width:300px;height:50px;background-color:#FFD800;color:black">変更を送信</button>
-                        </div>
-                    </section>
+                    <div class="row mt-3">
+                        <div class="col"></div>
+                        <div class="col-sm-4 text-center"><button type="button" id="gotoPro" class="btnUnselected">会員情報に戻る</button></div>
+                        <div class="col-sm-4 text-center"><button class="proSubmit">変更を送信</button></div>
+                        <div class="col"></div>
+                    </div>
                 {{Form::close()}}
 
             </div>

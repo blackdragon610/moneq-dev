@@ -17,7 +17,7 @@
                     <div class="col-12 col-sm-6">
                         <article class="col-12 p-0" style="background-color:#FFF9F2; max-width:488px; min-height:402px">
                             <p class="title-small text-center">年払会員 (3,980円/年)</p>
-                            <p class="title-16px" style="padding-left:65px;margin-top:27px"><img src="/images/svg/img-check-red.svg" style="margin-right:5px">月最大3回お金の専門家に相談が可能</p>
+                            <p class="title-16px" style="padding-left:65px;margin-top:27px"><img src="/images/svg/img-check-red.svg" style="margin-right:5px">月最大<span class="title-16px-red">3回</span>お金の専門家に相談が可能</p>
                             <p class="title-16px" style="padding-left:65px"><img src="/images/svg/img-check-red.svg" style="margin-right:5px">1つの質問につき最大3回まで追加質問が可能</p>
                             <p class="title-16px" style="padding-left:65px"><img src="/images/svg/img-check-red.svg" style="margin-right:5px">過去Q&Aはすべて見放題</p>
                             <p class="title-16px" style="padding-left:65px"><img src="/images/svg/img-check-red.svg" style="margin-right:5px">回答した専門家に個別相談を依頼できる</p>
@@ -44,7 +44,7 @@
                     <div class="col-12 col-sm-6">
                         <article class="col-12 p-0" style="background-color:#F5F5F5; max-width:488px; min-height:402px">
                             <p class="title-small text-center">月払会員 (330円/月)</p>
-                            <p class="title-16px" style="padding-left:65px;margin-top:27px"><img src="/images/svg/img-check-red.svg" style="margin-right:5px">月最大1回お金の専門家に相談が可能</p>
+                            <p class="title-16px" style="padding-left:65px;margin-top:27px"><img src="/images/svg/img-check-red.svg" style="margin-right:5px">月最大<span class="title-16px-red">1回</span>お金の専門家に相談が可能</p>
                             <p class="title-16px" style="padding-left:65px"><img src="/images/svg/img-check-red.svg" style="margin-right:5px">1つの質問につき最大3回まで追加質問が可能</p>
                             <p class="title-16px" style="padding-left:65px"><img src="/images/svg/img-check-red.svg" style="margin-right:5px">過去Q&Aはすべて見放題</p>
                             <p class="title-16px" style="padding-left:65px"><img src="/images/svg/img-check-red.svg" style="margin-right:5px">回答した専門家に個別相談を依頼できる</p>

@@ -11,25 +11,25 @@
 
                     <label class="title-16px" for="email" style="margin-top:32px">メールアドレス</label>
 
-                    @include('layouts.parts.editor.text', ["type" => "email", 'name' => 'email', 
-                        'contents' => 'class="form-control" placeholder="メールアドレスを入力" 
+                    @include('layouts.parts.editor.text', ["type" => "email", 'name' => 'email',
+                        'contents' => 'class="form-control" placeholder="メールアドレスを入力"
                                        style="border: 1px solid #707070; border-radius:0% !important"'])
 
                     <label class="title-16px" for="password" style="margin-top:24px">パスワード</label>
 
-                    @include('layouts.parts.editor.text', ["type" => "password", 'name' => 'password', 
-                        'contents' => 'class="form-control" placeholder="パスワード" 
+                    @include('layouts.parts.editor.text', ["type" => "password", 'name' => 'password',
+                        'contents' => 'class="form-control" placeholder="パスワードを入力"
                                        style="border: 1px solid #707070; border-radius:0% !important"'])
                     <div>
                         <input type="checkbox" id = "auto_login" name = "auto_login">
-                        <label class="form-check-label" for="auto_login" 
+                        <label class="form-check-label" for="auto_login"
                                 style="font-family: NotoSans-JP-Medium;
                                        font-size: 16px !important;
                                        color:#FF3B00">次回から自動ログイン</label>
                     </div>
                     <div class="row">
                         <div class="col text-center">
-                            <button class="yellow-btn-fluid" 
+                            <button class="yellow-btn-fluid"
                                     style="margin-top:24px; height:50px;
                                            font-family: NotoSans-JP-Medium;
                                            font-size: 16px !important;">ログイン</button>
