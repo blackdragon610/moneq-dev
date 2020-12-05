@@ -2,35 +2,33 @@
 
 
 @section('main')
-<div class="container-fluid lightgreypanel p-3">
-    <div class="container p-3">
+<div class="whitepanel">
+    <div class="container">
 
-        <section>
+        <div class="row" style="margin-bottom:80px">
+            <div class="col-md-12 col-lg-12 bg-white">
 
-            <div class="row">
-                <div class="col-md-12 col-lg-12 bg-white">
-                    <h5 class="font-weight-bold p-2">会員登録の完了</h5>
-                    <hr class="mt-2 mb-3"/>
+                <p class="title-medium">会員登録の完了</p>
 
-                    <p>会員登録が完了しました</p>
+                <div class="col text-center" style="margin-top:48px">
+                    <p class="title-16px">会員登録が完了しました</p>
+                    <p class="title-16px" style="margin-top:48px">\ さっそく、お金の悩みを専門家に相談する /</p>
 
-                    <div class="col text-center">
-                        <a href="{{route('post.create')}}" class="btn btnSubmit">今すぐ、専門家に相談する</a>
-                        <p class="mt-5">お金相談Q&Aを検索する</p>
-                        <div class="input-group col-lg-6 offset-lg-3 col-md-12 pl-0 p-3">
-                            <input id="searchSubTxt" class="form-control py-1 amber-border" type="text" placeholder="保険" aria-label="Search">
-                            <div class="input-group-append">
-                                <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fa fa-search text-grey"></i></span>
-                            </div>
+                    <a href="{{route('post.create')}}" class="btn yellow-roundbtn">今すぐ、専門家に相談する</a>
+
+                    <div class="input-group col-lg-6 offset-lg-3 col-md-12" style="margin-top:60px" id="searchbar">
+                        <input id="searchSubTxt" class="form-control py-1 amber-border" style="width:370px;height:48px" type="text" placeholder="お金の悩みを検索" >
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-secondary">
+                                <i class="fa fa-search fa-1x"></i>
+                            </button>
                         </div>
                     </div>
-
                 </div>
+
             </div>
+        </div>
 
-
-
-        </section>
     </div>
 </div>
 

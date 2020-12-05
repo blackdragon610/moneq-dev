@@ -2,7 +2,7 @@
 
 <?php if (!empty($isConfirmation)){ ?>
 
-<?php if (getVariable($inputs, $name)){ ?>{{$checkValue}}<?php } ?>
+<?php if (getVariable($inputs, $name)){ ?>{{$checkValue}}<?php } ?> 
 
 <?php }else{ ?>
     <input type="checkbox" id="{{$name}}[{{$key}}]" name="{{$name}}[{{$key}}]" {!! $contents !!} value="1"<?php if (getVariable($inputs, $name)){ ?> checked="checked"<?php } ?> />

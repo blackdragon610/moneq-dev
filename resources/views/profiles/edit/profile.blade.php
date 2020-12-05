@@ -75,6 +75,7 @@
                             <label for="" class="label-regular">家族構成</label><span class="btn-tag-red">(複数選択)</span><br/>
                             @include('layouts.parts.editor.checkboxext', ['name' => 'family', "file" => configJson("custom/family"), "keyValue" => "", 'contents' => 'class="checkboxHidden"'])
                         </section>
+                        
                         <label for="" class="label-regular">住まい</label>
                         <div class="row">
                             <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
