@@ -17,7 +17,7 @@
             <input type="hidden" value='{{$expertId}}' name = 'expert_id'>
             <section>
                 <div class="row">
-                    <img src="http://placehold.it/50x50?text=P" alt="">
+                    <img src="/images/img-avatar-sample.png" alt="">
                     <h5 class="font-weight-bold">「テスト花子」さんにメッセージ</h5>
                 </div>
             </section>

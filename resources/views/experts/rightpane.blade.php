@@ -48,7 +48,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col text-center">
+                <div class="col text-center" style="margin-top:40px">
                     <a href="{{route('search.expert')}}" class="btn yellow-btn-304-50 mx-2" style="width:100% !important">お金の専門家一覧</a>
                 </div>
             </div>
