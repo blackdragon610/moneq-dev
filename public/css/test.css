@@ -573,6 +573,21 @@ p {
 .bdred {
     border-bottom: 2px solid red;
 }
+
+.img-center {
+    display:block;
+    margin:auto;
+}
+
+.yellow-roundbtn-200-30{
+    background-color: #ffd800;
+    width: 200px !important;
+    height: 30px !important;
+    border-radius: 15px !important;
+    font-family: NotoSans-JP-Medium;
+    font-size: 12px !important;
+    letter-spacing: 3px;
+}
 .yellow-roundbtn{
     background-color: #ffd800;
     width: 500px !important;
@@ -588,6 +603,15 @@ p {
     height: 50px !important;
     font-family: NotoSans-JP-Medium;
     font-size: 16px !important;
+    color: #221815 !important;
+    line-height: 35px;
+}
+.white-btn-200-40{
+    background-color: white !important;
+    width: 200px !important;
+    height: 40px !important;
+    font-family: NotoSans-JP-Regular;
+    font-size: 14px !important;
     color: #221815 !important;
     line-height: 35px;
 }
@@ -733,6 +757,11 @@ div .grey-round-tag {
     font-size: 24px !important;
     color: red;
 }
+.title-22px {
+    font-family: NotoSans-JP-Medium;
+    font-size: 22px !important;
+    color: #221815; 
+}
 .title-21px {
     font-family: NotoSans-JP-Medium;
     font-size: 21px !important;
@@ -751,6 +780,11 @@ div .grey-round-tag {
     margin-top:72px;
 }
 
+.label-24px-red {
+    font-family: NotoSans-JP-Regular;
+    font-size: 24px !important;
+    color: red;
+}
 .label-14px {
     font-family: NotoSans-JP-Regular;
     font-size: 14px !important;

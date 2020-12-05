@@ -25,7 +25,7 @@
                         新型コロナウイルスに関する無料相談<br/>
                         以下流れに沿って、どなたでも相談できます。<br/>
                     </p>
-                    <div class="col-2ml-auto">
+                    <div class="col-2 ml-auto">
                         <img src="/images/svg/img-clock-grey.svg">
                         <span id="date">2020/10/26</span>
                     </div>
