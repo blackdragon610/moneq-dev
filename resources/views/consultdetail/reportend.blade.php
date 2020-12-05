@@ -2,12 +2,18 @@
 
 
 @section('main')
-<div class="container-fluid lightgreypanel p-3">
-    <div class="container p-3 bg-white">
-        <section>
+<div class="whitepanel">
+    <div class="container">
 
             <div class="row">
-                <div class="col-md-12 col-lg-12">
+                <!-- right sticky sidebar -->
+                <div class="col-12 col-sm-3 order-sm-2" id="sticky">
+                    <!-- <section> -->
+                    @include('experts.rightpane', ["type" => "search", 'name' => 'rightpane', 'contents' => ''])
+                    <!-- </section> -->
+                </div>
+
+                <div class="col-12 col-sm-9 order-sm-1 pl-0" id="main">
                     <p class="keepTwoLine">「<span><b>{{$post->post_name}}</b></span>」の通報が完了しました。</p>
 
                         <section>
@@ -21,7 +27,7 @@
                 </div>
             </div>
 
-        </section>
+
     </div>
 </div>
 
