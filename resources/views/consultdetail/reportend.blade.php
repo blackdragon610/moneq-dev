@@ -9,7 +9,7 @@
                 <!-- right sticky sidebar -->
                 <div class="col-12 col-sm-3 order-sm-2" id="sticky">
                     <!-- <section> -->
-                    @include('experts.rightpane', ["type" => "search", 'name' => 'rightpane', 'contents' => ''])
+                    {{-- @include('experts.rightpane', ["type" => "search", 'name' => 'rightpane', 'contents' => '']) --}}
                     <!-- </section> -->
                 </div>
 
