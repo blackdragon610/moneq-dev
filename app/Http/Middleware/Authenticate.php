@@ -21,21 +21,6 @@ class Authenticate extends Middleware
             // 非ログインはログインページに飛ばす
             return redirect('/login');
         }
-    // if(\Cookie::has('custom_token')){
-    //         // dd('dsf');
-    //         if (!Auth::guard($guard)->check()) {
-    //             // 非ログインはログインページに飛ばす
-    //             return redirect('/login');
-    //         }
-    //     }else{
-    //         Auth::logout();
-    //         $request->session()->flush();
-    //         $request->session()->regenerate();
-    //         return redirect('/login');
-
-    //     }
-
-
         return $next($request);
     }
 
