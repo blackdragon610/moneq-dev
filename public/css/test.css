@@ -1183,6 +1183,13 @@ span.answers {
     margin-top: -17px; /* Half of line height to keep left middle postion of container */
     left: 10px;
 }
+.left-icon-holder img {
+    position:absolute;
+    line-height: 34px;
+    top:0%;
+    left: 0px;
+}
+
 .yahoo {
     background-color: #DD4B39;
     color: white;

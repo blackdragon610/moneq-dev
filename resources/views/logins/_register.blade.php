@@ -39,23 +39,23 @@
                     <div class="row">
                         <div class="col text-center">
                             <a href="{{ url('/sns/line/login') }}" class="line btn col-md-5 col-lg-3 m-2">
-                                <i class="fa fa-line fa-fw"></i>Lineでログイン
+                                <img src="/images/svg/image-button-line.svg">Lineでログイン
                             </a>
                             <a href="{{ url('/sns/yahoojp/login') }}" class="yahoo btn col-md-5 col-lg-3 m-2">
-                                <i class="fa fa-yahoo fa-fw"></i>Yahoo! JAPAN IDでログイン
+                                <img src="/images/svg/image-button-yahoo.svg">Yahoo! JAPAN IDでログイン
                             </a>
                             <a href="{{ url('/sns/facebook/login') }}" class="fb btn col-md-5 col-lg-3 m-2">
-                                <i class="fa fa-facebook fa-fw"></i>Facebook
+                                <img src="/images/svg/image-button-facebook.svg">Facebook
                             </a>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col text-center">
                             <a href="{{ url('/sns/twitter/login')}}" class="twitter btn col-md-5 col-lg-3 m-2">
-                                <i class="fa fa-twitter fa-fw"></i>Twitter
+                                <img src="/images/svg/image-button-twitter.svg">Twitter
                             </a>
                             <a href="{{ url('/sns/google/login') }}" class="google btn col-md-5 col-lg-3 m-2">
-                                <i class="fa fa-google fa-fw"></i>Google+
+                                <img src="/images/svg/image-button-google.svg">Google+
                             </a>
                         </div>
                     </div>
