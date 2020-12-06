@@ -6,9 +6,30 @@
     top: -3px;
     right: -3px
 }
+.ribbon-wrapper-left {
+    width: 68px;
+    height: 68px;
+    overflow: hidden;
+    position: relative;
+    left: -106px;
+    top: -10px;
+}
+.ribbon-left {
+    font-family: NotoSans-JP-Regular;
+    font-size: 13px !important;
+    -webkit-transform: rotate(-45deg) !important;
+    -moz-transform: rotate(-45deg) !important;
+    -ms-transform: rotate(-45deg) !important;
+    -o-transform: rotate(-45deg) !important;
+    transform: rotate(-45deg) !important;
+    right: 84px !important;
+    top: 12px !important;
+    width: 218px !important;
+    height: 26px !important;
+}
 .ribbon {
     font-family: NotoSans-JP-Regular;
-    font-size: 17px !important;
+    font-size: 17px ;
     color: #FFF;
     text-transform: uppercase;
     letter-spacing: .05em;
