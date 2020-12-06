@@ -17,9 +17,19 @@ class Authenticate extends Middleware
             $guard = "expert";
         }
 
+ if (isset($guards[0])){	
+            if ($guards[0] == "admin"){	
+                $guard = "admin";	
+            }	
+        }
+
         if (!Auth::guard($guard)->check()) {
             // 非ログインはログインページに飛ばす
-            return redirect('/login');
+	if ($guard == "admin"){
+		return redirect('/admin/login');	
+            }else{	
+                return redirect('/login');	
+            }
         }
     // if(\Cookie::has('custom_token')){
     //         // dd('dsf');

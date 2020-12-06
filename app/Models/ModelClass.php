@@ -92,4 +92,46 @@
 
 
         }
+
+  /**	
+         * 保存しているデータを表示形式に設定	
+         */	
+        public function setView()	
+        {	
+            $tableName = $this->getTable();	
+            $columns = $this->getConnection()->getSchemaBuilder()->getColumnListing($tableName);	
+
+            foreach ($columns as $column){	
+                if (!empty($this[$column])){	
+                    $json = json_decode($this[$column]);	
+
+
+                    if (json_last_error() === JSON_ERROR_NONE) {	
+                        //配列のjsonを配列にする	
+                        $this->$column = json_decode($this[$column], true);	
+                    }else{	
+                        $this->$column = $this[$column];	
+                        if ($column == "password"){	
+                            unset($this->$column);	
+                        }	
+                    }	
+                }	
+            }	
+
+        }	
+
+        /**	
+         * 並び替え関連	
+         * @param $query	
+         * @param  string  $sort	
+         * @param  string  $sortType	
+         */	
+        public function scopeSort($query, ?string $sort="", ?string $sortType="")	
+        {	
+            if ($sort){	
+                $query->orderBy($sort, $sortType);	
+            }else{	
+                $query->orderBy($this->getTable() . ".id", "DESC");	
+            }	
+        }
     }

@@ -222,7 +222,6 @@ class SearchController extends Controller
                         on(t1.user_id=t2.id)
                         LEFT JOIN(select sub_name, id from sub_categories)t3 on(t1.sub_category_id=t3.id)
                         where post_name like '%".$keyword."%' or body like '%".$keyword."%' order by updated_at desc";
-
         $posts = \DB::select($totalSql);
 
         $posts = $this->arrayPaginator($posts, $request);
@@ -436,7 +435,6 @@ class SearchController extends Controller
         $page = $request->page ?:1;
         $perPage = config('app.per_page');
         $offset = ($page * $perPage) - $perPage;
-
         return new LengthAwarePaginator(array_slice($array, $offset, $perPage, true), count($array), $perPage, $page,
             ['path' => $request->url(), 'query' => $request->query()]);
     }

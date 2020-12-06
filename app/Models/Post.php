@@ -20,12 +20,16 @@ class Post extends ModelClass
     ];
 
 
-    public function saveEntry(array $datas, int $userId, int $flag)
+    public function saveEntry(array $datas, int $userId, int $flag=1)
     {
         $datas["user_id"] = $userId;
         $datas['status'] = $flag;
 
         $Model = clone $this;
+
+        if (!empty($datas["id"])){	
+            $Model = $Model->whereId($datas["id"])->whereUserId($userId)->first();	
+        }
 
         $Model->setModel($datas);
 

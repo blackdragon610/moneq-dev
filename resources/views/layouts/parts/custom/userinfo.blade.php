@@ -31,7 +31,7 @@
         </div>
         <div class="col-sm-8 col-lg-4 pt-2">
             <div class="container-fluid pl-0 pb-lg-1">
-                <h6 class="font-weight-bold">保有資格</h6>
+                <h6 class="font-weight-bold"></h6>
                 <span class="mright keepTwoLine">{{$contents->specialtie->specialtie_name}}</span>
             </div>
         </div>
@@ -45,7 +45,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col text-center">
-                        <a href="" class="btnBlue">{{$contents->specialtie->specialtie_name}}</a>
+                        <span class="btnBlue">{{$contents->specialtie->specialtie_name}}</span>
                     </div>
                 </div>
             </div>

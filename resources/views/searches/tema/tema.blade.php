@@ -9,6 +9,7 @@
         <h5 class="font-weight-bold text-danger mright"><?php if($keyword) echo $keyword; else echo 'お金の相談テーマから探す';?>に該当する相談</h5>
         <span class="mright">検索結果数</span>
         <span class="text-danger">{{$posts->total()}}</span>
+        <span class="text">件</span>
         <div class="dropdown ml-auto">
             <button class="btn yellow-btn-106-35 dropdown-toggle" type="button"
                     id="dropdownMenu1" data-toggle="dropdown"
