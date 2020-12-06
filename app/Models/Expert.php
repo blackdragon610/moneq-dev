@@ -148,4 +148,87 @@ class Expert extends ModelClass implements JWTSubject
         return $this->hasMany(ExpertLicense::class);
     }
 
+    /**
+     * 専門家の名前取得
+    */
+    public function expertName() : string	
+    {	
+
+        return $this->expert_name_second . "　" . $this->expert_name_first;	
+    }
+
+ /**	
+     * 回答取得	
+     */	
+    public function scopeAnalytics($query, array $types, bool $isAll = false)	
+    {	
+
+        $query->leftJoin("post_answers", "post_answers.expert_id", "=", "experts.id");	
+
+        $select = "";	
+
+        //各自判定	
+        if (in_array("answer", $types)){	
+            if (!$isAll) {	
+                $select .= ",experts.count_answer";	
+            }else {	
+                $select .= ",sum(distinct experts.count_answer) as count_answer";	
+            }	
+        }	
+        if (in_array("access", $types)){	
+            $query->leftJoin("posts", "post_answers.post_id", "=", "posts.id");	
+
+            $select .= ",sum(distinct count_access) as count_access";	
+        }	
+
+        if (in_array("page_access", $types)){	
+            if (!$isAll){	
+                $select.=",count_page_access";	
+            }else{	
+                $select.=",sum(distinct count_page_access) as count_page_access";	
+            }	
+        }	
+        if (in_array("message", $types)){	
+            if (!$isAll){	
+                $select.=",count_message";	
+            }else{	
+                $select.=",sum(distinct count_message) as count_message";	
+            }	
+        }	
+
+        if ((in_array("introduction", $types)) || (in_array("introduction_money", $types))){	
+            $query->leftJoin("expert_introductions", "expert_introductions.expert_id", "=", "experts.id");	
+        }	
+
+        if (in_array("introduction", $types)){	
+            $select.=",count(distinct expert_introductions.id) as count_introduction";	
+        }	
+        if (in_array("introduction_money", $types)){	
+            $select.=",sum(distinct expert_introductions.money) as count_introduction_money";	
+        }	
+
+
+        if (!$isAll){	
+            $query = $query->groupBy("experts.id");	
+        }	
+
+        $query->select(\DB::raw("experts.*" . $select));	
+    }	
+
+
+    /**	
+     *   報酬額	
+     */	
+    public function getPostIntroduction()	
+    {	
+        $ExpertIntroduction = app("ExpertIntroduction");	
+        if ($this->id){	
+            $ExpertIntroduction  = $ExpertIntroduction ->where("expert_introductions.expert_id", $this->id);	
+        }	
+
+        $ExpertIntroduction->select(\DB::raw("*,sum(money)"));	
+
+        return $ExpertIntroduction;	
+    }
+
 }

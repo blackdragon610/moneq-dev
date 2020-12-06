@@ -22,6 +22,14 @@ use AuthenticatesUsers;
     protected string $redirectAfterLogout = '/login';
 
 
+ public function __construct()	
+    {	
+        if (getIsExpert()){	
+            $this->redirectTo = "/expert/top";	
+        }	
+
+    }
+
 	public function index(Request $request)
     {
 

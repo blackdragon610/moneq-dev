@@ -8,10 +8,17 @@
                 <span id="name1">{{$contents->expert_name_kana_first.$contents->expert_name_kana_second}}</span>
                 <br/>
                 <span id="card" style="width:230px;display:inline-block"><img src="/images/svg/img-address-card-solid.svg">
+<<<<<<< HEAD
                     @foreach($license as $item)
                         {{$item->body.' '}}
                     @endforeach
                 </span>
+=======
+                @foreach($license as $item)
+                    {{$item->body.' '}}
+                @endforeach
+		</span>
+>>>>>>> e8932baad5b4c583ab527a9442f918a80e5a9fe6
                 <span id="card" style="margin-left:60px"><img class="expert-sub-icon" src="/images/svg/img-yellow-messages-solid.svg">回答数：<span id="number">{{$contents->count_answer}}</span>件</span>
                 <br/>
                 <span id="sex" style="width:230px;display:inline-block">{{$contents->date_birth.'/'.$contents->gender}}</span>

@@ -21,20 +21,20 @@
                             <p class="title-16px" style="padding-left:65px"><img src="/images/svg/img-check-red.svg" style="margin-right:5px">1つの質問につき最大3回まで追加質問が可能</p>
                             <p class="title-16px" style="padding-left:65px"><img src="/images/svg/img-check-red.svg" style="margin-right:5px">過去Q&Aはすべて見放題</p>
                             <p class="title-16px" style="padding-left:65px"><img src="/images/svg/img-check-red.svg" style="margin-right:5px">回答した専門家に個別相談を依頼できる</p>
-                            <div class="col text-center" style="margin-top:48px;margin-bottom:48px">
+                            <div class="col text-center btnLayer" >
                                 @if($sheetId == 1)
                                     @if($member != 3)
-                                        <a href="#" class="btn payStatus-roundbtn" id="btnPlan1">選択中</a>
+                                        <button class="payStatus-roundbtn" id="btnPlan1">選択中</button>
                                         <input type="hidden" name="member" id="member" value="2">
                                     @else
-                                        <a href="#" class="btn white-btn-304-50" id="btnPlan1">選択する</a>
+                                        <button class="white-btn-304-50" id="btnPlan1">選択する</button>
                                     @endif
                                 @elseif($sheetId == 2)
                                     @if($member == 2)
-                                        <a href="#" class="btn payStatus-roundbtn" id="btnPlan1">選択中</a>
+                                        <button class="payStatus-roundbtn" id="btnPlan1">選択中</button>
                                             <input type="hidden" name="member" id="member" value="2">
                                     @else
-                                        <a href="#" class="btn white-btn-304-50" id="btnPlan1">選択する</a>
+                                        <button class="white-btn-304-50" id="btnPlan1">選択する</button>
                                     @endif
                                 @endif
                             </div>
@@ -51,17 +51,17 @@
                             <div class="col text-center btnLayer">
                                 @if($sheetId == 1)
                                     @if($member == 3)
-                                        <a href="#" class="btn payStatus-roundbtn" id="btnPlan2">選択中</a>
+                                        <button class="payStatus-roundbtn" id="btnPlan2">選択中</button>
                                         <input type="hidden" name="member" id="member" value="3">
                                     @elseif($member == 1)
-                                        <a href="#" class="btn white-btn-304-50" id="btnPlan2">選択する</a>
+                                        <button class="white-btn-304-50" id="btnPlan2">選択する</button>
                                     @endif
                                 @elseif($sheetId == 2)
                                     @if($member == 3)
                                             <input type="hidden" name="member" id="member" value="3">
-                                            <a href="#" class="btn payStatus-roundbtn" id="btnPlan2">選択中</a>
+                                            <button class="payStatus-roundbtn" id="btnPlan2">選択中</button>
                                     @else
-                                        <a href="#" class="btn white-btn-304-50" id="btnPlan2">選択する</a>
+                                        <button class="white-btn-304-50" id="btnPlan2">選択する</button>
                                     @endif
                                 @endif
                             </div>
@@ -131,8 +131,8 @@
 
 <script>
     $('#btnPlan1').click(function(e) {
-        $('#btnPlan1').addClass('btnSelected').removeClass('btnUnselected');
-        $('#btnPlan2').addClass('btnUnselected').removeClass('btnSelected');
+        $('#btnPlan1').addClass('payStatus-roundbtn').removeClass('white-btn-304-50');
+        $('#btnPlan2').addClass('white-btn-304-50').removeClass('payStatus-roundbtn');
         $('#btnPlan1').html('選択中');
         $('#btnPlan2').html('選択する');
         var sheet = $('#sheet').val();
@@ -143,8 +143,8 @@
     });
 
     $('#btnPlan2').click(function(e) {
-        $('#btnPlan2').addClass('btnSelected').removeClass('btnUnselected');
-        $('#btnPlan1').addClass('btnUnselected').removeClass('btnSelected');
+        $('#btnPlan2').addClass('payStatus-roundbtn').removeClass('white-btn-304-50');
+        $('#btnPlan1').addClass('white-btn-304-50').removeClass('payStatus-roundbtn');
         $('#btnPlan2').html('選択中');
         $('#btnPlan1').html('選択する');
         var sheet = $('#sheet').val();

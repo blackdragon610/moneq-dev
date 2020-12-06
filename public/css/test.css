@@ -602,12 +602,13 @@ p {
 }
 .payStatus-roundbtn{
     background-color: #EE7800;
-    width: 304px !important;
-    height: 50px !important;
+    min-width: 304px !important;
+    min-height: 50px !important;
     font-family: NotoSans-JP-Medium;
     font-size: 16px !important;
     color: #221815 !important;
     line-height: 35px;
+    border  : 0px solid;
 }
 .yellow-roundbtn{
     background-color: #ffd800;
@@ -675,8 +676,8 @@ p {
 }
 .white-btn-304-50{
     background-color: white !important;
-    width: 304px !important;
-    height: 50px !important;
+    min-width: 304px !important;
+    min-height: 50px !important;
     font-family: NotoSans-JP-Medium;
     font-size: 16px !important;
     color: #221815 !important;
@@ -1586,4 +1587,8 @@ input[type="checkbox"]:checked + label>span {
       -webkit-transform: rotate(180deg);
       -moz-transform: rotate(180deg);
       transform: rotate(180deg);
+  }
+
+  button:focus {
+    outline: 0px;
   }

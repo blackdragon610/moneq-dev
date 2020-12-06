@@ -23,7 +23,6 @@ class TopController extends Controller
      */
     public function index(Post $Post, PostAnswer $PostAnswer, PostData $PostData, Expert $Expert, User $User, Specialtie $Specialtie, Notification $Notification, Category $Category)
     {
-
         if(isProfile() == 3){
             if(\Auth::user()->pay_status == 1){
                 return redirect()->route('payment', ['sheetId'=>2, 'member'=>1]);

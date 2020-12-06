@@ -17,6 +17,22 @@ class PostAnswer extends ModelClass
     protected $hidden = [
     ];
 
+    public function saveEntry(array $inputs)	
+    {	
+        $Model = clone $this;	
+
+        if (!empty($inputs["id"])){	
+            $Model = $Model->whereId($inputs["id"])->first();	
+        }	
+
+
+        $Model->setModel($inputs);	
+
+        $Model->save();	
+
+        return $Model;	
+    }
+
     public function user(){
         return $this->belongsTo(User::class)->withTrashed();
     }
