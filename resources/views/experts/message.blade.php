@@ -70,7 +70,7 @@
             </section>
             <section>
                 <div class="col text-center ">
-                    <button class="btnSubmit">メッセージ送信</button>
+                    <button class="btn modal-btn-304-50 ml-0">メッセージ送信</button>
                 </div>
             </section>
         {{Form::close()}}
