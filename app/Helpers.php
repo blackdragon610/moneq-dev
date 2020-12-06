@@ -268,6 +268,17 @@
             return '10歳未満';
         }
     }
+    function getStartDate($date){
+        $curDate = new \DateTime(date("Y-m-d"));
+        $birthDate = new \DateTime($date);
+        $age = $curDate->diff($birthDate);
+        if($age->y > 0){
+            $sub = $age->y.'年'.$age->m.'ヶ月';
+        return $sub;
+        }else{
+            $sub = $age->m.'ヶ月';
+        }
+    }
 
     function isUser($id){
         if($id == \Auth::user()->id){

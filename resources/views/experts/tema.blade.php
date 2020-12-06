@@ -5,8 +5,6 @@
 
     @foreach ($contents as $item)
         @include('layouts.parts.custom.expertanswer', ["type" => "answer1", 'name' => 'answer1', 'contents' => $item, 'gender'=>$gender])
-        @include('layouts.parts.custom.expertanswer', ["type" => "answer1", 'name' => 'answer1', 'contents' => $item, 'gender'=>$gender])
-        @include('layouts.parts.custom.expertanswer', ["type" => "answer1", 'name' => 'answer1', 'contents' => $item, 'gender'=>$gender])
     @endforeach
 
 </div>

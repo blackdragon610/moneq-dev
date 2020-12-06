@@ -28,19 +28,25 @@
           <div class="col-8"></div>
           <div class="w-100"></div>
           <div class="col-4 text-center grid-color pt-2"><p class="title-14px">保有資格</p></div>
-          <div class="col-8"><p class="label-14px pt-2">CFP®、住宅ローンアドバイザー</p></div>
+
+          <div class="col-8">
+            <p class="label-14px pt-2">
+                @foreach($license as $item)
+                    {{$item->body.' '}}
+                @endforeach
+            </p>
+          </div>
           <div class="w-100"></div>
           <div class="col-4 text-center grid-color pt-2"><p class="title-14px">得意分野</p></div>
           <div class="col-8 pt-1">
-                <span class="btn-tag-brown label-14px">保険</span>
-                <span class="btn-tag-brown label-14px">ライフプラン・家計相談</span>
+                <span class="btn-tag-brown label-14px">{{$specialties[$contents->specialtie_id]}}</span>
           </div>
           <div class="w-100"></div>
           <div class="col-4 text-center grid-color pt-2"><p class="title-14px">業歴</p></div>
-          <div class="col-8"><p class="label-14px pt-2">2年4ヶ月</p></div>
+          <div class="col-8"><p class="label-14px pt-2">{{getStartDate($contents->date_start)}}</p></div>
           <div class="w-100"></div>
           <div class="col-4 text-center grid-color pt-2"><p class="title-14px">住所地</p></div>
-          <div class="col-8"><p class="label-14px pt-2">東京都豊島区</p></div>
+          <div class="col-8"><p class="label-14px pt-2">{{$contents->prefecture_area}}</p></div>
         </div>
     </div>
 
@@ -51,17 +57,16 @@
           <div class="w-100"></div>
           <div class="col-4 text-center grid-color pt-2"><p class="title-14px">得意分野</p></div>
           <div class="col-8 pt-1">
-                <span class="btn-tag-brown label-14px">保険</span>
-                <span class="btn-tag-brown label-14px">ライフプラン・家計相談</span>
+            <span class="btn-tag-brown label-14px">{{$specialties[$contents->specialtie_id]}}</span>
           </div>
           <div class="w-100"></div>
           <div class="col-4 text-center grid-color pt-2"><p class="title-14px">対応エリア</p></div>
-          <div class="col-8"><p class="label-14px pt-2">東京都</p></div>
+          <div class="col-8"><p class="label-14px pt-2">{{$contents->prefecture_area}}</p></div>
         </div>
     </div>
 
     <div class="mt-5 text-center">
-        <a href="{{route('search.expert')}}" class="btn modal-btn-304-50 ml-0">テスト太郎さんへ個別相談・問い合わせ</a>
+        <a href="{{url('expert/message').'/'.$contents->id}}" class="btn modal-btn-304-50 ml-0">テスト太郎さんへ個別相談・問い合わせ</a>
     </div>
 
     <div class="mt-2 text-center">

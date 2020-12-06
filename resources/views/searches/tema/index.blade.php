@@ -1,7 +1,9 @@
 @extends('layouts/front', ["type" => 1])
 
-
 @section('main')
+{{-- {{url()->full()}}
+{{url()->previous()}}
+{{url()->current()}} --}}
 <div class="container whitepanel p-3">
     <div class="row">
         <!-- right sticky sidebar -->

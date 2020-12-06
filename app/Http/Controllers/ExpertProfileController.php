@@ -14,6 +14,8 @@ use App\Models\Category;
 use App\Models\SubCategory;
 use App\Libs\MailClass;
 use App\Mails\ExpertSendMail;
+use App\Models\ExpertLicense;
+use App\Models\Specialtie;
 
 class ExpertProfileController extends Controller
 {
@@ -69,7 +71,7 @@ class ExpertProfileController extends Controller
         );
     }
 
-    public function detail(PostAnswer $PostAnswer, PostData $PostData, $expertId){
+    public function detail(PostAnswer $PostAnswer, PostData $PostData, ExpertLicense $ExpertLicense, Specialtie $Specialtie, $expertId){
 
         if(isLogin() == -1){
             header("Location:/error/notsee");
@@ -77,6 +79,10 @@ class ExpertProfileController extends Controller
         }
         $expert = Expert::where('id',$expertId)->first();
         $expert->date_birth = getEra($expert->date_birth);
+
+        $license = $ExpertLicense->getCategoryByExpertId($expertId);
+
+        $specialties = $Specialtie->getSelect();
 
         $gender = configJson('custom/gender');
         $prefecture = configJson('custom/prefecture');
@@ -89,7 +95,7 @@ class ExpertProfileController extends Controller
         $monthExperts = $PostAnswer->monthHighExpert();
         $totalExperts = $PostAnswer->totalHighExpert();
 
-        return view('experts.index', compact('expert', 'answers', 'weekExperts', 'monthExperts', 'totalExperts', 'gender'));
+        return view('experts.index', compact('expert', 'answers', 'weekExperts', 'monthExperts', 'totalExperts', 'gender', 'license', 'specialties'));
     }
 
     public function message(Category $Category, $expertId){

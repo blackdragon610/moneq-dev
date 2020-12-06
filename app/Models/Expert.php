@@ -144,4 +144,8 @@ class Expert extends ModelClass implements JWTSubject
         return $experts;
     }
 
+    public function expert(){
+        return $this->hasMany(ExpertLicense::class);
+    }
+
 }
