@@ -758,8 +758,22 @@ div .grey-round-tag {
     border-radius: 12px !important;
 }
 
+.breadcrumb {
+    background-color: white;
+}
+.breadcrumb-item {
+    color:#9b9b9b;
+    font-family: NotoSans-JP-Regular;
+    font-size: 12px !important;
+    margin-top: 0px !important;
+}
 .breadcrumb-item + .breadcrumb-item::before {
-    content: ">";
+    background-image: url("/images/svg/image-fa-arrow.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    content: "";
+    margin-left: 10px;
+    margin-right: 10px;
 }
 .nav .nav-link {
     color: #9B9B9B;
@@ -872,7 +886,7 @@ ol li {
 /* ----------- */
 article #article {
     padding: 15px 30px !important;
-    border: 1px solid #9b9b9b;
+    border: 1px solid #dbdbdb;
     max-height: 297px;
 }
 article #article_detail {
@@ -1084,8 +1098,18 @@ article #profilecard #caption {
     border-bottom: 1px solid #b8b8b8;
     text-align: left;
     outline: none;
+    margin-top:10px;
     font-family: NotoSans-JP-Medium;
     font-size: 14px;
+}
+.collapsible:focus {
+    outline:0;
+}
+span.fa.fa-angle-down, span.fa.fa-angle-up {
+    margin-top: 4px;
+    margin-right: 5px;
+    color: #221616;   
+    float: right; 
 }
 
 .cl-switch .label {
@@ -1231,10 +1255,20 @@ span.answers {
     line-height: 34px !important;
 }
 
+.bootstrap-tagsinput .tag {
+    margin-right: 2px;
+    color: white;
+    background-color: #221815;
+    padding: 4px;
+    border-radius: 0px;
+}
+.bootstrap-tagsinput .tag [data-role="remove"] {
+    margin-left: 0px;
+}
+
 .btn {
     border-radius: 0px;
 }
-
 .btn-tag-brown {
     background-color: #221815; /* Green */
     border: none;
