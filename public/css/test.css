@@ -1320,7 +1320,7 @@ span.answers {
     margin: 4px 2px;
     cursor: pointer;
 }
-.fa-bell-o[data-count]:after{
+.fa-bell[data-count]:after{
     position:absolute;
     right:15%;
     top:15%;
@@ -1330,7 +1330,7 @@ span.answers {
     border-radius:50%;
     line-height:.8em;
     color: white;
-    background:rgba(255,0,0,.85);
+    background:#FFD800;
     text-align:center;
     min-width: 1em;
     font-weight:bold;
