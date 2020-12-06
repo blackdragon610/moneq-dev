@@ -7,9 +7,9 @@
             <img src="/images/svg/img-search-solid-small.svg" style="margin-right:10px">検索対象
         </p>
         <div class="content">
-            <p><a href="{{route('search.tema')}}" style="color:rgb(0, 0, 0); font-weight:600">お金の相談テーマから探す</a></p>
-            <p><a href="{{route('search.category')}}" style="color:rgb(0, 0, 0); font-weight:600">お金の悩みから探す</a></p>
-            <p><a href="{{route('search.expert')}}" style="color:red; font-weight:600">専門家から探す</a></p>
+            <p><a href="{{route('search.tema')}}" style="color:#221815;font-weight:600">> お金の相談テーマから探す</a></p>
+            <p><a href="{{route('search.category')}}" style="color:#221815;font-weight:600">> お金の悩みから探す</a></p>
+            <p><a href="{{route('search.expert')}}" style="color:red;font-weight:600">> 専門家から探す</a></p>
         </div>
     </div>
 
@@ -17,12 +17,13 @@
         <p style="font-family: NotoSans-JP-Medium;font-size: 16px !important;">
             <img src="/images/svg/img-filter-solid-small.svg" style="margin-right:10px">絞り込み
         </p>
+        <button class="btn-tag-grey-round">結果の消去  <span class="fa fa-close"></span></button>
     </div>
     <div class="col-12 m-0 p-0 mb-4">
         <input type="text" id="tema" class="form-control"/>
     </div>
 
-    <button type="button" class="collapsible">評価</button>
+    <button type="button" class="collapsible">評価<span class="fa fa-angle-up"></span></button>
     <div class="content">
         <?php
             $evaluation = json_decode('{
@@ -37,37 +38,37 @@
                 'contents' => 'class="col-12" style="margin-top:6px; margin-bottom:12px;"', 'other'=>'4-'])
     </div>
 
-    <button type="button" class="collapsible">役に立った数</button>
+    <button type="button" class="collapsible">役に立った数<span class="fa fa-angle-up"></span></button>
     <div class="content">
         @include('layouts.parts.editor.select', ['name' => 'help', "file" => configJson("custom/numbers"), "keyValue" => "",
                 'contents' => 'class="col-12" style="margin-top:6px; margin-bottom:12px;"', 'other'=>'1-'])
     </div>
 
-    <button type="button" class="collapsible">回答数</button>
+    <button type="button" class="collapsible">回答数<span class="fa fa-angle-up"></span></button>
     <div class="content">
         @include('layouts.parts.editor.select', ['name' => 'answers', "file" => configJson("custom/numbers"), "keyValue" => "",
                  'contents' => 'class="col-12" style="margin-top:6px; margin-bottom:12px;"', 'other'=>'2-'])
     </div>
 
-    <button type="button" class="collapsible">地域</button>
+    <button type="button" class="collapsible">地域<span class="fa fa-angle-up"></span></button>
     <div class="content">
         @include('layouts.parts.editor.select', ['name' => 'prefecture_area', "file" => configJson("custom/prefecture"), "keyValue" => "",
                  'contents' => 'class="col-12" style="margin-top:6px; margin-bottom:12px;"', 'other'=>'3-'])
     </div>
 
-    <button type="button" class="collapsible">回答専門家</button>
+    <button type="button" class="collapsible">回答専門家<span class="fa fa-angle-up"></span></button>
     <div class="content">
         @include('layouts.parts.editor.radioV', ['name' => 'experts', "data" => $spec , "keyValue" => "",
                  'contents' => 'class="form-control"'])
     </div>
     @if(Cookie::has('custom_token'))
         @if(\Auth::user()->pay_status != 1)
-            <a href="{{route('post.create')}}" class="btn yellow-btn-fluid">専門家に相談する</a>
+            <a href="{{route('post.create')}}" class="btn yellow-btn-fluid" style="margin-top:24px">専門家に相談する</a>
         @else
-            <a href="{{route('payment', ['sheetId'=>1, 'member'=>\Auth::user()->pay_status])}}" class="btn yellow-btn-fluid">専門家に相談する</a>
+            <a href="{{route('payment', ['sheetId'=>1, 'member'=>\Auth::user()->pay_status])}}" class="btn yellow-btn-fluid" style="margin-top:24px">専門家に相談する</a>
         @endif
     @else
-        <a href="{{route('entry')}}" class="btn yellow-btn-fluid" >専門家に相談する</a>
+        <a href="{{route('entry')}}" class="btn yellow-btn-fluid" style="margin-top:24px">専門家に相談する</a>
     @endif
 
     {{-- <button class="yellow-btn-fluid">専門家に相談する</button> --}}
@@ -271,3 +272,24 @@
         }
 
     </script>
+    
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+
+        var content = this.nextElementSibling;
+
+        if (content.style.display == "block" || content.style.display == "") {
+            content.style.display = "none";            
+            this.firstElementChild.className = "fa fa-angle-down";
+        } else {
+            content.style.display = "block";
+            this.firstElementChild.className = "fa fa-angle-up";
+        }
+    });
+}   
+</script>

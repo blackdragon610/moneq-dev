@@ -31,7 +31,7 @@
     </div>
 </div>
 
-<hr class="mt-2 mb-3"/>
+<!-- <hr class="mt-2 mb-3"/> -->
 @foreach($posts as $post)
     @include('layouts.parts.custom.otherarticle', ["type" => "article", 'name' => 'article', 'contents' => $post, 'gender'=>$gender])
 @endforeach

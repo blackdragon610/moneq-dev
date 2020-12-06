@@ -7,9 +7,9 @@
             <img src="/images/svg/img-search-solid-small.svg" style="margin-right:10px">検索対象
         </p>
         <div class="content">
-            <p><a href="{{route('search.tema', ["keyword"=>$keyword])}}" style="color: red; font-weight:600">お金の相談テーマから探す</a></p>
-            <p><a href="{{route('search.category', ['keyword'=>$keyword])}}" style="color: rgb(0, 0, 0); font-weight:600">お金の悩みから探す</a></p>
-            <p><a href="{{route('search.expert')}}" style="color: rgb(0, 0, 0); font-weight:600">専門家から探す</a></p>
+            <p><a href="{{route('search.tema', ["keyword"=>$keyword])}}" style="color: red; font-weight:600">> お金の相談テーマから探す</a></p>
+            <p><a href="{{route('search.category', ['keyword'=>$keyword])}}" style="color: #221815; font-weight:600">> お金の悩みから探す</a></p>
+            <p><a href="{{route('search.expert')}}" style="color:#221815; font-weight:600">> 専門家から探す</a></p>
         </div>
     </div>
 
@@ -17,6 +17,7 @@
         <p style="font-family: NotoSans-JP-Medium;font-size: 16px !important;">
             <img src="/images/svg/img-filter-solid-small.svg" style="margin-right:10px">絞り込み
         </p>
+        <button class="btn-tag-grey-round">結果の消去  <span class="fa fa-close"></span></button>
     </div>
     <div class="col-12 m-0 p-0 mb-4">
         <input type="text" id="tema" class="form-control"/>
@@ -95,12 +96,12 @@
 
     @if(Cookie::has('custom_token'))
         @if(\Auth::user()->pay_status != 1)
-            <a href="{{route('post.create')}}" class="btn yellow-btn-fluid">専門家に相談する</a>
+            <a href="{{route('post.create')}}" class="btn yellow-btn-fluid" style="margin-top:24px">専門家に相談する</a>
         @else
-            <a href="{{route('payment', ['sheetId'=>1, 'member'=>\Auth::user()->pay_status])}}" class="btn yellow-btn-fluid">専門家に相談する</a>
+            <a href="{{route('payment', ['sheetId'=>1, 'member'=>\Auth::user()->pay_status])}}" class="btn yellow-btn-fluid" style="margin-top:24px">専門家に相談する</a>
         @endif
     @else
-        <a href="{{route('entry')}}" class="btn yellow-btn-fluid" >専門家に相談する</a>
+        <a href="{{route('entry')}}" class="btn yellow-btn-fluid" style="margin-top:24px">専門家に相談する</a>
     @endif
 </div>
 
