@@ -178,12 +178,12 @@ class PostController extends Controller
         $monthExperts = $PostAnswer->monthHighExpert();
         $totalExperts = $PostAnswer->totalHighExpert();
 
-        $post->user->date_birth = getAge($post->user->date_birth);
         $gender = configJson('custom/gender');
         $post->user->gender = $gender[$post->user->gender];
+        $prefecture = configJson('custom/prefecture');
 
         return view('consultdetail.index', compact('post', 'postAdd', 'postAnswer', 'weekExperts', 'relationPosts',
-                                                     'monthExperts', 'totalExperts', 'isUser', 'postStoreFlag', 'postHelpFlag'));
+                                                     'monthExperts', 'totalExperts', 'isUser', 'postStoreFlag', 'postHelpFlag', 'gender'));
     }
 
     public function postDataEntry($postId, $value){
@@ -243,9 +243,14 @@ class PostController extends Controller
         }
     }
 
-    public function report($postId){
+    public function report(PostAnswer $PostAnswer, $postId){
+
+        $weekExperts = $PostAnswer->weekHighExpert();
+        $monthExperts = $PostAnswer->monthHighExpert();
+        $totalExperts = $PostAnswer->totalHighExpert();
+
         $post = Post::where('id', $postId)->first();
-        return view('consultdetail.report', compact('post'));
+        return view('consultdetail.report', compact('post', 'weekExperts', 'monthExperts', 'totalExperts'));
     }
 
     public function reportEnd(Request $request, AdminSendMail $AdminSendMail, MailClass $MailClass){

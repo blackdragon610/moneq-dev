@@ -252,7 +252,7 @@
         return $age->y;
     }
 
-    function getEra(string $birthDay) : string
+    function getEra($birthDay)
     {
         $curDate = new \DateTime(date("Y-m-d"));
         $birthDate = new \DateTime($birthDay);
@@ -263,7 +263,7 @@
             $sub = substr($age, -1);
             if($sub>5)  $sub = '代後半';
             else    $sub = '代前半';
-            return $year.$sub;
+        return $year.$sub;
         }else{
             return '10歳未満';
         }

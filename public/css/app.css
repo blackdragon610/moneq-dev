@@ -17234,7 +17234,7 @@ a.close.disabled {
 }
 
 .modal-dialog {
-  position: relative;
+  position: center;
   width: auto;
   margin: 0.5rem;
   pointer-events: none;
@@ -17390,7 +17390,7 @@ a.close.disabled {
 @media (min-width: 576px) {
   .modal-dialog {
     max-width: 700px;
-    margin: 1.75rem auto;
+    margin: calc(15%) auto;
   }
 
   .modal-dialog-scrollable {

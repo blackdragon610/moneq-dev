@@ -15,9 +15,9 @@
                         <span class="title-16px" style="padding-top:8px">今月はあと</span>
                         <span class="title-24px-red">{{$possibleCount}}</span>
                         <span class="title-16px" style="padding-top:8px">回 相談ができます。</span>
-                        <a id="reQ" class="text-dark title-16px">再質問権 
+                        <u><a id="reQ" class="text-dark title-16px">再質問権
                             <span class="title-24px-red">{{\Auth::user()->re_point}}</span>件
-                        </a>
+                        </a></u>
                     </div>
 
                     {{Form::open(['url'=> route('post.store'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
@@ -41,12 +41,12 @@
                                 <li class="title-16px" style="list-style:disc;margin-left:24px">お礼や報告など質問ではない投稿</li>
                             </ul>
 
-                            <label for="post_name" class="label-regular" style="margin-top:48px">相談テーマ</label><span class="btn-tag-red">(必須)</span>                            
-                            @include('layouts.parts.editor.text', ["type" => "text", 'name' => 'post_name',  'contents' => 'placeholder="例：お金のことで相談がある"'])                            
+                            <label for="post_name" class="label-regular" style="margin-top:48px">相談テーマ</label><span class="btn-tag-red">(必須)</span>
+                            @include('layouts.parts.editor.text', ["type" => "text", 'name' => 'post_name',  'contents' => 'placeholder="例：結婚するのですが生命保険に入るべきでしょうか？"'])
                             <div class="text-right"><span id="name_length">0/25</span></div>
 
                             <label for="sub_category_id" class="label-regular">カテゴリ</label><span class="btn-tag-red">(必須)</span>
-                            @include('layouts.parts.editor.select', ['name' => 'sub_category_id',  "file" => $categories, "keyValue" => "", "contents" => ""])
+                            <div class="col-sm-6" style="padding:0">@include('layouts.parts.editor.select', ['name' => 'sub_category_id',  "file" => $categories, "keyValue" => "", "contents" => ""])</div>
 
                             <label for="body" class="label-regular">相談内容</label><span class="btn-tag-red">(必須)</span>
 
@@ -63,7 +63,7 @@
                             </div>
 
 
-                            @include('layouts.parts.editor.textarea', ['name' => 'body', "contents" => ""])<br />                            
+                            @include('layouts.parts.editor.textarea', ['name' => 'body', "contents" => ""])<br />
                             <div class="text-right"><span id="post_length">0/1600</span></div>
 
                             <div class="row">

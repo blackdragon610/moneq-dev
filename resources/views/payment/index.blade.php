@@ -24,14 +24,14 @@
                             <div class="col text-center" style="margin-top:48px;margin-bottom:48px">
                                 @if($sheetId == 1)
                                     @if($member != 3)
-                                        <a href="#" class="btn yellow-btn-304-50" id="btnPlan1">選択中</a>
+                                        <a href="#" class="btn payStatus-roundbtn" id="btnPlan1">選択中</a>
                                         <input type="hidden" name="member" id="member" value="2">
                                     @else
                                         <a href="#" class="btn white-btn-304-50" id="btnPlan1">選択する</a>
                                     @endif
                                 @elseif($sheetId == 2)
                                     @if($member == 2)
-                                        <a href="#" class="btn yellow-btn-304-50" id="btnPlan1">選択中</a>
+                                        <a href="#" class="btn payStatus-roundbtn" id="btnPlan1">選択中</a>
                                             <input type="hidden" name="member" id="member" value="2">
                                     @else
                                         <a href="#" class="btn white-btn-304-50" id="btnPlan1">選択する</a>
@@ -51,7 +51,7 @@
                             <div class="col text-center btnLayer">
                                 @if($sheetId == 1)
                                     @if($member == 3)
-                                        <a href="#" class="btn white-btn-304-50" id="btnPlan2">選択中</a>
+                                        <a href="#" class="btn payStatus-roundbtn" id="btnPlan2">選択中</a>
                                         <input type="hidden" name="member" id="member" value="3">
                                     @elseif($member == 1)
                                         <a href="#" class="btn white-btn-304-50" id="btnPlan2">選択する</a>
@@ -59,7 +59,7 @@
                                 @elseif($sheetId == 2)
                                     @if($member == 3)
                                             <input type="hidden" name="member" id="member" value="3">
-                                            <a href="#" class="btn white-btn-304-50" id="btnPlan2">選択中</a>
+                                            <a href="#" class="btn payStatus-roundbtn" id="btnPlan2">選択中</a>
                                     @else
                                         <a href="#" class="btn white-btn-304-50" id="btnPlan2">選択する</a>
                                     @endif
@@ -89,10 +89,10 @@
                         <div class="col text-center">
                             @if($sheetId == 1)
                                 @if($member == 1)   <?php $member = 2?> @endif
-                                <a class="btn yellow-btn-304-50" href="{{url('payments/input/1').'/'.$member}}" id="cardBtn">クレジット決済を押す</a>
+                                <a class="btn yellow-btn-304-50" href="{{url('payments/input/1').'/'.$member}}" id="cardBtn">クレジット決済に進む</a>
                             @elseif($sheetId == 2)
                             @if($member == 1)   <?php $member = 2?> @endif
-                                <a class="btn yellow-btn-304-50" href="{{url('payments/input/2').'/'.$member}}" id="cardBtn">クレジット決済を押す</a>
+                                <a class="btn yellow-btn-304-50" href="{{url('payments/input/2').'/'.$member}}" id="cardBtn">クレジット決済に進む</a>
                             @endif
                         </div>
                     </div>
@@ -103,19 +103,19 @@
                             <legend style="width:40%">
                                 <a id="car1" href="{{url('paymenta/au').'/'.$sheetId.'/'.$member}}"><img src="/images/svg/img-payment-au-btn.svg"></a>
                             </legend>
-                            <p class="title-12px">auかんたん決済</p>
+                            <p class="title-12px"><span class="bdgray">auかんたん決済</span></p>
                         </fieldset>
                         <fieldset style="width:220px;height:130px;text-align:center;border:1px dashed #707070;margin-right:24px">
                             <legend style="width:40%">
                                 <a id="car2" href="{{url('paymenta/docomo').'/'.$sheetId.'/'.$member}}"><img src="/images/svg/img-payment-docomo-btn.svg"></a>
                             </legend>
-                            <p class="title-12px">ドコモ払い</p>
+                            <p class="title-12px"><span class="bdgray">ドコモ払い</span></p>
                         </fieldset>
                         <fieldset style="width:220px;height:130px;text-align:center;border:1px dashed #707070;margin-right:24px">
                             <legend style="width:40%">
                                 <a id="car3" href="{{url('paymenta/softbank').'/'.$sheetId.'/'.$member}}"><img src="/images/svg/img-payment-softbank-btn.svg"></a>
                             </legend>
-                            <p class="title-12px">ソフトバンクまとめで支払い</p>
+                            <p class="title-12px"><span class="bdgray">ソフトバンクまとめで支払い</span></p>
                         </fieldset>
                     </div>
                     </article>

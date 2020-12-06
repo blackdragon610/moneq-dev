@@ -7,14 +7,15 @@
 
         <div class="row">
             <!-- right sticky sidebar -->
-            <div class="col-12 col-sm-3 order-sm-2" id="sticky">
-                <!-- <section> -->
-                {{-- @include('experts.rightpane', ["type" => "search", 'name' => 'rightpane', 'contents' => '']) --}}
-                <!-- </section> -->
+            <div class="col-12 col-sm-3 order-sm-2" id="sticky" style="min-width:300px">
+                <section>
+                    @include('experts.rightpane', ["type" => "search", 'name' => 'rightpane', 'weekExperts' => $weekExperts,
+                                                   'monthExperts' => $monthExperts, 'totalExperts'=> $totalExperts])
+                </section>
             </div>
 
-            <div class="col-12 col-sm-9 order-sm-1 pl-0" id="main">
-                <p class="label-16px p-4" style="margin-top:80px;background-color:#FFF5E9">
+            <div class="col-12 col-sm-9 order-sm-1 p-2" id="main" style="max-width:800px">
+                <p class="label-16px p-4 mt-5 add-post">
                 <span class="label-24px-red">「{{$post->post_name}}」</span>が不適切な相談だと思う場合は、その理由をご記入のうえ、送信ください。
                 なお、対応結果やその理由につきましてはご返答いたしかねますので予めご了承いただければ幸いです。</p>
 

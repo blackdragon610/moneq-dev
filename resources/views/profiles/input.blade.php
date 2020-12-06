@@ -10,7 +10,7 @@
                 <p class="title-medium">プロフィール登録</p>
 
                 {{Form::open(['url'=> route('profile.update'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
-    
+
                         <label for="sex" class="label-regular">性別</label><span class="btn-tag-red">(必須)</span>
                         <div class="pt-2">
                             @include('layouts.parts.editor.radioext', ['name' => 'gender', "file" => configJson("custom/gender"), "keyValue" => "", 'contents' => 'class="form-control"'])
@@ -20,7 +20,7 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-2 input-group mt-3 mt-md-0">
                                 @include('layouts.parts.editor.select', ['name' => 'date_birth_year', "file" => config("funcs.years"), "keyValue" => "", 'contents' => 'class="form-control btn-select p-0"'])
-                                <h6 class="font-weight-400 pl-2 textCenter" 
+                                <h6 class="font-weight-400 pl-2 textCenter"
                                     style="padding-top:10px;font-family:NotoSans-JP-Regular;font-size:16px !important;">年</h6>
                             </div>
 

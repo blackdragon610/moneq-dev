@@ -5,7 +5,7 @@
 </head>
 
 <div class="modal fade" id="rQModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-query">
         <div class="modal-content">
             <div class="modal-header">
                 <p class="title-21px" id="myModalLabel" style="display:inline-block;margin-left:10px">Q. 再質問権とは？</p>
@@ -22,7 +22,7 @@
                         <p class="label-16px">質問の内容を回答しやすい内容（具体的な相談内容）に変更し、再度、相談してください。</p>
                 </div>
                 <div class="pb-3" style="text-align:center;margin-top:36px">
-                    <button class="btnSubmit yellow-btn-304-50" id="rBtn" value="add">閉じる</button>
+                    <button class="btnSubmit modal-btn-304-50" id="rBtn" value="add">閉じる</button>
                 </div>
             </form>
         </div>

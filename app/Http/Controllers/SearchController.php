@@ -191,11 +191,11 @@ class SearchController extends Controller
             }
 
             $totalSql = "SELECT t1.id, t1.created_at, t1.updated_at, post_name, body, count_answer, count_usuful, count_access, nickname,
-                         gender, era, child, marriage, date_birth, sub_name, specialtie_id, prefecture_area from
+                         gender, era, child, marriage, date_birth, sub_name, specialtie_id, prefecture_area, post_answer_id from
                         (SELECT DISTINCT posts.* , specialtie_id, prefecture_area from posts
                          LEFT JOIN(SELECT post_id, specialtie_id, prefecture_area from post_answers
-                                   LEFT JOIN (SELECT *from experts)t1 on(post_answers.expert_id=t1.id) where status=2)t1
-                         on(posts.id=t1.post_id))t1
+                                   LEFT JOIN (SELECT *from experts)t1 on(post_answers.expert_id=t1.id))t1
+                         on(posts.id=t1.post_id) where status=2)t1
                          LEFT JOIN (select id, nickname, gender, floor(datediff(curdate(),date_birth) / 365) as era, child, marriage, date_birth from users)t2
                          on(t1.user_id=t2.id)
                          LEFT JOIN(select sub_name, id from sub_categories)t3 on(t1.sub_category_id=t3.id)";
@@ -213,7 +213,7 @@ class SearchController extends Controller
         }
 
         $totalSql = "SELECT t1.id, t1.created_at, t1.updated_at, post_name, body, count_answer, count_usuful, count_access, nickname,
-                        gender, era, child, marriage, date_birth, sub_name, specialtie_id from
+                        gender, era, child, marriage, date_birth, sub_name, specialtie_id, post_answer_id from
                         (SELECT DISTINCT posts.* , specialtie_id from posts
                         LEFT JOIN(SELECT post_id, specialtie_id from post_answers
                                     LEFT JOIN (SELECT *from experts)t1 on(post_answers.expert_id=t1.id))t1
@@ -288,7 +288,7 @@ class SearchController extends Controller
             }
 
             $totalSql = "SELECT t1.id, t1.created_at, t1.updated_at, post_name, body, count_answer, count_usuful, count_access, nickname,
-                         gender, era, child, marriage, date_birth, sub_name, specialtie_id from
+                         gender, era, child, marriage, date_birth, sub_name, specialtie_id, post_answer_id from
                         (SELECT DISTINCT posts.* , specialtie_id from posts
                          LEFT JOIN(SELECT post_id, specialtie_id from post_answers
                                    LEFT JOIN (SELECT *from experts)t1 on(post_answers.expert_id=t1.id))t1
@@ -310,7 +310,7 @@ class SearchController extends Controller
         }
 
         $totalSql = "SELECT t1.id, t1.created_at, t1.updated_at, post_name, body, count_answer, count_usuful, count_access, nickname,
-                        gender, era, child, marriage, date_birth, sub_name, specialtie_id from
+                        gender, era, child, marriage, date_birth, sub_name, specialtie_id, post_answer_id from
                         (SELECT DISTINCT posts.* , specialtie_id from posts
                         LEFT JOIN(SELECT post_id, specialtie_id from post_answers
                                     LEFT JOIN (SELECT *from experts)t1 on(post_answers.expert_id=t1.id))t1

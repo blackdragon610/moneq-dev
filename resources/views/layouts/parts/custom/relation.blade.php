@@ -3,7 +3,7 @@
     <div id="article">
         <div class="row">
             <div id="tag" class="text-center">{{$post->sub_category->sub_name}}</div>
-            <h5 class="font-weight-bold pl-2">{{$post->post_name}}</h5>
+            <p id="title" class="font-weight-bold pl-2">{{$post->post_name}}</p>
         </div>
         <div class="row">
             <span class="name">{{$post->user->nickname.'さん'}}</span>

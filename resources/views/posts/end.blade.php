@@ -10,7 +10,7 @@
 
                 <p class="title-medium">相談の投稿の完了</p>
 
-                {{Form::open(['url'=> route('profile.update'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
+                {{Form::open(['url'=> route('post.detail', $postId),'method'=>'GET', 'files' => false, 'id' => 'form'])}}
                     <div class="container">
                         <div class="col text-center">
                             <p class="title-16px">相談投稿を完了しました。</p>
@@ -20,14 +20,14 @@
                     </div>
                     <div class="row">
                         <div class="col text-center btnLayer">
-                            <a href="{{route("post.detail", $postId)}}" class="btnSubmit btnUnselected">相談詳細へ</a>
+                            <button class="btnSubmit btnUnselected">相談詳細へ</button>
                         </div>
                     </div>
                 {{Form::close()}}
 
             </div>
         </div>
-        
+
     </div>
 </div>
 @endsection

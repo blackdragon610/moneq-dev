@@ -89,7 +89,7 @@ class ExpertProfileController extends Controller
         $monthExperts = $PostAnswer->monthHighExpert();
         $totalExperts = $PostAnswer->totalHighExpert();
 
-        return view('experts.index', compact('expert', 'answers', 'weekExperts', 'monthExperts', 'totalExperts'));
+        return view('experts.index', compact('expert', 'answers', 'weekExperts', 'monthExperts', 'totalExperts', 'gender'));
     }
 
     public function message(Category $Category, $expertId){

@@ -1,43 +1,38 @@
-<article class="col-12 bg-white">
-    <div id="article">
-        <div class="row">
+<article class="col-12 p-0">
+    <div id="article_detail">
+        <div class="row m-0">
             <div id="tag" class="text-center">{{$post->sub_category->sub_name}}</div>
-            <h5 class="font-weight-bold pl-2">{{$post->post_name}}</h5>
             <div class="ml-auto">
-                <img src="/images/svg/img-clock-grey.svg">
+                <img src="/images/svg/img-clock-grey.svg"/>
                 <span id="date">{{$post->created_at->format('Y/m/d')}}</span>
             </div>
         </div>
-        <div id="userinfo" class="row p-0 m-0" style="border:0px">
-            <img src="/images/img-avatar-sample.png" class="avatar m-0" id="avatar">
-            <div id="content" style="margin-top:0px;margin-left:12px;padding-top: 15px;">
-                <span id="name">{{$post->user->nickname.'さん'}}</span>
-                <span id="age">{{$post->user->date_birth}}</span>
-                <span id="age">{{'/'.$post->user->gender}}</span>
+        <h5 id="title">{{$post->post_name}}</h5>
+        <img src="/images/img-avatar-sample.png" class="avatar-lg m-0" id="avatar"/>
+        <span id="name">{{$post->user->nickname.'さん'}}</span>
+        <span id="age">{{getAge($post->user->date_birth)}}代{{'/'.$post->user->gender}}</span>
 
-                    @if($post->post_answer_id != 0)
-                        <img src="/images/solved-icon.png">
-                    @else
-                        <span>回答待ち</span>
-                    @endif
-            </div>
-        </div>
+        @if($post->post_answer_id != 0)
+            <span id="solved"><img src="/images/svg/img-checkbox-green-checked.svg"><span style="margin-left: 5px">解決済み</span></span>
+        @else
+            <span id="unsolved"><img src="/images/svg/img-checkbox-red-checked.svg"><span style="margin-left: 5px">未解決</span></span>
+        @endif
 
-        <div class="row">
-            <pre class="pt-2 label-16px" style="min-height:60px;margin-top:12px">{{$post->body}}</pre>
-        </div>
+        <img src="/images/svg/img-dashline.svg" style="height:1px;"/>
+
+        <p class="label-16px" >{{$post->body}}</p>
 
         @if($postAdd)
             @foreach ($postAdd as $item)
-                <div class="row">
-                    <image src="/images/svg/img-grey-pencil.svg" style="padding-right:10px">
+                <div class="mt-4 add-post">
+                    <img src="/images/svg/img-grey-pencil.svg"/>
                     <span class="age label-14px" style="color:#707070">{{$item->created_at->format('Y/m/d')}}</span>
                     <span class="age label-14px" style="color:#707070">追記)</span>
+                    <div class="col pl-0 mt-2">
+                        <p class="keepOneLine label-14px p-0 m-0">{{$item->body}}</p>
+                    </div>
                 </div>
-                <div class="row">
-                    <p class="pt-2 keepOneLine label-14px">{{$item->body}}</p>
-                </div>
-            @endforeach
+                @endforeach
         @endif
 
         @if($isUser != 1 && isLogin() == 1)
@@ -48,26 +43,24 @@
                 <button class="btn btn-default" type="button" id="dataHelp">
                     <i class="fa fa-heart-o <?php if($hPost !=0) echo 'fa_custom'?>" id="heart"></i> 参考になった
                 </button>
-            <a class="btn btn-default ml-auto" type="button" href="{{route('post.report', ['pId'=>$post->id])}}">
-                    <i class="fa fa-warning"></i> 通報する
+                <a class="btn btn-default ml-auto" type="button" href="{{route('post.report', ['pId'=>$post->id])}}">
+                        <i class="fa fa-warning"></i> 通報する
                 </a>
             </div>
         @endif
 
-        <div class="container-fluid">
-            <div class="row text-center">
-                <div class="col-12 col-sm-4 pt-2">
-                    <a href="#expertA" class="white-btn-200-40 btn">専門家回答</a>
-                </div>
-                <div class="col-12 col-sm-4 pt-2">
-                    <a href="#relationQ" class="white-btn-200-40 btn" >関連する質問</a>
-                </div>
-                @if($isUser == 1 && isLogin() == 1)
-                    <div class="col-12 col-sm-4 pt-2">
-                        <a href="{{route('post.report.add', ['pId'=>$post->id])}}" class="white-btn-200-40 btn" >相談に追記</a>
-                    </div>
-                @endif
+        <div class="row text-center pad0">
+            <div class="col-12 col-sm-4 pad0">
+                <a href="#expertA" class="btn white-btn-200-40 mt-2">専門家回答</a>
             </div>
+            <div class="col-12 col-sm-4 pad0">
+                <a href="#relationQ" class="btn white-btn-200-40 mt-2" >関連する質問</a>
+            </div>
+            @if($isUser == 1 && isLogin() == 1)
+                <div class="col-12 col-sm-4 pad0">
+                    <a href="{{route('post.report.add', ['pId'=>$post->id])}}" class="btn white-btn-200-40 mt-2" >相談に追記</a>
+                </div>
+            @endif
         </div>
     </div>
 </article>

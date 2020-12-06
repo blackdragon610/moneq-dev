@@ -44,8 +44,8 @@ class ProfileManageController extends Controller
 
         $genderArray = configJson("custom/gender");
         $paymentArray = configJson("custom/payment");
-        $email = array($user->email=> '');
-        $password = array('**************' => '');
+        $email = array('メールアドレス'=> $user->email);
+        $password = array('パスワード' => '**************');
         $profile = array('ニックネーム' => $user->nickname, '性別' => $user->gender?$genderArray[$user->gender]:'');
         $notification = array('回答通知' => $answer , 'メッセージ通知' => $message, 'MoneQからの通知' => $master);
         $membership = array($pay_status => '');

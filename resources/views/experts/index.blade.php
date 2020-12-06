@@ -15,7 +15,7 @@
             <!-- </section> -->
         </div>
 
-        <div class="col-12 col-sm-9 order-sm-1 order-2 pl-0" id="main">
+        <div class="col-12 col-sm-9 order-sm-1 order-2 pl-0" id="main" style="max-width: 800px">
             @include('experts.tema', ["type" => "search", 'name' => 'rightpane', 'contents' => $answers])
         </div>
     </div>
