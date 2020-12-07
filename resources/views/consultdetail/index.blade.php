@@ -66,16 +66,19 @@
                     </div>
                 @elseif(\Auth::user()->pay_status == 1)
                     <div class="entryBaner pb-3">
-                        <h5 class="font-weight-bold text-center p-2">有料会員になるとお金の専門家に相談できます</h5>
-                        <ul>
-                            <li><i class="fa fa-check"></i>月300円（税別）</li>
-                            <li><i class="fa fa-check"></i>毎月3回まで質問が可能</li>
-                            <li><i class="fa fa-check"></i>最短5分で回答可能</li>
-                            <li><i class="fa fa-check"></i>100名超の認定専門家が回答</li>
-                            <li><i class="fa fa-check"></i>回答率99％</li>
-                        </ul>
-                        <div class="col text-center ">
-                            <a href="{{route('payment', ['sheetId'=>1, 'member'=>\Auth::user()->pay_status])}}" class="btnSelected btn">専門家に相談をする（有料会員）</a>
+                        <div class="col-4"></div>
+                        <div class="col-8">
+                            <p class="title-24px-orange text-center">専門家にお金の悩みを相談できます</h5>
+                            <ul style="padding-left:80px;list-style:none">
+                                <li class="label-18px" style="margin-top:4px">・毎月3回まで質問が可能</li>
+                                <li class="label-18px" style="margin-top:4px">・最短5分で回答可能</li>
+                                <li class="label-18px" style="margin-top:4px">・100名超の認定専門家が回答</li>
+                                <li class="label-18px" style="margin-top:4px">・月300円の格安料金</li>
+                                <li class="label-18px" style="margin-top:4px">・スマホですぐに質問が可能</li>
+                            </ul>
+                            <div class="col text-center" style="margin-top:50px">
+                                <a href="{{route('payment', ['sheetId'=>1, 'member'=>\Auth::user()->pay_status])}}" class="btn yellow-roundbtn-440-50">今すぐ登録して、専門家に相談する</a>
+                            </div>
                         </div>
                     </div>
                 @endif

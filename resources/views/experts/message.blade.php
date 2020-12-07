@@ -23,7 +23,7 @@
             </section>
 
             <section>
-                <label for="birthday" class="label-regular">お名前</label><span class="btn-tag-red">(必須)</span>
+                <label for="birthday" class="label-regular">お名前<span class="btn-tag-red">必須</span></label>
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-6 input-group mt-3 mt-md-0">
                         <h6 class="font-weight-400 pl-2 textCenter" style="width:50px">姓</h6>
@@ -47,12 +47,12 @@
             </section>
 
             <section>
-                <label class="label-regular">相談・問い合わせの種類</label><span class="btn-tag-red">(必須)</span>
+                <label class="label-regular">相談・問い合わせの種類<span class="btn-tag-red">必須</span></label>
                 @include('layouts.parts.editor.select', ['name' => 'kind', "file" => $categories, "keyValue" => "", 'contents' => 'class="form-control textCenter p-0"'])
             </section>
 
             <section>
-                <label class="label-regular">相談内容</label><span class="btn-tag-red">(必須)</span>
+                <label class="label-regular">相談内容<span class="btn-tag-red">必須</span></label>
                 @include('layouts.parts.editor.textarea', ['name' => 'description', "contents" => ""])<br />
             </section>
 

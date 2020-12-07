@@ -48,14 +48,14 @@
                                 <li class="title-16px" style="list-style:disc;margin-left:24px">お礼や報告など質問ではない投稿</li>
                             </ul>
 
-                            <label for="post_name" class="label-regular" style="margin-top:48px">相談テーマ</label><span class="btn-tag-red">(必須)</span>
+                            <label for="post_name" class="label-regular" style="margin-top:48px">相談テーマ</label><span class="btn-tag-red">必須</span>
                             @include('layouts.parts.editor.text', ["type" => "text", 'name' => 'post_name',  'contents' => 'placeholder="例：結婚するのですが生命保険に入るべきでしょうか？"'])
                             <div class="text-right"><span id="name_length">0/25</span></div>
 
-                            <label for="sub_category_id" class="label-regular">カテゴリ</label><span class="btn-tag-red">(必須)</span>
+                            <label for="sub_category_id" class="label-regular">カテゴリ<span class="btn-tag-red">必須</span></label>
                             <div class="col-sm-6" style="padding:0">@include('layouts.parts.editor.select', ['name' => 'sub_category_id',  "file" => $categories, "keyValue" => "", "contents" => ""])</div>
 
-                            <label for="body" class="label-regular">相談内容</label><span class="btn-tag-red">(必須)</span>
+                            <label for="body" class="label-regular">相談内容<span class="btn-tag-red">必須</span></label>
 
                             <div style="background-color:#FFF5E9">
                                 <p class="label-14px">

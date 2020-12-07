@@ -16,10 +16,10 @@
                 <div class="row">
                     <div class="col-sm-12 bg-white">
 
-                        <label for="password" class="label-regular">パスワード</label><span class="btn-tag-red">(必須)</span>
+                        <label for="password" class="label-regular">パスワード<span class="btn-tag-red">必須</span></label>
                         @include('layouts.parts.editor.text', ["type" => "password", 'name' => 'password', 'contents' => 'class="form-control" placeholder="パスワードを入力"'])
 
-                        <label for="password_confirm" class="label-regular">パスワード(確認用)</label><span class="btn-tag-red">(必須)</span>
+                        <label for="password_confirm" class="label-regular">パスワード(確認用)<span class="btn-tag-red">必須</span></label>
                         @include('layouts.parts.editor.text', ["type" => "password", 'name' => 'password_confirmation', 'contents' => 'class="form-control" placeholder="パスワードを確認用を入力"'])
 
                     </div>
@@ -55,7 +55,20 @@
                     </div>
                 </div>
 
-                <div class="row" style="margin-top:24px">
+                <div style="padding-left:70px;margin-top:52px">
+                    <p class="title-21px">課金停止</p>
+                    <ol>
+                        <li class="label-16px" style="margin-top: 10px;">下のボタンより現在の料金プランの停止手続きをしてください。</li>
+                        <li class="label-16px" style="margin-top: 10px;">料金プラン停止手続き完了後、新しい料金プランの選択画面に移ります。</li>
+                    </ol>
+                    <p class="label-16px" style="margin-top:24px;color:#777777">無料会員への変更は即時対応します。残っている質問は引き続き今月中は使用できます。</p>
+                    <p class="label-16px" style="color:#777777">変更のキャンセルはできませんので、予めご了承ください。</p>
+                    <p style="margin-top:24px">
+                        <a href="{{route('profiles.membership.payment.delete')}}" class="text-dark title-16px" style="margin-top:24px"><u>課金停止</u></a>
+                    </p>
+                </div>
+
+                <!-- <div class="row" style="margin-top:24px">
                     <div class="col-sm-12 offset-md-3 col-md-6 pl-0 pr-0">
                         <article class="col-12 p-0" style="background-color:#F5F5F5; max-width:488px; min-height:402px">
                             <p class="title-small text-center">無料会員</p>
@@ -66,7 +79,7 @@
                             </div>
                         </article>
                     </div>
-                </div>
+                </div> -->
 
             <div class="row mt-4">
                 <div class="col text-center">

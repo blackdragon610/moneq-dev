@@ -55,10 +55,10 @@
                     <div class="row">
                         <div class="col-6">
                             <section>
-                                <label for="card" class="label-regular">カード番号</label><span class="btn-tag-red">(必須)</span>
+                                <label for="card" class="label-regular">カード番号<span class="btn-tag-red">必須</span></label>
                                 @include('layouts.parts.editor.text', ['name'=>'cardno', 'id'=>'cardno', 'type'=>'text', 'contents' => 'class="form-control textCenter p-0"'])
 
-                                <label for="birthday" class="label-regular">有効期限</label><span class="btn-tag-red">(必須)</span>
+                                <label for="birthday" class="label-regular">有効期限<span class="btn-tag-red">必須</span></label>
                                 <div class="row">
                                     <div class="col-6 input-group mt-3 mt-md-0">
                                         @include('layouts.parts.editor.select', ['name' => 'year', 'id'=>'year', "file" => config("funcs.payyears"), "keyValue" => "", 'contents' => 'class="form-control textCenter p-0"'])
@@ -72,10 +72,10 @@
                                     </div>
                                 </div>
 
-                                <label for="card" class="label-regular">カード名義</label><span class="btn-tag-red">(必須)</span>
+                                <label for="card" class="label-regular">カード名義<span class="btn-tag-red">必須</span></label>
                                 @include('layouts.parts.editor.text', ['name' => 'holdername', 'id'=>'holdername', 'type'=>'text', "keyValue" => "", 'contents' => 'class="form-control textCenter p-0"'])
 
-                                <label for="cardnumber" class="label-regular">セキュリティコード</label><span class="btn-tag-red">(必須)</span>
+                                <label for="cardnumber" class="label-regular">セキュリティコード<span class="btn-tag-red">必須</span></label>
                                 @include('layouts.parts.editor.text', ['name'=>'securitycode', 'id'=>'securitycode', 'type'=>'text', 'contents' => 'class="form-control textCenter p-0" style="width:150px"'])
 
                             </section>

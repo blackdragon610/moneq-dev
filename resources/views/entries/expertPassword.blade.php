@@ -12,10 +12,10 @@
             <h5 class="font-weight-bold p-2">パスワードの入力</h5>
             <hr class="mt-2 mb-3"/>
 
-            <label for="password">パスワード</label><span class="text-danger">(必須)</span>
+            <label for="password">パスワード<span class="text-danger">必須</span></label>
             @include('layouts.parts.editor.text', ["type" => "password", 'name' => 'password', 'contents' => 'class="form-control" placeholder="パスワードを入力"'])<br />
 
-            <label for="password_conform">パスワード(確認用)</label><span class="text-danger">(必須)</span>
+            <label for="password_conform">パスワード(確認用)<span class="text-danger">必須</span></label>
             @include('layouts.parts.editor.text', ["type" => "password", 'name' => 'password_confirmation', 'contents' => 'class="form-control" placeholder="パスワードを確認用を入力"'])<br />
 
         </div>    
