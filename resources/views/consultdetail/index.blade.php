@@ -88,9 +88,9 @@
                 <section>
                     <div class="row">
                         <div class="container-fluid whitepanel ">
-                            <h5 class="font-weight-bold">関連する質問</h5>
+                            <p class="title-24px" style="margin-top:36px;margin-bottom:24px">関連する質問</p>
                             @foreach($relationPosts as $item)
-                                @include('layouts.parts.custom.article', ["type" => "question", 'name' => 'question', 'contents' => $item])
+                                @include('layouts.parts.custom.articleforconsult', ["type" => "question", 'name' => 'question', 'contents' => $item])
                             @endforeach
                         </div>
                     </div>

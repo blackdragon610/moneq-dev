@@ -31,7 +31,7 @@
                 <div class="mt-4 add-post">
                     <img src="/images/svg/img-grey-pencil.svg"/>
                     <span class="age label-14px" style="color:#707070">{{$item->created_at->format('Y/m/d')}}</span>
-                    <span class="age label-14px" style="color:#707070">追記)</span>
+                    <span class="age label-14px" style="color:#707070">追記</span>
                     <div class="col pl-0 mt-2">
                         <p class="keepOneLine label-14px p-0 m-0">{{$item->body}}</p>
                     </div>

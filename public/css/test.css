@@ -839,6 +839,11 @@ div .grey-round-tag {
     font-size: 16px !important;
     color: red;
 }
+.title-24px {
+    font-family: NotoSans-JP-Medium;
+    font-size: 24px !important;
+    color: #221815;
+}
 .title-24px-red {
     font-family: NotoSans-JP-Medium;
     font-size: 24px !important;
@@ -1182,7 +1187,7 @@ span.answers {
 .keepTwoLine {
     overflow: hidden;
     line-height: 1.5em;
-    height: 3.25em;
+    max-height: 3.25em;
 }
 
 .underlineFor {
