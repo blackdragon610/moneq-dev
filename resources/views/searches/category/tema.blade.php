@@ -15,7 +15,6 @@
             <span class="title-24px-red">"<?php if($keyword) echo $keyword; else if($category_name) echo $category_name; else echo 'お金の悩みから探す';?>"</span> に該当する相談検索結果数
             <span class="title-24px-red" style="margin-left:16px">{{$posts->total()}}</span> 件
         </p>
-        
         <div class="dropdown ml-auto">
             <button class="btn yellow-btn-106-35 dropdown-toggle" type="button"
                     id="dropdownMenu1" data-toggle="dropdown"

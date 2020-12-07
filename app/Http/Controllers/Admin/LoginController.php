@@ -14,7 +14,7 @@ class LoginController extends AdminController {
     }
 
 
-    public function index(PushClass $PushClass)
+    public function index()
     {
 
 

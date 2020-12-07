@@ -12,6 +12,7 @@ use App\Models\PostData;
 use App\Models\PostAdd;
 use App\Models\PostAnswer;
 use App\Models\User;
+use App\Models\UserPayment;
 use App\Models\Expert;
 use App\Models\Specialtie;
 use App\Models\Notification;
@@ -23,7 +24,6 @@ class TopController extends Controller
      */
     public function index(Post $Post, PostAnswer $PostAnswer, PostData $PostData, Expert $Expert, User $User, Specialtie $Specialtie, Notification $Notification, Category $Category)
     {
-
         if(isProfile() == 3){
             if(\Auth::user()->pay_status == 1){
                 return redirect()->route('payment', ['sheetId'=>2, 'member'=>1]);
@@ -158,4 +158,49 @@ class TopController extends Controller
 
         return response()->json('ok');
     }
+
+    public function paymentStatusChange(UserPayment $UserPayment){
+
+        $payModel = $UserPayment->getPaymentStatus();
+        if($payModel){
+            $userModel = User::where('id', $payModel->user_id)->first();
+            if($userModel){
+                $status = $userModel->pay_status;
+                if($status == 2){
+                    $payDate = $payModel->updated_at;
+
+                    $earlier = new \DateTime($payDate);
+                    $later = new \DateTime();
+
+                    $diff = $later->diff($earlier)->format("%a");
+
+                    if($diff > 365){
+                        $userModel->pay_status = 1;
+                        $userModel->save();
+                        return response()->json('ok');
+                    }
+                }
+
+                if($status == 3){
+                    $payDate = $payModel->updated_at;
+
+                    $earlier = new \DateTime($payDate);
+                    $later = new \DateTime();
+
+                    $diff = $later->diff($earlier);
+
+                    $moth = ($diff->y * 12) + $diff->m;
+
+                    if($moth > 0){
+                        $userModel->pay_status = 1;
+                        $userModel->save();
+                        return response()->json('ok');
+                    }
+                }
+            }
+            return response()->json('no');
+        }
+
+        return response()->json('no');
+}
 }

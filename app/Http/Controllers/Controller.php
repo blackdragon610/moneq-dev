@@ -89,7 +89,6 @@ class Controller extends BaseController
             }
         }
 
-
         return [
             'errors' => $errors,
             'inputs' => $inputs,

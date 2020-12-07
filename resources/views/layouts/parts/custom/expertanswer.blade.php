@@ -23,7 +23,18 @@
                         </div>
                         <div class="w-100"></div>
                         <div class="col-9">
-                            <span id="card"><img src="/images/svg/img-address-card-solid.svg">CFP®、住宅ローンアドバイザー</span>
+                            <span id="card"><img src="/images/svg/img-address-card-solid.svg">
+<<<<<<< HEAD
+                                @foreach($license as $item)
+                                    {{$item->body.' '}}
+                                @endforeach
+                        </span>
+=======
+                @foreach($license as $item)
+                    {{$item->body.' '}}
+                @endforeach
+				</span>
+>>>>>>> e8932baad5b4c583ab527a9442f918a80e5a9fe6
                         </div>
                         <div class="col-3">
                             @if($contents->post->post_answer_id != 0)

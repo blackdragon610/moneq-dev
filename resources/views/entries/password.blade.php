@@ -35,7 +35,7 @@
                             <p class="title-16px" style="padding-left:65px"><img src="/images/svg/img-check-red.svg" style="margin-right:5px">回答した専門家に個別相談を依頼できる</p>
 
                             <div class="col text-center" style="margin-top:48px;margin-bottom:48px">
-                                <a href="{{url('payment/1/2')}}" class="btn white-btn-304-50" id="btnPlan1">選択する</a>
+                                <div class="btn white-btn-304-50" id="btnPlan1">選択する</div>
                             </div>
                         </article>
                     </div>
@@ -49,7 +49,7 @@
                             <p class="title-16px" style="padding-left:65px"><img src="/images/svg/img-check-red.svg" style="margin-right:5px">回答した専門家に個別相談を依頼できる</p>
 
                             <div class="col text-center" style="margin-top:48px;margin-bottom:48px">
-                                <a href="{{url('payment/1/3')}}" class="btn white-btn-304-50" id="btnPlan2">選択する</a>
+                                <div class="btn white-btn-304-50" id="btnPlan2">選択する</div>
                             </div>
                         </article>
                     </div>

@@ -14,6 +14,8 @@
 
                     <label class="title-16px" for="email" style="margin-top:32px">メールアドレス</label>
 
+                    <input type="hidden" name="mode" value="{{$mode}}">
+
                     @include('layouts.parts.editor.text', ["type" => "email", 'name' => 'email',
                         'contents' => 'class="form-control" placeholder="メールアドレス"
                                        style="border: 1px solid #707070; border-radius:0% !important"'])
@@ -28,12 +30,15 @@
                         <p class="col-12 p-0 m-0" style="font-family: NotoSans-JP-Regular;
                                          font-size: 16px !important;
                                          color:#221815">
-                        <input type="checkbox" id = "auto_login" name = "auto_login">
+                        <input type="checkbox" id = "register" name = "register">
                         <a href="#" style="color:#FF3B00">利用規約</a>に同意して登録する</p>
+                    </div>
+                    <div class="mt-2">
+                        <p class="error-box col-12" id="checkError" style="display:none">利用規約に同意してください。</p>
                     </div>
                     <div class="row">
                         <div class="col text-center">
-                            <button class="yellow-btn-fluid"
+                            <button class="yellow-btn-fluid" type="button" id="registerBtn"
                                     style="margin-top:24px; height:50px;
                                            font-family: NotoSans-JP-Medium;
                                            font-size: 16px !important;">送信する</button>
@@ -74,4 +79,21 @@
         </div>
     </div>
 </div>
+
+<script>
+    $('#registerBtn').click(function(){
+        if($('input:checked').length == 0)
+        {
+            $('#checkError').show();
+        }else{
+            form.submit();
+        }
+    });
+
+    $('#register').click(function(){
+        if( $(this).is(':checked') ){
+            $('#checkError').hide();
+        }
+    });
+</script>
 @endsection

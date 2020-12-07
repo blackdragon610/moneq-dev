@@ -14,6 +14,10 @@ class UserPayment extends ModelClass
     ];
 
     public function savePayment($orderId, $type, $price){
+
+        $model = $this->where('user_id', \Auth::user()->id)->first();
+        if($model)  $model->delete();
+
         if($type == 3)  $type = 1;
         $Model = clone $this;
         $Model->order_id = $orderId;
@@ -21,5 +25,11 @@ class UserPayment extends ModelClass
         $Model->type = $type;
         $Model->price = $price;
         $Model->save();
+    }
+
+    static public function getPaymentStatus(){
+        $Model = UserPayment::where('user_id' ,\Auth::user()->id)->first();
+
+        return $Model;
     }
 }
