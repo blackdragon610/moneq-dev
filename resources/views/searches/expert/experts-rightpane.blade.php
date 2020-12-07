@@ -7,9 +7,9 @@
             <img src="/images/svg/img-search-solid-small.svg" style="margin-right:10px">検索対象
         </p>
         <div class="content">
-            <p><a href="{{route('search.tema')}}" style="color:#221815;font-weight:600">> お金の相談テーマから探す</a></p>
-            <p><a href="{{route('search.category')}}" style="color:#221815;font-weight:600">> お金の悩みから探す</a></p>
-            <p><a href="{{route('search.expert')}}" style="color:red;font-weight:600">> 専門家から探す</a></p>
+            <p><a href="{{route('search.tema')}}" class="label-16px" style="color:#221815">> お金の相談テーマから探す</a></p>
+            <p><a href="{{route('search.category')}}" class="label-16px" style="color:#221815">> お金の悩みから探す</a></p>
+            <p><a href="{{route('search.expert')}}" class="label-16px" style="color:red">> 専門家から探す</a></p>
         </div>
     </div>
 
@@ -19,8 +19,8 @@
         </p>
         <button class="btn-tag-grey-round">結果の消去  <span class="fa fa-close"></span></button>
     </div>
-    <div class="col-12 m-0 p-0 mb-4">
-        <input type="text" id="tema" class="form-control"/>
+    <div class="col-12 m-0 p-0 mb-0">
+        <input type="text" id="tema" class="form-control" style="border:0px !important"/>
     </div>
 
     <button type="button" class="collapsible">評価<span class="fa fa-angle-up"></span></button>
