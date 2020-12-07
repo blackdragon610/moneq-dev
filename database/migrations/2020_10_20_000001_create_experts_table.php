@@ -45,6 +45,12 @@ class CreateExpertsTable extends Migration
             $table->integer("bank_type")->comment("口座種別")->index();
             $table->string("bank_number", 10)->comment("口座番号")->index();
             $table->string("bank_person_name")->comment("口座名義")->index();
+
+            $table->bigInteger("ranking_access")->comment("回答ページ閲覧")->index()->default(0);
+            $table->bigInteger("ranking_page_access")->comment("専門家ページ閲覧")->index()->default(0);
+            $table->bigInteger("ranking_message")->comment("個別相談")->index()->default(0);
+            $table->bigInteger("ranking_introduction")->comment("紹介人数")->index()->default(0);
+            $table->bigInteger("ranking_introduction_money")->comment("紹介金額")->index()->default(0);
         });
     }
 

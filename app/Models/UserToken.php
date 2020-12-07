@@ -62,6 +62,8 @@ class UserToken extends ModelClass
     {
         $token = $request->input("token");
 
+
+
         if (!$token){
             $token = \Session::get("token");
         }

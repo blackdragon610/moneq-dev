@@ -43,9 +43,4 @@
 
     </div>
 </div>
-<button type="button" class="btn btn-alert-blue">
-    <image src="/images/svg/image-fa-checkbox.svg">
-    メッセージが送信されました。
-    <span class="fa fa-close"></span>
-</button>
 @endsection

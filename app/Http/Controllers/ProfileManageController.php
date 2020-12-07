@@ -12,6 +12,7 @@ use App\Libs\SmsClass;
 use App\Mails\ChangeMail;
 use App\Mails\PasswordChangeMail;
 use App\Models\ChangeToken;
+use App\Models\UserToken;
 use App\Http\Requests\UserLoginRequest;
 use App\Http\Requests\PasswordRequest;
 use App\Models\UserPayment;
@@ -20,7 +21,7 @@ use App\Models\UserPayment;
 class ProfileManageController extends Controller
 {
     //
-    public function index(){
+    public function index(Request $request){
         $user = Auth::user();
 
         if($user->pay_status)
@@ -57,11 +58,20 @@ class ProfileManageController extends Controller
                 $payment = array($paymentArray[$pay] => '');
         }
 
-        return view('profiles.edit.index', compact('email', 'password', 'profile', 'notification', 'membership', 'payment'));
+        $emailChange = $request->emailChange;
+        $passChange = $request->passChange;
+        $profileChange = $request->profileChange;
+        $notifyChange = $request->notifyChange;
+
+        return view('profiles.edit.index', compact('email', 'password', 'profile', 'notification',
+                                                    'membership', 'payment', 'emailChange', 'passChange',
+                                                    'profileChange', 'notifyChange'));
     }
 
     public function emailUpdate(ChangeToken $ChangeToken, UserLoginRequest $request, MailClass $MailClass, ChangeMail $ChangeMail){
 
+
+        $emailChange = 0;
         $datas = $this->checkForm($request);
 
         if (!empty($datas['errors'])){
@@ -72,7 +82,7 @@ class ProfileManageController extends Controller
         }
 
 
-        $ChangeToken->setTransaction("トークン登録時にエラー", function() use($ChangeToken, $datas, $MailClass, $ChangeMail){
+        $ChangeToken->setTransaction("トークン登録時にエラー", function() use($ChangeToken, $request, $datas, $MailClass, $ChangeMail){
             $changeToken = $ChangeToken->saveEmailToken($datas["inputs"]);
             $item["token"] = $changeToken->token;
             $item['domain'] = getMyURL();
@@ -83,16 +93,20 @@ class ProfileManageController extends Controller
                 'item' => $item,
               );
 
-            \Mail::send('messages.emails.entry', compact('data'), function($message) use ($data){
+            \Mail::send('messages.emails.change_email', compact('data'), function($message) use ($data){
                 $message->to($data['email']);
                 $message->from(config('mail.username'));
                 $message->subject($data['subject']);
 
             });
 
+            if (\Mail::failures()) {
+                $emailChange = 0;
+            }else
+                $emailChange = 1;
         });
 
-        return redirect()->route('profiles.manage');
+        return redirect()->route('profiles.manage', ['emailChange'=>$emailChange]);
     }
 
     public function emailChange(Request $request, ChangeToken $ChangeToken, User $user)
@@ -105,13 +119,15 @@ class ProfileManageController extends Controller
         $user = $user->saveEmail($changeToken);
         if($user){
             $changeToken->delete();
-            return redirect('/');
+            return redirect()->route('top', ['emailChange'=>1]);
         }else{
             return redirect()->route('error');
         }
     }
 
     public function passwordUpdate(ChangeToken $ChangeToken, PasswordRequest $request, MailClass $MailClass, PasswordChangeMail $passwordMail){
+
+        $passChange = 0;
         $datas = $this->checkForm($request);
 
         if (!empty($datas['errors'])){
@@ -121,27 +137,32 @@ class ProfileManageController extends Controller
             ]);
         }
 
-        $ChangeToken->setTransaction("トークン登録時にエラー", function() use($ChangeToken, $datas, $MailClass, $passwordMail){
+        $ChangeToken->setTransaction("トークン登録時にエラー", function() use($ChangeToken, $request, $datas, $MailClass, $passwordMail){
             $changeToken = $ChangeToken->savePasswordToken($datas["inputs"]);
             $item["token"] = $changeToken->token;
             $item['domain'] = getMyURL();
 
             $data = array(
-                'email' => $datas['inputs']['email'],
+                'email' => \Auth::user()->email,
                 'subject' => 'パスワードの変更',
                 'item' => $item,
               );
 
-            \Mail::send('messages.emails.entry', compact('data'), function($message) use ($data){
+            \Mail::send('messages.emails.change_password', compact('data'), function($message) use ($data){
                 $message->to($data['email']);
                 $message->from(config('mail.username'));
                 $message->subject($data['subject']);
 
             });
 
+            if (\Mail::failures()) {
+                $passChange = 0;
+            }else
+                $passChange = 1;
+
         });
 
-        return redirect()->route('profiles.manage');
+        return redirect()->route('profiles.manage', ['passChange'=>$passChange]);
     }
 
     public function passwordChange(Request $request, ChangeToken $ChangeToken, User $user)
@@ -154,7 +175,7 @@ class ProfileManageController extends Controller
         $user = $user->savePassword($changeToken);
         if($user){
             $changeToken->delete();
-            return redirect('/');
+            return redirect()->route('top', ['passChange'=>1]);
         }else{
             return redirect()->route('error');
         }
@@ -178,15 +199,6 @@ class ProfileManageController extends Controller
     }
 
     public function profileUpdate(Request $request, User $User){
-
-        // $datas = $this->checkForm($request);
-
-        // if (!empty($datas['errors'])){
-        //     return view('profiles.edit.profile', [
-        //         "errors" => $datas['errors'],
-        //         "inputs" => $datas["inputs"],
-        //     ]);
-        // }
 
         $validator = Validator::make($request->all(), [
             'nickname' => 'required',
@@ -212,7 +224,7 @@ class ProfileManageController extends Controller
 
         $user->save();
 
-        return redirect()->route('profiles.manage');
+        return redirect()->route('profiles.manage', ['profileChange'=>1]);
     }
 
     public function notification(){
@@ -231,7 +243,7 @@ class ProfileManageController extends Controller
 
         $user->update();
 
-        return redirect()->route('profiles.manage');
+        return redirect()->route('profiles.manage', ['notifyChange'=>1]);
     }
 
     public function membership(){

@@ -61,7 +61,7 @@
                     $('[name="answer"]').empty().html();
                     $('#answer' + {{$contents->id}}).html('<li><i class="fa fa-check"></i>この専門家の回答で解決</li>');
                     $('#dataHelpAlert').empty().html('<img src="/images/solved-icon.png">');
-                    $('.toast').toast('show');
+                    // $('.toast').toast('show');
                 }
             },
             error: function (data) {

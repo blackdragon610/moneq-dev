@@ -78,12 +78,8 @@ class User  extends ModelClass implements JWTSubject
         $user = User::where('id', $changeToken->user_id)->first();
 
         if($user){
-            if (isset($changeToken->value)){
-                $user->email = $changeToken->value;
-                $user->nickname = substr($changeToken->value, 0, 3);
-            }
-
             $user->email = $changeToken->value;
+            $user->nickname = substr($changeToken->value, 0, 3);
             $user->save();
             }
 
@@ -119,11 +115,6 @@ class User  extends ModelClass implements JWTSubject
         $user = User::where('id', $changeToken->user_id)->first();
 
         if($user){
-            if (isset($changeToken->value)){
-                $user->email = $changeToken->value;
-                $user->nickname = substr($changeToken->value, 0, 3);
-            }
-
             $user->password = $changeToken->value;
             $user->save();
             }

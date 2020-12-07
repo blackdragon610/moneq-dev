@@ -190,7 +190,7 @@ class SearchController extends Controller
                 if($sql6 != '') $where .= ' and ('.$sql6.')';
             }
 
-            $totalSql = "SELECT t1.id, t1.created_at, t1.updated_at, post_name, body, count_answer, count_usuful, count_access, nickname,
+            $totalSql = "SELECT t1.id, t1.created_at, t1.updated_at, t1.deleted_at, post_name, body, count_answer, count_usuful, count_access, nickname,
                          gender, era, child, marriage, date_birth, sub_name, specialtie_id, prefecture_area, post_answer_id from
                         (SELECT DISTINCT posts.* , specialtie_id, prefecture_area from posts
                          LEFT JOIN(SELECT post_id, specialtie_id, prefecture_area from post_answers
@@ -212,7 +212,7 @@ class SearchController extends Controller
             return response()->json(['html'=>$view]);
         }
 
-        $totalSql = "SELECT t1.id, t1.created_at, t1.updated_at, post_name, body, count_answer, count_usuful, count_access, nickname,
+        $totalSql = "SELECT t1.id, t1.created_at, t1.updated_at, t1.deleted_at, post_name, body, count_answer, count_usuful, count_access, nickname,
                         gender, era, child, marriage, date_birth, sub_name, specialtie_id, post_answer_id from
                         (SELECT DISTINCT posts.* , specialtie_id from posts
                         LEFT JOIN(SELECT post_id, specialtie_id from post_answers
@@ -286,7 +286,7 @@ class SearchController extends Controller
                 if($sql2 != '') $where .= ' and ('.$sql2.')';
             }
 
-            $totalSql = "SELECT t1.id, t1.created_at, t1.updated_at, post_name, body, count_answer, count_usuful, count_access, nickname,
+            $totalSql = "SELECT t1.id, t1.created_at, t1.updated_at, t1.deleted_at, post_name, body, count_answer, count_usuful, count_access, nickname,
                          gender, era, child, marriage, date_birth, sub_name, specialtie_id, post_answer_id from
                         (SELECT DISTINCT posts.* , specialtie_id from posts
                          LEFT JOIN(SELECT post_id, specialtie_id from post_answers
@@ -308,7 +308,7 @@ class SearchController extends Controller
             return response()->json(['html'=>$view]);
         }
 
-        $totalSql = "SELECT t1.id, t1.created_at, t1.updated_at, post_name, body, count_answer, count_usuful, count_access, nickname,
+        $totalSql = "SELECT t1.id, t1.created_at, t1.updated_at, t1.deleted_at, post_name, body, count_answer, count_usuful, count_access, nickname,
                         gender, era, child, marriage, date_birth, sub_name, specialtie_id, post_answer_id from
                         (SELECT DISTINCT posts.* , specialtie_id from posts
                         LEFT JOIN(SELECT post_id, specialtie_id from post_answers
@@ -425,7 +425,7 @@ class SearchController extends Controller
             return response()->json(['html'=>$view]);
         }
 
-        $experts = Expert::orderBy('updated_at', 'desc')->paginate(config('app.per_page'));
+        $experts = Expert::orderBy('updated_at', 'desc')->withTrashed()->paginate(config('app.per_page'));
 
        return view('searches.expert.index', compact('experts', 'gender', 'spec', 'prefecture'));
     }

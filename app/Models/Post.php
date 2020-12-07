@@ -24,11 +24,12 @@ class Post extends ModelClass
     {
         $datas["user_id"] = $userId;
         $datas['status'] = $flag;
+        $datas['id'] = $datas['post_id'];
 
         $Model = clone $this;
 
-        if (!empty($datas["id"])){	
-            $Model = $Model->whereId($datas["id"])->whereUserId($userId)->first();	
+        if (!empty($datas["id"])){
+            $Model = $Model->whereId($datas["id"])->whereUserId($userId)->first();
         }
 
         $Model->setModel($datas);

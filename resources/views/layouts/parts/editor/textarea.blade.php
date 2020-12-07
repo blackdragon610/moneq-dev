@@ -1,6 +1,8 @@
 @if (!empty($isConfirmation))
-	{!! nl2br(e( getVariable($inputs, $name) )) !!}
-	<input type="hidden" name="{{$name}}" {!! $contents !!} value="@if (isset($inputs)){{getVariable($inputs, $name)}}@endif" />
+    <div class="panel-body">
+        {!! nl2br(e( getVariable($inputs, $name) )) !!}
+        <input type="hidden" name="{{$name}}" {!! $contents !!} value="@if (isset($inputs)){{getVariable($inputs, $name)}}@endif" />
+    </div>
 
 @else
 

@@ -22,7 +22,7 @@ class TopController extends Controller
     /**
      * トップ
      */
-    public function index(Post $Post, PostAnswer $PostAnswer, PostData $PostData, Expert $Expert, User $User, Specialtie $Specialtie, Notification $Notification, Category $Category)
+    public function index(Post $Post, PostAnswer $PostAnswer, PostData $PostData, Expert $Expert, User $User, Specialtie $Specialtie, Notification $Notification, Category $Category, Request $request)
     {
         if(isProfile() == 3){
             if(\Auth::user()->pay_status == 1){
@@ -55,15 +55,17 @@ class TopController extends Controller
         $experts = $Expert->getExpertCount();
         $users = $User->getUserCount();
 
-        $isTop = 1;
-
         $gender = configJson('custom/gender');
         $prefecture = configJson('custom/prefecture');
         $specialties = $Specialtie->getSelect();
 
+        $isTop = 1;
+        $emailChange = $request->changeEmail;
+        $passChange = $request->passChange;
+
         return view('index', compact('accessTopPost', 'newTopPost', 'monthAnswers', 'totalAnswers', 'monthHelps',
                                      'totalHelps', 'gender', 'prefecture', 'specialties', 'notifications', 'questions',
-                                     'answers', 'helps', 'experts', 'users', 'categories', 'isTop'));
+                                     'answers', 'helps', 'experts', 'users', 'categories', 'isTop', 'emailChange', 'passChange'));
     }
 
     public function search(Request $request){
@@ -115,43 +117,43 @@ class TopController extends Controller
         }
     }
 
-    public function route(Request $request, Post $Post, PostAnswer $PostAnswer, PostData $PostData, Notification $notification, $type, $id){
-        if($type == 1){
-            $post = $Post::where([['id',$id], ['status', 2]])->first();
-            $post->post_answer_id = $post->isAnswerCheck();
-            $notification->updateReady($post->post_answer_id);
-            $Post->updatePostReadCount($post);
+    // public function route(Request $request, Post $Post, PostAnswer $PostAnswer, PostData $PostData, Notification $notification, $type, $id){
+    //     if($type == 1){
+    //         $post = $Post::where([['id',$id], ['status', 2]])->first();
+    //         $post->post_answer_id = $post->isAnswerCheck();
+    //         $notification->updateReady($post->post_answer_id);
+    //         $Post->updatePostReadCount($post);
 
-            $postAdd = $post->find($id)->adds;
-            $postAnswer = $post->find($id)->answers;
+    //         $postAdd = $post->find($id)->adds;
+    //         $postAnswer = $post->find($id)->answers;
 
-            if(isLogin() == 1){
-                $isUser = isUser($post->user->id);
-            }else $isUser = -1;
+    //         if(isLogin() == 1){
+    //             $isUser = isUser($post->user->id);
+    //         }else $isUser = -1;
 
-            if($isUser == 0){
-                $postData = $PostData->getPostHistoryData($post->user->id, $id);
-                $postData->user_id =$post->user->id;
-                $postData->post_id = $id;
-                $postData->type = 1;
-                $postData->save();
-            }
+    //         if($isUser == 0){
+    //             $postData = $PostData->getPostHistoryData($post->user->id, $id);
+    //             $postData->user_id =$post->user->id;
+    //             $postData->post_id = $id;
+    //             $postData->type = 1;
+    //             $postData->save();
+    //         }
 
-            $postStoreFlag = $PostData->getPostStoreData($post->user->id, $id);
-            $postHelpFlag = $PostData->getPostHelpData($post->user->id, $id);
+    //         $postStoreFlag = $PostData->getPostStoreData($post->user->id, $id);
+    //         $postHelpFlag = $PostData->getPostHelpData($post->user->id, $id);
 
-            $weekExperts = $PostAnswer->weekHighExpert();
-            $monthExperts = $PostAnswer->monthHighExpert();
-            $totalExperts = $PostAnswer->totalHighExpert();
+    //         $weekExperts = $PostAnswer->weekHighExpert();
+    //         $monthExperts = $PostAnswer->monthHighExpert();
+    //         $totalExperts = $PostAnswer->totalHighExpert();
 
-            $post->user->date_birth = getAge($post->user->date_birth);
-            $gender = configJson('custom/gender');
-            $post->user->gender = $gender[$post->user->gender];
+    //         $post->user->date_birth = getAge($post->user->date_birth);
+    //         $gender = configJson('custom/gender');
+    //         $post->user->gender = $gender[$post->user->gender];
 
-            return view('consultdetail.index', compact('post', 'postAdd', 'postAnswer', 'weekExperts',
-                                                         'monthExperts', 'totalExperts', 'isUser', 'postStoreFlag', 'postHelpFlag'));
-            }
-    }
+    //         return view('consultdetail.index', compact('post', 'postAdd', 'postAnswer', 'weekExperts',
+    //                                                      'monthExperts', 'totalExperts', 'isUser', 'postStoreFlag', 'postHelpFlag'));
+    //         }
+    // }
 
     public function repost(Post $Post){
         $Post->rePostCreate();

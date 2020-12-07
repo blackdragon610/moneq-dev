@@ -32,7 +32,9 @@ class OtherController extends Controller
 
         // posts
         $posts = $Post->where('user_id', \Auth::user()->id)
+                                ->whereStatus(2)
                                 ->orderBy('created_at', 'desc')
+                                ->withTrashed()
                                 ->paginate(config('app.per_page'));
         $gender = configJson('custom/gender');
 
@@ -61,9 +63,12 @@ class OtherController extends Controller
                             ->leftJoin('sub_categories', 'posts.sub_category_id', '=', 'sub_categories.id')
                             ->leftJoin('users', 'posts.user_id', '=', 'users.id')
                             ->select(DB::raw('posts.*, sub_name, nickname, date_birth, gender, posts.id as pId'))
+                            ->whereStatus(2)
                             ->where('post_data.type', 1)
                             ->where('post_data.user_id', \Auth::user()->id)
+                            ->whereRaw('!isnull(posts.id)')
                             ->orderBy('post_data.updated_at', 'desc')
+                            ->withTrashed()
                             ->paginate(config('app.per_page'));
         $gender = configJson('custom/gender');
 
@@ -95,9 +100,12 @@ class OtherController extends Controller
                             ->leftJoin('sub_categories', 'posts.sub_category_id', '=', 'sub_categories.id')
                             ->leftJoin('users', 'posts.user_id', '=', 'users.id')
                             ->select(DB::raw('posts.*, sub_name, nickname, date_birth, gender, posts.id as pId'))
+                            ->whereStatus(2)
                             ->where('post_data.type', 2)
                             ->where('post_data.user_id', \Auth::user()->id)
+                            ->whereRaw('!isnull(posts.id)')
                             ->orderBy('post_data.created_at', 'desc')
+                            ->withTrashed()
                             ->paginate(config('app.per_page'));
         $gender = configJson('custom/gender');
 

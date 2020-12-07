@@ -11,7 +11,7 @@
                 </li>
             </ol>
         </div>
-        
+
         <div class="row" style="margin-top:80px; margin-bottom:80px" >
             <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 p-2">
                 @include('layouts.parts.custom.profilecard', ['url' => 'manage/email', 'name' => 'メールアドレス', 'contents' => $email])
@@ -37,5 +37,44 @@
 
     </div>
 </div>
+
+
+@if($passChange == 1)
+    <button type="button" id='notify' class="btn btn-alert-blue">
+        <image src="/images/svg/image-fa-checkbox.svg">
+        パスワードが変更されました。
+        <span class="fa fa-close"></span>
+    </button>
+@endif
+
+@if($emailChange == 1)
+    <button type="button" id='notify' class="btn btn-alert-blue">
+        <image src="/images/svg/image-fa-checkbox.svg">
+        メッセージが送信されました。
+        <span class="fa fa-close"></span>
+    </button>
+@endif
+@if($profileChange == 1)
+
+    <button type="button" id='notify' class="btn btn-alert-blue">
+        <image src="/images/svg/image-fa-checkbox.svg">
+        プロフィールが変更されました。
+        <span class="fa fa-close"></span>
+    </button>
+@endif
+
+@if($notifyChange == 1)
+    <button type="button" id='notify' class="btn btn-alert-blue">
+        <image src="/images/svg/image-fa-checkbox.svg">
+        通知設定が変更されました。
+        <span class="fa fa-close"></span>
+    </button>
+@endif
+
+<script>
+    $('.fa').click(function(){
+        $('#notify').hide();
+    })
+</script>
 
 @endsection

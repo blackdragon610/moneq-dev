@@ -109,10 +109,4 @@
 
     </div>
 </div>
-<button type="button" class="btn btn-alert-blue">
-    <image src="/images/svg/image-fa-checkbox.svg">
-    プロフィールが変更されました。
-    <span class="fa fa-close"></span>
-</button>
-
 @endsection
