@@ -23,7 +23,7 @@
                 @include('layouts.parts.custom.profilecard', ["url" => "manage/profile", 'name' => 'プロフィール', 'contents' => $profile])
             </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 p-2">
-                @include('layouts.parts.custom.profilecard', ["url" => "manage/notification", 'name' => '通知設定', 'align' =>'text-right font-weight-bold', 'contents' => $notification])
+                @include('layouts.parts.custom.profilecard', ["url" => "manage/notification", 'name' => '通知設定', 'align' =>'text-right', 'contents' => $notification])
             </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 p-2">
                 @include('layouts.parts.custom.profilecard', ["url" => "manage/membership", 'name' => '会員ステータス', 'contents' => $membership])

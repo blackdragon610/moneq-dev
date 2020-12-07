@@ -195,7 +195,7 @@ div#searchbar.input-group button {
     min-width: 52px !important;
     background-color: #ee7800;
     border-radius: 0px 6px 6px 0px;
-    border: 1px solid #e3e3e3;
+    border: 1px solid #ee7800;
 }
 
 footer #description {
@@ -397,7 +397,21 @@ p {
 }
 
 /* ----------- */
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color:#dbdbdb !important;
+    opacity: 1; /* Firefox */
+}
 
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #dbdbdb !important;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #dbdbdb !important;
+}
+.form-control {
+    height: 50px !important;
+}
 .sectionbar5 {
     height: 888px !important;
     width: 100%;
@@ -673,7 +687,7 @@ p {
     min-width: 100px !important;
     margin-left: 0px;
 }
-.white-btn-304-50{
+.white-btn-304-50 {
     background-color: white !important;
     min-width: 304px !important;
     min-height: 50px !important;
@@ -829,6 +843,11 @@ div .grey-round-tag {
     font-size: 24px !important;
     color: red;
 }
+.title-24px-orange {
+    font-family: NotoSans-JP-Medium;
+    font-size: 24px !important;
+    color: #FF8100;
+}
 .title-22px {
     font-family: NotoSans-JP-Medium;
     font-size: 22px !important;
@@ -865,6 +884,11 @@ div .grey-round-tag {
 .label-16px {
     font-family: NotoSans-JP-Regular;
     font-size: 16px !important;
+    color: #221815;
+}
+.label-18px {
+    font-family: NotoSans-JP-Regular;
+    font-size: 18px !important;
     color: #221815;
 }
 .label-regular {
@@ -1011,7 +1035,7 @@ article #wait {
 
 /* ------------- */
 article #userinfo {
-    border: 1px solid #9b9b9b;
+    border: 1px solid #dbdbdb;
     margin:5px;
 }
 article .ranking {
@@ -1027,7 +1051,7 @@ article #userinfo #content {
     margin-left: 20px;
     margin-top: 30px;
 }
-article #userinfo #name {
+article #userinfo #name0 {
     font-family: NotoSans-JP-Medium;
     font-size: 18px !important;
     color: #221815;
@@ -1075,7 +1099,7 @@ article .notice p#description {
     color: #221815;
 }
 
-article #profilecard #title {
+article #profilecard #title1 {
     font-family: NotoSans-JP-Medium;
     font-size: 24px !important;
     color: #221815;
@@ -1195,6 +1219,7 @@ span.answers {
     font-family: NotoSans-JP-Medium;
     font-size: 16px !important;
     line-height: 34px !important;
+    margin-top: 12px;
 }
 
 .left-icon-holder {
@@ -1222,6 +1247,7 @@ span.answers {
     font-family: NotoSans-JP-Medium;
     font-size: 16px !important;
     line-height: 34px !important;
+    margin-top: 12px;
 }
 
 .fb {
@@ -1232,6 +1258,7 @@ span.answers {
     font-family: NotoSans-JP-Medium;
     font-size: 16px !important;
     line-height: 34px !important;
+    margin-top: 12px;
 }
 
 .twitter {
@@ -1242,6 +1269,7 @@ span.answers {
     font-family: NotoSans-JP-Medium;
     font-size: 16px !important;
     line-height: 34px !important;
+    margin-top: 12px;
 }
 
 .google {
@@ -1253,6 +1281,7 @@ span.answers {
     font-family: NotoSans-JP-Medium;
     font-size: 16px !important;
     line-height: 34px !important;
+    margin-top: 12px;
 }
 
 .bootstrap-tagsinput {
@@ -1327,8 +1356,9 @@ span.answers {
     text-decoration: none;
     display: inline-block;
     font-size: 10px;
-    margin: 4px 2px;
+    margin: 2px 11px;
     cursor: pointer;
+    vertical-align: text-bottom;
 }
 .fa-bell[data-count]:after{
     position:absolute;

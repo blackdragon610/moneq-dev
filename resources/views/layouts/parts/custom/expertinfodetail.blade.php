@@ -3,12 +3,12 @@
     <div class="row">
         <div id="userinfo" class="row container-fluid" style="border:0px !important">
             @if($contents->image)
-                <img src="{{$contents->image}}" id="avatar" class="avatar">
+                <img src="{{$contents->image}}" id="avatar">
             @else
-                <img src="/images/img-avatar-sample.png" class="avatar-lg" id="avatar"/>
+                <img src="/images/img-avatar-sample.png" id="avatar"/>
             @endif
             <div id="content">
-                <span id="name">{{$contents->expert_name_first.$contents->expert_name_second}}さん</span>
+                <span id="name0">{{$contents->expert_name_first.$contents->expert_name_second}}さん</span>
                 <span id="name1">{{$contents->expert_name_kana_first.$contents->expert_name_kana_second}}</span>
                 <br/>
                 <span id="card" style="width:230px;display:inline-block"><img src="/images/svg/img-address-card-solid.svg">
@@ -18,10 +18,10 @@
                 </span>
                 <span id="card" style="margin-left:60px"><img class="expert-sub-icon" src="/images/svg/img-yellow-messages-solid.svg">回答数：<span id="number">{{$contents->count_answer}}</span>件</span>
                 <br/>
-                <span id="sex" style="width:230px;display:inline-block">{{$contents->date_birth.'/'.$contents->gender}}</span>
+                <span id="card" style="color:#221815;width:230px;display:inline-block">{{$contents->date_birth.'/'.$contents->gender}}</span>
                 <span id="card" style="margin-left:60px"><img class="expert-sub-icon" src="/images/svg/check-solid.svg">解決済み：<span id="number">{{$contents->count_useful}}</span>件</span>
                 <br/>
-                <span id="sex" style="width:230px;display:inline-block">{{$contents->prefecture_area}}</span>
+                <span id="card" style=color:#221815;width:230px;display:inline-block">{{$contents->prefecture_area}}</span>
             </div>
         </div>
     </div>

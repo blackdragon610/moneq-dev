@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <p class="col-12 title-medium" style="padding-left:70px !important">ログイン</p>
-            <div class="col-6" style="padding-left:70px !important">
+            <div class="col-12 col-sm-6" style="padding-left:70px !important">
                 {{Form::open(['url'=> route('auth'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
 
                     <label class="title-16px" for="email" style="margin-top:32px">メールアドレス</label>
@@ -44,24 +44,25 @@
                     </div>
                 {{Form::close()}}
             </div>
-            <div class="col-6" style="padding-right:70px !important">
+            <div class="col-12 col-sm-6" style="padding-right:70px !important">
                 <p class="col-12" style="background-color:#EAEAEA; height:36px; padding-top: 6px;
                                          font-family: NotoSans-JP-Medium;
-                                         font-size: 16px !important;">ソーシャルアカウントでログイン</p>
+                                         font-size: 16px !important;
+                                         margin-bottom:0px !important">ソーシャルアカウントでログイン</p>
 
                 <a href="{{ url('/sns/line/login') }}" class="line btn left-icon-holder">
                     <img src="/images/svg/image-button-line.svg">LINEでログイン
                 </a>
-                <a href="{{ url('/sns/yahoojp/login') }}" class="yahoo btn left-icon-holder mt-3">
+                <a href="{{ url('/sns/yahoojp/login') }}" class="yahoo btn left-icon-holder">
                     <img src="/images/svg/image-button-yahoo.svg">Yahoo! JAPAN IDでログイン
                 </a>
-                <a href="{{ url('/sns/facebook/login') }}" class="fb btn left-icon-holder mt-3">
+                <a href="{{ url('/sns/facebook/login') }}" class="fb btn left-icon-holder">
                     <img src="/images/svg/image-button-facebook.svg">Facebookでログイン
                 </a>
-                <a href="{{ url('/sns/twitter/login')}}" class="twitter left-icon-holder btn mt-2">
+                <a href="{{ url('/sns/twitter/login')}}" class="twitter left-icon-holder btn">
                     <img src="/images/svg/image-button-twitter.svg">Twitterでログイン
                 </a>
-                <a href="{{ url('/sns/google/login') }}" class="google btn left-icon-holder mt-2">
+                <a href="{{ url('/sns/google/login') }}" class="google btn left-icon-holder">
                     <img src="/images/svg/image-button-google.svg">Googleでログイン
                 </a>
             </div>

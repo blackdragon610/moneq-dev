@@ -1,6 +1,6 @@
 <article class="col-12 bg-white profileArticle" >
     <div id="profilecard" class="mt-4">
-        <p id="title">{{ $name }}</p>
+        <p id="title1">{{ $name }}</p>
 
         <?php $keys = array_keys($contents); ?>
         <div class="container-fluid mt-3" style="min-height:135px">

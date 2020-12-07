@@ -21,15 +21,15 @@
 
                 {{Form::open(['url'=> route('profiles.profile.update'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
                     <section>
-                        <label for="" class="label-regular">ニックネーム</label><span class="btn-tag-red">(必須)</span>
+                        <label for="" class="label-regular">ニックネーム<span class="btn-tag-red">必須</span></label>
                         @include('layouts.parts.editor.text', ["type" => "text", 'name' => 'nickname', 'contents' => 'class="form-control" placeholder="パスワード" style="max-width:500px"'])
 
-                        <label for="sex" class="label-regular">性別</label><span class="btn-tag-red">(必須)</span>
+                        <label for="sex" class="label-regular">性別<span class="btn-tag-red">必須</span></label>
                         <div class="pt-2">
                             @include('layouts.parts.editor.radioext', ['name' => 'gender', "file" => configJson("custom/gender"), "keyValue" => "", 'contents' => 'class="form-control"'])
                         </div>
 
-                        <label for="birthday" class="label-regular">生年月日</label><span class="btn-tag-red">(必須)</span>
+                        <label for="birthday" class="label-regular">生年月日<span class="btn-tag-red">必須</span></label>
                         <div class="row">
                             <div class="col-sm-12 col-md-2 input-group mt-3 mt-md-0">
                                 @include('layouts.parts.editor.select', ['name' => 'date_birth_year', "file" => config("funcs.years"), "keyValue" => "", 'contents' => 'class="form-control btn-select p-0"'])
@@ -52,25 +52,25 @@
 
                         <div class="row">
                             <div class="col-sm-12 col-md-6 pt-2">
-                                <label for="birthday" class="label-regular">お住まいの都道府県</label><span class="btn-tag-red">(必須)</span>
+                                <label for="birthday" class="label-regular">お住まいの都道府県<span class="btn-tag-red">必須</span></label>
                                 @include('layouts.parts.editor.select', ['name' => 'prefecture', "file" => configJson("custom/prefecture"), "keyValue" => "", 'contents' => 'class="form-control btn-select p-0"'])
                             </div>
                             <div class="col-sm-12 col-md-6 pt-2">
-                                <label for="birthday" class="label-regular">職業</label><span class="btn-tag-red">(必須)</span>
+                                <label for="birthday" class="label-regular">職業<span class="btn-tag-red">必須</span></label>
                                 @include('layouts.parts.editor.select', ['name' => 'job', "file" => configJson("custom/job"), "keyValue" => "", 'contents' => 'class="form-control btn-select p-0"'])
                             </div>
                             <div class="col-sm-12 col-md-6 pt-2">
-                                <label for="birthday" class="label-regular">婚姻状況</label><span class="btn-tag-red">(必須)</span>
+                                <label for="birthday" class="label-regular">婚姻状況<span class="btn-tag-red">必須</span></label>
                                 @include('layouts.parts.editor.select', ['name' => 'marriage', "file" => configJson("custom/marriage"), "keyValue" => "", 'contents' => 'class="form-control btn-select p-0"'])
                             </div>
                             <div class="col-sm-12 col-md-6 pt-2">
-                                <label for="birthday" class="label-regular  ">子供人数</label><span class="btn-tag-red">(必須)</span>
+                                <label for="birthday" class="label-regular  ">子供人数<span class="btn-tag-red">必須</span></label>
                                 @include('layouts.parts.editor.select', ['name' => 'child', "file" => configJson("custom/child"), "keyValue" => "", 'contents' => 'class="form-control btn-select p-0"'])
                             </div>
                         </div>
 
                         <section>
-                            <label for="" class="label-regular">お金についての悩みはありますか？</label><span class="btn-tag-red">(複数選択)</span><br/>
+                            <label for="" class="label-regular">お金についての悩みはありますか？</label><br/>
                             @include('layouts.parts.editor.checkboxext', ['name' => 'trouble', "file" => configJson("custom/trouble"), "keyValue" => "", 'contents' => 'class="checkboxHidden"'])
                         </section>
 
@@ -82,7 +82,7 @@
                         </div>
 
                         <section>
-                            <label for="" class="label-regular">家族構成</label><span class="btn-tag-red">(複数選択)</span><br/>
+                            <label for="" class="label-regular">家族構成</label><br/>
                             @include('layouts.parts.editor.checkboxext', ['name' => 'family', "file" => configJson("custom/family"), "keyValue" => "", 'contents' => 'class="checkboxHidden"'])
                         </section>
 

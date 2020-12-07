@@ -59,9 +59,8 @@
 
                             <label for="post_name" class="label-regular" style="margin-top:48px">相談テーマ</label>
                             @if(!$isConfirmation)
-                                <span class="btn-tag-red">(必須)</span>
+                                <span class="btn-tag-red">必須</span>
                             @endif
-
                             @include('layouts.parts.editor.text', ["type" => "text", 'name' => 'post_name',  'contents' => 'placeholder="例：結婚するのですが生命保険に入るべきでしょうか？"'])
 
                             @if(!$isConfirmation)
@@ -69,9 +68,8 @@
                             @endif
 
                             <label for="sub_category_id" class="label-regular">カテゴリ</label>
-
                             @if(!$isConfirmation)
-                                <span class="btn-tag-red">(必須)</span>
+                                <span class="btn-tag-red">必須</span>
                             @endif
 
                             <div class="col-sm-6" style="padding:0">@include('layouts.parts.editor.select', ['name' => 'sub_category_id',  "file" => $categories, "keyValue" => "", "contents" => ""])</div>
@@ -79,7 +77,7 @@
                             <label for="body" class="label-regular">相談内容</label>
 
                             @if(!$isConfirmation)
-                                <span class="btn-tag-red">(必須)</span>
+                                <span class="btn-tag-red">必須</span>
 
                                 <div style="background-color:#FFF5E9">
                                     <p class="label-14px">

@@ -27,7 +27,7 @@
                                 'contents' => 'class="form-control" placeholder="パスワードを入力"
                                                style="border: 1px solid #707070"'])
 
-                        <label for="" class="label-regular" style="margin-top:12px">パスワード(確認用)</label>
+                        <label for="" class="label-regular" style="margin-top:12px;color:#dbdbdb">パスワード(確認用)</label>
                         @include('layouts.parts.editor.text', ["type" => "password", 'name' => 'password_confirmation',
                                 'contents' => 'class="form-control" placeholder="パスワードを確認用を入力"
                                                style="border: 1px solid #707070"'])
