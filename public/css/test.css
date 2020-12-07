@@ -1011,7 +1011,7 @@ article #wait {
 
 /* ------------- */
 article #userinfo {
-    border: 1px solid #9b9b9b;
+    border: 1px solid #dbdbdb;
     margin:5px;
 }
 article .ranking {
@@ -1027,7 +1027,7 @@ article #userinfo #content {
     margin-left: 20px;
     margin-top: 30px;
 }
-article #userinfo #name {
+article #userinfo #name0 {
     font-family: NotoSans-JP-Medium;
     font-size: 18px !important;
     color: #221815;

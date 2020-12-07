@@ -24,17 +24,10 @@
                         <div class="w-100"></div>
                         <div class="col-9">
                             <span id="card"><img src="/images/svg/img-address-card-solid.svg">
-<<<<<<< HEAD
                                 @foreach($license as $item)
                                     {{$item->body.' '}}
                                 @endforeach
                         </span>
-=======
-                @foreach($license as $item)
-                    {{$item->body.' '}}
-                @endforeach
-				</span>
->>>>>>> e8932baad5b4c583ab527a9442f918a80e5a9fe6
                         </div>
                         <div class="col-3">
                             @if($contents->post->post_answer_id != 0)
@@ -45,7 +38,7 @@
                         </div>
                         <div class="w-100"></div>
                         <div class="col-9">
-                            <span id="sex">{{getEra($contents->expert->date_birth).'/'.configJson('custom/gender')[$contents->expert->gender]}}</span>
+                            <span id="card">{{getEra($contents->expert->date_birth).'/'.configJson('custom/gender')[$contents->expert->gender]}}</span>
                         </div>
                         <div class="col-3">
                             <span class="label-16px"><img class="heart-icon" src="/images/svg/yellow-heart-solid.svg">役に立った
