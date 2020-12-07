@@ -7,9 +7,9 @@
             <img src="/images/svg/img-search-solid-small.svg" style="margin-right:10px">検索対象
         </p>
         <div class="content">
-            <p><a href="{{route('search.tema', ["keyword"=>$keyword])}}" style="color: red; font-weight:600">お金の相談テーマから探す</a></p>
-            <p><a href="{{route('search.category', ['keyword'=>$keyword])}}" style="color: rgb(0, 0, 0); font-weight:600">お金の悩みから探す</a></p>
-            <p><a href="{{route('search.expert')}}" style="color: rgb(0, 0, 0); font-weight:600">専門家から探す</a></p>
+            <p><a href="{{route('search.tema', ["keyword"=>$keyword])}}" style="color: red; font-weight:600">> お金の相談テーマから探す</a></p>
+            <p><a href="{{route('search.category', ['keyword'=>$keyword])}}" style="color: #221815; font-weight:600">> お金の悩みから探す</a></p>
+            <p><a href="{{route('search.expert')}}" style="color:#221815; font-weight:600">> 専門家から探す</a></p>
         </div>
     </div>
 
@@ -17,12 +17,13 @@
         <p style="font-family: NotoSans-JP-Medium;font-size: 16px !important;">
             <img src="/images/svg/img-filter-solid-small.svg" style="margin-right:10px">絞り込み
         </p>
+        <button class="btn-tag-grey-round">結果の消去  <span class="fa fa-close"></span></button>
     </div>
     <div class="col-12 m-0 p-0 mb-4">
         <input type="text" id="tema" class="form-control"/>
     </div>
 
-    <button type="button" class="collapsible">相談状況</button>
+    <button type="button" class="collapsible">相談状況<span class="fa fa-angle-up"></span></button>
     <div class="content">
         <?php
             $consultStatus = json_decode('{
@@ -36,7 +37,7 @@
                  'contents' => 'class="form-control"'])
     </div>
 
-    <button type="button" class="collapsible">性別</button>
+    <button type="button" class="collapsible">性別<span class="fa fa-angle-up"></span></button>
     <div class="content">
         <?php
             $gender = json_decode('{
@@ -49,7 +50,7 @@
         @include('layouts.parts.editor.radioV', ['name' => 'gender', "data" => $gender , "keyValue" => "", 'contents' => 'class="form-control"'])
     </div>
 
-    <button type="button" class="collapsible">年代</button>
+    <button type="button" class="collapsible">年代<span class="fa fa-angle-up"></span></button>
     <div class="content">
         <?php
             $ages = json_decode('{
@@ -68,7 +69,7 @@
         @include('layouts.parts.editor.radioV', ['name' => 'ages', "data" => $ages , "keyValue" => "", 'contents' => 'class="form-control"'])
     </div>
 
-    <button type="button" class="collapsible">家族構成</button>
+    <button type="button" class="collapsible">家族構成<span class="fa fa-angle-up"></span></button>
     <div class="content">
         <?php
             $family = json_decode('{
@@ -82,25 +83,25 @@
         @include('layouts.parts.editor.radioV', ['name' => 'family', "data" => $family , "keyValue" => "", 'contents' => 'class="form-control"'])
     </div>
 
-    <button type="button" class="collapsible">地域</button>
+    <button type="button" class="collapsible">地域<span class="fa fa-angle-up"></span></button>
     <div class="content">
         @include('layouts.parts.editor.select', ['name' => 'prefecture_area', "file" => configJson("custom/prefecture"), "keyValue" => "",
                  'contents' => 'class="col-12" style="margin-top:6px; margin-bottom:12px;"', 'other'=>'6-'])
     </div>
 
-    <button type="button" class="collapsible">回答専門家</button>
+    <button type="button" class="collapsible">回答専門家<span class="fa fa-angle-up"></span></button>
     <div class="content">
         @include('layouts.parts.editor.radioV', ['name' => 'experts', "data" => $spec , "keyValue" => "", 'contents' => 'class="form-control"'])
     </div>
 
     @if(Cookie::has('custom_token'))
         @if(\Auth::user()->pay_status != 1)
-            <a href="{{route('post.create')}}" class="btn yellow-btn-fluid">専門家に相談する</a>
+            <a href="{{route('post.create')}}" class="btn yellow-btn-fluid" style="margin-top:24px">専門家に相談する</a>
         @else
-            <a href="{{route('payment', ['sheetId'=>1, 'member'=>\Auth::user()->pay_status])}}" class="btn yellow-btn-fluid">専門家に相談する</a>
+            <a href="{{route('payment', ['sheetId'=>1, 'member'=>\Auth::user()->pay_status])}}" class="btn yellow-btn-fluid" style="margin-top:24px">専門家に相談する</a>
         @endif
     @else
-        <a href="{{route('entry')}}" class="btn yellow-btn-fluid" >専門家に相談する</a>
+        <a href="{{route('entry')}}" class="btn yellow-btn-fluid" style="margin-top:24px">専門家に相談する</a>
     @endif
 </div>
 
@@ -225,4 +226,25 @@
 	              alert('server not responding...');
 	        });
 	}
+</script>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+
+        var content = this.nextElementSibling;
+
+        if (content.style.display == "block" || content.style.display == "") {
+            content.style.display = "none";            
+            this.firstElementChild.className = "fa fa-angle-down";
+        } else {
+            content.style.display = "block";
+            this.firstElementChild.className = "fa fa-angle-up";
+        }
+    });
+}   
 </script>

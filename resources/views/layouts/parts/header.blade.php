@@ -14,14 +14,14 @@
                 <ul class="navbar-nav ml-auto nav-flex-icons" style="padding-right:40px">
                     <li class="nav-item dropdown" id="badgeNav">
                         <a id="badge" class="nav-link waves-effect waves-light" id="navbarDropdownBell" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fa fa-bell-o fa-lg has-badge"></i>
+                            <i class="fa fa-bell fa-lg has-badge" style="color:black"></i>
                         </a>
                         <div id="contents" class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownBell">
                         </div>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link waves-effect waves-light" id="navbarDropdownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fa fa-user-o fa-lg"></i>
+                            <i class="fa fa-user fa-lg" style="color:black"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownUser">
                             <a class="dropdown-item waves-effect waves-light" href="{{route('search.tema')}}">@lang('string.tema_search')</a>
@@ -128,10 +128,10 @@
                     }
                 }
                 if(count != 0){
-                    var htmlBadge = '<i class="fa fa-bell-o fa-lg has-badge" data-count="'+ count + '" ></i>'
+                    var htmlBadge = '<i class="fa fa-bell fa-lg has-badge" style="color:black" data-count="'+ count + '" ></i>'
                     $('#badge').empty().html(htmlBadge);
                 }else{
-                    var htmlBadge = '<i class="fa fa-bell-o fa-lg has-badge"></i>'
+                    var htmlBadge = '<i class="fa fa-bell fa-lg has-badge" style="color:black"></i>'
                     $('#badge').empty().html(htmlBadge);
                 }
                 $('#contents').empty().html(bodyHtml);

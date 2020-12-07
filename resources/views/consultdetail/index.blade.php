@@ -13,8 +13,20 @@
             <!-- </section> -->
         </div>
 
-        <div class="col-12 col-sm-9 order-sm-1 mt-5" id="main" style="max-width:800px">
-            <div class="pl-0 pr-0">
+        <div class="col-12 col-sm-9 order-sm-1" id="main" style="max-width:800px">
+            <div style="margin-top:18px">
+                <ol class="breadcrumb m-0 p-0">
+                    <li class="breadcrumb-item">
+                        <img src="/images/svg/image-fa-comments.svg" style="margin-right:4px">
+                        <a href="{{url('/expert')}}" style="color:#9B9B9B">相談</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        保険のことで質問です
+                    </li>
+                </ol>
+            </div>
+
+            <div class="pl-0 pr-0 mt-5">
                 @include('layouts.parts.custom.articledetail', ["type" => "articledetail", 'name' => 'article',
                                                                 'post'=>$post, 'postAdd'=>$postAdd, 'isUser'=>$isUser, 'hPost'=>$postHelpFlag, 'sPost' => $postStoreFlag])
             </div>

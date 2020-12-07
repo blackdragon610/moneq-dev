@@ -61,19 +61,19 @@
                     <a style="color:#FF3B00" href="#">利用規約</a>に同意して登録する</p>
 
                 <a href="{{ url('/sns/line/login') }}" class="line btn left-icon-holder">
-                    <i class="fa fa-comment fa-2x mr-auto"></i>LINEで登録
+                    <img src="/images/svg/image-button-line.svg">LINEで登録
                 </a>
                 <a href="{{ url('/sns/yahoojp/login') }}" class="yahoo btn left-icon-holder mt-3">
-                    <i class="fa fa-yahoo fa-2x"></i>Yahoo! JAPAN IDで登録
+                    <img src="/images/svg/image-button-yahoo.svg">Yahoo! JAPAN IDで登録
                 </a>
                 <a href="{{ url('/sns/facebook/login') }}" class="fb btn left-icon-holder mt-3">
-                    <i class="fa fa-facebook fa-2x"></i>Facebookで登録
+                    <img src="/images/svg/image-button-facebook.svg">Facebookで登録
                 </a>
                 <a href="{{ url('/sns/twitter/login')}}" class="twitter left-icon-holder btn mt-2">
-                    <i class="fa fa-twitter fa-2x"></i>Twitterで登録
+                    <img src="/images/svg/image-button-twitter.svg">Twitterで登録
                 </a>
                 <a href="{{ url('/sns/google/login') }}" class="google btn left-icon-holder mt-2">
-                    <i class="fa fa-google fa-2x"></i>Googleで登録
+                    <img src="/images/svg/image-button-google.svg">Googleで登録
                 </a>
             </div>
         </div>
