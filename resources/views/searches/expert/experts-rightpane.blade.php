@@ -7,9 +7,9 @@
             <img src="/images/svg/img-search-solid-small.svg" style="margin-right:10px">検索対象
         </p>
         <div class="content">
-            <p><a href="{{route('search.tema')}}" style="color:#221815;font-weight:600">> お金の相談テーマから探す</a></p>
-            <p><a href="{{route('search.category')}}" style="color:#221815;font-weight:600">> お金の悩みから探す</a></p>
-            <p><a href="{{route('search.expert')}}" style="color:red;font-weight:600">> 専門家から探す</a></p>
+            <p><a href="{{route('search.tema')}}" class="label-16px" style="color:#221815">> お金の相談テーマから探す</a></p>
+            <p><a href="{{route('search.category')}}" class="label-16px" style="color:#221815">> お金の悩みから探す</a></p>
+            <p><a href="{{route('search.expert')}}" class="label-16px" style="color:red">> 専門家から探す</a></p>
         </div>
     </div>
 

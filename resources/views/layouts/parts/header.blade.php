@@ -2,8 +2,8 @@
     <div class="row align-items-center" style="overflow: visible;">
 
             <nav class="navbar navbar-expand-sm navbar-light p-0 col-12">
-            <a href="/"><img src="{{ url('/images/svg/img-logo-v2.svg') }}" id="logo"></a>
-            <!-- <span id="title">お金の悩み相談サービス「マネク」</span> -->
+            <a href="/"><img src="{{ url('/images/svg/img-logo-with-title.svg') }}" id="logo"></a>
+            <span id="title">お金の悩み相談サービス「マネク」</span>
 
             <!-- AFTER LOGIN -->
             @if(Cookie::has('custom_token'))
