@@ -15,6 +15,7 @@ use Tymon\JWTAuth\Exceptions\JWTException;
 
 use App\Models\ChangeToken;
 
+
 class User  extends ModelClass implements JWTSubject
 {
     use Notifiable;
@@ -89,28 +90,28 @@ class User  extends ModelClass implements JWTSubject
         return $user;
     }
 
-/**	
-     * 管理画面から登録	
-     * @param  array  $inputs	
-     */	
-    public function saveEntryAdmin(array $inputs) : object	
-    {	
-        $Model = clone $this;	
+/**
+     * 管理画面から登録
+     * @param  array  $inputs
+     */
+    public function saveEntryAdmin(array $inputs) : object
+    {
+        $Model = clone $this;
 
-        if (!empty($inputs["id"])) {	
-            $Model = $Model->whereId($inputs["id"])->first();	
-        }	
+        if (!empty($inputs["id"])) {
+            $Model = $Model->whereId($inputs["id"])->first();
+        }
 
-        $Model->setModel($inputs);	
-        $Model->save();	
+        $Model->setModel($inputs);
+        $Model->save();
 
-        return $Model;	
+        return $Model;
     }
 
-    public function countPost() : int	
-    {	
-        $Post = app("Post");	
-        return $Post->whereUserId($this->id)->count();	
+    public function countPost() : int
+    {
+        $Post = app("Post");
+        return $Post->whereUserId($this->id)->count();
     }
 
     public function savePassword(object $changeToken=null)

@@ -215,9 +215,9 @@
     function configJson($file)
     {
 	if (file_exists(dirname(__FILE__) . "/../config/custom/" .  $file . ".json")){
-            return json_decode(file_get_contents(dirname(__FILE__) . "/../config/custom/" .  $file . ".json"), true);	
-        }else{	
-            return json_decode(file_get_contents(dirname(__FILE__) . "/../config/" .  $file . ".json"), true);	
+            return json_decode(file_get_contents(dirname(__FILE__) . "/../config/custom/" .  $file . ".json"), true);
+        }else{
+            return json_decode(file_get_contents(dirname(__FILE__) . "/../config/" .  $file . ".json"), true);
         }
     }
 
@@ -312,58 +312,58 @@
 	    }
 	}
 
-/**	
-     * ソートの表示部分	
-     * @param  string  $column	
-     * @return string	
-     */	
-    function viewSort(string $column)	
-    {	
+/**
+     * ソートの表示部分
+     * @param  string  $column
+     * @return string
+     */
+    function viewSort(string $column)
+    {
 
-        //現在のソートの確認と判定	
-        $queries = \Request::input();	
+        //現在のソートの確認と判定
+        $queries = \Request::input();
 
-        $sortAsc = "#999999";	
-        $sortDesc = "#999999";	
+        $sortAsc = "#999999";
+        $sortDesc = "#999999";
 
-        if (isset($queries["sort"])){	
-            if ($queries["sort"] == $column){	
-                if ($queries["sorttype"] == "DESC"){	
-                    $sortDesc = "#000000";	
-                }	
-                if ($queries["sorttype"] == "ASC"){	
-                    $sortAsc = "#000000";	
-                }	
+        if (isset($queries["sort"])){
+            if ($queries["sort"] == $column){
+                if ($queries["sorttype"] == "DESC"){
+                    $sortDesc = "#000000";
+                }
+                if ($queries["sorttype"] == "ASC"){
+                    $sortAsc = "#000000";
+                }
 
-            }	
+            }
 
-            //クエリの生成	
-            unset($queries["sort"]);	
-            unset($queries["sorttype"]);	
-        }	
+            //クエリの生成
+            unset($queries["sort"]);
+            unset($queries["sorttype"]);
+        }
 
-        $queries["sort"] = $column;	
+        $queries["sort"] = $column;
 
-        $query = http_build_query($queries);	
+        $query = http_build_query($queries);
 
-        //URL生成	
-        if (strpos($_SERVER['REQUEST_URI'], "?")){	
-            list($dir, $dummy) = explode("?", $_SERVER['REQUEST_URI']);	
-        }else{	
-            $dir = $_SERVER['REQUEST_URI'];	
-        }	
+        //URL生成
+        if (strpos($_SERVER['REQUEST_URI'], "?")){
+            list($dir, $dummy) = explode("?", $_SERVER['REQUEST_URI']);
+        }else{
+            $dir = $_SERVER['REQUEST_URI'];
+        }
 
-        $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $dir . "?" . $query;	
+        $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $dir . "?" . $query;
 
-        //表示部の生成	
-        $viewAsc = "<span style='color:" . $sortAsc . "'>▲</span>";	
-        $viewAsc = "<a href='" . $url . "&sorttype=ASC'>" . $viewAsc . "</a>";	
-        $viewDesc = "<span style='color:" . $sortDesc . "'>▼</span>";	
-        $viewDesc = "<a href='" . $url . "&sorttype=DESC'>" . $viewDesc . "</a>";	
+        //表示部の生成
+        $viewAsc = "<span style='color:" . $sortAsc . "'>▲</span>";
+        $viewAsc = "<a href='" . $url . "&sorttype=ASC'>" . $viewAsc . "</a>";
+        $viewDesc = "<span style='color:" . $sortDesc . "'>▼</span>";
+        $viewDesc = "<a href='" . $url . "&sorttype=DESC'>" . $viewDesc . "</a>";
 
-        $view = $viewAsc . $viewDesc;	
+        $view = $viewAsc . $viewDesc;
 
-        return $view;	
-    }	
+        return $view;
+    }
 
 ?>

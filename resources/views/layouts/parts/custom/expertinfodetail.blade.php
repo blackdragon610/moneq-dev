@@ -2,23 +2,20 @@
 
     <div class="row">
         <div id="userinfo" class="row container-fluid" style="border:0px !important">
-            <img src="/images/img-avatar-sample.png" style="width:100px;height:100px;margin-top:30px;margin-left:30px">
+            @if($contents->image)
+                <img src="{{$contents->image}}" id="avatar" class="avatar">
+            @else
+                <img src="/images/img-avatar-sample.png" class="avatar-lg m-0" id="avatar"/>
+            @endif
             <div id="content">
                 <span id="name">{{$contents->expert_name_first.$contents->expert_name_second}}さん</span>
                 <span id="name1">{{$contents->expert_name_kana_first.$contents->expert_name_kana_second}}</span>
                 <br/>
                 <span id="card" style="width:230px;display:inline-block"><img src="/images/svg/img-address-card-solid.svg">
-<<<<<<< HEAD
                     @foreach($license as $item)
                         {{$item->body.' '}}
                     @endforeach
                 </span>
-=======
-                @foreach($license as $item)
-                    {{$item->body.' '}}
-                @endforeach
-		</span>
->>>>>>> e8932baad5b4c583ab527a9442f918a80e5a9fe6
                 <span id="card" style="margin-left:60px"><img class="expert-sub-icon" src="/images/svg/img-yellow-messages-solid.svg">回答数：<span id="number">{{$contents->count_answer}}</span>件</span>
                 <br/>
                 <span id="sex" style="width:230px;display:inline-block">{{$contents->date_birth.'/'.$contents->gender}}</span>
