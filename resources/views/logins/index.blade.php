@@ -50,19 +50,19 @@
                                          font-size: 16px !important;">ソーシャルアカウントでログイン</p>
 
                 <a href="{{ url('/sns/line/login') }}" class="line btn left-icon-holder">
-                    <i class="fa fa-comment fa-2x mr-auto"></i>LINEでログイン
+                    <img src="/images/svg/image-button-line.svg">LINEでログイン
                 </a>
                 <a href="{{ url('/sns/yahoojp/login') }}" class="yahoo btn left-icon-holder mt-3">
-                    <i class="fa fa-yahoo fa-2x"></i>Yahoo! JAPAN IDでログイン
+                    <img src="/images/svg/image-button-yahoo.svg">Yahoo! JAPAN IDでログイン
                 </a>
                 <a href="{{ url('/sns/facebook/login') }}" class="fb btn left-icon-holder mt-3">
-                    <i class="fa fa-facebook fa-2x"></i>Facebookでログイン
+                    <img src="/images/svg/image-button-facebook.svg">Facebookでログイン
                 </a>
                 <a href="{{ url('/sns/twitter/login')}}" class="twitter left-icon-holder btn mt-2">
-                    <i class="fa fa-twitter fa-2x"></i>Twitterでログイン
+                    <img src="/images/svg/image-button-twitter.svg">Twitterでログイン
                 </a>
                 <a href="{{ url('/sns/google/login') }}" class="google btn left-icon-holder mt-2">
-                    <i class="fa fa-google fa-2x"></i>Googleでログイン
+                    <img src="/images/svg/image-button-google.svg">Googleでログイン
                 </a>
             </div>
         </div>

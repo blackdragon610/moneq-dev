@@ -2,9 +2,16 @@
 
 
 @section('main')
-
 <div class="whitepanel">
     <div class="container">
+        <div class="container-fluid p-0 bg-white" style="margin-top:10px">
+            <ol class="breadcrumb m-0 p-0">
+                <li class="breadcrumb-item">
+                    <img src="/images/svg/image-fa-edit-regular.svg" style="margin-right:4px">
+                    <a href="{{url('/other/access')}}" style="color:#9B9B9B">相談の投稿</a>
+                </li>
+            </ol>
+        </div>
 
         <div class="row" style="margin-bottom:80px">
             <div class="col-12 bg-white">

@@ -263,7 +263,7 @@
             </div>
             <div class="columns" id="membership1">
                 <ul class="price">
-                    <li class="membership1"><span>お試し会員</span></li>
+                    <li class="membership1" style="margin-top:20px;height:70px"><span>お試し会員</span></li>
                     <li>月300円（税別)<br/>1日10円</li>
                     <li>月最大1回</li>
                     <li>無制限</li>
@@ -279,7 +279,14 @@
 
             <div class="columns" id="membership2">
                 <ul class="price">
-                    <li class="membership2">スタンダード会員</li>
+                    <li class="membership2" style="margin-top:0px;height:90px !important">
+                        <div class="ribbon-wrapper-left">
+                            <div class="ribbon ribbon-left">人気</div>
+                        </div>
+                        <div style="position:absolute">
+                            スタンダード会員
+                        </div>
+                    </li>
                     <li style="font-family:NotoSans-JP-Bold">
                         <div>
                         年<span style="font-size:24px">3,600</span>円（税別）<br/>
@@ -298,7 +305,7 @@
                 </ul>
             </div>
 
-            <div class="columns" id="membership3">
+            <div class="columns" id="membership3" style="margin-top:20px;height:70px">
                 <ul class="price">
                     <li class="membership3">無料会員</li>
                     <li style="font-family:NotoSans-JP-Bold"><span style="font-size:24px">0</span>円</li>

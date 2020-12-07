@@ -5,6 +5,18 @@
 <div class="whitepanel">
     <div class="container">
 
+        <div class="container-fluid p-0 bg-white" style="margin-top:10px">
+            <ol class="breadcrumb m-0 p-0">
+                <li class="breadcrumb-item">
+                    <img src="/images/svg/image-fa-edit-regular.svg" style="margin-right:4px">
+                    <a href="{{url('/profile/manage')}}" style="color:#9B9B9B">会員情報</a>
+                </li>
+                <li class="breadcrumb-item">会員ステータス</li>
+                <li class="breadcrumb-item">年払会員</li>
+                <li class="breadcrumb-item">クレジットカード</li>
+            </ol>
+        </div>
+
         <div class="row" style="margin-bottom:80px">
             <div class="col-md-12 col-lg-12 bg-white">
                 <p class="title-medium">クレジットカード入力</p>

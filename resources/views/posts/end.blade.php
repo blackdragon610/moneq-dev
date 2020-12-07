@@ -5,6 +5,16 @@
 <div class="whitepanel">
     <div class="container">
 
+        <div class="container-fluid p-0 bg-white" style="margin-top:10px">
+            <ol class="breadcrumb m-0 p-0">
+                <li class="breadcrumb-item">
+                    <img src="/images/svg/image-fa-edit-regular.svg" style="margin-right:4px">
+                    <a href="{{url('/other/access')}}" style="color:#9B9B9B">相談の投稿</a>
+                </li>
+                <li class="breadcrumb-item">完了</li>
+            </ol>
+        </div>
+
         <div class="row" style="margin-bottom:80px">
             <div class="col-md-12 col-lg-12 bg-white">
 
@@ -20,7 +30,7 @@
                     </div>
                     <div class="row">
                         <div class="col text-center btnLayer">
-                            <button class="btnSubmit btnUnselected">相談詳細へ</button>
+                            <button class="btnSubmit btnUnselected">会員情報に戻る</button>
                         </div>
                     </div>
                 {{Form::close()}}

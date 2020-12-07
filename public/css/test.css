@@ -606,7 +606,7 @@ p {
     min-height: 50px !important;
     font-family: NotoSans-JP-Medium;
     font-size: 16px !important;
-    color: #221815 !important;
+    color: white !important;
     line-height: 35px;
     border  : 0px solid;
 }
@@ -630,8 +630,7 @@ p {
 }
 .yellow-btn-304-50{
     background-color: #ffd800 !important;
-    min-width: 200px !important;
-    width : 90%;
+    min-width: 300px !important;
     height: 50px !important;
     font-family: NotoSans-JP-Medium;
     font-size: 16px !important;
@@ -759,8 +758,22 @@ div .grey-round-tag {
     border-radius: 12px !important;
 }
 
+.breadcrumb {
+    background-color: white;
+}
+.breadcrumb-item {
+    color:#9b9b9b;
+    font-family: NotoSans-JP-Regular;
+    font-size: 12px !important;
+    margin-top: 0px !important;
+}
 .breadcrumb-item + .breadcrumb-item::before {
-    content: ">";
+    background-image: url("/images/svg/image-fa-arrow.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    content: "";
+    margin-left: 10px;
+    margin-right: 10px;
 }
 .nav .nav-link {
     color: #9B9B9B;
@@ -873,7 +886,7 @@ ol li {
 /* ----------- */
 article #article {
     padding: 15px 30px !important;
-    border: 1px solid #9b9b9b;
+    border: 1px solid #dbdbdb;
     max-height: 297px;
 }
 article #article_detail {
@@ -1085,8 +1098,18 @@ article #profilecard #caption {
     border-bottom: 1px solid #b8b8b8;
     text-align: left;
     outline: none;
+    margin-top:10px;
     font-family: NotoSans-JP-Medium;
     font-size: 14px;
+}
+.collapsible:focus {
+    outline:0;
+}
+span.fa.fa-angle-down, span.fa.fa-angle-up {
+    margin-top: 4px;
+    margin-right: 5px;
+    color: #221616;   
+    float: right; 
 }
 
 .cl-switch .label {
@@ -1184,6 +1207,13 @@ span.answers {
     margin-top: -17px; /* Half of line height to keep left middle postion of container */
     left: 10px;
 }
+.left-icon-holder img {
+    position:absolute;
+    line-height: 34px;
+    top:0%;
+    left: 0px;
+}
+
 .yahoo {
     background-color: #DD4B39;
     color: white;
@@ -1225,10 +1255,48 @@ span.answers {
     line-height: 34px !important;
 }
 
+.bootstrap-tagsinput .tag {
+    margin-right: 2px;
+    color: white;
+    background-color: #221815;
+    padding: 4px;
+    border-radius: 0px;
+}
+.bootstrap-tagsinput .tag [data-role="remove"] {
+    margin-left: 0px;
+}
+
 .btn {
     border-radius: 0px;
 }
+.btn-alert-blue {
+    background-color: #004EB5;
+    border-radius: 5px;
+    position: absolute;
+    top: 28px;
+    right: 40px;
+    overflow: visible;
+    z-index: 1040;
+    color: white;
+    font-family: 'NotoSans-JP-Regular';
+    font-size: 16px;
+    min-height:50px;
+    min-width:300px;    
+}
 
+.btn-tag-grey-round {
+    background-color: #dbdbdb; /* Green */
+    border: none;
+    color: black;
+    padding: 4px px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 2px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+}
 .btn-tag-brown {
     background-color: #221815; /* Green */
     border: none;
@@ -1253,7 +1321,7 @@ span.answers {
     margin: 4px 2px;
     cursor: pointer;
 }
-.fa-bell-o[data-count]:after{
+.fa-bell[data-count]:after{
     position:absolute;
     right:15%;
     top:15%;
@@ -1263,7 +1331,7 @@ span.answers {
     border-radius:50%;
     line-height:.8em;
     color: white;
-    background:rgba(255,0,0,.85);
+    background:#FFD800;
     text-align:center;
     min-width: 1em;
     font-weight:bold;

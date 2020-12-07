@@ -1,0 +1,72 @@
+.ribbon-wrapper {
+    width: 104px;
+    height: 104px;
+    overflow: hidden;
+    position: absolute;
+    top: -3px;
+    right: -3px
+}
+.ribbon-wrapper-left {
+    width: 68px;
+    height: 68px;
+    overflow: hidden;
+    position: relative;
+    left: -106px;
+    top: -10px;
+}
+.ribbon-left {
+    font-family: NotoSans-JP-Regular;
+    font-size: 13px !important;
+    -webkit-transform: rotate(-45deg) !important;
+    -moz-transform: rotate(-45deg) !important;
+    -ms-transform: rotate(-45deg) !important;
+    -o-transform: rotate(-45deg) !important;
+    transform: rotate(-45deg) !important;
+    right: 84px !important;
+    top: 12px !important;
+    width: 218px !important;
+    height: 26px !important;
+}
+.ribbon {
+    font-family: NotoSans-JP-Regular;
+    font-size: 17px ;
+    color: #FFF;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    line-height: 15px;
+    text-align: center;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, .4);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    position: relative;
+    padding: 7px 0;
+    right: 37px;
+    top: 30px;
+    width: 202px;
+    height: 28px;
+    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, .3);
+    box-shadow: 0 0 3px rgba(0, 0, 0, .3);
+    background-color: red;
+    background-repeat: repeat-x;
+}
+
+.ribbon:before,
+.ribbon:after {
+    content: "";
+    border-top: 3px solid #9e9e9e;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    position: absolute;
+    bottom: -3px
+}
+
+.ribbon:before {
+    left: 0
+}
+
+.ribbon:after {
+    right: 0
+}

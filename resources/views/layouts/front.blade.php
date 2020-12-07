@@ -24,6 +24,7 @@
 		<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 
 		<link rel="stylesheet" href="/css/clean-switch.css">
+		<link rel="stylesheet" href="/css/ribbon.css">
 		<link rel="icon" href="/images/svg/logo.svg" type = "image/x-icon">
 		<title>MoneQ</title>
 

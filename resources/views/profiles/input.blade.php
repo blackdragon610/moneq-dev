@@ -5,6 +5,16 @@
 <div class="whitepanel">
     <div class="container ">
 
+        <div class="container-fluid p-0 bg-white" style="margin-top:10px">
+            <ol class="breadcrumb m-0 p-0">
+                <li class="breadcrumb-item">
+                    <img src="/images/svg/image-fa-edit-regular.svg" style="margin-right:4px">
+                    <a href="{{url('/profile/manage')}}" style="color:#9B9B9B">会員情報</a>
+                </li>
+                <li class="breadcrumb-item">プロフィール登録</li>
+            </ol>
+        </div>
+
         <div class="row" style="margin-bottom:80px">
             <div class="col-12 bg-white">
                 <p class="title-medium">プロフィール登録</p>
