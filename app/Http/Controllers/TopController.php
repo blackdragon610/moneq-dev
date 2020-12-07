@@ -115,43 +115,43 @@ class TopController extends Controller
         }
     }
 
-    public function route(Request $request, Post $Post, PostAnswer $PostAnswer, PostData $PostData, Notification $notification, $type, $id){
-        if($type == 1){
-            $post = $Post::where([['id',$id], ['status', 2]])->first();
-            $post->post_answer_id = $post->isAnswerCheck();
-            $notification->updateReady($post->post_answer_id);
-            $Post->updatePostReadCount($post);
+    // public function route(Request $request, Post $Post, PostAnswer $PostAnswer, PostData $PostData, Notification $notification, $type, $id){
+    //     if($type == 1){
+    //         $post = $Post::where([['id',$id], ['status', 2]])->first();
+    //         $post->post_answer_id = $post->isAnswerCheck();
+    //         $notification->updateReady($post->post_answer_id);
+    //         $Post->updatePostReadCount($post);
 
-            $postAdd = $post->find($id)->adds;
-            $postAnswer = $post->find($id)->answers;
+    //         $postAdd = $post->find($id)->adds;
+    //         $postAnswer = $post->find($id)->answers;
 
-            if(isLogin() == 1){
-                $isUser = isUser($post->user->id);
-            }else $isUser = -1;
+    //         if(isLogin() == 1){
+    //             $isUser = isUser($post->user->id);
+    //         }else $isUser = -1;
 
-            if($isUser == 0){
-                $postData = $PostData->getPostHistoryData($post->user->id, $id);
-                $postData->user_id =$post->user->id;
-                $postData->post_id = $id;
-                $postData->type = 1;
-                $postData->save();
-            }
+    //         if($isUser == 0){
+    //             $postData = $PostData->getPostHistoryData($post->user->id, $id);
+    //             $postData->user_id =$post->user->id;
+    //             $postData->post_id = $id;
+    //             $postData->type = 1;
+    //             $postData->save();
+    //         }
 
-            $postStoreFlag = $PostData->getPostStoreData($post->user->id, $id);
-            $postHelpFlag = $PostData->getPostHelpData($post->user->id, $id);
+    //         $postStoreFlag = $PostData->getPostStoreData($post->user->id, $id);
+    //         $postHelpFlag = $PostData->getPostHelpData($post->user->id, $id);
 
-            $weekExperts = $PostAnswer->weekHighExpert();
-            $monthExperts = $PostAnswer->monthHighExpert();
-            $totalExperts = $PostAnswer->totalHighExpert();
+    //         $weekExperts = $PostAnswer->weekHighExpert();
+    //         $monthExperts = $PostAnswer->monthHighExpert();
+    //         $totalExperts = $PostAnswer->totalHighExpert();
 
-            $post->user->date_birth = getAge($post->user->date_birth);
-            $gender = configJson('custom/gender');
-            $post->user->gender = $gender[$post->user->gender];
+    //         $post->user->date_birth = getAge($post->user->date_birth);
+    //         $gender = configJson('custom/gender');
+    //         $post->user->gender = $gender[$post->user->gender];
 
-            return view('consultdetail.index', compact('post', 'postAdd', 'postAnswer', 'weekExperts',
-                                                         'monthExperts', 'totalExperts', 'isUser', 'postStoreFlag', 'postHelpFlag'));
-            }
-    }
+    //         return view('consultdetail.index', compact('post', 'postAdd', 'postAnswer', 'weekExperts',
+    //                                                      'monthExperts', 'totalExperts', 'isUser', 'postStoreFlag', 'postHelpFlag'));
+    //         }
+    // }
 
     public function repost(Post $Post){
         $Post->rePostCreate();

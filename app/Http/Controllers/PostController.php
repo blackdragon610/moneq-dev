@@ -48,6 +48,7 @@ class PostController extends Controller
         }
         $categories = $Category->getSelectAll();
         $inputs['post_id'] = 0;
+        $isConfirmation = false;
 
 
         $post = $Post->getRepost();
@@ -62,14 +63,16 @@ class PostController extends Controller
                 [
                     "categories" => $categories,
                     "inputs" => $inputs,
-                    "possibleCount" => $possibleCount
+                    "possibleCount" => $possibleCount,
+                    "isConfirmation" => $isConfirmation,
                 ]
             );
         }
 
+
         return view('posts.input',
             [
-                "categories" => $categories, 'inputs'=>$inputs, 'possibleCount'=>$possibleCount
+                "categories" => $categories, 'inputs'=>$inputs, 'possibleCount'=>$possibleCount, 'isConfirmation' => $isConfirmation
             ]
         );
     }
@@ -78,11 +81,11 @@ class PostController extends Controller
     {
         $this->isPost();
 
-
         $datas = $this->checkForm($request);
 
-        if (!empty($datas['errors'])){
+        if ((!$request->input('end')) || (!empty($datas['errors']))){
             $categories = $Category->getSelectAll();
+
             if(\Auth::user()->pay_status == 2){
                 $possibleCount = 3 - \Auth::user()->postCount();
             }else{
@@ -93,13 +96,15 @@ class PostController extends Controller
                 "errors" => $datas["errors"],
                 "inputs" => $datas["inputs"],
                 "possibleCount" => $possibleCount,
-                "categories" => $categories
+                "categories" => $categories,
+                "isConfirmation" => $datas["isConfirmation"],
             ]);
+
         }else{
             if($request->post_id == 0){
-                $post = $Post->saveEntry($datas['inputs'], Auth::user()->id, 2);
+                $post = $Post->saveEntry($datas, Auth::user()->id, 2);
             }else{
-                $post = $Post->updateEntry($datas['inputs'], $request->post_id, 2);
+                $post = $Post->updateEntry($datas, $request->post_id, 2);
             }
 
             $count = Auth::user()->re_point;
@@ -146,18 +151,16 @@ class PostController extends Controller
     public function detail(Request $request, Post $Post, PostAnswer $PostAnswer, PostData $PostData, $postId){
 
 
-        $post = $Post->find($postId);
-        if($post)
-            $post->post_answer_id = $post->isAnswerCheck();
-        else{
+        $post = $Post->whereId($postId)->withTrashed()->first();
+        if(!$post){
             header("Location:/error/notsee");
             exit();
         }
 
         $Post->updatePostReadCount($post);
 
-        $postAdd = $post->find($postId)->adds;
-        $postAnswer = $post->find($postId)->answers;
+        $postAdd = $post->adds;
+        $postAnswer = $post->answers;
         $relationPosts = $post->getPostByCategory();
 
         $postStoreFlag = 0;

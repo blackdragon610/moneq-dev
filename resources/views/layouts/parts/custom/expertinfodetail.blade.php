@@ -5,7 +5,7 @@
             @if($contents->image)
                 <img src="{{$contents->image}}" id="avatar" class="avatar">
             @else
-                <img src="/images/img-avatar-sample.png" class="avatar-lg m-0" id="avatar"/>
+                <img src="/images/img-avatar-sample.png" class="avatar-lg" id="avatar"/>
             @endif
             <div id="content">
                 <span id="name">{{$contents->expert_name_first.$contents->expert_name_second}}さん</span>

@@ -1,8 +1,10 @@
 @if (!empty($isConfirmation))
 	@if ($type == 'password')
 	-
-	@else
-		{{getVariable($inputs, $name)}}
+    @else
+    <div class="panel-body">
+        {{getVariable($inputs, $name)}}
+    </div>
 	@endif
 	<input class="form-control" type="hidden" name="{{$name}}" id="{{$name}}" {!! $contents !!} value="@if (isset($inputs)){{getVariable($inputs, $name)}}@endif" />
 @else

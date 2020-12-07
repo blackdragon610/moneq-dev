@@ -15,10 +15,14 @@
         <span id="name" class="mt-2">{{$contents->user->nickname}}さん</span>
         <span id="age" class="mt-2">{{getEra($contents->user->date_birth).'/'.$gender[$contents->user->gender]}}</span>
 
-        @if($contents->isAnswerCheck() != 0)
+        @if($contents->post_answer_id != 0)
             <span id="solved"><img src="/images/svg/img-checkbox-green-checked.svg"><span style="margin-left: 5px">解決済み</span></span>
         @else
-            <span id="unsolved"><img src="/images/svg/img-checkbox-red-checked.svg"><span style="margin-left: 5px">未解決</span></span>
+            @if($contents->count_answer != 0 || $contents->deleted_at != null)
+                <span id="unsolved"><img src="/images/svg/img-checkbox-red-checked.svg"><span style="margin-left: 5px">未解決</span></span>
+            @else
+                <span id="unsolved"><img src="/images/svg/img-checkbox-red-checked.svg"><span style="margin-left: 5px">回答なし</span></span>
+            @endif
         @endif
 
         <img src="/images/svg/img-dashline.svg" style="height:1px">

@@ -31,11 +31,6 @@
         </div>
         <div class="col-sm-8 col-lg-4 pt-2">
             <div class="container-fluid pl-0 pb-lg-1">
-<<<<<<< HEAD
-=======
-                <h6 class="font-weight-bold"></h6>
-                <span class="mright keepTwoLine">{{$contents->specialtie->specialtie_name}}</span>
->>>>>>> e8932baad5b4c583ab527a9442f918a80e5a9fe6
             </div>
         </div>
     </div>

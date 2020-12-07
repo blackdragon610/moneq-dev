@@ -13,12 +13,19 @@
 
         <img src="/images/img-avatar-sample.png" class="avatar-lg" id="avatar">
         <span id="name" class="mt-2">{{$contents->nickname}}さん</span>
+        @if($contents->gender == null)
+            @dd($contents)
+        @endif
         <span id="age" class="mt-2">{{getEra($contents->date_birth).'/'.$gender[$contents->gender]}}</span>
 
         @if($contents->post_answer_id != 0)
             <span id="solved"><img src="/images/svg/img-checkbox-green-checked.svg"><span style="margin-left: 5px">解決済み</span></span>
         @else
-            <span id="unsolved"><img src="/images/svg/img-checkbox-red-checked.svg"><span style="margin-left: 5px">未解決</span></span>
+            @if($contents->count_answer != 0 || $contents->deleted_at != null)
+                <span id="unsolved"><img src="/images/svg/img-checkbox-red-checked.svg"><span style="margin-left: 5px">未解決</span></span>
+            @else
+                <span id="unsolved"><img src="/images/svg/img-checkbox-red-checked.svg"><span style="margin-left: 5px">回答なし</span></span>
+            @endif
         @endif
 
         <img src="/images/svg/img-dashline.svg" style="height:1px">
