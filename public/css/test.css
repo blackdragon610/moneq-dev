@@ -1255,6 +1255,9 @@ span.answers {
     line-height: 34px !important;
 }
 
+.bootstrap-tagsinput {
+    border: 0px !important;
+}
 .bootstrap-tagsinput .tag {
     font-family: 'NotoSans-JP-Regular';
     font-size: 12px;

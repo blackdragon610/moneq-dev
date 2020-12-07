@@ -20,7 +20,7 @@
         <button class="btn-tag-grey-round">結果の消去  <span class="fa fa-close"></span></button>
     </div>
     <div class="col-12 m-0 p-0 mb-4">
-        <input type="text" id="tema" class="form-control"/>
+        <input type="text" id="tema" class="form-control" style="border:0px !important"/>
     </div>
 
     <button type="button" class="collapsible">評価<span class="fa fa-angle-up"></span></button>
