@@ -99,9 +99,11 @@ class Expert extends ModelClass implements JWTSubject
     public function monthAnswerHighExpert($limit = 0){
         $date = new \DateTime();
         $month = $date->format("Y-m");
-        $sql = "SELECT t1.*, amount, hAmount from(SELECT expert_id, count(*) as amount from post_answers where isnull(deleted_at) and DATE_FORMAT(created_at,'%Y-%m')='".$month.
+        $sql = "SELECT t1.*, amount, hAmount from(SELECT expert_id, count(*) as amount from post_answers where isnull(deleted_at)
+         and DATE_FORMAT(created_at,'%Y-%m')='".$month.
         "' GROUP BY expert_id order by count(*) desc LIMIT 5) total
-        LEFT JOIN(SELECT*FROM experts where isnull(deleted_at))t1 on(total.expert_id=t1.id) left join(select user_id, count(*) as hAmount from post_data where isnull(deleted_at) and type=4 and DATE_FORMAT(created_at,'%Y-%m')='".$month."' group by user_id)t3 on(total.expert_id=t3.user_id)";
+        LEFT JOIN(SELECT*FROM experts where isnull(deleted_at))t1 on(total.expert_id=t1.id) left join(select user_id, count(*) as hAmount from post_data
+        where isnull(deleted_at) and type=4 and DATE_FORMAT(created_at,'%Y-%m')='".$month."' group by user_id)t3 on(total.expert_id=t3.user_id)";
 
         if($limit != 0) $sql .= " limit ".$limit;
 
@@ -147,5 +149,96 @@ class Expert extends ModelClass implements JWTSubject
     public function expert(){
         return $this->hasMany(ExpertLicense::class);
     }
+
+    /**
+     * 専門家の名前取得
+    */
+    public function expertName() : string
+    {
+
+        return $this->expert_name_second . "　" . $this->expert_name_first;
+    }
+
+ /**
+     * 回答取得
+     */
+    public function scopeAnalytics($query, array $types, bool $isAll = false)
+    {
+
+        $query->leftJoin("post_answers", "post_answers.expert_id", "=", "experts.id");
+
+        $select = "";
+
+        //各自判定
+        if (in_array("answer", $types)){
+            if (!$isAll) {
+                $select .= ",experts.count_answer";
+            }else {
+                $select .= ",sum(distinct experts.count_answer) as count_answer";
+            }
+        }
+        if (in_array("access", $types)){
+            $query->leftJoin("posts", "post_answers.post_id", "=", "posts.id");
+
+            $select .= ",sum(distinct count_access) as count_access";
+        }
+
+        if (in_array("page_access", $types)){
+            if (!$isAll){
+                $select.=",count_page_access";
+            }else{
+                $select.=",sum(distinct count_page_access) as count_page_access";
+            }
+        }
+        if (in_array("message", $types)){
+            if (!$isAll){
+                $select.=",count_message";
+            }else{
+                $select.=",sum(distinct count_message) as count_message";
+            }
+        }
+
+        if ((in_array("introduction", $types)) || (in_array("introduction_money", $types))){
+            $query->leftJoin("expert_introductions", "expert_introductions.expert_id", "=", "experts.id");
+        }
+
+        if (in_array("introduction", $types)){
+            $select.=",count(distinct expert_introductions.id) as count_introduction";
+        }
+        if (in_array("introduction_money", $types)){
+            $select.=",sum(distinct expert_introductions.money) as count_introduction_money";
+        }
+
+
+        if (!$isAll){
+            $query = $query->groupBy("experts.id");
+        }
+
+        $query->select(\DB::raw("experts.*" . $select));
+    }
+
+
+    /**
+     *   報酬額
+     */
+    public function getPostIntroduction()
+    {
+        $ExpertIntroduction = app("ExpertIntroduction");
+        if ($this->id){
+            $ExpertIntroduction  = $ExpertIntroduction ->where("expert_introductions.expert_id", $this->id);
+        }
+
+        $ExpertIntroduction->select(\DB::raw("*,sum(money)"));
+
+        return $ExpertIntroduction;
+    }
+
+    public function getCategoryByExpertId(){
+        $Model = clone $this;
+        $Model = $Model->where('expert_id', $this->id)->get();
+
+        return $Model;
+    }
+
 
 }

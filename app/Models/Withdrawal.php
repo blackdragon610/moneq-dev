@@ -12,5 +12,9 @@ class Withdrawal extends ModelClass
 
     protected $hidden = [
     ];
-
+    
+    public function expert()	
+    {	
+        return $this->belongsTo(app("Expert"));	
+    }
 }

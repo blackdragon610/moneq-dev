@@ -59,6 +59,7 @@ Route::group(['middleware' => 'common:user'], function () {
         Route::post('search', 'SearchController@index')->name('search.category');
         Route::get('notification', 'TopController@notification')->name('notification');
         Route::get('repost', 'TopController@repost')->name('repost');
+        Route::get('paymentStatusChange', 'TopController@paymentStatusChange');
         Route::get('notification/route/{type}/{id}', 'TopController@route')->name('notification.route');
 
         //GMO
@@ -92,6 +93,10 @@ Route::group(['middleware' => 'common:user'], function () {
         Route::get('expert/profile/edit', 'ExpertProfileController@edit')->name('expert.profile.edit');
         Route::post('expert/profile/update', 'ExpertProfileController@update')->name('expert.profile.update');
         Route::get('expert/profile/end', 'ExpertProfileController@end')->name('expert.profile.end');
+
+	//専門家のマイページ
+        Route::get('expert/top', 'ExpertController@index')->name('expert.top');
+
     });
 
     //ログイン関連
@@ -144,4 +149,39 @@ Route::group(['middleware' => 'common:user'], function () {
 
     Route::get('mockup', 'MockupUIController@index');
 
+});
+
+
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'common:admin'], function() {
+    //管理画面
+    Route::group(['middleware' => 'auth:admin'], function () {
+        Route::get('', 'Admin\IndexController@index')->name('');
+        Route::any('logout', 'Admin\Auth\AuthController@logout')->name('logout');
+
+
+        Route::any('post/{postId}/status', 'Admin\PostController@status')->name("post.status");
+        Route::any('post/finished', 'Admin\PostController@finished')->name("post.finished");
+        Route::resource('post', 'Admin\PostController');
+
+        Route::any('answer/finished', 'Admin\AnswerController@finished')->name("answer.finished");
+        Route::resource('answer', 'Admin\AnswerController');
+
+        Route::any('user/finished', 'Admin\UserController@finished')->name("user.finished");
+        Route::resource('user', 'Admin\UserController');
+
+        Route::resource('expert', 'Admin\ExpertController');
+
+        Route::any('out/{outId}/status', 'Admin\OutController@status')->name("out.status");
+        Route::any('out/finished', 'Admin\OutController@finished')->name("out.finished");
+        Route::resource('out', 'Admin\OutController');
+
+        Route::any('introduction/finished', 'Admin\IntroductionController@finished')->name("introduction.finished");
+        Route::resource('introduction', 'Admin\IntroductionController');
+
+        Route::any('mange/finished', 'Admin\ManageController@finished')->name("manage.finished");
+        Route::resource('manage', 'Admin\ManageController');
+    });
+
+    Route::get('login', 'Admin\LoginController@index')->name('login');
+    Route::post('auth', 'Admin\Auth\AuthController@login')->name('auth');
 });

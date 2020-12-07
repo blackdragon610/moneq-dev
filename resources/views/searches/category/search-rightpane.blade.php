@@ -3,7 +3,6 @@
     <input type="hidden" name="category" id="category" value="{{$category_name}}">
     <input type="hidden" name="keyword" id="keyword" value="{{$keyword}}">
     <input type="hidden" name="order" id="order" value="1">
-
     <div class="col-12 m-0 p-0">
         <p style="font-family: NotoSans-JP-Medium;font-size: 16px !important;">
             <img src="/images/svg/img-search-solid-small.svg" style="margin-right:10px">検索対象

@@ -22,6 +22,14 @@ use AuthenticatesUsers;
     protected string $redirectAfterLogout = '/login';
 
 
+ public function __construct()	
+    {	
+        if (getIsExpert()){	
+            $this->redirectTo = "/expert/top";	
+        }	
+
+    }
+
 	public function index(Request $request)
     {
 
@@ -29,8 +37,7 @@ use AuthenticatesUsers;
 
     public function login(Request $request)
     {
-
-        $this->validateLogin($request);
+            $this->validateLogin($request);
 
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
         // the login attempts for this application. We'll key this by the username and

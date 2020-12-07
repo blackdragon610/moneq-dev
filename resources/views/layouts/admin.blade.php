@@ -25,14 +25,25 @@
 	  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 	  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-
-	  <link rel="stylesheet" href="/css/admin/style.css">
+    @if (env("APP_ENV") == "local")
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + 
+':35729/livereload.js?snipver=1"></' + 'script>')</script>
+    @endif
+	  <link rel="stylesheet" href="/css/admin/style.css?v=2">
 
 		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
 	  <script src="/js/jquery.js"></script>
 	  <script src="/js/tool.js"></script>
 
+<script>
+function onDelete(){
+if (confirm('本当に削除してよろしいですか？')){
+                return true
+   }
+return false
+ }
+    </script>
 		@yield('header')
 	</head>
 
@@ -77,42 +88,47 @@
 			    <section class="sidebar">
 			      <ul class="sidebar-menu">
                         <li class="treeview" id="menu3">
-                            <a href="{{route("admin.user.index", ["is_coupon" => 0])}}">
+                            <a href="{{route("admin.user.index")}}">
                               <i class="glyphicon glyphicon-hdd"></i>
-                              <span>ユーザー</span>
+                              <span>会員一覧</span>
                               <i class="fa fa-angle-left pull-right"></i>
                           </a>
                         </li>
                         <li class="treeview" id="menu3">
-                            <a href="{{route("admin.user.index", ["is_coupon" => 1])}}">
+                            <a href="{{route("admin.post.index")}}">
                               <i class="glyphicon glyphicon-hdd"></i>
-                              <span>永遠無料ユーザー</span>
+                              <span>相談一覧</span>
                               <i class="fa fa-angle-left pull-right"></i>
                           </a>
                         </li>
-                      <li class="treeview" id="menu3">
-                          <a href="{{route("admin.advertisement.index")}}">
-                              <i class="glyphicon glyphicon-hdd"></i>
-                              <span>自社広告</span>
-                              <i class="fa fa-angle-left pull-right"></i>
-                          </a>
-                      </li>
                         <li class="treeview" id="menu3">
-                            <a href="{{route("admin.sendall.index")}}">
-                                <i class="glyphicon glyphicon-hdd"></i>
-                                <span>一斉送信</span>
-                                 <i class="fa fa-angle-left pull-right"></i>
-                            </a>
+                            <a href="{{route("admin.expert.index")}}">
+                              <i class="glyphicon glyphicon-hdd"></i>
+                              <span>専門家一覧</span>
+                              <i class="fa fa-angle-left pull-right"></i>
+                          </a>
                         </li>
-
-                      <li class="treeview" id="menu3">
-                          <a href="{{route("admin.admin_user.index")}}">
+                        <li class="treeview" id="menu3">
+                            <a href="{{route("admin.out.index")}}">
+                              <i class="glyphicon glyphicon-hdd"></i>
+                              <span>出金依頼一覧</span>
+                              <i class="fa fa-angle-left pull-right"></i>
+                          </a>
+                        </li>
+                        <li class="treeview" id="menu3">
+                            <a href="{{route("admin.introduction.index")}}">
+                              <i class="glyphicon glyphicon-hdd"></i>
+                              <span>紹介顧客管理</span>
+                              <i class="fa fa-angle-left pull-right"></i>
+                          </a>
+                        </li>
+                        <li class="treeview" id="menu3">
+                            <a href="{{route("admin.manage.index")}}">
                               <i class="glyphicon glyphicon-hdd"></i>
                               <span>管理ユーザー</span>
                               <i class="fa fa-angle-left pull-right"></i>
                           </a>
-                      </li>
-
+                        </li>
 
 			      </ul>
 			    </section>
@@ -143,49 +159,49 @@
 
 			  @if (!empty($isLayoutEdit))
 			  	<!-- 編集のヘッダー -->
-					<section class="content-header">
-					  <h1>
-					    {{config('pages.info')[$commonPageName]['title']}}
-					    <small>登録/編集</small>
-					  </h1>
-					  <ol class="breadcrumb">
-					    <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
+					<section class="content-header">	
+                    <h1>	
+                        {{config('pages.info')[$commonPageName]['title']}}	
+                        <small>登録/編集</small>	
+                    </h1>	
+                    <ol class="breadcrumb">	
+                        <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>	
 
-					    @if (!empty($layoutListUrl))
-					    <li><a href="{{$layoutListUrl}}"><i class="fa fa-table"></i>{{config('pages.info')[$commonPageName]['title']}}一覧</a></li>
-					    @endif
+                        @if (!empty($layoutListUrl))	
+                            <li><a href="{{$layoutListUrl}}"><i class="fa fa-table"></i>{{config('pages.info')[$commonPageName]['title']}}一覧</a></li>	
+                        @endif	
 
-					    <li class="active">{{config('pages.info')[$commonPageName]['title']}}の登録/編集</li>
-					  </ol>
+                        <li class="active">{{config('pages.info')[$commonPageName]['title']}}の登録/編集</li>	
+                    </ol>	
 
-							<?php if (!empty($objErrorInput)){ ?>
+                    <?php if (!empty($objErrorInput)){ ?>	
 
-					              <div class="mt alert alert-danger alert-dismissible">
-					                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-					                <h4><i class="icon fa fa-ban"></i>エラー</h4>
-					                入力エラーがあります。
-					              </div>
-							<?php } ?>
-					</section>
+                    <div class="mt alert alert-danger alert-dismissible">	
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>	
+                        <h4><i class="icon fa fa-ban"></i>エラー</h4>	
+                        入力エラーがあります。	
+                    </div>	
+                    <?php } ?>	
+                </section>	
 
-			  @endif
+            @endif	
 
-				@yield('main')
-			@if ($pageType == 1)
-			  </div>
-			@endif
-		</div>
+            @yield('main')	
+            @if ($pageType == 1)	
+        </div>	
+    @endif	
+</div>	
 
-		@if ($pageType)
-		<footer class="main-footer">
-		  <strong>Copyright &copy; 管理システム</strong> All rights
-		  reserved.
-		</footer>
+@if ($pageType)	
+    <footer class="main-footer">	
+        <strong>Copyright &copy; 管理システム</strong> All rights	
+        reserved.	
+    </footer>	
 
-		<script src="/js/admin/jquery-ui.min.js"></script>
-		<script src="/js/bootstrap/bootstrap.min.js"></script>
-		<script src="/js/admin/app.min.js"></script>
-		<script src="/js/admin/cms.js"></script>
-		@endif
-	</body>
+    <script src="/js/admin/jquery-ui.min.js"></script>	
+    <script src="/js/bootstrap/bootstrap.min.js"></script>	
+    <script src="/js/admin/app.min.js"></script>	
+    <script src="/js/admin/cms.js"></script>	
+@endif	
+</body>
 </html>

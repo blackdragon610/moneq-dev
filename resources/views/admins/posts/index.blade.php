@@ -102,7 +102,7 @@
                         {{$list->user->nickname}}
                     </td>
                     <td class="td">
-                        {{$list->subCategory->sub_name}}
+                        {{$list->sub_category->sub_name}}
                     </td>
                     <td class="td">
                         {{configJson("status_post")[$list->status]}}
@@ -110,7 +110,7 @@
                     <td class="td">
                         {{$list->post_name}}
                     </td>
-                    <td class="td">
+                    <td class="td" style="width:7em;>
                         <select class="form-control" target="{{$list->id}}" onchange="changeStatus(this)">
                         @foreach (configJson("openclose") as $key => $value)
                            <option value="{{$key}}"@if ($list->is_open == $key) selected @endif>{{$value}}</option>

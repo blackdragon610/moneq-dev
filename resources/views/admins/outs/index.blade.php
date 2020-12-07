@@ -73,7 +73,7 @@
                         ステータス{!! viewSort("posts.status") !!}
                     </th>
                     <th class="th">
-
+                        口座情報
                     </th>
                 </tr>
 
@@ -98,7 +98,7 @@
                     <td class="td">
                         {{$list->expert->bank_name}}({{$list->expert->bank_code}})
                         {{$list->expert->branch_name}}({{$list->expert->branch_code}})
-                        {{configJson("bank_type")[$list->expert->bank_type]}}
+                        {{getVariable(configJson("bank_type"), $list->expert->bank_type)}}
                         {{$list->expert->bank_number}}
                         {{$list->expert->bank_person_name}}
                     </td>

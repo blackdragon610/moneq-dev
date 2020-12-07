@@ -12,6 +12,7 @@ use App\Models\Expert;
 use App\Models\User;
 use App\Models\UserToken;
 use Illuminate\Http\Request;
+use Illuminate\Support\MessageBag;
 
 use App\Libs\Common;
 use Cookie;
@@ -50,8 +51,9 @@ class EntryController extends Controller
     public function send(UserLoginRequest $request, UserToken $UserToken, EntryMail $EntryMail, SmsClass $SmsClass)
     {
         //エラーチェック
+
         $datas = $this->checkForm($request);
-        // dd($request->input("mode"));
+
 
         if (!empty($datas['errors'])){
             return view('entries.index', [
@@ -145,6 +147,7 @@ class EntryController extends Controller
         }
 
         $datas = $this->checkForm($request);
+        $member = $request->member;
 
         if (!empty($datas['errors'])){
             return view('entries.password', [
@@ -171,12 +174,9 @@ class EntryController extends Controller
 
         });
 
-        $member = $request->member;
-        if($member == 1){
-            return redirect()->route('profile.edit');
-        }else{
-            return redirect()->route('payment', ['sheetId'=>2, 'member'=>$member]);
-        }
+        $sheetId = 2;
+
+        return view('payment.index', compact('sheetId', 'member'));
     }
 
     /**

@@ -37,8 +37,8 @@
 
             <h2 class="title2">検出したデータでの金額</h2>
 
-            <div class="row">
-                <div class="col-sm-33 mt">
+            <div class="row mt">
+                <div class="col-sm-33">
                     <dl class="dl-item text-center">
                         <dt>総金額</dt>
                         <dd>{{number_format($total["total"]->total)}}円</dd>
