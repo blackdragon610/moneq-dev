@@ -2,7 +2,7 @@
 
 
 @section('main')
-<div class="container-fluid lightgreypanel p-3">
+<div class="whitepanel">
     <div class="row">
         <!-- right sticky sidebar -->
         <div class="col-12 col-sm-3 order-sm-2 order-1" id="sticky-sidebar">

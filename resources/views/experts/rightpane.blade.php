@@ -16,13 +16,13 @@
     <section class="mt-1 pt-0">
         <ul class="nav" id="myTab" role="tablist">
             <li class="nav-item ">
-                <a class="nav-link active" id="question-1-tab" data-toggle="tab" href="#question-1" role="tab" aria-controls="question-1" aria-selected="false">週間</a>
+                <a class="nav-link active" id="question-1-tab" data-toggle="tab" href="#question-1" role="tab" aria-controls="question-1" aria-selected="false" style="font-size:16px !important">週間</a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" id="question-2-tab" data-toggle="tab" href="#question-2" role="tab" aria-controls="question-2" aria-selected="false">月間</a>
+                <a class="nav-link" id="question-2-tab" data-toggle="tab" href="#question-2" role="tab" aria-controls="question-2" aria-selected="false" style="font-size:16px !important">月間</a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" id="question-3-tab" data-toggle="tab" href="#question-3" role="tab" aria-controls="question-3" aria-selected="false">総合</a>
+                <a class="nav-link" id="question-3-tab" data-toggle="tab" href="#question-3" role="tab" aria-controls="question-3" aria-selected="false" style="font-size:16px !important">総合</a>
             </li>
         </ul>
         <div class="tab-content" id="myTabContent">

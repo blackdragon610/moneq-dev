@@ -28,9 +28,9 @@
                             <span class="title-16px" style="padding-top:8px">今月はあと</span>
                             <span class="title-24px-red">{{$possibleCount}}</span>
                             <span class="title-16px" style="padding-top:8px">回 相談ができます。</span>
-                            <u><a id="reQ" class="text-dark title-16px">再質問権
+                            <a id="reQ" class="text-dark title-16px"><u>再質問権</u>
                                 <span class="title-24px-red">{{\Auth::user()->re_point}}</span>件
-                            </a></u>
+                            </a>
                         </div>
                     @endif
 
@@ -41,53 +41,56 @@
                         <div class="container-fluid pl-2">
                             @if(!$isConfirmation)
                                 <p class="title-16px" style="margin-top:20px">
-                                    <u><a id="firstQ" class="text-dark"><img src="/images/svg/img-book-downside.svg"> はじめて専門家に相談する方へ</a></u>
+                                    <a id="firstQ" class="text-dark"><img src="/images/svg/img-book-downside.svg" style="margin-right:15px"> <u>はじめて専門家に相談する方</u>へ</a>
                                 </p>
                                 <p class="title-16px" style="margin-top:24px">
-                                    <img src="/images/svg/img-ban-solid.svg"> <u>相談の禁止事項</u>
+                                    <img src="/images/svg/img-ban-solid.svg" style="margin-right:15px"><u>相談の禁止事項</u>
                                 </p>
 
-                                <p class="title-16px" style="color:#707070">よくある相談の禁止事項</p>
-                                <ul>
-                                    <li class="title-16px" style="list-style:disc;margin-left:24px">個人情報の記載</li>
-                                    <li class="title-16px" style="list-style:disc;margin-left:24px">特定の企業、商品、サービスに関する記載</li>
-                                    <li class="title-16px" style="list-style:disc;margin-left:24px">違法行為・犯罪に関連する投稿</li>
-                                    <li class="title-16px" style="list-style:disc;margin-left:24px">質問や回答と関係のないURLの記載</li>
-                                    <li class="title-16px" style="list-style:disc;margin-left:24px">お礼や報告など質問ではない投稿</li>
+                                <p class="title-16px" style="color:#707070;margin-left:32px">よくある相談の禁止事項</p>
+                                <ul style="margin-left:32px">
+                                    <li class="title-16px">・個人情報の記載</li>
+                                    <li class="title-16px">・特定の企業、商品、サービスに関する記載</li>
+                                    <li class="title-16px">・違法行為・犯罪に関連する投稿</li>
+                                    <li class="title-16px">・質問や回答と関係のないURLの記載</li>
+                                    <li class="title-16px">・お礼や報告など質問ではない投稿</li>
                                 </ul>
                             @endif
 
-                            <label for="post_name" class="label-regular" style="margin-top:48px">相談テーマ</label>
-                            @if(!$isConfirmation)
-                                <span class="btn-tag-red">必須</span>
-                            @endif
+                            <label for="post_name" class="label-regular" style="margin-top:48px">相談テーマ
+                                @if(!$isConfirmation)
+                                    <span class="btn-tag-red">必須</span>
+                                @endif
+                            </label>
                             @include('layouts.parts.editor.text', ["type" => "text", 'name' => 'post_name',  'contents' => 'placeholder="例：結婚するのですが生命保険に入るべきでしょうか？"'])
 
                             @if(!$isConfirmation)
                                 <div class="text-right"><span id="name_length">0/25</span></div>
                             @endif
 
-                            <label for="sub_category_id" class="label-regular">カテゴリ</label>
-                            @if(!$isConfirmation)
-                                <span class="btn-tag-red">必須</span>
-                            @endif
-
+                            <label for="sub_category_id" class="label-regular">カテゴリ
+                                @if(!$isConfirmation)
+                                    <span class="btn-tag-red">必須</span>
+                                @endif
+                            </label>
                             <div class="col-sm-6" style="padding:0">@include('layouts.parts.editor.select', ['name' => 'sub_category_id',  "file" => $categories, "keyValue" => "", "contents" => ""])</div>
 
-                            <label for="body" class="label-regular">相談内容</label>
+                            <label for="body" class="label-regular">相談内容
+                                @if(!$isConfirmation)
+                                    <span class="btn-tag-red">必須</span>
+                                @endif
+                            </label>
 
                             @if(!$isConfirmation)
-                                <span class="btn-tag-red">必須</span>
-
-                                <div style="background-color:#FFF5E9">
+                                <div style="background-color:#FFF5E9;padding:24px">
                                     <p class="label-14px">
                                         具体的な情報（数字や年数など）、相談の状況（年齢、年収、家族構成など）、聞きたいことを簡約にまとめると<br/>
                                         より早く、より多くの専門家から回答される可能性が高くなります。
                                     </p>
                                     <ul>
-                                        <li class="label-14px" style="list-style:disc;margin-left:24px">年収（約650万円など</li>
-                                        <li class="label-14px" style="list-style:disc;margin-left:24px">ご自分の年齢（厳しい場合は「30代」などの年代でもかまいません）</li>
-                                        <li class="label-14px" style="list-style:disc;margin-left:24px">お子さんの年齢（厳しい場合は「幼稚園児」「小学生」などでも構いません）</li>
+                                        <li class="label-14px">・年収（約650万円など</li>
+                                        <li class="label-14px">・ご自分の年齢（厳しい場合は「30代」などの年代でもかまいません）</li>
+                                        <li class="label-14px">・お子さんの年齢（厳しい場合は「幼稚園児」「小学生」などでも構いません）</li>
                                     </ul>
                                 </div>
                             @endif

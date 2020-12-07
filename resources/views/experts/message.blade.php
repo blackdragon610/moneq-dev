@@ -2,13 +2,8 @@
 
 
 @section('main')
-<div class="container-fluid lightgreypanel">
-    <div class="container p-3">
-
-        <?php
-            $expertId = 1;
-            $categories = [];
-        ?>
+<div class="whitepanel">
+    <div class="container">
 
         <div class="container bg-white p-3 pl-5">
 

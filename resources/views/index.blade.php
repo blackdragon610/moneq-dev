@@ -398,7 +398,7 @@
                     <div class="row">
                         @foreach($monthAnswers as $expert)
                         <?php $i++?>
-                        <div class="col-6 userinfo">
+                        <div class="col-12 col-lg-6 userinfo">
                             @include('layouts.parts.custom.expertmonthinfo', ["ranking"=>"{{$i}}", "type" => "expertinfo", 'contents' => $expert, 'gender'=>$gender,
                                                                         'pre'=>$prefecture, 'spec' => $specialties])
                         </div>
@@ -410,7 +410,7 @@
                     <div class="row">
                         @foreach($totalAnswers as $expert)
                         <?php $i++?>
-                        <div class="col-6 userinfo">
+                        <div class="col-12 col-lg-6 userinfo">
                             @include('layouts.parts.custom.expertinfo', ["ranking"=>"{{$i}}", "type" => "expertinfo", 'contents' => $expert, 'gender'=>$gender,
                                                                         'pre'=>$prefecture, 'spec' => $specialties])
                         </div>
@@ -422,7 +422,7 @@
                     <div class="row">
                         @foreach($monthHelps as $expert)
                         <?php $i++?>
-                            <div class="col-6 userinfo">
+                            <div class="col-12 col-lg-6 userinfo">
                             @include('layouts.parts.custom.expertmonthinfo', ["ranking"=>"{{$i}}", "type" => "expertinfo", 'contents' => $expert, 'gender'=>$gender,
                                                                             'pre'=>$prefecture, 'spec' => $specialties])
                             </div>
@@ -433,7 +433,7 @@
                     <?php $i=0?>
                     <div class="row">
                         @foreach($totalHelps as $expert)
-                        <div class="col-6 userinfo">
+                        <div class="col-12 col-lg-6 userinfo">
                             <?php $i++?>
                             @include('layouts.parts.custom.expertinfo', ["ranking"=>"{{$i}}", "type" => "expertinfo", 'contents' => $expert, 'gender'=>$gender,
                                                                             'pre'=>$prefecture, 'spec' => $specialties])
@@ -459,7 +459,7 @@
             <div class="row" style="margin-top:50px">
 
                 @foreach($categories as $item)
-                    <div class="col-4 p-2" style="width:360px">
+                    <div class="col-12 col-sm-6 col-md-4 p-2" style="width:360px">
                         <div class="container-fluid">
                             <p class="p-0 m-0" id="title1" >【{{$item['name']}}】</p>
                             <img src="/images/svg/img-dashline-small.svg" style="margin-top:12px;height:1px;margin-bottom:10px">

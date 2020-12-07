@@ -2,8 +2,9 @@
 
 
 @section('main')
-<div class="container-fluid lightgreypanel p-3">
-    <div class="container p-3">
+<div class="whitepanel">
+    <div class="container">
+        
         <div class="row">
             <div class="col-md-12 col-lg-12 bg-white">
                 <h5 class="font-weight-bold p-2">会員登録</h5>
