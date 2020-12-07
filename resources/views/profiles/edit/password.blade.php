@@ -23,12 +23,12 @@
                 {{Form::open(['url'=> route('profiles.password.update'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
                     <section>
                         <label for="" class="label-regular">パスワード</label>
-                        @include('layouts.parts.editor.text', ["type" => "password", 'name' => 'pass',
+                        @include('layouts.parts.editor.text', ["type" => "password", 'name' => 'password',
                                 'contents' => 'class="form-control" placeholder="パスワードを入力"
                                                style="border: 1px solid #707070"'])
 
                         <label for="" class="label-regular" style="margin-top:12px">パスワード(確認用)</label>
-                        @include('layouts.parts.editor.text', ["type" => "password", 'name' => 'passconfirm',
+                        @include('layouts.parts.editor.text', ["type" => "password", 'name' => 'password_confirmation',
                                 'contents' => 'class="form-control" placeholder="パスワードを確認用を入力"
                                                style="border: 1px solid #707070"'])
                     </section>
@@ -47,10 +47,5 @@
     </div>
 </div>
 
-<button type="button" class="btn btn-alert-blue">
-    <image src="/images/svg/image-fa-checkbox.svg">
-    パスワードが変更されました。
-    <span class="fa fa-close"></span>
-</button>
 
 @endsection

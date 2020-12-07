@@ -22,7 +22,7 @@ class TopController extends Controller
     /**
      * トップ
      */
-    public function index(Post $Post, PostAnswer $PostAnswer, PostData $PostData, Expert $Expert, User $User, Specialtie $Specialtie, Notification $Notification, Category $Category)
+    public function index(Post $Post, PostAnswer $PostAnswer, PostData $PostData, Expert $Expert, User $User, Specialtie $Specialtie, Notification $Notification, Category $Category, Request $request)
     {
         if(isProfile() == 3){
             if(\Auth::user()->pay_status == 1){
@@ -55,15 +55,17 @@ class TopController extends Controller
         $experts = $Expert->getExpertCount();
         $users = $User->getUserCount();
 
-        $isTop = 1;
-
         $gender = configJson('custom/gender');
         $prefecture = configJson('custom/prefecture');
         $specialties = $Specialtie->getSelect();
 
+        $isTop = 1;
+        $emailChange = $request->changeEmail;
+        $passChange = $request->passChange;
+
         return view('index', compact('accessTopPost', 'newTopPost', 'monthAnswers', 'totalAnswers', 'monthHelps',
                                      'totalHelps', 'gender', 'prefecture', 'specialties', 'notifications', 'questions',
-                                     'answers', 'helps', 'experts', 'users', 'categories', 'isTop'));
+                                     'answers', 'helps', 'experts', 'users', 'categories', 'isTop', 'emailChange', 'passChange'));
     }
 
     public function search(Request $request){

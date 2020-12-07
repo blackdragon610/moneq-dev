@@ -125,6 +125,12 @@
 @include('layouts.modals.firstQuery')
 @include('layouts.modals.reQuery')
 
+<button type="button" id='notify' class="btn btn-alert-blue" style="display: none">
+    <image src="/images/svg/image-fa-checkbox.svg">
+        一時保存が成功しました。
+    <span class="fa fa-close"></span>
+</button>
+
 <script>
     $("#preSave").click(function (e) {
 
@@ -157,7 +163,7 @@
                     });
                 }else{
                     $('#post_id').val(data['ok']);
-                    $('.toast').toast('show');
+                    $('#notify').show();
                 }
             },
             error: function (err) {
@@ -191,6 +197,10 @@
         var text = $(this).val().length;
         $('#post_length').text(text + '/' + '1600');
     });
+
+    $('.fa').click(function(){
+        $('#notify').hide();
+    })
 </script>
 
 

@@ -137,6 +137,10 @@ Route::group(['middleware' => 'common:user'], function () {
     Route::get('entry/expert/password', 'EntryController@expertPassword')->name('entry.expert.password');
     Route::post('entry/expert/password/end', 'EntryController@expertPasswordEnd')->name('entry.expert.password.end');
 
+    Route::get('change/email', 'ProfileManageController@emailChange');
+    Route::get('change/password', 'ProfileManageController@passwordChange');
+
+
 
     Route::get('error/{mode}', 'ErrorController@other')->name('error');
     Route::get('error', 'ErrorController@index')->name('error');

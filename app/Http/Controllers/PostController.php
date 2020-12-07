@@ -151,7 +151,7 @@ class PostController extends Controller
     public function detail(Request $request, Post $Post, PostAnswer $PostAnswer, PostData $PostData, $postId){
 
 
-        $post = $Post->whereId($postId)->withTrashed()->first();
+        $post = $Post->whereId($postId)->whereStatus(2)->withTrashed()->first();
         if(!$post){
             header("Location:/error/notsee");
             exit();

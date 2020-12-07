@@ -13,28 +13,11 @@
                         <div class="container">
                             <div class="col text-center">
                                 <p class="title-16px">このページは閲覧することができません。</p>
-                                @if(isLogin() == 1)
-                                    @if(\Auth::user()->pay_status == 2)
-                                        <p class="title-16px">トップボタンをクリックしてトップページに戻る。</p>
-                                    @else
-                                        <p class="title-16px">閲覧する場合は下記より有料会員にアップデートしてください。</p>
-                                    @endif
-                                @else
-                                    <p class="title-16px">閲覧する場合は下記より有料会員にアップデートしてください。</p>
-                                @endif
                             </div>
                         </div>
                         <div class="row">
                             <div class="col text-center btnLayer">
-                                @if(isLogin() == 1)
-                                    @if(\Auth::user()->pay_status == 2)
                                         <a href="{{url('/')}}" class="btnSubmit btnUnselected">トップ</a>
-                                    @else
-                                        <a href="{{url('payment/1').'/'.\Auth::user()->pay_status}}" class="btnSubmit btnUnselected">有料アップデート</a>
-                                    @endif
-                                @else
-                                    <a href="{{url('entry')}}" class="btnSubmit btnUnselected">有料アップデート</a>
-                                @endif
                             </div>
                         </div>
                     </section>
