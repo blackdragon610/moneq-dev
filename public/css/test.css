@@ -1515,7 +1515,7 @@ input[type="checkbox"]:checked + label>span {
     font-family: NotoSans-JP-Regular;
     font-size: 14px !important;
     padding-left: 0px !important;
-    padding-top: 0.5rem !important;
+    /* padding-top: 0.5rem !important; */
     margin-right: 12px !important;
 }
 

@@ -14,6 +14,7 @@
 						padding-top: 5px !important;
 						padding-bottom: 0px !important;
 						font-family: NotoSans-JP-Regular;
+						margin-bottom:0px !important;
 						font-size: 12px !important"
 				for="{{$name}}{{$key}}">{{$checkbox}}</label>
 	@endforeach
