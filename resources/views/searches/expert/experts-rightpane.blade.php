@@ -7,9 +7,12 @@
             <img src="/images/svg/img-search-solid-small.svg" style="margin-right:10px">検索対象
         </p>
         <div class="content">
-            <p><a href="{{route('search.tema')}}" class="label-16px" style="color:#221815">> お金の相談テーマから探す</a></p>
-            <p><a href="{{route('search.category')}}" class="label-16px" style="color:#221815">> お金の悩みから探す</a></p>
-            <p><a href="{{route('search.expert')}}" class="label-16px" style="color:red">> 専門家から探す</a></p>
+            <p><a href="{{route('search.tema')}}" class="label-16px" style="color:#221815">
+                <img src="/images/svg/image-black-arrow-left.svg" style="margin-top:-2px;"> お金の相談テーマから探す</a></p>
+            <p><a href="{{route('search.category')}}" class="label-16px" style="color:#221815">
+                <img src="/images/svg/image-black-arrow-left.svg" style="margin-top:-2px;"> お金の悩みから探す</a></p>
+            <p><a href="{{route('search.expert')}}" class="label-16px" style="color:red">
+                <img src="/images/svg/image-red-arrow-left.svg" style="margin-top:-2px;"> 専門家から探す</a></p>
         </div>
     </div>
 
@@ -17,7 +20,7 @@
         <p style="font-family: NotoSans-JP-Medium;font-size: 16px !important;">
             <img src="/images/svg/img-filter-solid-small.svg" style="margin-right:10px">絞り込み
         </p>
-        <button class="btn-tag-grey-round">結果の消去  <span class="fa fa-close"></span></button>
+        <button class="btn-tag-grey-round">結果の消去<span class="fa fa-times-circle" style="font-size:14px;color:white;"></span></button>
     </div>
     <div class="col-12 m-0 p-0 mb-0">
         <input type="text" id="tema" class="form-control" style="border:0px !important"/>

@@ -1352,13 +1352,18 @@ span.answers {
     background-color: #dbdbdb; /* Green */
     border: none;
     color: black;
-    padding: 4px 10px;
+    padding-left:10px;
+    padding-top:4px;
+    padding-bottom: 4px;
+    padding-right: 5px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     margin: 2px 2px;
     cursor: pointer;
     border-radius: 10px;
+    width: 100px;
+    height: 24px;
 }
 .btn-tag-brown {
     background-color: #221815; /* Green */
