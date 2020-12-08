@@ -1,3 +1,5 @@
+<!-- deprecated code -->
+
 <article class="col-12 p-1">
     <div class="row">
         <div class="col-sm-2 col-lg-1 pt-2">
@@ -7,7 +9,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <h5 class="font-weight-bold">{{$contents->expert_name_first.$contents->expert_name_second}}</h5>
-                    <p>({{$contents->expert_name_kana_first.$contents->expert_name_kana_second}})</p>
+                    <p>{{$contents->expert_name_kana_first.$contents->expert_name_kana_second}}</p>
                 </div>
                 <div class="row">
                     <span class="age">{{$contents->date_birth.'/'.$contents->gender}}</span>

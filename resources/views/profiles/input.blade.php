@@ -16,7 +16,7 @@
         </div>
 
         <div class="row" style="margin-bottom:80px">
-            <div class="col-12 bg-white">
+            <div class="col-12 bg-white input-form-style">
                 <p class="title-medium">プロフィール登録</p>
 
                 {{Form::open(['url'=> route('profile.update'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
@@ -31,18 +31,18 @@
                             <div class="col-sm-12 col-md-2 input-group mt-3 mt-md-0">
                                 @include('layouts.parts.editor.select', ['name' => 'date_birth_year', "file" => config("funcs.years"), "keyValue" => "", 'contents' => 'class="form-control btn-select p-0"'])
                                 <h6 class="font-weight-400 pl-2 textCenter"
-                                    style="padding-top:10px;font-family:NotoSans-JP-Regular;font-size:16px !important;">年</h6>
+                                    style="padding-top:10px;font-family:NotoSans-JP-Regular;font-size:16px !important;color:#221815">年</h6>
                             </div>
 
                             <div class="col-sm-12 col-md-2 input-group mt-3 mt-md-0">
                                 @include('layouts.parts.editor.select', ['name' => 'date_birth_month', "file" => configJson("custom/months"), "keyValue" => "", 'contents' => 'class="form-control btn-select p-0"'])
                                 <h6 class="font-weight-400 pl-2"
-                                    style="padding-top:10px;font-family:NotoSans-JP-Regular;font-size:16px !important;">月</h6>
+                                    style="padding-top:10px;font-family:NotoSans-JP-Regular;font-size:16px !important;color:#221815">月</h6>
                             </div>
                             <div class="col-sm-12 col-md-2 input-group mt-3 mt-md-0">
                                 @include('layouts.parts.editor.select', ['name' => 'date_birth_day', "file" => configJson("custom/days"), "keyValue" => "", 'contents' => 'class="form-control btn-select p-0"'])
                                 <h6 class="font-weight-400 pl-2"
-                                    style="padding-top:10px;font-family:NotoSans-JP-Regular;font-size:16px !important;">日</h6>
+                                    style="padding-top:10px;font-family:NotoSans-JP-Regular;font-size:16px !important;color:#221815">日</h6>
 
                             </div>
                         </div>

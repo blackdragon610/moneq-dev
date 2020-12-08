@@ -15,14 +15,14 @@
         </div>
 
         <div class="row" style="margin-bottom:80px">
-            <div class="col-md-12 col-lg-12 bg-white">
+            <div class="col-md-12 col-lg-12 bg-white input-form-style">
                 <p class="title-medium">プロフィール</p>
                 <!-- <hr class="mt-2 mb-3"/> -->
 
                 {{Form::open(['url'=> route('profiles.profile.update'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
                     <section>
                         <label for="" class="label-regular">ニックネーム<span class="btn-tag-red">必須</span></label>
-                        @include('layouts.parts.editor.text', ["type" => "text", 'name' => 'nickname', 'contents' => 'class="form-control" placeholder="パスワード" style="max-width:500px"'])
+                        @include('layouts.parts.editor.text', ["type" => "text", 'name' => 'nickname', 'contents' => 'class="form-control" placeholder="ニックネームを入力" style="max-width:500px;border:1px solid #f0f0f0 !important"'])
 
                         <label for="sex" class="label-regular">性別<span class="btn-tag-red">必須</span></label>
                         <div class="pt-2">
@@ -34,18 +34,18 @@
                             <div class="col-sm-12 col-md-2 input-group mt-3 mt-md-0">
                                 @include('layouts.parts.editor.select', ['name' => 'date_birth_year', "file" => config("funcs.years"), "keyValue" => "", 'contents' => 'class="form-control btn-select p-0"'])
                                 <h6 class="font-weight-400 pl-2 textCenter"
-                                    style="padding-top:10px;font-family:NotoSans-JP-Regular;font-size:16px !important;">年</h6>
+                                    style="padding-top:10px;font-family:NotoSans-JP-Regular;font-size:16px !important;color:#221815;">年</h6>
                             </div>
 
                             <div class="col-sm-12 col-md-2 input-group mt-3 mt-md-0">
                                 @include('layouts.parts.editor.select', ['name' => 'date_birth_month', "file" => configJson("custom/months"), "keyValue" => "", 'contents' => 'class="form-control btn-select p-0"'])
                                 <h6 class="font-weight-400 pl-2"
-                                    style="padding-top:10px;font-family:NotoSans-JP-Regular;font-size:16px !important;">月</h6>
+                                    style="padding-top:10px;font-family:NotoSans-JP-Regular;font-size:16px !important;color:#221815;">月</h6>
                             </div>
                             <div class="col-sm-12 col-md-2 input-group mt-3 mt-md-0">
                                 @include('layouts.parts.editor.select', ['name' => 'date_birth_day', "file" => configJson("custom/days"), "keyValue" => "", 'contents' => 'class="form-control btn-select p-0"'])
                                 <h6 class="font-weight-400 pl-2"
-                                    style="padding-top:10px;font-family:NotoSans-JP-Regular;font-size:16px !important;">日</h6>
+                                    style="padding-top:10px;font-family:NotoSans-JP-Regular;font-size:16px !important;color:#221815;">日</h6>
 
                             </div>
                         </div>

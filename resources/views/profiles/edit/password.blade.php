@@ -16,7 +16,7 @@
         </div>
 
         <div class="row" style="margin-bottom:80px">
-            <div class="col-md-12 col-lg-12 bg-white">
+            <div class="col-md-12 col-lg-12 bg-white input-form-style">
                 <p class="title-medium">パスワード</p>
                 <!-- <hr class="mt-2 mb-3"/> -->
 
