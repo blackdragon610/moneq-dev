@@ -16,7 +16,7 @@
                     <span name="question" class="col-sm-11 label-regular">{{$post->body}}</span>
                     <br/>
 
-                    <label for="" class="label-regular" style='margin-left:15px'>相談の追記<span class="btn-tag-red">必須</span></label>
+                    <label for="" class="label-regular" style='margin-left:15px'>相談の追記</label>
                     @include('layouts.parts.editor.textarea', ['name' => 'body', "contents" => ""])<br />
 
                     <div class="text-center btnLayer">
