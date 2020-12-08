@@ -16,37 +16,42 @@
                         <a id="badge" class="nav-link waves-effect waves-light" id="navbarDropdownBell" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fa fa-bell fa-lg has-badge" style="color:black"></i>
                         </a>
-                        <div id="contents" class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownBell">
+                        <div id="contents" class="dropdown-menu dropdown-menu-right dropdown-default speech-popup" aria-labelledby="navbarDropdownBell">
+                            <!-- NEED CODE  -->
+                            <hr>
+                            <a class="dropdown-item " href="{{route('logout')}}">ログアウト</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link waves-effect waves-light" id="navbarDropdownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fa fa-user fa-lg" style="color:black"></i>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownUser">
-                            <a class="dropdown-item waves-effect waves-light" href="{{route('search.tema')}}">@lang('string.tema_search')</a>
-                            <hr>
-                            <a class="dropdown-item waves-effect waves-light" href="{{route('search.category')}}">@lang('string.money_free')</a>
-                            <hr>
-                            <a class="dropdown-item waves-effect waves-light" href="{{route('search.expert')}}">@lang('string.expert_search')</a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-default speech-popup" aria-labelledby="navbarDropdownUser"
+                            style="padding:15px !important">
+                            <a class="dropdown-item label-12px" style="padding:2px" href="{{route('search.tema')}}">
+                                <img src="/images/svg/img-fa-search.svg" style="margin-right:8px">@lang('string.tema_search')</a>
+                            <a class="dropdown-item label-12px p-0"  style="padding:2px" href="{{route('search.category')}}">
+                                <img src="/images/svg/img-fa-search.svg" style="margin-right:8px">@lang('string.money_free')</a>
+                            <a class="dropdown-item label-12px p-0"  style="padding:2px" href="{{route('search.expert')}}">
+                                <img src="/images/svg/img-fa-search.svg" style="margin-right:8px">@lang('string.expert_search')</a>
                             @if(\Auth::user()->pay_status != 1)
-                                <hr>
-                                <a class="dropdown-item waves-effect waves-light" href="{{url('other/self')}}">@lang('string.post_in')</a>
+                                <a class="dropdown-item label-12px p-0"  style="padding:2px" href="{{url('other/self')}}">
+                                    <img src="/images/svg/img-fa-history.svg" style="margin-right:8px">@lang('string.post_in')</a>
                             @endif
-                            <hr>
-                            <a class="dropdown-item waves-effect waves-light" href="{{url('other/access')}}">@lang('string.search_history')</a>
+                            <a class="dropdown-item label-12px p-0"  style="padding:2px" href="{{url('other/access')}}">
+                                <img src="/images/svg/img-fa-history.svg" style="margin-right:8px">@lang('string.search_history')</a>
                             @if(\Auth::user()->pay_status != 1)
-                                <hr>
-                                <a class="dropdown-item waves-effect waves-light" href="{{url('other/store')}}">@lang('string.saved')</a>
+                                <a class="dropdown-item label-12px p-0"  style="padding:2px" href="{{url('other/store')}}">
+                                    <img src="/images/svg/img-fa-save.svg" style="margin-right:8px">@lang('string.saved')</a>
                             @endif
+                            <a class="dropdown-item label-12px p-0"  style="padding:2px" href="{{route('profiles.manage')}}">
+                                <img src="/images/svg/img-fa-edit-regular.svg" style="margin-right:8px">@lang('string.infomation')</a>
+                            <a class="dropdown-item label-12px p-0"  style="padding:2px" href="#">
+                                <img src="/images/svg/img-fa-help.svg" style="margin-right:8px">@lang('string.help')</a>
+                            <a class="dropdown-item label-12px p-0"  style="padding:2px" href="#">
+                                <img src="/images/svg/img-fa-envelope.svg" style="margin-right:8px">お問い合わせ</a>
                             <hr>
-                            <a class="dropdown-item waves-effect waves-light" href="{{route('profiles.manage')}}">@lang('string.infomation')</a>
-                            <hr>
-                            <a class="dropdown-item waves-effect waves-light" href="#">@lang('string.help')</a>
-                            <hr>
-                            <a class="dropdown-item waves-effect waves-light" href="#">お問い合わせ</a>
-                            <hr>
-                            <a class="dropdown-item waves-effect waves-light" href="{{route('logout')}}">ログアウト</a>
+                            <a class="dropdown-item label-12px p-0"  style="padding:2px" href="{{route('logout')}}">ログアウト</a>
                         </div>
                     </li>
                 </ul>
