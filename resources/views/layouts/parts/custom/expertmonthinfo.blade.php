@@ -13,7 +13,7 @@
             @endif
             <div id="content">
                 <span id="name0">{{$contents->expert_name_first.$contents->expert_name_second}}さん</span>
-                <span id="name1">({{$contents->expert_name_kana_first.$contents->expert_name_kana_second}})</span>
+                <span id="name1">{{$contents->expert_name_kana_first.$contents->expert_name_kana_second}}</span>
                 <br/>
                 <span id="card" style="width:230px;display:inline-block"><img src="/images/svg/img-address-card-solid.svg">
                     @foreach($contents->getCategoryByExpertId() as $item)

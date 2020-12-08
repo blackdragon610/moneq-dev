@@ -11,8 +11,8 @@
                 </div>
             </div>
             <div class="row mt-3">
-                <div class="col-2 p-0" style="margin:auto">
-                    <img src="/images/img-avatar-sample.png" class="avatar-lg m-0" id="avatar" style="margin-left:35px !important">
+                <div>
+                    <img src="/images/img-avatar-sample.png" class="avatar-lg m-0" id="avatar" style="margin-left:15px !important;width:80px;height:80px;">
                 </div>
                 <div class="col-10">
                     <div class="row">
@@ -51,8 +51,10 @@
             </div>
         </div>
 
-        <div class="mt-3">
-            <p class="speech" style="border:1px solid #ffd800; padding:5px;margin-top:10px;width:100%">{{$contents->body}}</p>
+        <div style="padding-left:15px;padding-right:15px;padding-top:15px">
+            <div class="speech-bubble">
+                <p >{{$contents->body}}</p>
+            </div>
         </div>
     </div>
 </article>

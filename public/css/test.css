@@ -411,7 +411,15 @@ p {
 }
 .form-control {
     height: 50px !important;
+    border: 1px solid #dbdbdb;
+    border-radius: 0px !important;
 }
+
+.input-form-style {
+    padding-left: 70px;
+    padding-right: 70px;
+}
+
 .sectionbar5 {
     height: 888px !important;
     width: 100%;
@@ -1269,6 +1277,7 @@ span.answers {
 
 .bootstrap-tagsinput {
     border: 0px !important;
+    box-shadow: none !important;
 }
 .bootstrap-tagsinput input{
     display: none;
@@ -1286,13 +1295,83 @@ span.answers {
     margin-left: 0px;
 }
 
+.speech-bubble {
+	position: relative;
+    background: white;
+    border: 1px solid yellow;
+    padding:24px;
+}
+
+.speech-bubble:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 40px;
+	width: 0;
+	height: 0;
+	border: 12px solid transparent;
+	border-bottom-color: #ffff00;
+	border-top: 0;
+	margin-left: -12px;
+	margin-top: -12px;
+}
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 40px;
+	width: 0;
+	height: 0;
+	border: 10px solid transparent;
+	border-bottom-color: white;
+	border-top: 0;
+	margin-left: -10px;
+	margin-top: -10px;
+}
+
+
+.speech-popup {
+	position: relative;
+    background: white;
+    border: 1px solid black;
+    padding:24px;
+    border-radius: 5px;
+}
+
+.speech-popup:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 8px;
+	width: 0;
+	height: 0;
+	border: 8px solid transparent;
+	border-bottom-color: black;
+	border-top: 0;
+	margin-left: -8px;
+	margin-top: -8px;
+}
+.speech-popup:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 10px;
+	width: 0;
+	height: 0;
+	border: 6px solid transparent;
+	border-bottom-color: white;
+	border-top: 0;
+	margin-left: -6px;
+	margin-top: -6px;
+}
+
 .btn {
     border-radius: 0px;
 }
 .btn-alert-blue {
     background-color: #004EB5;
     border-radius: 5px;
-    position: absolute;
+    position: fixed;
     top: 28px;
     right: 40px;
     overflow: visible;
@@ -1310,13 +1389,18 @@ span.answers {
     background-color: #dbdbdb; /* Green */
     border: none;
     color: black;
-    padding: 4px 10px;
+    padding-left:10px;
+    padding-top:4px;
+    padding-bottom: 4px;
+    padding-right: 5px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     margin: 2px 2px;
     cursor: pointer;
     border-radius: 10px;
+    width: 100px;
+    height: 24px;
 }
 .btn-tag-brown {
     background-color: #221815; /* Green */
@@ -1334,7 +1418,7 @@ span.answers {
     background-color: red; /* Green */
     border: none;
     color: white;
-    padding: 2px 5px;
+    padding: 2px 7px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -1342,7 +1426,10 @@ span.answers {
     margin: 2px 11px;
     cursor: pointer;
     vertical-align: text-bottom;
+    border-radius: 2px;
+    font-family: 'NotoSans-JP-Regular';
 }
+
 .fa-bell[data-count]:after{
     position:absolute;
     right:15%;
@@ -1485,10 +1572,13 @@ input[type="checkbox"].checkboxHidden {
 }
 
 input[type="checkbox"] + label {
-    font-size: 1rem;
+    font-size: 14px;
+    font-family: NotoSans-JP-Regular;
     padding-top: 15px !important;
     padding-bottom: 15px !important;
+    margin-right: 12px;
 }
+
 .btn-select {
     padding-left: 15px !important;
     color: black;

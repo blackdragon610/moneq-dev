@@ -22,14 +22,14 @@
                 {{Form::open(['url'=> route('profiles.notification.update'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
                 <div class="container" style="padding-left:70px;padding-right:70px">
                     <div class="col-7">
-                        <div class="row">
+                        <div class="row" style="margin-top:14px">
                             <label class="cl-switch cl-switch-red">
                                 <div style="display:inline-block;width:180px"><span class="label">回答通知</span></div>
                                 <input type="checkbox" <?php if($user->is_send_answer == 1) echo 'checked'?> name="is_send_answer"/>
                                 <span class="switcher"></span>
                             </label>
                         </div>
-                        <div class="row">
+                        <div class="row" style="margin-top:14px">
                             <label class="cl-switch cl-switch-red">
                                 <div style="display:inline-block;width:180px"><span class="label">メッセージの通知</span></div>
                                 <input type="checkbox" <?php if($user->is_send_message == 1) echo 'checked'?> name="is_send_message"/>
@@ -37,7 +37,7 @@
                             </label>
 
                         </div>
-                        <div class="row">
+                        <div class="row" style="margin-top:14px">
                             <label class="cl-switch cl-switch-red">
                                 <div style="display:inline-block;width:180px"><span class="label">MoneQの通知</span></div>
                                 <input type="checkbox" <?php if($user->is_send_master == 1) echo 'checked'?> name="is_send_master"/>

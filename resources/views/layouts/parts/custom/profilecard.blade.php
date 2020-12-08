@@ -9,7 +9,7 @@
                 <p class="col keepOneLine" id="caption" style="color: #777777;">
                     {{ $keys[0] ?? '' }}
                 </p>
-                <p class="col keepOneLine {{ $align ?? 'text-right' }} " id="caption" style="color: black;">
+                <p class="col keepOneLine {{ $align ?? 'text-right' }} " id="caption" style="color: #221815;">
                     {{ $contents[$keys[0]] ?? '' }}
                 </p>
             </div>
@@ -20,7 +20,7 @@
                 <p class="col keepOneLine" id="caption" style="color: #777777;">
                     {{ $keys[1] ?? '' }}
                 </p>
-                <p class="col keepOneLine {{ $align ?? 'text-right' }} " id="caption" style="color: black;">
+                <p class="col keepOneLine {{ $align ?? 'text-right' }} " id="caption" style="color: #221815;">
                     {{ $contents[$keys[1]] ?? '' }}
                 </p>
             </div>
@@ -31,7 +31,7 @@
                 <p class="col keepOneLine" id="caption" style="color: #777777;">
                     {{ $keys[2] ?? '' }}
                 </p>
-                <p class="col keepOneLine {{ $align ?? 'text-right' }} " id="caption" style="color: black;">
+                <p class="col keepOneLine {{ $align ?? 'text-right' }} " id="caption" style="color: #221815;">
                     {{ $contents[$keys[2]] ?? '' }}
                 </p>
             </div>

@@ -29,7 +29,7 @@
         </div>
 
         <div class="row" style="margin-bottom:80px">
-            <div class="col-md-12 col-lg-12 bg-white">
+            <div class="col-md-12 col-lg-12 bg-white input-form-style">
                 <p class="title-medium">クレジットカード入力</p>
                 <p class="title-14px" style="margin-top:24px">本サービスに関するクレジットカードによる決済業務は、GＭＯペイメントゲートウェイ株式会社に委託しており、</p>
                 <p class="title-14px" style="margin-top:24px;line-height:2">
@@ -72,19 +72,21 @@
                         <div class="col-6">
                             <section>
                                 <label for="card" class="label-regular">カード番号<span class="btn-tag-red">必須</span></label>
-                                @include('layouts.parts.editor.text', ['name'=>'cardno', 'id'=>'cardno', 'type'=>'text', 'contents' => 'class="form-control textCenter p-0"'])
+                                @include('layouts.parts.editor.text', ['name'=>'cardno', 'id'=>'cardno', 'type'=>'text', 'contents' => 'class="form-control textCenter p-0" placeholder="カード番号を入力"'])
 
                                 <label for="birthday" class="label-regular">有効期限<span class="btn-tag-red">必須</span></label>
                                 <div class="row">
-                                    <div class="col-6 input-group mt-3 mt-md-0">
+                                    <div class="col-4 input-group mt-3 mt-md-0">
                                         @include('layouts.parts.editor.select', ['name' => 'year', 'id'=>'year', "file" => config("funcs.payyears"), "keyValue" => "", 'contents' => 'class="form-control textCenter p-0"'])
                                         <h6 class="font-weight-400 pl-2 textCenter"
                                             style="padding-top:10px;font-family:NotoSans-JP-Regular;font-size:16px !important;">年</h6>
                                     </div>
-                                    <div class="col-6 input-group mt-3 mt-md-0">
+                                    <div class="col-4 input-group mt-3 mt-md-0">
                                         @include('layouts.parts.editor.select', ['name' => 'month', 'id'=>'month', "file" => configJson("custom/months"), "keyValue" => "", 'contents' => 'class="form-control textCenter p-0"'])
                                         <h6 class="font-weight-400 pl-2"
                                             style="padding-top:10px;font-family:NotoSans-JP-Regular;font-size:16px !important;">月</h6>
+                                    </div>
+                                    <div class="col-4">
                                     </div>
                                 </div>
 
@@ -92,7 +94,7 @@
                                 @include('layouts.parts.editor.text', ['name' => 'holdername', 'id'=>'holdername', 'type'=>'text', "keyValue" => "", 'contents' => 'class="form-control textCenter p-0"'])
 
                                 <label for="cardnumber" class="label-regular">セキュリティコード<span class="btn-tag-red">必須</span></label>
-                                @include('layouts.parts.editor.text', ['name'=>'securitycode', 'id'=>'securitycode', 'type'=>'text', 'contents' => 'class="form-control textCenter p-0" style="width:150px"'])
+                                @include('layouts.parts.editor.text', ['name'=>'securitycode', 'id'=>'securitycode', 'type'=>'text', 'contents' => 'class="form-control textCenter p-0" placeholder="123" style="width:120px"'])
 
                             </section>
                         </div>

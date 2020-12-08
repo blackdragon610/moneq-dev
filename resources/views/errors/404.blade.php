@@ -17,7 +17,7 @@
                         </div>
                         <div class="row">
                             <div class="col text-center btnLayer">
-                                <a href="{{url('/')}}" class="btn btnSubmit btnUnselected" style="width:300px">トップ</a>
+                                <a href="{{url('/')}}" class="btn btnSubmit btnUnselected" style="width:300px !important">トップ</a>
                             </div>
                         </div>
                     </section>

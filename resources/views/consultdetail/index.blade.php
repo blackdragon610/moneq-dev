@@ -43,6 +43,9 @@
                         @include('layouts.parts.custom.answer', ["type" => "answer", 'name' => 'answer',
                                                                 'contents' => $item, 'isUser'=>$isUser,
                                                                 'post'=>$post, 'gender'=>$gender])
+                        @include('layouts.parts.custom.answer', ["type" => "answer", 'name' => 'answer',
+                                                                'contents' => $item, 'isUser'=>$isUser,
+                                                                'post'=>$post, 'gender'=>$gender])
                     @endforeach
                 @endif
 

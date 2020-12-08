@@ -16,7 +16,7 @@
         </div>
 
         <div class="row" style="margin-bottom:80px">
-            <div class="col-md-12 col-lg-12 bg-white">
+            <div class="col-md-12 col-lg-12 bg-white input-form-style">
                 <p class="title-medium">追加質問</p>
 
                 {{Form::open(['url'=> route('profile.updatePlus'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}

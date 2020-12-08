@@ -39,7 +39,7 @@
                     <input type="hidden" name="post_id", value="{{$post->id}}">
                     <section>
                         <label class="label-regular">通報内容</label>
-                        @include('layouts.parts.editor.textarea', ['name' => 'body', "contents" => ""])
+                        @include('layouts.parts.editor.textarea', ['name' => 'body', 'contents' => 'style="border:1px solid #707070"'])
                     </section>
                     <section>
                         <div class="row">

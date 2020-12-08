@@ -28,12 +28,12 @@
                             <div class="col text-center btnLayer">
                                 @if(isLogin() == 1)
                                     @if(\Auth::user()->pay_status == 2)
-                                        <a href="{{url('/')}}" class="btnSubmit btnUnselected">トップ</a>
+                                        <a href="{{url('/')}}" class="btn btnSubmit btnUnselected" style="width:300px !important">トップ</a>
                                     @else
-                                        <a href="{{url('payment/1').'/'.\Auth::user()->pay_status}}" class="btnSubmit btnUnselected">有料アップデート</a>
+                                        <a href="{{url('payment/1').'/'.\Auth::user()->pay_status}}" class="btn btnSubmit btnUnselected" style="width:300px !important">有料アップデート</a>
                                     @endif
                                 @else
-                                    <a href="{{url('entry')}}" class="btnSubmit btnUnselected">有料アップデート</a>
+                                    <a href="{{url('entry')}}" class="btn btnSubmit btnUnselected" style="width:300px !important">有料アップデート</a>
                                 @endif
                             </div>
                         </div>
