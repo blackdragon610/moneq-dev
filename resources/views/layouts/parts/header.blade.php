@@ -79,7 +79,7 @@
     <!-- 70px bar  -->
 </div>
 @if(!isset($isTop))
-<div class="container-fluid yellowpanel">
+<div class="container-fluid" style="background-color:#FFD800">
     {{Form::open(['url'=> route('search.tema'),'method'=>'GET', 'files' => false, 'id' => 'yform'])}}
         <div class="container" style="height:74px">
             <div class="row">

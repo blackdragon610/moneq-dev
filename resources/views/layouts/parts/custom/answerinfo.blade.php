@@ -6,8 +6,8 @@
         </a>
     </div>
     <div class="col-9 pt-2">
-            <p class="font-weight-bold mb-0">{{$contents->expert_name_second}}</p>
-            <span>回答数 : {{$contents->amount}} </span>
+            <p class="title-14px">{{$contents->expert_name_second}}</p>
+            <span class="label-12px" style="color:#9B9B9B">回答数 : {{$contents->amount}} </span>
     </div>
 </div>
 

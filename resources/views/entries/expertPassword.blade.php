@@ -2,8 +2,8 @@
 
 
 @section('main')
-<div class="container-fluid lightgreypanel p-3">
-    <div class="container p-3">
+<div class="whitepanel">
+    <div class="container">
 
     {{Form::open(['url'=> route('entry.expert.password.end'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
 

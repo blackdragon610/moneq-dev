@@ -558,10 +558,11 @@ p {
 .sectionbar7 #tab2 {
     margin-top: 40px !important;
 }
-.sectionbar7 #tab2 .userinfo {
+/* deprecated */
+/* .sectionbar7 #tab2 .userinfo {
     width: 565px !important;
     height: 170px !important;
-}
+} */
 
 .sectionbar7 #row3 {
     width: 1140px !important;
@@ -825,7 +826,7 @@ div .grey-round-tag {
 }
 .title-14px {
     font-family: NotoSans-JP-Medium;
-    font-size: 16px !important;
+    font-size: 14px !important;
     color: #221815;
 }
 .title-16px {
@@ -837,6 +838,11 @@ div .grey-round-tag {
     font-family: NotoSans-JP-Medium;
     font-size: 16px !important;
     color: red;
+}
+.title-24px {
+    font-family: NotoSans-JP-Medium;
+    font-size: 24px !important;
+    color: #221815;
 }
 .title-24px-red {
     font-family: NotoSans-JP-Medium;
@@ -875,6 +881,11 @@ div .grey-round-tag {
     font-family: NotoSans-JP-Regular;
     font-size: 24px !important;
     color: red;
+}
+.label-12px {
+    font-family: NotoSans-JP-Regular;
+    font-size: 12px !important;
+    color: #221815;
 }
 .label-14px {
     font-family: NotoSans-JP-Regular;
@@ -1144,35 +1155,7 @@ span.fa.fa-angle-down, span.fa.fa-angle-up {
 
 
 /* ------------- */
-.blackpanel {
-    background-color: #221815;
-}
-
-.lightgreypanel {
-    background-color: #f3f3f3;
-}
-
 .whitepanel {
-    background-color: #ffffff;
-}
-
-#plantable td {
-    text-align: center;
-}
-
-#plantable colgroup col.first {
-    background-color: #f3f3f3;
-}
-
-#plantable colgroup col.second {
-    background-color: #fff3cc;
-}
-
-#plantable colgroup col.third {
-    background-color: #f3e4d6;
-}
-
-#plantable colgroup col.fourth {
     background-color: #ffffff;
 }
 
@@ -1204,7 +1187,7 @@ span.answers {
 .keepTwoLine {
     overflow: hidden;
     line-height: 1.5em;
-    height: 3.25em;
+    max-height: 3.25em;
 }
 
 .underlineFor {
@@ -1365,11 +1348,11 @@ span.answers {
     right:15%;
     top:15%;
     content: attr(data-count);
-    font-size:30%;
-    padding:.6em;
-    border-radius:50%;
+    font-size:35%;
+    padding:.4em;
+    border-radius:20%;
     line-height:.8em;
-    color: white;
+    color: black;
     background:#FFD800;
     text-align:center;
     min-width: 1em;
