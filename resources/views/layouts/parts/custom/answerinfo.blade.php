@@ -2,7 +2,7 @@
 
     <div class="col-3 p-0">
         <a href="{{route('expert.detail', $contents->id)}}">
-            <img src="/images/img-avatar-sample.png">
+            <img src="/images/svg/user.svg">
         </a>
     </div>
     <div class="col-9 pt-2">

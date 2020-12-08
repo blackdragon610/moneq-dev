@@ -11,7 +11,7 @@
         <div id="title">{{$contents->post_name}}</div>
         <p id="description" class="keepTwoLine mb-2">{{substr($contents->body, 0, 200)}}</p>
 
-        <img src="/images/img-avatar-sample.png" class="avatar-lg" id="avatar">
+        <img src="/images/svg/user.svg" class="avatar-lg" id="avatar">
         <span id="name" class="mt-2">{{$contents->user->nickname}}さん</span>
         <span id="age" class="mt-2">{{getEra($contents->user->date_birth).'/'.$gender[$contents->user->gender]}}</span>
 

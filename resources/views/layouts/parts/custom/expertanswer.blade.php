@@ -11,7 +11,7 @@
             </div>
             <div class="row mt-3">
                 <div class="col-2 p-0" style="margin:auto">
-                    <img src="/images/img-avatar-sample.png" class="avatar-lg m-0" id="avatar" style="margin-left:35px !important">
+                    <img src="/images/svg/user.svg" class="avatar-lg m-0" id="avatar" style="margin-left:35px !important">
                 </div>
                 <div class="col-10">
                     <div class="row">
