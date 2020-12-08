@@ -18,7 +18,6 @@ class UserPayment extends ModelClass
         $model = $this->where('user_id', \Auth::user()->id)->first();
         if($model)  $model->delete();
 
-        if($type == 3)  $type = 1;
         $Model = clone $this;
         $Model->order_id = $orderId;
         $Model->user_id = \Auth::user()->id;
@@ -27,9 +26,24 @@ class UserPayment extends ModelClass
         $Model->save();
     }
 
+    public function updatePayMethod($type){
+        $Model  = clone $this;
+        $Model->type = $type;
+        $Model->save();
+    }
+
     static public function getPaymentStatus(){
         $Model = UserPayment::where('user_id' ,\Auth::user()->id)->first();
 
         return $Model;
+    }
+
+    static public function getPayOrderIdByType($pay_type){
+        $Model = UserPayment::where([['type', $pay_type], ['user_id', \Auth::user()->id]])->first();
+
+        if($Model)
+            return $Model->order_id;
+        else
+            return 0;
     }
 }

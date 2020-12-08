@@ -52,6 +52,7 @@ Route::group(['middleware' => 'common:user'], function () {
         Route::post('post/report/add/end', 'PostController@reportAddEnd')->name('post.report.add.end');
 
         Route::get('expert/detail/{id}', 'ExpertProfileController@detail')->name('expert.detail');
+        Route::get('expert/detail/{id}/{postId}', 'ExpertProfileController@detail')->name('expert.detail.post');
         Route::get('expert/message/{id}', 'ExpertProfileController@message')->name('expert.message');
         Route::post('expert/message/send', 'ExpertProfileController@send')->name('expert.message.send');
         Route::get('expert/message/send/end', 'ExpertProfileController@messageEnd')->name('expert.message.end');
@@ -144,6 +145,7 @@ Route::group(['middleware' => 'common:user'], function () {
 
     Route::get('error/{mode}', 'ErrorController@other')->name('error');
     Route::get('error', 'ErrorController@index')->name('error');
+    Route::get('error/payment', 'ErrorController@payment')->name('error.payment');
     Route::get('', 'TopController@index')->name('top');
     Route::get('search/{key}', 'TopController@searchEngine')->name('search');
     Route::post('search', 'TopController@search')->name('search.post');

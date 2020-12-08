@@ -53,7 +53,7 @@ class ProfileManageController extends Controller
 
         $payment = "";
         if($user->pay_status != 1){
-            $pay = \Cookie::get('paytype');
+            $pay = UserPayment::getPaymentStatus()->type;
             if(isset($pay))
                 $payment = array($paymentArray[$pay] => '');
         }
@@ -292,8 +292,8 @@ class ProfileManageController extends Controller
     }
 
     public function paymentInfoUpdate(Request $request, $type){
-        \Cookie::queue('paytype', $type);
 
+        UserPayment::getPaymentStatus()->updatePayMethod($type);
         return redirect()->route('profiles.manage');
     }
 }

@@ -153,7 +153,7 @@ class PostController extends Controller
 
         $post = $Post->whereId($postId)->whereStatus(2)->withTrashed()->first();
         if(!$post){
-            header("Location:/error/notsee");
+            header("Location:/error");
             exit();
         }
 

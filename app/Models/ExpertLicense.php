@@ -14,8 +14,8 @@ class ExpertLicense extends ModelClass
     protected $hidden = [
     ];
 
-public function license(){	
-        return $this->belongsTo(License::class);	
+    public function license(){
+        return $this->belongsTo(License::class);
     }
 
     public function getCategoryByExpertId($expert_id){
