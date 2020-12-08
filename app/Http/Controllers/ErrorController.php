@@ -13,7 +13,7 @@ class ErrorController extends Controller
     public function index()
     {
 
-        return view('error');
+        return view('errors.404');
     }
 
     public function other(string $mode)

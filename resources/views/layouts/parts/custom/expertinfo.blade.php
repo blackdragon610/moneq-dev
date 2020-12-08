@@ -16,6 +16,9 @@
                 <span id="name1">({{$contents->expert_name_kana_first.$contents->expert_name_kana_second}})</span>
                 <br/>
                 <span id="card" style="width:230px;display:inline-block"><img src="/images/svg/img-address-card-solid.svg">
+                    @foreach($contents->getCategoryByExpertId() as $item)
+                        {{$item->body.' '}}
+                    @endforeach
                 </span>
                 <span id="card" style="width:200px"><img src="/images/svg/img-yellow-messages-solid.svg">回答数：<span id="number">{{$contents->count_answer}}</span>件</span>
                 <br/>

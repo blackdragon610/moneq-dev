@@ -22,7 +22,8 @@
                 {{Form::open(['url'=> route('profiles.profile.update'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
                     <section>
                         <label for="" class="label-regular">ニックネーム<span class="btn-tag-red">必須</span></label>
-                        @include('layouts.parts.editor.text', ["type" => "text", 'name' => 'nickname', 'contents' => 'class="form-control" placeholder="パスワード" style="max-width:500px"'])
+                        @include('layouts.parts.editor.text', ["type" => "text", 'name' => 'nickname', 'id' => 'nickname', 'contents' => 'class="form-control col-sm-6" placeholder="パスワード"'])
+                        <p class="error-box col-sm-6" id="nickname_error" style="display: none"></p>
 
                         <label for="sex" class="label-regular">性別<span class="btn-tag-red">必須</span></label>
                         <div class="pt-2">
@@ -98,7 +99,7 @@
                     <div class="row mt-3">
                         <div class="col"></div>
                         <div class="col-sm-4 text-center"><button type="button" id="gotoPro" class="btnUnselected">会員情報に戻る</button></div>
-                        <div class="col-sm-4 text-center"><button class="proSubmit">変更を送信</button></div>
+                        <div class="col-sm-4 text-center"><button type="button" id="submitBtn" class="proSubmit">変更を送信</button></div>
                         <div class="col"></div>
                     </div>
                 {{Form::close()}}
@@ -109,4 +110,43 @@
 
     </div>
 </div>
+
+<button type="button" id='notify' class="btn btn-alert-blue" style="display:none">
+    <image src="/images/svg/image-fa-checkbox.svg">
+    プロフィールが変更されました。
+    <span class="fa fa-close"></span>
+</button>
+
+<script>
+    $('.fa').click(function(){
+        $('#notify').hide();
+    })
+
+    $('#submitBtn').click(function(){
+        let form_data = $("#form").serialize();
+        $.ajax({
+
+            type:"GET",
+            data: form_data,
+            url: "{{route('profiles.profile.update')}}",
+            success: function(data) {
+                if(data == "ok"){
+                    $('.error-box').hide();
+                    $('#notify').show();
+                }
+            },
+            error: function (reject) {
+                $('.error-box').hide();
+                if( reject.status === 400 ) {
+                    $.each(reject.responseJSON.errors, function (key, val) {
+                        $("#" + key + "_error").text(val[0]);
+                        $("#" + key + "_error").show();
+                    });
+                }
+            }
+        });
+    });
+
+</script>
+
 @endsection

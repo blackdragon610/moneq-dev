@@ -1,3 +1,4 @@
+@if($contents->post)
 <article class="col-12 p-0 mb-3 bg-white">
     <div id="article_expert">
         <div class="container">
@@ -55,3 +56,4 @@
         </div>
     </div>
 </article>
+@endif

@@ -20,15 +20,15 @@ Route::group(['middleware' => 'common:user'], function () {
         //普通の人のプロフィールを更新
         Route::get('profile/manage', 'ProfileManageController@index')->name('profiles.manage');
         Route::get('profile/manage/email', function() { return view('profiles.edit.email');})->name('profiles.email');
+        Route::get('profile/manage/email/update', 'ProfileManageController@emailUpdate')->name('profiles.email.update');
         Route::get('profile/manage/change/email', 'ProfileManageController@emailChange')->name('profiles.email.change');
-        Route::post('profile/manage/email', 'ProfileManageController@emailUpdate')->name('profiles.email.update');
         Route::get('profile/manage/password', function() { return view('profiles.edit.password');})->name('profiles.password');
-        Route::post('profile/manage/password', 'ProfileManageController@passwordUpdate')->name('profiles.password.update');
+        Route::get('profile/manage/password/update', 'ProfileManageController@passwordUpdate')->name('profiles.password.update');
         Route::get('profile/manage/change/password', 'ProfileManageController@emailPassword')->name('profiles.password.change');
         Route::get('profile/manage/profile', 'ProfileManageController@profileEdit')->name('profiles.profile');
-        Route::post('profile/manage/profile', 'ProfileManageController@profileUpdate')->name('profiles.profile.update');
+        Route::get('profile/manage/profile/update', 'ProfileManageController@profileUpdate')->name('profiles.profile.update');
         Route::get('profile/manage/notification', 'ProfileManageController@notification')->name('profiles.notification');
-        Route::post('profile/manage/notification', 'ProfileManageController@notificationUpdate')->name('profiles.notification.update');
+        Route::get('profile/manage/notification/update', 'ProfileManageController@notificationUpdate')->name('profiles.notification.update');
         Route::get('profile/manage/membership', 'ProfileManageController@membership')->name('profiles.membership');
         Route::get('profile/manage/membership/payment', 'ProfileManageController@memberPayment')->name('profiles.membership.payment');
         Route::get('profile/manage/membership/payment/delete', 'ProfileManageController@memberPayDelete')->name('profiles.membership.payment.delete');
