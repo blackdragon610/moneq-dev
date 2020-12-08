@@ -53,7 +53,7 @@ class ProfileManageController extends Controller
 
         $payment = "";
         if($user->pay_status != 1){
-            $pay = \Cookie::get('paytype');
+            $pay = UserPayment::getPaymentStatus()->type;
             if(isset($pay))
                 $payment = array($paymentArray[$pay] => '');
         }
@@ -75,10 +75,11 @@ class ProfileManageController extends Controller
         $datas = $this->checkForm($request);
 
         if (!empty($datas['errors'])){
-            return view('profiles.edit.email', [
-                "errors" => $datas['errors'],
-                "inputs" => $datas["inputs"],
-            ]);
+            return response()->json(array(
+                'success' => false,
+                'errors' => $datas['errors']
+
+            ), 400);
         }
 
 
@@ -101,12 +102,12 @@ class ProfileManageController extends Controller
             });
 
             if (\Mail::failures()) {
-                $emailChange = 0;
+                return response()->json('no');
             }else
-                $emailChange = 1;
+                return response()->json('ok');
         });
 
-        return redirect()->route('profiles.manage', ['emailChange'=>$emailChange]);
+        return response()->json('ok');
     }
 
     public function emailChange(Request $request, ChangeToken $ChangeToken, User $user)
@@ -131,10 +132,12 @@ class ProfileManageController extends Controller
         $datas = $this->checkForm($request);
 
         if (!empty($datas['errors'])){
-            return view('profiles.edit.password', [
-                "errors" => $datas['errors'],
-                "inputs" => $datas["inputs"],
-            ]);
+
+            return response()->json(array(
+                'success' => false,
+                'errors' => $datas['errors']
+
+            ), 400);
         }
 
         $ChangeToken->setTransaction("トークン登録時にエラー", function() use($ChangeToken, $request, $datas, $MailClass, $passwordMail){
@@ -156,13 +159,14 @@ class ProfileManageController extends Controller
             });
 
             if (\Mail::failures()) {
-                $passChange = 0;
+                return response()->json('no');
             }else
-                $passChange = 1;
+                return response()->json('ok');
 
         });
 
-        return redirect()->route('profiles.manage', ['passChange'=>$passChange]);
+        return response()->json('ok');
+
     }
 
     public function passwordChange(Request $request, ChangeToken $ChangeToken, User $user)
@@ -202,15 +206,14 @@ class ProfileManageController extends Controller
 
         $validator = Validator::make($request->all(), [
             'nickname' => 'required',
-            'gender' => 'required'
         ]);
 
         if ($validator->fails()) {
-            // return view('profiles.edit.profile', [
-            //     "errors" => $validator->errors(),
-            //     "inputs" => $request->input(),
-            // ]);
-            return redirect()->route('profiles.profile.update')->withErrors($validator)->withInput();
+            return response()->json(array(
+                'success' => false,
+                'errors' => $validator->errors()
+
+            ), 400);
         }
 
         foreach ($request->input() as $key => $value){
@@ -222,9 +225,11 @@ class ProfileManageController extends Controller
         $user->changeJsonAll();
         $user->date_birth = $datas["date_birth_year"] . "-" . sprintf("%02d", $datas["date_birth_month"]) . "-" . sprintf("%02d", $datas["date_birth_day"]);
 
-        $user->save();
+        if($user->save())
+            return response()->json('ok');
+        else
+            return response()->json('no');
 
-        return redirect()->route('profiles.manage', ['profileChange'=>1]);
     }
 
     public function notification(){
@@ -241,9 +246,11 @@ class ProfileManageController extends Controller
         $user->is_send_message = $request->is_send_message == 'on'? 1 : 0;
         $user->is_send_master = $request->is_send_master == 'on'? 1 : 0;
 
-        $user->update();
+        if($user->update())
+            return response()->json('ok');
+        else
+            return response()->json('no');
 
-        return redirect()->route('profiles.manage', ['notifyChange'=>1]);
     }
 
     public function membership(){
@@ -285,8 +292,8 @@ class ProfileManageController extends Controller
     }
 
     public function paymentInfoUpdate(Request $request, $type){
-        \Cookie::queue('paytype', $type);
 
+        UserPayment::getPaymentStatus()->updatePayMethod($type);
         return redirect()->route('profiles.manage');
     }
 }

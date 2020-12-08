@@ -38,39 +38,6 @@
     </div>
 </div>
 
-
-@if($passChange == 1)
-    <button type="button" id='notify' class="btn btn-alert-blue">
-        <image src="/images/svg/image-fa-checkbox.svg">
-        パスワードが変更されました。
-        <span class="fa fa-close"></span>
-    </button>
-@endif
-
-@if($emailChange == 1)
-    <button type="button" id='notify' class="btn btn-alert-blue">
-        <image src="/images/svg/image-fa-checkbox.svg">
-        メッセージが送信されました。
-        <span class="fa fa-close"></span>
-    </button>
-@endif
-@if($profileChange == 1)
-
-    <button type="button" id='notify' class="btn btn-alert-blue">
-        <image src="/images/svg/image-fa-checkbox.svg">
-        プロフィールが変更されました。
-        <span class="fa fa-close"></span>
-    </button>
-@endif
-
-@if($notifyChange == 1)
-    <button type="button" id='notify' class="btn btn-alert-blue">
-        <image src="/images/svg/image-fa-checkbox.svg">
-        通知設定が変更されました。
-        <span class="fa fa-close"></span>
-    </button>
-@endif
-
 <script>
     $('.fa').click(function(){
         $('#notify').hide();

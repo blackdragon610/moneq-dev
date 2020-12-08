@@ -26,10 +26,11 @@ class Post extends ModelClass
         $datas['status'] = $flag;
         $datas['id'] = $datas['post_id'];
 
-        $Model = clone $this;
 
-        if (!empty($datas["id"])){
-            $Model = $Model->whereId($datas["id"])->whereUserId($userId)->first();
+        if ($datas["id"] != 0){
+            $Model = Post::whereId($datas["id"])->whereUserId($userId)->first();
+        }else{
+            $Model = clone $this;
         }
 
         $Model->setModel($datas);
@@ -82,8 +83,7 @@ class Post extends ModelClass
     }
 
     public function getPostByCategory(){
-        $Model = clone $this;
-        $Model = $Model->where([['id', '<>', $this->id], ['sub_category_id', $this->sub_category_id]])->orderBy('created_at', 'desc')->paginate(5);
+        $Model = $this->where([['id', '<>', $this->id], ['sub_category_id', $this->sub_category_id]])->orderBy('created_at', 'desc')->paginate(5);
 
         return $Model;
     }

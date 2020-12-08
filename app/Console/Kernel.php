@@ -5,6 +5,9 @@ namespace App\Console;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
+use App\Models\UserPayment;
+use App\Models\User;
+
 class Kernel extends ConsoleKernel
 {
     /**
@@ -26,8 +29,46 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        //$schedule->command("command:reservationCheck")->everyMinute();
 
+        $schedule->call(function () {
+            $payModel = UserPayment::getPaymentStatus();
+            if($payModel){
+                $userModel = User::where('id', $payModel->user_id)->first();
+                if($userModel){
+                    $status = $userModel->pay_status;
+                    if($status == 2){
+                        $payDate = $payModel->updated_at;
+
+                        $earlier = new \DateTime($payDate);
+                        $later = new \DateTime();
+
+                        $diff = $later->diff($earlier)->format("%a");
+
+                        if($diff > 365){
+                            $userModel->pay_status = 1;
+                            $userModel->save();
+                        }
+                    }
+
+                    if($status == 3){
+                        $payDate = $payModel->updated_at;
+
+                        $earlier = new \DateTime($payDate);
+                        $later = new \DateTime();
+
+                        $diff = $later->diff($earlier);
+
+                        $moth = ($diff->y * 12) + $diff->m;
+
+                        if($moth > 0){
+                            $userModel->pay_status = 1;
+                            $userModel->save();
+                        }
+                    }
+                }
+            }
+
+        })->everyMinute();
     }
 
     /**

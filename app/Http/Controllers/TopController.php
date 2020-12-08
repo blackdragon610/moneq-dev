@@ -32,7 +32,6 @@ class TopController extends Controller
         }
         // posts
         $accessTopPost = $Post->getAccessTopPosts(10);
-        // dd($accessTopPost);
         $newTopPost = $Post->getNewTopPosts(10);
 
         //experts
@@ -117,92 +116,10 @@ class TopController extends Controller
         }
     }
 
-    // public function route(Request $request, Post $Post, PostAnswer $PostAnswer, PostData $PostData, Notification $notification, $type, $id){
-    //     if($type == 1){
-    //         $post = $Post::where([['id',$id], ['status', 2]])->first();
-    //         $post->post_answer_id = $post->isAnswerCheck();
-    //         $notification->updateReady($post->post_answer_id);
-    //         $Post->updatePostReadCount($post);
-
-    //         $postAdd = $post->find($id)->adds;
-    //         $postAnswer = $post->find($id)->answers;
-
-    //         if(isLogin() == 1){
-    //             $isUser = isUser($post->user->id);
-    //         }else $isUser = -1;
-
-    //         if($isUser == 0){
-    //             $postData = $PostData->getPostHistoryData($post->user->id, $id);
-    //             $postData->user_id =$post->user->id;
-    //             $postData->post_id = $id;
-    //             $postData->type = 1;
-    //             $postData->save();
-    //         }
-
-    //         $postStoreFlag = $PostData->getPostStoreData($post->user->id, $id);
-    //         $postHelpFlag = $PostData->getPostHelpData($post->user->id, $id);
-
-    //         $weekExperts = $PostAnswer->weekHighExpert();
-    //         $monthExperts = $PostAnswer->monthHighExpert();
-    //         $totalExperts = $PostAnswer->totalHighExpert();
-
-    //         $post->user->date_birth = getAge($post->user->date_birth);
-    //         $gender = configJson('custom/gender');
-    //         $post->user->gender = $gender[$post->user->gender];
-
-    //         return view('consultdetail.index', compact('post', 'postAdd', 'postAnswer', 'weekExperts',
-    //                                                      'monthExperts', 'totalExperts', 'isUser', 'postStoreFlag', 'postHelpFlag'));
-    //         }
-    // }
-
     public function repost(Post $Post){
         $Post->rePostCreate();
 
         return response()->json('ok');
     }
 
-    public function paymentStatusChange(UserPayment $UserPayment){
-
-        $payModel = $UserPayment->getPaymentStatus();
-        if($payModel){
-            $userModel = User::where('id', $payModel->user_id)->first();
-            if($userModel){
-                $status = $userModel->pay_status;
-                if($status == 2){
-                    $payDate = $payModel->updated_at;
-
-                    $earlier = new \DateTime($payDate);
-                    $later = new \DateTime();
-
-                    $diff = $later->diff($earlier)->format("%a");
-
-                    if($diff > 365){
-                        $userModel->pay_status = 1;
-                        $userModel->save();
-                        return response()->json('ok');
-                    }
-                }
-
-                if($status == 3){
-                    $payDate = $payModel->updated_at;
-
-                    $earlier = new \DateTime($payDate);
-                    $later = new \DateTime();
-
-                    $diff = $later->diff($earlier);
-
-                    $moth = ($diff->y * 12) + $diff->m;
-
-                    if($moth > 0){
-                        $userModel->pay_status = 1;
-                        $userModel->save();
-                        return response()->json('ok');
-                    }
-                }
-            }
-            return response()->json('no');
-        }
-
-        return response()->json('no');
-}
 }

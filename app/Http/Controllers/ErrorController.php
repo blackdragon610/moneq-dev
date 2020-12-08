@@ -13,12 +13,21 @@ class ErrorController extends Controller
     public function index()
     {
 
-        return view('error');
+        return view('errors.404');
+    }
+
+    public function payment()
+    {
+
+        return view('errors.payment_error');
     }
 
     public function other(string $mode)
     {
 
+        if($mode == 'payment'){
+            return view('errors.payment_error');
+        }
         return view('error', ["mode" => $mode]);
     }
 

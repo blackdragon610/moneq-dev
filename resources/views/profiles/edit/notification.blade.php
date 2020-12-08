@@ -47,7 +47,7 @@
                     </div>
                     <div class="col-5" style="width:300px">
                         <div class="row">
-                            <button class="btn yellow-btn-304-50">変更を送信</button>
+                            <button type="button" id="submitBtn" class="btn yellow-btn-304-50">変更を送信</button>
                         </div>
                         <div class="row" style="margin-top:12px">
                             <button type="button" id="gotoPro" class="btnUnselected">会員情報に戻る</button>
@@ -62,5 +62,35 @@
 
     </div>
 </div>
+
+<button type="button" id='notify' class="btn btn-alert-blue" style="display: none">
+    <image src="/images/svg/image-fa-checkbox.svg">
+    通知設定が変更されました。
+    <span class="fa fa-close"></span>
+</button>
+
+<script>
+    $('.fa').click(function(){
+        $('#notify').hide();
+    })
+
+    $('#submitBtn').click(function(){
+
+        let form_data = $("#form").serialize();
+
+        $.ajax({
+
+            type:"GET",
+            data: form_data,
+            url: "{{route('profiles.notification.update')}}",
+            success: function(data) {
+                if(data == "ok"){
+                    $('#notify').show();
+                }
+            }
+        });
+    });
+
+</script>
 
 @endsection

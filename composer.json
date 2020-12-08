@@ -18,7 +18,6 @@
         "laravel/tinker": "^2.0",
         "laravelcollective/html": "^6.1",
         "nexmo/client": "^2.0",
-        "nexmo/laravel": "^2.4",
         "sanmai/gmopg": "^1.1",
         "tymon/jwt-auth": "^1.0"
     },

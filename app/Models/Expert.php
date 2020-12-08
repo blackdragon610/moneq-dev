@@ -99,26 +99,27 @@ class Expert extends ModelClass implements JWTSubject
     public function monthAnswerHighExpert($limit = 0){
         $date = new \DateTime();
         $month = $date->format("Y-m");
-        $sql = "SELECT t1.*, amount, hAmount from(SELECT expert_id, count(*) as amount from post_answers where isnull(deleted_at)
-         and DATE_FORMAT(created_at,'%Y-%m')='".$month.
-        "' GROUP BY expert_id order by count(*) desc LIMIT 5) total
-        LEFT JOIN(SELECT*FROM experts where isnull(deleted_at))t1 on(total.expert_id=t1.id) left join(select user_id, count(*) as hAmount from post_data
-        where isnull(deleted_at) and type=4 and DATE_FORMAT(created_at,'%Y-%m')='".$month."' group by user_id)t3 on(total.expert_id=t3.user_id)";
 
-        if($limit != 0) $sql .= " limit ".$limit;
-
-        $monthExperts = \DB::select($sql);
-        // dd($monthExperts);
+        $monthExperts = Expert::leftJoin(\DB::raw("(SELECT expert_id, count(*) as amount from post_answers where
+                                                    DATE_FORMAT(created_at,'%Y-%m')='".$month."' GROUP BY expert_id)t1"),
+                                                    function ($join) {
+                                                        $join->on ( 'experts.id', '=', 't1.expert_id' );
+                                                    })
+                            ->leftJoin(\DB::raw("(select user_id, count(*) as hAmount from post_data
+                                                    where type=4 and DATE_FORMAT(created_at,'%Y-%m')='".$month."' group by user_id)t2"),
+                                                    function($join){
+                                                        $join->on('expert_id', '=', 't2.user_id');
+                                                    })
+                            ->orderBy('amount', 'desc')
+                            ->orderBy('hAmount', 'desc')
+                            ->paginate($limit);
 
         return $monthExperts;
     }
 
     public function totalAnswerHighExpert($limit = 0){
-        $sql = "select *from experts where isnull(deleted_at) order by count_answer desc";
 
-        if($limit != 0) $sql .= " limit ".$limit;
-
-        $experts = \DB::select($sql);
+        $experts = Expert::orderBy('count_answer', 'desc')->paginate($limit);
 
         return $experts;
     }
@@ -126,22 +127,25 @@ class Expert extends ModelClass implements JWTSubject
     public function monthHelpHighExpert($limit = 0){
         $date = new \DateTime();
         $month = $date->format("Y-m");
-        $sql = "SELECT t1.*, amount, hAmount from(SELECT user_id, count(*) as hAmount from post_data where isnull(deleted_at) and type=4 and DATE_FORMAT(created_at,'%Y-%m')='".$month.
-        "' GROUP BY user_id order by count(*) desc LIMIT 5) total LEFT JOIN(SELECT*FROM experts where isnull(deleted_at))t1 on(total.user_id=t1.id) left join(select expert_id, count(*) as amount from post_answers where isnull(deleted_at) and DATE_FORMAT(created_at,'%Y-%m')='".$month."' group by expert_id)t3 on(total.user_id=t3.expert_id)";
-
-        if($limit != 0) $sql .= "limit ".$limit;
-
-        $monthExperts = \DB::select($sql);
-
+        $monthExperts = Expert::leftJoin(\DB::raw("(SELECT expert_id, count(*) as amount from post_answers where
+                                                    DATE_FORMAT(created_at,'%Y-%m')='".$month."' GROUP BY expert_id)t1"),
+                                                    function ($join) {
+                                                        $join->on ( 'experts.id', '=', 't1.expert_id' );
+                                                    })
+                            ->leftJoin(\DB::raw("(select user_id, count(*) as hAmount from post_data
+                                                    where type=4 and DATE_FORMAT(created_at,'%Y-%m')='".$month."' group by user_id)t2"),
+                                                    function($join){
+                                                        $join->on('expert_id', '=', 't2.user_id');
+                                                    })
+                            ->orderBy('hAmount', 'desc')
+                            ->orderBy('amount', 'desc')
+                            ->paginate($limit);
         return $monthExperts;
     }
 
     public function totalHelpHighExpert($limit = 0){
-        $sql = "select *from experts where isnull(deleted_at) order by count_useful desc";
 
-        if($limit != 0) $sql .= " limit ".$limit;
-
-        $experts = \DB::select($sql);
+        $experts = Expert::orderBy('count_useful', 'desc')->paginate($limit);
 
         return $experts;
     }
@@ -234,8 +238,8 @@ class Expert extends ModelClass implements JWTSubject
     }
 
     public function getCategoryByExpertId(){
-        $Model = clone $this;
-        $Model = $Model->where('expert_id', $this->id)->get();
+
+        $Model = ExpertLicense::where('expert_id', $this->id)->get();
 
         return $Model;
     }

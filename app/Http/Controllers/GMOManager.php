@@ -58,8 +58,11 @@ class GMOManager extends Controller
 
         //本番環境
 
+        $paymentId = UserPayment::getPayOrderIdByType(1);
+        if(!$paymentId)  $paymentId = $this->getOrderId();
+
         $payment = new ImmediatePayment();
-        $payment->paymentId = $this->getOrderId(); // Unique ID for every payment; see above
+        $payment->paymentId = $paymentId; // Unique ID for every payment; see above
         $payment->amount = config('app.memberCost')[$request->member];
         $payment->token = $request->pay_token;
 
@@ -86,7 +89,7 @@ class GMOManager extends Controller
         $response = $payment->getResponse();
 
         $User->setPayStatus($request->member);
-        $UserPayment->savePayment($response->OrderID, $request->member, config('app.memberCost')[$request->member]);
+        $UserPayment->savePayment($response->OrderID, 1, config('app.memberCost')[$request->member]);
 
         \Cookie::queue('paytype', 1);
 
@@ -109,11 +112,13 @@ class GMOManager extends Controller
         curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
         curl_setopt( $curl, CURLOPT_URL, 'https://pt01.mul-pay.jp/payment/EntryTranAu.idPass' );
 
-        $orderId = $this->getOrderId();
+        $paymentId = UserPayment::getPayOrderIdByType(2);
+        if(!$paymentId)  $paymentId = $this->getOrderId();
+
         $param = [
             'ShopID'    => env('GMO_SHOP_ID'),
             'ShopPass'  => env('GMO_SHOP_PASSWORD'),
-            'OrderID'   => $orderId,
+            'OrderID'   => $paymentId,
             'JobCd'     => 'CAPTURE',
             'Amount'    => config('app.memberCost')[$request->member],
             'Tax'       => config('app.memberCost')[$request->member]/config('app.tex')
@@ -130,7 +135,8 @@ class GMOManager extends Controller
         if( $curlinfo[ 'http_code' ] != 200 ){
             // エラー
 
-            return false;
+            header("Location:/error/payment/");
+            exit();
         }
 
 
@@ -138,11 +144,11 @@ class GMOManager extends Controller
         parse_str( $response, $data );
         if( array_key_exists( 'ErrCode', $data ) ){
             // エラー
-
-            return false;
+            header("Location:/error/payment");
+            exit();
         }
 
-        $UserPayment->savePayment($orderId, $member, config('app.memberCost')[$member]);
+        $UserPayment->savePayment($paymentId, 2, config('app.memberCost')[$member]);
         $User->setPayStatus($member);
         \Cookie::queue('paytype', 2);
         if($sheet == 2){
@@ -163,11 +169,14 @@ class GMOManager extends Controller
         curl_setopt( $curl, CURLOPT_POST, true );
         curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
         curl_setopt( $curl, CURLOPT_URL, 'https://pt01.mul-pay.jp/payment/EntryTranDocomo.idPass' );
-        $orderId = $this->getOrderId();
+
+        $paymentId = UserPayment::getPayOrderIdByType(3);
+        if(!$paymentId)  $paymentId = $this->getOrderId();
+
         $param = [
             'ShopID'    => env('GMO_SHOP_ID'),
             'ShopPass'  => env('GMO_SHOP_PASSWORD'),
-            'OrderID'   => $orderId,
+            'OrderID'   => $paymentId,
             'JobCd'     => 'CAPTURE',
             'Amount'    => config('app.memberCost')[$request->member],
             'Tax'       => config('app.memberCost')[$request->member]/config('app.tex')
@@ -196,7 +205,7 @@ class GMOManager extends Controller
         }
 
         // 正常
-        $UserPayment->savePayment($orderId, $member, config('app.memberCost')[$member]);
+        $UserPayment->savePayment($paymentId, 3, config('app.memberCost')[$member]);
         $User->setPayStatus($member);
         \Cookie::queue('paytype', 3);
         if($sheet == 2){
@@ -217,11 +226,14 @@ class GMOManager extends Controller
         curl_setopt( $curl, CURLOPT_POST, true );
         curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
         curl_setopt( $curl, CURLOPT_URL, 'https://pt01.mul-pay.jp/payment/EntryTranSb.idPass' );
-        $orderId = $this->getOrderId();
+
+        $paymentId = UserPayment::getPayOrderIdByType(4);
+        if(!$paymentId)  $paymentId = $this->getOrderId();
+
         $param = [
             'ShopID'    => env('GMO_SHOP_ID'),
             'ShopPass'  => env('GMO_SHOP_PASSWORD'),
-            'OrderID'   => $orderId,
+            'OrderID'   => $paymentId,
             'JobCd'     => 'CAPTURE',
             'Amount'    => config('app.memberCost')[$request->member],
             'Tax'       => config('app.memberCost')[$request->member]/config('app.tex')
@@ -250,7 +262,7 @@ class GMOManager extends Controller
         }
 
         // 正常
-        $UserPayment->savePayment($orderId, $member, config('app.memberCost')[$member]);
+        $UserPayment->savePayment($paymentId, 4, config('app.memberCost')[$member]);
         $User->setPayStatus($member);
         \Cookie::queue('paytype', 4);
         if($sheet == 2){

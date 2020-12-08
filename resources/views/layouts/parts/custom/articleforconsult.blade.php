@@ -9,7 +9,7 @@
                 <span id="date">{{$contents->created_at->format('Y/m/d')}}</span>
             </div>
         </div>
-        <img src="/images/img-avatar-sample.png" class="avatar-lg" id="avatar">
+        <img src="/images/svg/user.svg" class="avatar-lg" id="avatar">
         <span id="name" class="mt-2">{{$contents->user->nickname}}さん</span>
         <span id="age" class="mt-2">{{getEra($contents->user->date_birth).'/'.$gender[$contents->user->gender]}}</span>
 

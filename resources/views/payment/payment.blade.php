@@ -15,6 +15,17 @@
                 <li class="breadcrumb-item">年払会員</li>
                 <li class="breadcrumb-item">クレジットカード</li>
             </ol>
+            <ol class="breadcrumb  m-0 p-0">
+                <li class="breadcrumb-item"><a href="#" style="color:#9B9B9B"><i class="fa fa-dashboard"></i>Marketplace</a></li>
+                <?php $segments = ''; ?>
+                @foreach(Request::segments() as $segment)
+                    <?php $segments .= '/'.$segment; ?>
+                    <li class="breadcrumb-item">
+                        <a href="{{ $segments }}">{{$segment}}</a>
+                    </li>
+                @endforeach
+            </ol>
+
         </div>
 
         <div class="row" style="margin-bottom:80px">
@@ -41,7 +52,12 @@
                         決済プラン
                     </span>
                     <span class="title-bold-19px" style="padding-top:12px;padding-left:30px;">
-                        スタンダード会員　3,960円／年
+                        @if($member == 2)
+                            スタンダード会員　3,960円／年
+                        @else
+                            スタンダード会員　330円／月
+                        @endif
+
                     </span>
                 </div>
 

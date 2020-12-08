@@ -12,7 +12,7 @@
             <input type="hidden" value='{{$expertId}}' name = 'expert_id'>
             <section>
                 <div class="row">
-                    <img src="/images/img-avatar-sample.png" alt="">
+                    <img src="/images/svg/user.svg" alt="">
                     <h5 class="font-weight-bold">「テスト花子」さんにメッセージ</h5>
                 </div>
             </section>

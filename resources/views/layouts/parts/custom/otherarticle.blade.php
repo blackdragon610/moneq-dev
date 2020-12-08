@@ -11,7 +11,7 @@
         <div id="title">{{$contents->post_name}}</div>
         <p id="description" class="keepTwoLine mb-2">{{substr($contents->body, 0, 200)}}</p>
 
-        <img src="/images/img-avatar-sample.png" class="avatar-lg" id="avatar">
+        <img src="/images/svg/user.svg" class="avatar-lg" id="avatar">
         <span id="name" class="mt-2">{{$contents->nickname}}さん</span>
         @if($contents->gender == null)
             @dd($contents)

@@ -8,7 +8,7 @@
             </div>
         </div>
         <h5 id="title">{{$post->post_name}}</h5>
-        <img src="/images/img-avatar-sample.png" class="avatar-lg m-0" id="avatar"/>
+        <img src="/images/svg/user.svg" class="avatar-lg m-0" id="avatar"/>
         <span id="name">{{$post->user->nickname.'さん'}}</span>
         <span id="age">{{getAge($post->user->date_birth)}}代{{'/'.$post->user->gender}}</span>
 

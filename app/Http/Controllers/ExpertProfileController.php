@@ -71,7 +71,7 @@ class ExpertProfileController extends Controller
         );
     }
 
-    public function detail(PostAnswer $PostAnswer, PostData $PostData, ExpertLicense $ExpertLicense, Specialtie $Specialtie, $expertId){
+    public function detail(PostAnswer $PostAnswer, PostData $PostData, ExpertLicense $ExpertLicense, Specialtie $Specialtie, $expertId, $postId = null){
 
         if(isLogin() == -1){
             header("Location:/error/notsee");
@@ -95,7 +95,7 @@ class ExpertProfileController extends Controller
         $monthExperts = $PostAnswer->monthHighExpert();
         $totalExperts = $PostAnswer->totalHighExpert();
 
-        return view('experts.index', compact('expert', 'answers', 'weekExperts', 'monthExperts', 'totalExperts', 'gender', 'license', 'specialties'));
+        return view('experts.index', compact('expert', 'answers', 'weekExperts', 'monthExperts', 'totalExperts', 'gender', 'license', 'specialties', 'postId'));
     }
 
     public function message(Category $Category, $expertId){

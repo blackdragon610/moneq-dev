@@ -26,6 +26,7 @@
                 </ol>
             </div>
 
+            <input type="hidden" name="post_id" value="{{$post->id}}">
             <div class="pl-0 pr-0 mt-5">
                 @include('layouts.parts.custom.articledetail', ["type" => "articledetail", 'name' => 'article',
                                                                 'post'=>$post, 'postAdd'=>$postAdd, 'isUser'=>$isUser, 'hPost'=>$postHelpFlag, 'sPost' => $postStoreFlag])

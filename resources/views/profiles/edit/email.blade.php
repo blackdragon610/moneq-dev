@@ -27,12 +27,13 @@
                         @include('layouts.parts.editor.text', ["type" => "email", 'name' => 'email',
                                 'contents' => 'class="form-control" placeholder="メールアドレス"
                                                style="border: 1px solid #707070"'])
+                        <p class="error-box" id="email_error" style="display: none"></p>
                     </section>
 
                     <div class="row mt-3">
                         <div class="col"></div>
                         <div class="col-sm-4 text-center"><button type="button" id="gotoPro" class="btnUnselected">会員情報に戻る</button></div>
-                        <div class="col-sm-4 text-center"><button class="proSubmit">変更を送信</button></div>
+                        <div class="col-sm-4 text-center"><button type="button" id="submitBtn" class="proSubmit">変更を送信</button></div>
                         <div class="col"></div>
                     </div>
 
@@ -43,4 +44,44 @@
 
     </div>
 </div>
+
+<button type="button" id='notify' class="btn btn-alert-blue" style="display: none">
+    <image src="/images/svg/image-fa-checkbox.svg">
+    メッセージが送信されました。
+    <span class="fa fa-close"></span>
+</button>
+
+<script>
+    $('.fa').click(function(){
+        $('#notify').hide();
+    })
+
+    $('#submitBtn').click(function(){
+        let form_data = $("#form").serialize();
+
+        $.ajax({
+
+            type:"GET",
+            data: form_data,
+            url: "{{route('profiles.email.update')}}",
+            success: function(data) {
+                if(data == "ok"){
+                    $('.error-box').hide();
+                    $('#notify').show();
+                }
+            },
+            error: function (reject) {
+                $('.error-box').hide();
+                if( reject.status === 400 ) {
+                    $.each(reject.responseJSON.errors, function (key, val) {
+                        $("#" + key + "_error").text(val[0]);
+                        $("#" + key + "_error").show();
+                    });
+                }
+            }
+        });
+    });
+
+</script>
+
 @endsection

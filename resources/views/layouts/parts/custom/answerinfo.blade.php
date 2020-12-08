@@ -5,7 +5,11 @@
         <div class="container-fluid bg-white" style="border:1px solid #dbdbdb; padding: 10px;">
 
             <div class="col-3 p-0">
-                <a href="{{route('expert.detail', $contents->id)}}">
+              @if(isset($post))
+                  <a href="{{route('expert.detail.post', [$contents->id, $post->id])}}">
+              @else
+                  <a href="{{route('expert.detail', $contents->id)}}">
+              @endif
                     <img src="/images/img-avatar-sample.png">
                 </a>
             </div>
@@ -14,6 +18,5 @@
                     <span class="label-12px" style="color:#9B9B9B">回答数 : {{$contents->amount}} </span>
             </div>
         </div>
-
+  </div>
 </div>
-</article>
