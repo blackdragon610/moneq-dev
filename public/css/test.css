@@ -1277,6 +1277,7 @@ span.answers {
 
 .bootstrap-tagsinput {
     border: 0px !important;
+    box-shadow: none !important;
 }
 .bootstrap-tagsinput input{
     display: none;

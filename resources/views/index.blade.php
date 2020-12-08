@@ -287,10 +287,12 @@
                             スタンダード会員
                         </div>
                     </li>
-                    <li style="font-family:NotoSans-JP-Bold">
-                        <div>
-                        年<span style="font-size:24px">3,600</span>円（税別）<br/>
-                        1日10円
+                    <li style="font-family:NotoSans-JP-Bold;background-color:#fedc1a">
+                        <div style="background-image:url('../images/svg/image-broken-5angles.svg');width:100%; height:100%">
+                            <div style="margin-top:12px">
+                            年<span style="font-size:24px">3,600</span>円（税別）<br/>
+                            1日10円
+                            </div>
                         </div>
                     </li>
                     <li>月最大3回</li>
