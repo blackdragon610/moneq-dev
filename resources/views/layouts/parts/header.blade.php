@@ -17,7 +17,7 @@
                             <i class="fa fa-bell fa-lg has-badge" style="color:black"></i>
                         </a>
                         <div id="contents" class="dropdown-menu dropdown-menu-right dropdown-default speech-popup" aria-labelledby="navbarDropdownBell"
-                                >
+                                style="padding:15px !important; width:430px !important">
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -108,7 +108,6 @@
 @endif
 <script>
     var myVar = setInterval(myTimer, 1000);
-    var myPTime = setInterval(myPost, 10000); //86400000
 
     function myTimer() {
         $.ajax({
@@ -116,8 +115,10 @@
             url: "{{url('notification')}}",
             success: function(response) {
                 if(response == 0){
-                    $('#contents').attr('style','display:none');
-                }else   $('#contents').attr('style','display:show;padding:15px !important; width:430px !important');
+                    $('#contents').attr('style', 'display : none');
+                }else{
+                    $('#contents').attr('style', 'padding:15px !important; width:430px !important');
+                }
                 var count = 0;
                 var bodyHtml = '';
                 for(i in response){
@@ -136,7 +137,7 @@
                                                             '<p class="label-10px m-0 p-0" style="margin-top:5px !important">高橋</p>' +
                                                             '<p class="label-11px m-0 p-0">' + bodyArray[j]['sub_name'] + '</p>' +
                                                             '<p class="label-12px m-0 p-0" style="color:#777777;margin-bottom:5px !important">' +
-                                                              bodyArray[j]['post_name'] + 'に関して、'+ bodyArray[j]['ext_name']+ 'さんからメッセージがありました。</p>'
+                                                              bodyArray[j]['post_name'] + 'に関して、'+ bodyArray[j]['ext_name']+ 'さんからメッセージがありました。</p>' +
                                                         '</div>' +
                                                     '</div>' +
                                                 '</div>' +
@@ -152,20 +153,12 @@
                     var htmlBadge = '<i class="fa fa-bell fa-lg has-badge" style="color:black"></i>'
                     $('#badge').empty().html(htmlBadge);
                 }
+
                 if(bodyHtml != '')
                     bodyHtml += '<a class="dropdown-item label-12px p-0 text-center"  style="padding:2px !important" href="{{route('logout')}}">' +
-                            '<u>すべてのメッセージを見る</u> </a>';
-
+                                    '<u>すべてのメッセージを見る</u>' +
+                                '</a>';
                 $('#contents').empty().html(bodyHtml);
-            }
-        });
-    }
-
-    function myPost() {
-        $.ajax({
-            type:"GET",
-            url: "{{url('repost')}}",
-            success: function(response) {
             }
         });
     }
