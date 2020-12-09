@@ -62,7 +62,7 @@
                                     <span class="btn-tag-red">必須</span>
                                 @endif
                             </label>
-                            @include('layouts.parts.editor.text', ["type" => "text", 'name' => 'post_name',  'contents' => 'placeholder="例：結婚するのですが生命保険に入るべきでしょうか？" style="border:1px solid #707070"'])
+                            @include('layouts.parts.editor.text', ["type" => "text", 'name' => 'post_name', 'id' => 'post_name',  'contents' => 'placeholder="例：結婚するのですが生命保険に入るべきでしょうか？" style="border:1px solid #707070"'])
 
                             @if(!$isConfirmation)
                                 <div class="text-right"><span id="name_length">0/25</span></div>
@@ -133,6 +133,16 @@
 </button>
 
 <script>
+
+    $(document).ready(function() {
+        $('#post_name').keydown(function(event){
+            if(event.keyCode == 13) {
+            event.preventDefault();
+            return false;
+            }
+        });
+    });
+
     $("#preSave").click(function (e) {
 
         $('.error-box').remove();

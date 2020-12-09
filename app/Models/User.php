@@ -165,39 +165,46 @@ class User  extends ModelClass implements JWTSubject
      * 投稿できるかの確認
      * @return bool
      */
-    public function isPost() :bool
+    public function isPost() : int
     {
-        if ($this->pay_status == 1){
-            if($this->re_point > 0) return true;
-
-            return false;
-        }
-
         $count = $this->postCount();
 
+        if ($this->pay_status == 1){
+            $payModel = UserPayment::getPaymentStatus();
+            $member = $payModel->type;
+            if ($member == 2) {
+                return 3 - $count;
+            }
 
+            if ($member == 3) {
+                return 1 - $count;
+            }
+
+            return 0;
+        }
 
         if ($this->pay_status == 2) {
 
-            if ($count >= 3 + $this->re_point){
-                return false;
-            }
+            return 3 - $count;
         }
 
         if ($this->pay_status == 3) {
-            if ($count >= 1 + $this->re_point){
-                return false;
-            }
+            return 1 - $count;
         }
-
-
-        return true;
     }
 
     //user post count
     public function postCount(){
         $Post = app("Post");
-        $count = $Post->getCountUser($this, date("Y-m"));
+
+        $payModel = UserPayment::getPaymentStatus();
+        $payDate = $payModel->updated_at;
+        $startDate = date('Y-m').'-'.$payDate->format('d');
+
+        $endDate = new \DateTime($startDate);
+        $endDate->modify('last day of next month');
+
+        $count = $Post->getCountUser($this, $startDate, $endDate);
         return $count;
     }
 

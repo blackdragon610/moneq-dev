@@ -38,10 +38,4 @@
     </div>
 </div>
 
-<script>
-    $('.fa').click(function(){
-        $('#notify').hide();
-    })
-</script>
-
 @endsection

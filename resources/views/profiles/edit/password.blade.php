@@ -59,6 +59,15 @@
         $('#notify').hide();
     })
 
+    $(document).ready(function() {
+        $(window).keydown(function(event){
+            if(event.keyCode == 13) {
+            event.preventDefault();
+            return false;
+            }
+        });
+    });
+
     $('#submitBtn').click(function(){
         var form_data = {
             password : $('#password').val(),

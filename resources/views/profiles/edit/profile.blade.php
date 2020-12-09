@@ -118,6 +118,17 @@
 </button>
 
 <script>
+
+    $(document).ready(function() {
+        $(window).keydown(function(event){
+            if(event.keyCode == 13) {
+            event.preventDefault();
+            return false;
+            }
+        });
+    });
+
+
     $('.fa').click(function(){
         $('#notify').hide();
     })
@@ -131,6 +142,7 @@
             url: "{{route('profiles.profile.update')}}",
             success: function(data) {
                 if(data == "ok"){
+                    $("html, body").animate({ scrollTop: 0 }, 0);
                     $('.error-box').hide();
                     $('#notify').show();
                 }

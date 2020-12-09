@@ -39,7 +39,7 @@
                             <p class="title-16px" style="padding-left:65px"><img src="/images/svg/img-check-red.svg" style="margin-right:5px">回答した専門家に個別相談を依頼できる</p>
 
                             <div class="col text-center" style="margin-top:48px;margin-bottom:48px">
-                                <div class="btn white-btn-304-50" id="btnPlan1">選択する</div>
+                                <button type="button"  class="btn white-btn-304-50" id="btnPlan1">選択する</button>
                             </div>
                         </article>
                     </div>
@@ -53,7 +53,7 @@
                             <p class="title-16px" style="padding-left:65px"><img src="/images/svg/img-check-red.svg" style="margin-right:5px">回答した専門家に個別相談を依頼できる</p>
 
                             <div class="col text-center" style="margin-top:48px;margin-bottom:48px">
-                                <div class="btn white-btn-304-50" id="btnPlan2">選択する</div>
+                                <button type="button" class="btn white-btn-304-50" id="btnPlan2">選択する</button>
                             </div>
                         </article>
                     </div>
@@ -63,14 +63,14 @@
                     <div class="col-sm-12 offset-md-3 col-md-6 pl-0 pr-0">
                         <article class="col-12 p-0" style="background-color:#F5F5F5; max-width:488px; min-height:402px">
                             <p class="title-small text-center">無料会員</p>
-                            <a href="#" class="text-dark"> 
+                            <a href="#" class="text-dark">
                                 <p class="title-16px text-center" style="margin-top:27px">
                                     <img src="/images/svg/img-check-red.svg" style="margin-right:5px">月最大3回までQ&Aが見れる
                                 </p>
                             </a>
 
                             <div class="row justify-content-center" style="margin-top:150px;margin-bottom:48px">
-                                <div class="btn white-btn-304-50 text-center" id="btnPlan3">選択する</div>
+                                <button type="button"  class="btn white-btn-304-50 text-center" id="btnPlan3">選択する</button>
                             </div>
                         </article>
                     </div>
@@ -91,9 +91,9 @@
 
 <script>
 $('#btnPlan1').click(function(e) {
-    $('#btnPlan1').addClass('btnSelected').removeClass('btnUnselected');
-    $('#btnPlan2').addClass('btnUnselected').removeClass('btnSelected');
-    $('#btnPlan3').addClass('btnUnselected').removeClass('btnSelected');
+    $('#btnPlan1').addClass('btn orange-btn-304-50').removeClass('btn white-btn-304-50');
+    $('#btnPlan2').addClass('btn white-btn-304-50').removeClass('btn orange-btn-304-50');
+    $('#btnPlan3').addClass('btn white-btn-304-50').removeClass('btn orange-btn-304-50');
     $('#btnPlan1').html('選択中');
     $('#btnPlan2').html('選択する');
     $('#btnPlan3').html('選択する');
@@ -101,9 +101,9 @@ $('#btnPlan1').click(function(e) {
 });
 
 $('#btnPlan2').click(function(e) {
-    $('#btnPlan2').addClass('btnSelected').removeClass('btnUnselected');
-    $('#btnPlan1').addClass('btnUnselected').removeClass('btnSelected');
-    $('#btnPlan3').addClass('btnUnselected').removeClass('btnSelected');
+    $('#btnPlan2').addClass('btn orange-btn-304-50').removeClass('btn white-btn-304-50');
+    $('#btnPlan1').addClass('btn white-btn-304-50').removeClass('btn orange-btn-304-50');
+    $('#btnPlan3').addClass('btn white-btn-304-50').removeClass('btn orange-btn-304-50');
     $('#btnPlan2').html('選択中');
     $('#btnPlan1').html('選択する');
     $('#btnPlan3').html('選択する');
@@ -111,9 +111,9 @@ $('#btnPlan2').click(function(e) {
 });
 
 $('#btnPlan3').click(function(e) {
-    $('#btnPlan3').addClass('btnSelected').removeClass('btnUnselected');
-    $('#btnPlan1').addClass('btnUnselected').removeClass('btnSelected');
-    $('#btnPlan2').addClass('btnUnselected').removeClass('btnSelected');
+    $('#btnPlan3').addClass('btn orange-btn-304-50').removeClass('btn white-btn-304-50');
+    $('#btnPlan1').addClass('btn white-btn-304-50').removeClass('btn orange-btn-304-50');
+    $('#btnPlan2').addClass('btn white-btn-304-50').removeClass('btn orange-btn-304-50');
     $('#btnPlan3').html('選択中');
     $('#btnPlan1').html('選択する');
     $('#btnPlan2').html('選択する');

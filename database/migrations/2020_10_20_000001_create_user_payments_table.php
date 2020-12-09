@@ -22,6 +22,7 @@ class CreateUserPaymentsTable extends Migration
             $table->string("order_id")->comment("決済のID")->index();
             $table->integer("price")->comment("決済料金")->index();
             $table->integer("type")->comment("決済の種類")->index();
+            $table->integer("kind")->comment("決済の種類")->index();
         });
     }
 

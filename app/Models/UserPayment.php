@@ -13,22 +13,29 @@ class UserPayment extends ModelClass
     protected $hidden = [
     ];
 
-    public function savePayment($orderId, $type, $price){
+    public function savePayment($orderId, $type, $kind, $price){
 
-        $model = $this->where('user_id', \Auth::user()->id)->first();
+        $model = $this->where([['type', '<>', $type], ['user_id', \Auth::user()->id]])->first();
         if($model)  $model->delete();
 
-        $Model = clone $this;
-        $Model->order_id = $orderId;
-        $Model->user_id = \Auth::user()->id;
-        $Model->type = $type;
-        $Model->price = $price;
-        $Model->save();
+        $model = $this->where([['type', '=', $type], ['user_id', \Auth::user()->id]])->first();
+        if($model) {
+            $model->updated_at = date('Y-m-d');
+            $model->save();
+        }else{
+            $Model = clone $this;
+            $Model->order_id = $orderId;
+            $Model->user_id = \Auth::user()->id;
+            $Model->type = $type;
+            $Model->kind = $kind;
+            $Model->price = $price;
+            $Model->save();
+        }
     }
 
-    public function updatePayMethod($type){
+    public function updatePayMethod($kind){
         $Model  = clone $this;
-        $Model->type = $type;
+        $Model->kind = $kind;
         $Model->save();
     }
 
@@ -38,7 +45,7 @@ class UserPayment extends ModelClass
         return $Model;
     }
 
-    static public function getPayOrderIdByType($pay_type){
+    static public function getPayOrderIdByKind($pay_type){
         $Model = UserPayment::where([['type', $pay_type], ['user_id', \Auth::user()->id]])->first();
 
         if($Model)

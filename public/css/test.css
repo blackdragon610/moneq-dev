@@ -620,7 +620,6 @@ p {
     height: 30px !important;
     border-radius: 15px !important;
     /* font-family: NotoSans-JP-Medium; */
-    font-family: NotoSans-JP-Regular;
     font-size: 12px !important;
     letter-spacing: 3px;
 }
@@ -629,7 +628,6 @@ p {
     min-width: 304px !important;
     min-height: 50px !important;
     /* font-family: NotoSans-JP-Medium; */
-    font-family: NotoSans-JP-Regular;
     font-size: 16px !important;
     color: white !important;
     line-height: 35px;
@@ -641,7 +639,6 @@ p {
     height: 50px !important;
     border-radius: 25px !important;
     /* font-family: NotoSans-JP-Medium; */
-    font-family: NotoSans-JP-Regular;
     font-size: 20px !important;
     letter-spacing: 3px;
     line-height: 35px;
@@ -652,7 +649,6 @@ p {
     height: 50px !important;
     border-radius: 25px !important;
     /* font-family: NotoSans-JP-Medium; */
-    font-family: NotoSans-JP-Regular;
     font-size: 20px !important;
     letter-spacing: 3px;
 }
@@ -661,7 +657,6 @@ p {
     min-width: 300px !important;
     height: 50px !important;
     /* font-family: NotoSans-JP-Medium; */
-    font-family: NotoSans-JP-Regular;
     font-size: 16px !important;
     color: #221815 !important;
     line-height: 35px;
@@ -673,7 +668,6 @@ p {
     width : 90%;
     height: 40px !important;
     /* font-family: NotoSans-JP-Medium; */
-    font-family: NotoSans-JP-Regular;
     font-size: 16px !important;
     color: #221815 !important;
     line-height: 35px;
@@ -685,7 +679,6 @@ p {
     width : 100%;
     height: 40px !important;
     /* font-family: NotoSans-JP-Medium; */
-    font-family: NotoSans-JP-Regular;
     font-size: 14px !important;
     color: #221815 !important;
     line-height: 25px;
@@ -709,7 +702,15 @@ p {
     min-width: 304px !important;
     min-height: 50px !important;
     /* font-family: NotoSans-JP-Medium; */
-    font-family: NotoSans-JP-Regular;
+    font-size: 16px !important;
+    color: #221815 !important;
+    line-height: 35px;
+}
+.orange-btn-304-50 {
+    background-color: #ee7800 !important;
+    min-width: 304px !important;
+    min-height: 50px !important;
+    /* font-family: NotoSans-JP-Medium; */
     font-size: 16px !important;
     color: #221815 !important;
     line-height: 35px;
@@ -730,7 +731,6 @@ p {
     height: 50px !important;
     line-height: 34px !important;
     /* font-family: NotoSans-JP-Medium; */
-    font-family: NotoSans-JP-Regular;
     font-size: 16px !important;
     color: white;
 }
@@ -869,7 +869,7 @@ div .grey-round-tag {
     color: red;
 }
 .title-24px-orange {
-    font-family: NotoSans-JP-Medium;
+    /* font-family: NotoSans-JP-Medium; */
     font-size: 24px !important;
     color: #FF8100;
 }
@@ -1008,7 +1008,7 @@ article #description {
     margin-right: 8px;
 }
 article #name {
-    font-family: NotoSans-JP-Medium;
+    /* font-family: NotoSans-JP-Medium; */
     font-size: 18px !important;
     color: #221815;
     margin-left: 20px;
@@ -1092,7 +1092,7 @@ article #userinfo #content {
     margin-top: 30px;
 }
 article #userinfo #name0 {
-    font-family: NotoSans-JP-Medium;
+    /* font-family: NotoSans-JP-Medium; */
     font-size: 18px !important;
     color: #221815;
 }
@@ -1127,7 +1127,7 @@ article .notice {
     margin-bottom: 0px !important;
 }
 article #noticedate {
-    font-family: NotoSans-JP-Medium;
+    /* font-family: NotoSans-JP-Medium; */
     font-size: 18px !important;
     color: #221815;
     margin-top: 18px;
@@ -1141,7 +1141,6 @@ article .notice p#description {
 
 article #profilecard #title1 {
     /* font-family: NotoSans-JP-Medium; */
-    font-family: NotoSans-JP-Regular;
     font-size: 24px !important;
     color: #221815;
     margin-top: 10px;
@@ -1164,7 +1163,7 @@ article #profilecard #caption {
     text-align: left;
     outline: none;
     margin-top:10px;
-    font-family: NotoSans-JP-Medium;
+    /* font-family: NotoSans-JP-Medium; */
     font-size: 14px;
 }
 .collapsible:focus {
@@ -1173,12 +1172,12 @@ article #profilecard #caption {
 span.fa.fa-angle-down, span.fa.fa-angle-up {
     margin-top: 4px;
     margin-right: 5px;
-    color: #221616;   
-    float: right; 
+    color: #221616;
+    float: right;
 }
 
 .cl-switch .label {
-    font-family: NotoSans-JP-Medium !important;
+    /* font-family: NotoSans-JP-Medium !important; */
     font-size: 18px !important;
     color: #373A3C !important;
 }
@@ -1229,7 +1228,7 @@ span.answers {
     color: white;
     width:100%;
     height: 50px;
-    font-family: NotoSans-JP-Medium;
+    /* font-family: NotoSans-JP-Medium; */
     font-size: 16px !important;
     line-height: 34px !important;
     margin-top: 12px;
@@ -1257,7 +1256,7 @@ span.answers {
     color: white;
     width:100%;
     height: 50px;
-    font-family: NotoSans-JP-Medium;
+    /* font-family: NotoSans-JP-Medium; */
     font-size: 16px !important;
     line-height: 34px !important;
     margin-top: 12px;
@@ -1268,7 +1267,7 @@ span.answers {
     color: white;
     width:100%;
     height: 50px;
-    font-family: NotoSans-JP-Medium;
+    /* font-family: NotoSans-JP-Medium; */
     font-size: 16px !important;
     line-height: 34px !important;
     margin-top: 12px;
@@ -1279,7 +1278,7 @@ span.answers {
     color: white;
     width:100%;
     height: 50px;
-    font-family: NotoSans-JP-Medium;
+    /* font-family: NotoSans-JP-Medium; */
     font-size: 16px !important;
     line-height: 34px !important;
     margin-top: 12px;
@@ -1291,7 +1290,7 @@ span.answers {
     border: 1px solid #DD4B39;
     width:100%;
     height: 50px;
-    font-family: NotoSans-JP-Medium;
+    /* font-family: NotoSans-JP-Medium; */
     font-size: 16px !important;
     line-height: 34px !important;
     margin-top: 12px;
@@ -1402,7 +1401,7 @@ span.answers {
     font-family: 'NotoSans-JP-Regular';
     font-size: 16px;
     min-height:50px;
-    min-width:300px;    
+    min-width:300px;
 }
 
 .btn-tag-grey-round {
@@ -1476,7 +1475,6 @@ span.answers {
     background-color: black;
     color: rgb(0, 0, 0);
     /* font-family: NotoSans-JP-Medium; */
-    font-family: NotoSans-JP-Regular;
     font-size: 16px !important;
     margin-left: 30px;
     margin-right: 30px;
@@ -1487,7 +1485,6 @@ span.answers {
     padding: 0.75rem !important;
     color: rgb(0, 0, 0);
     /* font-family: NotoSans-JP-Medium; */
-    font-family: NotoSans-JP-Regular;
     font-size: 16px !important;
     border: 1px solid;
     border-color:#FFD800;
@@ -1550,7 +1547,6 @@ span.answers {
     border: 1px solid;
     border-color: grey;
     /* font-family: NotoSans-JP-Medium; */
-    font-family: NotoSans-JP-Regular;
     font-size: 16px !important;
     width: 100%;
     max-width: 300px;
@@ -1725,13 +1721,13 @@ input[type="checkbox"]:checked + label>span {
 .detail_label{
     font-size: 24px;
     color : #FF8100;
-    font-family: NotoSans-JP-Medium;
+    /* font-family: NotoSans-JP-Medium; */
 }
 
 .detail_sub_label{
     font-size: 18px;
     color : black;
-    font-family: NotoSans-JP-Medium;
+    /* font-family: NotoSans-JP-Medium; */
 }
 
 .expert-small{

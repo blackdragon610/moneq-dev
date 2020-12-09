@@ -26,11 +26,10 @@ class Post extends ModelClass
         $datas['status'] = $flag;
         $datas['id'] = $datas['post_id'];
 
-
         if ($datas["id"] != 0){
             $Model = Post::whereId($datas["id"])->whereUserId($userId)->first();
         }else{
-            $Model = clone $this;
+            $Model = new Post();
         }
 
         $Model->setModel($datas);
@@ -72,12 +71,13 @@ class Post extends ModelClass
      * @param  string  $dateYearMonth
      * @return int
      */
-    public function getCountUser(User $User, string $dateYearMonth="") : int
+    public function getCountUser(User $User, $startDate, $nextDate)
     {
+
         $Model = clone $this;
 
-        if ($dateYearMonth){
-            $Model = $Model->where([['user_id', $User->id],["created_at", "LIKE", $dateYearMonth . "%"], ['status', 2]])->withTrashed();
+        if ($startDate){
+            $Model = $Model->whereBetween('created_at', [$startDate, $nextDate])->withTrashed()->get();
         }
         return $Model->count();
     }
@@ -161,17 +161,17 @@ class Post extends ModelClass
     }
 
     public function rePostCreate(){
-        $models = clone $this;
-        $models = $models->whereRaw("floor(datediff(curdate(),updated_at)) > 1 and status='2'")->get();
-        foreach($models as $model){
-            if($model->answerCount() == 0){
-                $userModel = User::where('id', $model->user_id)->first();
-                $count = $userModel->re_point;
-                $count++;
-                $userModel->re_point = $count;
-                $userModel->save();
-                $model->delete();
-            }
-        }
+        // $models = clone $this;
+        // $models = $models->whereRaw("floor(datediff(curdate(),updated_at)) > 1 and status='2'")->get();
+        // foreach($models as $model){
+        //     if($model->answerCount() == 0){
+        //         $userModel = User::where('id', $model->user_id)->first();
+        //         $count = $userModel->re_point;
+        //         $count++;
+        //         $userModel->re_point = $count;
+        //         $userModel->save();
+        //         $model->delete();
+        //     }
+        // }
     }
 }

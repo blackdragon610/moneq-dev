@@ -39,13 +39,13 @@ class PostController extends Controller
             return redirect()->route('profile.edit');
         }
 
-        $this->isPost();
-        $possibleCount = 0;
-        if(\Auth::user()->pay_status == 2){
-            $possibleCount = 3 - \Auth::user()->postCount();
-        }else if(\Auth::user()->pay_status == 3){
-            $possibleCount = 1;
+        $possibleCount = \Auth::user()->isPost();
+
+        if($possibleCount + \Auth::user()->re_point == 0){
+            header("Location:/error/notsee");
+            exit();
         }
+
         $categories = $Category->getSelectAll();
         $inputs['post_id'] = 0;
         $isConfirmation = false;
@@ -58,7 +58,6 @@ class PostController extends Controller
             $inputs['sub_category_id'] = $post->sub_category_id;
             $inputs['body'] = $post->body;
 
-            // dd($post->post_name);
             return view('posts.input',
                 [
                     "categories" => $categories,
@@ -79,7 +78,12 @@ class PostController extends Controller
 
     public function store(PostRequest $request, Category $Category, Post $Post, PostTag $PostTag)
     {
-        $this->isPost();
+        $possibleCount = \Auth::user()->isPost();
+
+        if($possibleCount + \Auth::user()->re_point == 0){
+            header("Location:/error/notsee");
+            exit();
+        }
 
         $datas = $this->checkForm($request);
 
@@ -101,11 +105,15 @@ class PostController extends Controller
             ]);
 
         }else{
+            // dd($datas);
             if($request->post_id == 0){
                 $post = $Post->saveEntry($datas, Auth::user()->id, 2);
             }else{
                 $post = $Post->updateEntry($datas, $request->post_id, 2);
             }
+
+            \Session::pull('inputs');
+
 
             $count = Auth::user()->re_point;
             $count--;
