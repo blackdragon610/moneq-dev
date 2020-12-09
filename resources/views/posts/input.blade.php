@@ -96,7 +96,7 @@
                             @endif
 
 
-                            @include('layouts.parts.editor.textarea', ['name' => 'body', 'contents' => 'style="border:1px solid #707070"'])<br />
+                            @include('layouts.parts.editor.textarea', ['name' => 'body', 'contents' => 'style="border:1px solid #707070;min-height:20em !important;"'])<br />
 
                             @if(!$isConfirmation)
                                 <div class="text-right"><span id="post_length">0/1600</span></div>

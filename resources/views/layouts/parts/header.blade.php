@@ -17,7 +17,7 @@
                             <i class="fa fa-bell fa-lg has-badge" style="color:black"></i>
                         </a>
                         <div id="contents" class="dropdown-menu dropdown-menu-right dropdown-default speech-popup" aria-labelledby="navbarDropdownBell"
-                                style="padding:15px !important; width:430px !important">
+                                >
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -107,7 +107,7 @@
 </div>
 @endif
 <script>
-    var myVar = setInterval(myTimer, 100000);
+    var myVar = setInterval(myTimer, 1000);
     var myPTime = setInterval(myPost, 10000); //86400000
 
     function myTimer() {
@@ -115,6 +115,9 @@
             type:"GET",
             url: "{{url('notification')}}",
             success: function(response) {
+                if(response == 0){
+                    $('#contents').attr('style','display:none');
+                }else   $('#contents').attr('style','display:show;padding:15px !important; width:430px !important');
                 var count = 0;
                 var bodyHtml = '';
                 for(i in response){
@@ -138,10 +141,7 @@
                                                     '</div>' +
                                                 '</div>' +
                                             '</div>' +
-                                            '</a>'
-
-                            bodyHtml += '<a class="dropdown-item waves-effect waves-light" href="{{url('notification/route')}}'+ '/'
-                                     + bodyArray[j]['type'] + '/' + bodyArray[j]['id']+'">'+bodyArray[j]['post_name'] + 'に関して、'+ bodyArray[j]['ext_name']+ 'さんから回答がありました。' +'</a>'
+                                            '</a>';
                         }
                     }
                 }
@@ -152,7 +152,8 @@
                     var htmlBadge = '<i class="fa fa-bell fa-lg has-badge" style="color:black"></i>'
                     $('#badge').empty().html(htmlBadge);
                 }
-                bodyHtml += '<a class="dropdown-item label-12px p-0 text-center"  style="padding:2px !important" href="{{route('logout')}}">' +
+                if(bodyHtml != '')
+                    bodyHtml += '<a class="dropdown-item label-12px p-0 text-center"  style="padding:2px !important" href="{{route('logout')}}">' +
                             '<u>すべてのメッセージを見る</u> </a>';
 
                 $('#contents').empty().html(bodyHtml);

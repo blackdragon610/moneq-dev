@@ -114,7 +114,7 @@ class TopController extends Controller
                 }
             }
 
-            return response()->json('ok', 200);
+            return response()->json('0', 200);
         }
     }
 
