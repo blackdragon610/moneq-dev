@@ -24,7 +24,7 @@
 
         <img src="/images/svg/img-dashline.svg" style="height:1px;"/>
 
-        <p class="label-16px" >{{$post->body}}</p>
+        <p class="label-16px" style="word-break: break-word;" >{{$post->body}}</p>
 
         @if($postAdd)
             @foreach ($postAdd as $item)

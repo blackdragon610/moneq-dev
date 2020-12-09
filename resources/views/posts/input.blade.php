@@ -82,13 +82,13 @@
                             </label>
 
                             @if(!$isConfirmation)
-                                <div style="background-color:#FFF5E9;padding:24px">
+                                <div style="background-color:#FFF5E9;padding:24px;margin-bottom:24px">
                                     <p class="label-14px">
                                         具体的な情報（数字や年数など）、相談の状況（年齢、年収、家族構成など）、聞きたいことを簡約にまとめると<br/>
                                         より早く、より多くの専門家から回答される可能性が高くなります。
                                     </p>
                                     <ul>
-                                        <li class="label-14px">・年収（約650万円など</li>
+                                        <li class="label-14px">・年収（約650万円など)</li>
                                         <li class="label-14px">・ご自分の年齢（厳しい場合は「30代」などの年代でもかまいません）</li>
                                         <li class="label-14px">・お子さんの年齢（厳しい場合は「幼稚園児」「小学生」などでも構いません）</li>
                                     </ul>
