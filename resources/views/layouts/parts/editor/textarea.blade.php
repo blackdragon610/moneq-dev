@@ -6,7 +6,7 @@
 
 @else
 
-	<textarea class="form-control" name="{{$name}}" id="{{$name}}" {!! $contents !!} style="min-height:20em;">@if (isset($inputs)){{getVariable($inputs, $name)}}@endif</textarea>
+	<textarea class="form-control" name="{{$name}}" id="{{$name}}" {!! $contents !!} style="min-height:20em !important;">@if (isset($inputs)){{getVariable($inputs, $name)}}@endif</textarea>
 
 	@include('layouts.parts.editor.error')
 @endif
