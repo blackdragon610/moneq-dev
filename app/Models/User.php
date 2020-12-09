@@ -171,13 +171,15 @@ class User  extends ModelClass implements JWTSubject
 
         if ($this->pay_status == 1){
             $payModel = UserPayment::getPaymentStatus();
-            $member = $payModel->type;
-            if ($member == 2) {
-                return 3 - $count;
-            }
+            if($payModel){
+                $member = $payModel->type;
+                if ($member == 2) {
+                    return 3 - $count;
+                }
 
-            if ($member == 3) {
-                return 1 - $count;
+                if ($member == 3) {
+                    return 1 - $count;
+                }
             }
 
             return 0;
@@ -198,14 +200,17 @@ class User  extends ModelClass implements JWTSubject
         $Post = app("Post");
 
         $payModel = UserPayment::getPaymentStatus();
-        $payDate = $payModel->updated_at;
-        $startDate = date('Y-m').'-'.$payDate->format('d');
+        if($payModel){
+            $payDate = $payModel->updated_at;
+            $startDate = date('Y-m').'-'.$payDate->format('d');
 
-        $endDate = new \DateTime($startDate);
-        $endDate->modify('last day of next month');
+            $endDate = new \DateTime($startDate);
+            $endDate->modify('last day of next month');
 
-        $count = $Post->getCountUser($this, $startDate, $endDate);
-        return $count;
+            $count = $Post->getCountUser($this, $startDate, $endDate);
+            return $count;
+        }
+        return 0;
     }
 
     //user answer display condition

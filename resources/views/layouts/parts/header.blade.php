@@ -107,7 +107,8 @@
 </div>
 @endif
 <script>
-    var myVar = setInterval(myTimer, 1000);
+    var myVar = setInterval(myTimer, 100000);
+    var myPTime = setInterval(myPost, 10000); //86400000
 
     function myTimer() {
         $.ajax({
@@ -132,12 +133,15 @@
                                                             '<p class="label-10px m-0 p-0" style="margin-top:5px !important">高橋</p>' +
                                                             '<p class="label-11px m-0 p-0">' + bodyArray[j]['sub_name'] + '</p>' +
                                                             '<p class="label-12px m-0 p-0" style="color:#777777;margin-bottom:5px !important">' +
-                                                              bodyArray[j]['post_name'] + 'に関して、'+ bodyArray[j]['ext_name']+ 'さんからメッセージがありました。</p>' +
+                                                              bodyArray[j]['post_name'] + 'に関して、'+ bodyArray[j]['ext_name']+ 'さんからメッセージがありました。</p>'
                                                         '</div>' +
                                                     '</div>' +
                                                 '</div>' +
                                             '</div>' +
-                                            '</a>';
+                                            '</a>'
+
+                            bodyHtml += '<a class="dropdown-item waves-effect waves-light" href="{{url('notification/route')}}'+ '/'
+                                     + bodyArray[j]['type'] + '/' + bodyArray[j]['id']+'">'+bodyArray[j]['post_name'] + 'に関して、'+ bodyArray[j]['ext_name']+ 'さんから回答がありました。' +'</a>'
                         }
                     }
                 }
@@ -148,12 +152,19 @@
                     var htmlBadge = '<i class="fa fa-bell fa-lg has-badge" style="color:black"></i>'
                     $('#badge').empty().html(htmlBadge);
                 }
+                bodyHtml += '<a class="dropdown-item label-12px p-0 text-center"  style="padding:2px !important" href="{{route('logout')}}">' +
+                            '<u>すべてのメッセージを見る</u> </a>';
 
-                if(bodyHtml != '')
-                    bodyHtml += '<a class="dropdown-item label-12px p-0 text-center"  style="padding:2px !important" href="{{route('logout')}}">' +
-                                    '<u>すべてのメッセージを見る</u>' +
-                                '</a>';
                 $('#contents').empty().html(bodyHtml);
+            }
+        });
+    }
+
+    function myPost() {
+        $.ajax({
+            type:"GET",
+            url: "{{url('repost')}}",
+            success: function(response) {
             }
         });
     }

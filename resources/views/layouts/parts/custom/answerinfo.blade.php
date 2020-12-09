@@ -1,7 +1,7 @@
 <div class="col-12">
     <div class="row" style="padding-left:15px">
         @if(isset($rank))
-            @if($rank < 3)
+            @if($rank < 4)
                 <img src="/images/svg/img-left-ranking-{{$i}}.svg" style="position:absolute">
             @endif
         @endif
