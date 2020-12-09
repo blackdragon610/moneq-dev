@@ -1,5 +1,5 @@
-<div class="col-12">
-    <article class="p-0 bg-white" style="margin-bottom:24px">
+<div class="col-12 pl-0 pr-0">
+    <article class="p-0 bg-white" style="margin-bottom:24px;max-width:none">
 
         <div id="article" style="max-height:100%">
             <div class="row">

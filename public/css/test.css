@@ -410,7 +410,7 @@ p {
     color: #dbdbdb !important;
 }
 .form-control {
-    height: 50px !important;
+    min-height: 50px !important;
     border: 1px solid #dbdbdb;
     border-radius: 0px !important;
 }
