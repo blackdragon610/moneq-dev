@@ -111,7 +111,6 @@
 <script>
     var myVar = setInterval(myTimer, 100000);
     var myPTime = setInterval(myPost, 10000); //86400000
-    var myPStatus = setInterval(myPayStatus, 100000);
 
     function myTimer() {
         $.ajax({
@@ -149,16 +148,6 @@
             type:"GET",
             url: "{{url('repost')}}",
             success: function(response) {
-            }
-        });
-    }
-
-    function myPayStatus() {
-        $.ajax({
-            type:"GET",
-            url: "{{url('paymentStatusChange')}}",
-            success: function(response) {
-                console.log('data');
             }
         });
     }

@@ -15,16 +15,6 @@
                 <li class="breadcrumb-item">年払会員</li>
                 <li class="breadcrumb-item">クレジットカード</li>
             </ol>
-            <ol class="breadcrumb  m-0 p-0">
-                <li class="breadcrumb-item"><a href="#" style="color:#9B9B9B"><i class="fa fa-dashboard"></i>Marketplace</a></li>
-                <?php $segments = ''; ?>
-                @foreach(Request::segments() as $segment)
-                    <?php $segments .= '/'.$segment; ?>
-                    <li class="breadcrumb-item">
-                        <a href="{{ $segments }}">{{$segment}}</a>
-                    </li>
-                @endforeach
-            </ol>
 
         </div>
 
@@ -123,6 +113,12 @@
         var expire = $('#year').val() + $('#month').val();
         var securitycode = $('#securitycode').val();
         var holdername = $('#holdername').val();
+        console.log('cardno = '+cardno);
+        console.log('expire = '+expire);
+        console.log('securitycode = '+securitycode);
+        console.log('holdername = '+holdername);
+        console.log('holdername = '+'{{env('GMO_SHOP_ID')}}');
+
         Multipayment.init( '{{env('GMO_SHOP_ID')}}' );
         Multipayment.getToken(
         {

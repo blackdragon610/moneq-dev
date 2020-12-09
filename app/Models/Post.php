@@ -74,6 +74,12 @@ class Post extends ModelClass
      */
     public function getCountUser(User $User, string $dateYearMonth="") : int
     {
+
+        $paymentModel = UserPayment::getPaymentStatus();
+        if($paymentModel){
+            $updated_at = $paymentModel->updated_at;
+        }
+
         $Model = clone $this;
 
         if ($dateYearMonth){

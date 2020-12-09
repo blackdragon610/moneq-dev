@@ -58,9 +58,7 @@ class GMOManager extends Controller
 
         //本番環境
 
-        $paymentId = UserPayment::getPayOrderIdByType(1);
-        if(!$paymentId)  $paymentId = $this->getOrderId();
-
+        $paymentId = $this->getOrderId();
         $payment = new ImmediatePayment();
         $payment->paymentId = $paymentId; // Unique ID for every payment; see above
         $payment->amount = config('app.memberCost')[$request->member];
@@ -89,10 +87,7 @@ class GMOManager extends Controller
         $response = $payment->getResponse();
 
         $User->setPayStatus($request->member);
-        $UserPayment->savePayment($response->OrderID, 1, config('app.memberCost')[$request->member]);
-
-        \Cookie::queue('paytype', 1);
-
+        $UserPayment->savePayment($response->OrderID, $request->member, 1, config('app.memberCost')[$request->member]);
 
         if($request->sheet == 2){
             return redirect()->route('profile.edit');
@@ -112,8 +107,7 @@ class GMOManager extends Controller
         curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
         curl_setopt( $curl, CURLOPT_URL, 'https://pt01.mul-pay.jp/payment/EntryTranAu.idPass' );
 
-        $paymentId = UserPayment::getPayOrderIdByType(2);
-        if(!$paymentId)  $paymentId = $this->getOrderId();
+        $paymentId = $this->getOrderId();
 
         $param = [
             'ShopID'    => env('GMO_SHOP_ID'),
@@ -134,7 +128,6 @@ class GMOManager extends Controller
         // レスポンスチェック
         if( $curlinfo[ 'http_code' ] != 200 ){
             // エラー
-
             header("Location:/error/payment/");
             exit();
         }
@@ -148,9 +141,9 @@ class GMOManager extends Controller
             exit();
         }
 
-        $UserPayment->savePayment($paymentId, 2, config('app.memberCost')[$member]);
+        $UserPayment->savePayment($paymentId, $member, 2, config('app.memberCost')[$member]);
         $User->setPayStatus($member);
-        \Cookie::queue('paytype', 2);
+
         if($sheet == 2){
             return redirect()->route('profile.edit');
         }
@@ -170,9 +163,7 @@ class GMOManager extends Controller
         curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
         curl_setopt( $curl, CURLOPT_URL, 'https://pt01.mul-pay.jp/payment/EntryTranDocomo.idPass' );
 
-        $paymentId = UserPayment::getPayOrderIdByType(3);
-        if(!$paymentId)  $paymentId = $this->getOrderId();
-
+        $paymentId = $this->getOrderId();
         $param = [
             'ShopID'    => env('GMO_SHOP_ID'),
             'ShopPass'  => env('GMO_SHOP_PASSWORD'),
@@ -192,22 +183,21 @@ class GMOManager extends Controller
         // レスポンスチェック
         if( $curlinfo[ 'http_code' ] != 200 ){
             // エラー
-
-            return false;
+            header("Location:/error/payment/");
+            exit();
         }
 
         // レスポンスのエラーチェック
         parse_str( $response, $data );
         if( array_key_exists( 'ErrCode', $data ) ){
             // エラー
-
-            return false;
+            header("Location:/error/payment/");
+            exit();
         }
 
         // 正常
-        $UserPayment->savePayment($paymentId, 3, config('app.memberCost')[$member]);
+        $UserPayment->savePayment($paymentId, $member, 3, config('app.memberCost')[$member]);
         $User->setPayStatus($member);
-        \Cookie::queue('paytype', 3);
         if($sheet == 2){
             return redirect()->route('profile.edit');
         }
@@ -227,9 +217,7 @@ class GMOManager extends Controller
         curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
         curl_setopt( $curl, CURLOPT_URL, 'https://pt01.mul-pay.jp/payment/EntryTranSb.idPass' );
 
-        $paymentId = UserPayment::getPayOrderIdByType(4);
-        if(!$paymentId)  $paymentId = $this->getOrderId();
-
+        $paymentId = $this->getOrderId();
         $param = [
             'ShopID'    => env('GMO_SHOP_ID'),
             'ShopPass'  => env('GMO_SHOP_PASSWORD'),
@@ -249,22 +237,22 @@ class GMOManager extends Controller
         // レスポンスチェック
         if( $curlinfo[ 'http_code' ] != 200 ){
             // エラー
-
-            return false;
+            header("Location:/error/payment/");
+            exit();
         }
 
         // レスポンスのエラーチェック
         parse_str( $response, $data );
         if( array_key_exists( 'ErrCode', $data ) ){
             // エラー
-
-            return false;
+            header("Location:/error/payment/");
+            exit();
         }
 
         // 正常
-        $UserPayment->savePayment($paymentId, 4, config('app.memberCost')[$member]);
+        $UserPayment->savePayment($paymentId, $member, 4, config('app.memberCost')[$member]);
         $User->setPayStatus($member);
-        \Cookie::queue('paytype', 4);
+
         if($sheet == 2){
             return redirect()->route('profile.edit');
         }

@@ -3,7 +3,6 @@
 
 @section('main')
 <div class="whitepanel">
-    {{ Breadcrumbs::render() }}
     <div class="container">
 
     <div class="row">

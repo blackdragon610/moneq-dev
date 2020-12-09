@@ -53,9 +53,11 @@ class ProfileManageController extends Controller
 
         $payment = "";
         if($user->pay_status != 1){
-            $pay = UserPayment::getPaymentStatus()->type;
-            if(isset($pay))
-                $payment = array($paymentArray[$pay] => '');
+            $payModel = UserPayment::getPaymentStatus();
+            if($payModel)
+                $payment = array($paymentArray[$payModel->kind] => '');
+            else
+                $payment = array($paymentArray[1]=>'');
         }
 
         $emailChange = $request->emailChange;
