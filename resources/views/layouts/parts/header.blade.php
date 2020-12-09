@@ -26,30 +26,30 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-default speech-popup" aria-labelledby="navbarDropdownUser"
                             style="padding:15px !important; width:200px !important">
-                            <a class="dropdown-item label-12px" style="padding:2px !important" href="{{route('search.tema')}}">
+                            <a class="dropdown-item label-12px" style="padding:0px; padding-bottom:6px !important" href="{{route('search.tema')}}">
                                 <img src="/images/svg/img-fa-search.svg" style="margin-right:8px">@lang('string.tema_search')</a>
-                            <a class="dropdown-item label-12px p-0"  style="padding:2px !important" href="{{route('search.category')}}">
+                            <a class="dropdown-item label-12px p-0"  style="padding:0px; padding-bottom:6px !important" href="{{route('search.category')}}">
                                 <img src="/images/svg/img-fa-search.svg" style="margin-right:8px">@lang('string.money_free')</a>
-                            <a class="dropdown-item label-12px p-0"  style="padding:2px !important" href="{{route('search.expert')}}">
+                            <a class="dropdown-item label-12px p-0"  style="padding:0px; padding-bottom:6px !important" href="{{route('search.expert')}}">
                                 <img src="/images/svg/img-fa-search.svg" style="margin-right:8px">@lang('string.expert_search')</a>
                             @if(\Auth::user()->pay_status != 1)
-                                <a class="dropdown-item label-12px p-0"  style="padding:2px !important" href="{{url('other/self')}}">
+                                <a class="dropdown-item label-12px p-0"  style="padding:0px; padding-bottom:6px !important" href="{{url('other/self')}}">
                                     <img src="/images/svg/img-fa-history.svg" style="margin-right:8px">@lang('string.post_in')</a>
                             @endif
-                            <a class="dropdown-item label-12px p-0"  style="padding:2px !important" href="{{url('other/access')}}">
+                            <a class="dropdown-item label-12px p-0"  style="padding:0px; padding-bottom:6px !important" href="{{url('other/access')}}">
                                 <img src="/images/svg/img-fa-history.svg" style="margin-right:8px">@lang('string.search_history')</a>
                             @if(\Auth::user()->pay_status != 1)
-                                <a class="dropdown-item label-12px p-0"  style="padding:2px !important" href="{{url('other/store')}}">
+                                <a class="dropdown-item label-12px p-0"  style="padding:0px; padding-bottom:6px !important" href="{{url('other/store')}}">
                                     <img src="/images/svg/img-fa-save.svg" style="margin-right:8px">@lang('string.saved')</a>
                             @endif
-                            <a class="dropdown-item label-12px p-0"  style="padding:2px !important" href="{{route('profiles.manage')}}">
+                            <a class="dropdown-item label-12px p-0"  style="padding:0px; padding-bottom:6px !important" href="{{route('profiles.manage')}}">
                                 <img src="/images/svg/img-fa-edit-regular.svg" style="margin-right:8px">@lang('string.infomation')</a>
-                            <a class="dropdown-item label-12px p-0"  style="padding:2px !important" href="#">
+                            <a class="dropdown-item label-12px p-0"  style="padding:0px; padding-bottom:6px !important" href="#">
                                 <img src="/images/svg/img-fa-help.svg" style="margin-right:8px">@lang('string.help')</a>
-                            <a class="dropdown-item label-12px p-0"  style="padding:2px !important" href="#">
+                            <a class="dropdown-item label-12px p-0"  style="padding:0px; padding-bottom:6px !important" href="#">
                                 <img src="/images/svg/img-fa-envelope.svg" style="margin-right:8px">お問い合わせ</a>
                             <hr class="m-2">
-                            <a class="dropdown-item label-12px p-0"  style="padding:2px !important" href="{{route('logout')}}">ログアウト</a>
+                            <a class="dropdown-item label-12px p-0"  style="padding:0px !important" href="{{route('logout')}}">ログアウト</a>
                         </div>
                     </li>
                 </ul>
