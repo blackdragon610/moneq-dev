@@ -26,8 +26,8 @@
         </div>
     </div>
 
-    <div class="row" style="min-height:100px;margin-top:20px;margin-left:30px">
-        <p class="label-14px">{{$contents->body}}</p>
+    <div class="row" style="min-height:100px;margin-top:20px;margin-left:0px; margin-right:0px">
+        <p class="label-14px" style="word-break:break-word">{{$contents->body}}</p>
     </div>
 
     <div class="container">
