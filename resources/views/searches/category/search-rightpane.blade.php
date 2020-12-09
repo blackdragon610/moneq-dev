@@ -21,7 +21,7 @@
         <p style="font-family: NotoSans-JP-Medium;font-size: 16px !important;">
             <img src="/images/svg/img-filter-solid-small.svg" style="margin-right:10px">絞り込み
         </p>
-        <button class="btn-tag-grey-round">結果の消去<span class="fa fa-times-circle" style="font-size:14px;color:white;margin-left:5px;"></span></button>
+        <button id="filter-delete" class="btn-tag-grey-round">結果の消去<span class="fa fa-times-circle" style="font-size:14px;color:white;margin-left:5px;"></span></button>
     </div>
     <div class="col-12 m-0 p-0 mb-0">
         <input type="text" id="tema" class="form-control" style="border:0px !important"/>
@@ -54,6 +54,12 @@
 
 
 <script>
+
+    $('#filter-delete').click(function(){
+        $('#tema').tagsinput('removeAll');
+        loadMoreData(0);
+    })
+
     $('.radio-input').click(function(){
         var tema = $(this).val();
         var temaId = $(this).attr('id');
@@ -164,12 +170,12 @@ for (i = 0; i < coll.length; i++) {
         var content = this.nextElementSibling;
 
         if (content.style.display == "block" || content.style.display == "") {
-            content.style.display = "none";            
+            content.style.display = "none";
             this.firstElementChild.className = "fa fa-angle-down";
         } else {
             content.style.display = "block";
             this.firstElementChild.className = "fa fa-angle-up";
         }
     });
-}   
+}
 </script>

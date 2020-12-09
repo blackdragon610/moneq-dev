@@ -32,17 +32,16 @@
                                                                 'post'=>$post, 'postAdd'=>$postAdd, 'isUser'=>$isUser, 'hPost'=>$postHelpFlag, 'sPost' => $postStoreFlag])
             </div>
             <div class="col-12 p-0 mt-4" id="expertA">
-                <p class="col-12 label-16px">
-                    <span class="title-24px-red">{{count($postAnswer)}}</span>
-                    名の専門家が回答しています
-                    <span class="title-24px-red" style="margin-left:30px">{{number_format(1000)}}</span>件
-                </p>
+                @if(count($postAnswer) != 0)
+                    <p class="col-12 label-16px">
+                        <span class="title-24px-red">{{count($postAnswer)}}</span>
+                        名の専門家が回答しています
+                        {{-- <span class="title-24px-red" style="margin-left:30px">{{number_format(1000)}}</span>件 --}}
+                    </p>
+                @endif
 
                 @if(isLogin() == 1 && \Auth::user()->isAnswer())
                     @foreach ($postAnswer as $item)
-                        @include('layouts.parts.custom.answer', ["type" => "answer", 'name' => 'answer',
-                                                                'contents' => $item, 'isUser'=>$isUser,
-                                                                'post'=>$post, 'gender'=>$gender])
                         @include('layouts.parts.custom.answer', ["type" => "answer", 'name' => 'answer',
                                                                 'contents' => $item, 'isUser'=>$isUser,
                                                                 'post'=>$post, 'gender'=>$gender])

@@ -33,7 +33,7 @@
         <div class="row">
         <div class="col-sm-6">
             <button class="btn btn-default" type="button" id="dataHelp{{$contents->id}}">
-                <i class="fa fa-heart-o <?php if(count($contents->postData()) > 0) echo 'fa_custom'?>" id="heart"></i> 役に立った
+                <i class="fa fa-heart-o <?php if(count($contents->postData()) > 0) echo 'fa_custom'?>" id="heart{{$contents->id}}"></i> 役に立った
             </button>
         </div>
         <div class="col-sm-6 text-right">
@@ -63,7 +63,6 @@
                     $('[name="answer"]').empty().html();
                     $('#answer' + {{$contents->id}}).html('<li><i class="fa fa-check"></i>この専門家の回答で解決</li>');
                     $('#dataHelpAlert').empty().html('<img src="/images/solved-icon.png">');
-                    // $('.toast').toast('show');
                 }
             },
             error: function (data) {

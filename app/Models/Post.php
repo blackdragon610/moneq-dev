@@ -26,11 +26,10 @@ class Post extends ModelClass
         $datas['status'] = $flag;
         $datas['id'] = $datas['post_id'];
 
-
         if ($datas["id"] != 0){
             $Model = Post::whereId($datas["id"])->whereUserId($userId)->first();
         }else{
-            $Model = clone $this;
+            $Model = new Post();
         }
 
         $Model->setModel($datas);
@@ -72,18 +71,13 @@ class Post extends ModelClass
      * @param  string  $dateYearMonth
      * @return int
      */
-    public function getCountUser(User $User, string $dateYearMonth="") : int
+    public function getCountUser(User $User, $startDate, $nextDate)
     {
-
-        $paymentModel = UserPayment::getPaymentStatus();
-        if($paymentModel){
-            $updated_at = $paymentModel->updated_at;
-        }
 
         $Model = clone $this;
 
-        if ($dateYearMonth){
-            $Model = $Model->where([['user_id', $User->id],["created_at", "LIKE", $dateYearMonth . "%"], ['status', 2]])->withTrashed();
+        if ($startDate){
+            $Model = $Model->whereBetween('created_at', [$startDate, $nextDate])->withTrashed()->get();
         }
         return $Model->count();
     }

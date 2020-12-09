@@ -18,13 +18,6 @@
                         </a>
                         <div id="contents" class="dropdown-menu dropdown-menu-right dropdown-default speech-popup" aria-labelledby="navbarDropdownBell"
                                 style="padding:15px !important; width:430px !important">
-                            <!-- NEED CODE  -->
-                            @include('layouts.parts.custom.notificationinfo', ["type" => "notificationinfo"])
-                            @include('layouts.parts.custom.notificationinfo', ["type" => "notificationinfo"])
-                            @include('layouts.parts.custom.notificationinfo', ["type" => "notificationinfo"])
-                            <a class="dropdown-item label-12px p-0 text-center"  style="padding:2px !important" href="{{route('logout')}}">
-                                <u>すべてのメッセージを見る</u>
-                            </a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -122,6 +115,7 @@
             type:"GET",
             url: "{{url('notification')}}",
             success: function(response) {
+                console.log(response);
                 var count = 0;
                 var bodyHtml = '';
                 for(i in response){
@@ -131,8 +125,21 @@
                     if(i == 'notification'){
                         bodyArray = response[i];
                         for(j in bodyArray){
-                            bodyHtml += '<a class="dropdown-item waves-effect waves-light" href="{{url('notification/route')}}'+ '/'
-                                     + bodyArray[j]['type'] + '/' + bodyArray[j]['id']+'">'+bodyArray[j]['post_name'] + 'に関して、'+ bodyArray[j]['ext_name']+ 'さんから回答がありました。' +'</a>'
+                            bodyHtml += '<a href="{{url('notification/route')}}'+ '/' + bodyArray[j]['type'] + '/' + bodyArray[j]['id']+'" class="text-dark">' +
+                                            '<div class="col-12" style="border-bottom: 1px solid #dbdbdb">' +
+                                                '<div class="row">' +
+                                                    '<div class="row container-fluid">' +
+                                                        '<img src="/images/img-avatar-sample.png" id="avatar" style="width:50px;height:50px"/>' +
+                                                        '<div class="col">' +
+                                                            '<p class="label-10px m-0 p-0" style="margin-top:5px !important">高橋</p>' +
+                                                            '<p class="label-11px m-0 p-0">' + bodyArray[j]['sub_name'] + '</p>' +
+                                                            '<p class="label-12px m-0 p-0" style="color:#777777;margin-bottom:5px !important">' +
+                                                              bodyArray[j]['post_name'] + 'に関して、'+ bodyArray[j]['ext_name']+ 'さんからメッセージがありました。</p>' +
+                                                        '</div>' +
+                                                    '</div>' +
+                                                '</div>' +
+                                            '</div>' +
+                                            '</a>';
                         }
                     }
                 }
@@ -143,6 +150,11 @@
                     var htmlBadge = '<i class="fa fa-bell fa-lg has-badge" style="color:black"></i>'
                     $('#badge').empty().html(htmlBadge);
                 }
+
+                if(bodyHtml != '')
+                    bodyHtml += '<a class="dropdown-item label-12px p-0 text-center"  style="padding:2px !important" href="{{route('logout')}}">' +
+                                    '<u>すべてのメッセージを見る</u>' +
+                                '</a>';
                 $('#contents').empty().html(bodyHtml);
             }
         });

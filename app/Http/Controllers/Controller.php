@@ -39,7 +39,7 @@ class Controller extends BaseController
 
         $inputs = $request->input();
 
-
+        $request->session()->pull('inputs');
 
         //エラーチェック
         $validator = $request->getValidator();
@@ -96,11 +96,4 @@ class Controller extends BaseController
         ];
     }
 
-    public function isPost()
-    {
-        if (!Auth::user()->isPost()){
-            header("Location:/error/notsee");
-            exit();
-        }
-    }
 }

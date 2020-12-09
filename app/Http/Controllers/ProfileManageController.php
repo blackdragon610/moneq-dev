@@ -122,7 +122,7 @@ class ProfileManageController extends Controller
         $user = $user->saveEmail($changeToken);
         if($user){
             $changeToken->delete();
-            return redirect()->route('top', ['emailChange'=>1]);
+            return redirect()->route('top');
         }else{
             return redirect()->route('error');
         }
@@ -181,7 +181,7 @@ class ProfileManageController extends Controller
         $user = $user->savePassword($changeToken);
         if($user){
             $changeToken->delete();
-            return redirect()->route('top', ['passChange'=>1]);
+            return redirect()->route('top');
         }else{
             return redirect()->route('error');
         }
@@ -263,16 +263,6 @@ class ProfileManageController extends Controller
 
     public function memberPayment(Request $request){
 
-        $possibleCount = 0;
-        if(\Auth::user()->pay_status == 2){
-            $possibleCount = 3 - \Auth::user()->postCount();
-        }else if(\Auth::user()->pay_status == 3){
-            $possibleCount = 1 - \Auth::user()->postCount();
-        }
-        $count = \Auth::user()->re_point;
-        \Auth::user()->re_point = $possibleCount + $count;
-        \Auth::user()->save();
-
         return view('profiles.edit.payment');
     }
 
@@ -284,7 +274,7 @@ class ProfileManageController extends Controller
         $userModel->save();
 
         $PayModel = UserPayment::where('user_id', $user_id);
-        $PayModel->delete();
+        $PayModel->order_id = '';
         return redirect()->route('profiles.manage');
     }
 
@@ -293,9 +283,9 @@ class ProfileManageController extends Controller
         return view('profiles.edit.payment');
     }
 
-    public function paymentInfoUpdate(Request $request, $type){
+    public function paymentInfoUpdate(Request $request, $kind){
 
-        UserPayment::getPaymentStatus()->updatePayMethod($type);
+        UserPayment::getPaymentStatus()->updatePayMethod($kind);
         return redirect()->route('profiles.manage');
     }
 }

@@ -20,7 +20,7 @@
                 <p class="title-medium">メールアドレス</p>
                 <!-- <hr class="mt-2 mb-3"/> -->
 
-                {{Form::open(['url'=> route('profiles.email.update'),'method'=>'POST', 'files' => false, 'id' => 'form'])}}
+                {{Form::open(['url'=> '#', 'files' => false, 'id' => 'form'])}}
                     <input type="hidden" name="mode" value="email">
 
                     <section>
@@ -55,6 +55,15 @@
     $('.fa').click(function(){
         $('#notify').hide();
     })
+
+    $(document).ready(function() {
+        $(window).keydown(function(event){
+            if(event.keyCode == 13) {
+            event.preventDefault();
+            return false;
+            }
+        });
+    });
 
     $('#submitBtn').click(function(){
         let form_data = $("#form").serialize();

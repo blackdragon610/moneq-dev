@@ -31,9 +31,11 @@ class Kernel extends ConsoleKernel
     {
 
         $schedule->call(function () {
-            $payModel = UserPayment::getPaymentStatus();
-            if($payModel){
+
+            $payModels = UserPayment::orderBy('updated_at')->get();
+            foreach($payModels as $payModel){
                 $userModel = User::where('id', $payModel->user_id)->first();
+
                 if($userModel){
                     $status = $userModel->pay_status;
                     if($status == 2){

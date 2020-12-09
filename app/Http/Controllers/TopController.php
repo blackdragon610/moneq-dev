@@ -24,6 +24,7 @@ class TopController extends Controller
      */
     public function index(Post $Post, PostAnswer $PostAnswer, PostData $PostData, Expert $Expert, User $User, Specialtie $Specialtie, Notification $Notification, Category $Category, Request $request)
     {
+
         if(isProfile() == 3){
             if(\Auth::user()->pay_status == 1){
                 return redirect()->route('payment', ['sheetId'=>2, 'member'=>1]);
@@ -97,11 +98,12 @@ class TopController extends Controller
             $sql = "select count(*) as count from notifications where unread = 1 ";
             $count = \DB::select($sql);
 
-            $sql = "SELECT t2.post_name, ext_name, t2.body, pId as id, t1.type from(select * from notifications where user_id=".$user_id." and unread = 1 and type=1 )t1
-                     LEFT JOIN (SELECT post_name, t2.id as pId, ext_name, post_answers.id, body from post_answers
+            $sql = "SELECT t2.post_name, sub_name, ext_name, t2.body, pId as id, t1.type from(select * from notifications where user_id=".$user_id." and unread = 1 and type=1 )t1
+                     LEFT JOIN (SELECT post_name, sub_name, t2.id as pId, ext_name, post_answers.id, body from post_answers
                      LEFT JOIN (SELECT id, concat(expert_name_first,expert_name_second) as ext_name from experts)t1
                         on(post_answers.expert_id=t1.id)
-                     LEFT JOIN(SELECT id, post_name from posts where status=2)t2 on(post_answers.post_id=t2.id))t2
+                     LEFT JOIN(SELECT posts.id, post_name, sub_name from posts left join(select id, sub_name from sub_categories)t1 on(posts.sub_category_id=t1.id)
+                        where status=2)t2 on(post_answers.post_id=t2.id))t2
                         on(t1.serial=t2.id) ORDER BY t1.created_at desc limit 3";
             $models = \DB::select($sql);
             if(count($models) > 0){
