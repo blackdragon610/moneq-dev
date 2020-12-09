@@ -265,5 +265,35 @@ class GMOManager extends Controller
 
         return $orderId;
     }
+
+    public function autoCreditsPayment(){
+        $orderId = $this->order_id;
+    }
+
+    public function autoCarriorPayment(){
+        $orderId = $this->order_id;
+        $kind = $this->kind;
+
+        Defaults::setShopId(env('GMO_SHOP_ID'));
+        Defaults::setShopName(env('GMO_SHOP_NAME'));
+        Defaults::setPassword(env('GMO_SHOP_PASSWORD'));
+        define('GMO_TRIAL_MODE', env('GMO_TRIAL_MODE'));
+        // リクエストコネクションの設定
+        $curl=curl_init();
+        curl_setopt( $curl, CURLOPT_POST, true );
+        curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
+
+        switch($kind){
+            case 1:    //au
+                curl_setopt( $curl, CURLOPT_URL, 'https://pt01.mul-pay.jp/payment/EntryTranAu.idPass' );
+            break;
+            case 2:    //docomo
+                curl_setopt( $curl, CURLOPT_URL, 'https://pt01.mul-pay.jp/payment/EntryTranDocomo.idPass' );
+            break;
+            case 3:     //softbank
+                curl_setopt( $curl, CURLOPT_URL, 'https://pt01.mul-pay.jp/payment/EntryTranSb.idPass' );
+            break;
+        }
+    }
 }
 ?>

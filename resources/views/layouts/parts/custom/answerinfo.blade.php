@@ -1,6 +1,10 @@
 <div class="col-12">
     <div class="row" style="padding-left:15px">
-        <img src="/images/svg/img-left-ranking-1.svg" style="position:absolute">
+        @if(isset($rank))
+            @if($rank < 3)
+                <img src="/images/svg/img-left-ranking-{{$i}}.svg" style="position:absolute">
+            @endif
+        @endif
 
         <div class="container-fluid bg-white" style="border:1px solid #dbdbdb; padding: 10px;">
 

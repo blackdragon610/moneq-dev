@@ -28,22 +28,28 @@
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade active show" id="question-1" role="tabpanel" aria-labelledby="question-1-tab">
                 <div class="row expert-small">
+                    <?php $i=0?>
                     @foreach ($weekExperts as $item)
-                        @include('layouts.parts.custom.answerinfo', ["type" => "answerinfo", 'name' => 'answer', 'contents' => $item])
+                        <?php $i++?>
+                        @include('layouts.parts.custom.answerinfo', ["type" => "answerinfo", 'name' => 'answer', 'contents' => $item, 'rank'=>$i])
                     @endforeach
                 </div>
             </div>
             <div class="tab-pane fade show" id="question-2" role="tabpanel" aria-labelledby="question-2-tab">
                 <div class="row expert-small">
+                    <?php $i=0?>
                     @foreach ($monthExperts as $item)
-                        @include('layouts.parts.custom.answerinfo', ["type" => "answerinfo", 'name' => 'answer', 'contents' => $item])
+                        <?php $i++?>
+                        @include('layouts.parts.custom.answerinfo', ["type" => "answerinfo", 'name' => 'answer', 'contents' => $item, 'rank'=>$i])
                     @endforeach
                 </div>
             </div>
             <div class="tab-pane fade show" id="question-3" role="tabpanel" aria-labelledby="question-3-tab">
                 <div class="row expert-small">
+                    <?php $i=0?>
                     @foreach ($totalExperts as $item)
-                        @include('layouts.parts.custom.answerinfo', ["type" => "answerinfo", 'name' => 'answer', 'contents' => $item])
+                        <?php $i++?>
+                        @include('layouts.parts.custom.answerinfo', ["type" => "answerinfo", 'name' => 'answer', 'contents' => $item, 'rank'=>$i])
                     @endforeach
                 </div>
             </div>

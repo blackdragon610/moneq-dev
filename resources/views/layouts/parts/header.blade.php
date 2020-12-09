@@ -107,8 +107,7 @@
 </div>
 @endif
 <script>
-    var myVar = setInterval(myTimer, 100000);
-    var myPTime = setInterval(myPost, 10000); //86400000
+    var myVar = setInterval(myTimer, 1000);
 
     function myTimer() {
         $.ajax({
@@ -156,15 +155,6 @@
                                     '<u>すべてのメッセージを見る</u>' +
                                 '</a>';
                 $('#contents').empty().html(bodyHtml);
-            }
-        });
-    }
-
-    function myPost() {
-        $.ajax({
-            type:"GET",
-            url: "{{url('repost')}}",
-            success: function(response) {
             }
         });
     }

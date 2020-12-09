@@ -161,17 +161,17 @@ class Post extends ModelClass
     }
 
     public function rePostCreate(){
-        $models = clone $this;
-        $models = $models->whereRaw("floor(datediff(curdate(),updated_at)) > 1 and status='2'")->get();
-        foreach($models as $model){
-            if($model->answerCount() == 0){
-                $userModel = User::where('id', $model->user_id)->first();
-                $count = $userModel->re_point;
-                $count++;
-                $userModel->re_point = $count;
-                $userModel->save();
-                $model->delete();
-            }
-        }
+        // $models = clone $this;
+        // $models = $models->whereRaw("floor(datediff(curdate(),updated_at)) > 1 and status='2'")->get();
+        // foreach($models as $model){
+        //     if($model->answerCount() == 0){
+        //         $userModel = User::where('id', $model->user_id)->first();
+        //         $count = $userModel->re_point;
+        //         $count++;
+        //         $userModel->re_point = $count;
+        //         $userModel->save();
+        //         $model->delete();
+        //     }
+        // }
     }
 }

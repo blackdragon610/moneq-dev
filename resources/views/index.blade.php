@@ -401,7 +401,7 @@
                         @foreach($monthAnswers as $expert)
                         <?php $i++?>
                         <div class="col-12 col-lg-6 userinfo">
-                            @include('layouts.parts.custom.expertmonthinfo', ["ranking"=>"{{$i}}", "type" => "expertinfo", 'contents' => $expert, 'gender'=>$gender,
+                            @include('layouts.parts.custom.expertmonthinfo', [/*"ranking"=>"{{$i}}",*/ "type" => "expertinfo", 'contents' => $expert, 'gender'=>$gender,
                                                                         'pre'=>$prefecture, 'spec' => $specialties])
                         </div>
                         @endforeach
@@ -413,7 +413,7 @@
                         @foreach($totalAnswers as $expert)
                         <?php $i++?>
                         <div class="col-12 col-lg-6 userinfo">
-                            @include('layouts.parts.custom.expertinfo', ["ranking"=>"{{$i}}", "type" => "expertinfo", 'contents' => $expert, 'gender'=>$gender,
+                            @include('layouts.parts.custom.expertinfo', [/*"ranking"=>"{{$i}}",*/ "type" => "expertinfo", 'contents' => $expert, 'gender'=>$gender,
                                                                         'pre'=>$prefecture, 'spec' => $specialties])
                         </div>
                         @endforeach
@@ -425,7 +425,7 @@
                         @foreach($monthHelps as $expert)
                         <?php $i++?>
                             <div class="col-12 col-lg-6 userinfo">
-                            @include('layouts.parts.custom.expertmonthinfo', ["ranking"=>"{{$i}}", "type" => "expertinfo", 'contents' => $expert, 'gender'=>$gender,
+                            @include('layouts.parts.custom.expertmonthinfo', [/*"ranking"=>"{{$i}}",*/ "type" => "expertinfo", 'contents' => $expert, 'gender'=>$gender,
                                                                             'pre'=>$prefecture, 'spec' => $specialties])
                             </div>
                         @endforeach
@@ -437,7 +437,7 @@
                         @foreach($totalHelps as $expert)
                         <div class="col-12 col-lg-6 userinfo">
                             <?php $i++?>
-                            @include('layouts.parts.custom.expertinfo', ["ranking"=>"{{$i}}", "type" => "expertinfo", 'contents' => $expert, 'gender'=>$gender,
+                            @include('layouts.parts.custom.expertinfo', [/*"ranking"=>"{{$i}}",*/ "type" => "expertinfo", 'contents' => $expert, 'gender'=>$gender,
                                                                             'pre'=>$prefecture, 'spec' => $specialties])
                         </div>
                         @endforeach

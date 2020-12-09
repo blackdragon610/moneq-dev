@@ -7,6 +7,7 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 use App\Models\UserPayment;
 use App\Models\User;
+use App\Models\Post;
 
 class Kernel extends ConsoleKernel
 {
@@ -47,8 +48,7 @@ class Kernel extends ConsoleKernel
                         $diff = $later->diff($earlier)->format("%a");
 
                         if($diff > 365){
-                            $userModel->pay_status = 1;
-                            $userModel->save();
+                            $payDate->autoCreditsPayment();
                         }
                     }
 
@@ -63,12 +63,24 @@ class Kernel extends ConsoleKernel
                         $moth = ($diff->y * 12) + $diff->m;
 
                         if($moth > 0){
-                            $userModel->pay_status = 1;
-                            $userModel->save();
+                            $payDate->autoCarriorPayment();
                         }
                     }
                 }
             }
+
+            $models = Post::whereRaw("floor(datediff(curdate(),updated_at)) > 5 and status='2'")->get();
+            foreach($models as $model){
+                if($model->answerCount() == 0){
+                    $userModel = User::where('id', $model->user_id)->first();
+                    $count = $userModel->re_point;
+                    $count++;
+                    $userModel->re_point = $count;
+                    $userModel->save();
+                    $model->delete();
+                }
+            }
+
 
         })->everyMinute();
     }
