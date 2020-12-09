@@ -114,7 +114,6 @@
             type:"GET",
             url: "{{url('notification')}}",
             success: function(response) {
-                console.log(response);
                 var count = 0;
                 var bodyHtml = '';
                 for(i in response){
