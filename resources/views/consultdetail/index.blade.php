@@ -27,7 +27,7 @@
             </div>
 
             <input type="hidden" name="post_id" value="{{$post->id}}">
-            <div class="pl-0 pr-0 mt-5">
+            <div class="col-12 pl-0 pr-0 mt-5">
                 @include('layouts.parts.custom.articledetail', ["type" => "articledetail", 'name' => 'article',
                                                                 'post'=>$post, 'postAdd'=>$postAdd, 'isUser'=>$isUser, 'hPost'=>$postHelpFlag, 'sPost' => $postStoreFlag])
             </div>
@@ -35,7 +35,7 @@
                 <p class="col-12 label-16px">
                     <span class="title-24px-red">{{count($postAnswer)}}</span>
                     名の専門家が回答しています
-                    <span class="title-24px-red" style="margin-left:30px">{{number_format(1000)}}</span>件
+                    <!-- <span class="title-24px-red" style="margin-left:30px">{{-- {{number_format(1000)}} --}}</span>件 -->
                 </p>
 
                 @if(isLogin() == 1 && \Auth::user()->isAnswer())
@@ -43,18 +43,15 @@
                         @include('layouts.parts.custom.answer', ["type" => "answer", 'name' => 'answer',
                                                                 'contents' => $item, 'isUser'=>$isUser,
                                                                 'post'=>$post, 'gender'=>$gender])
-                        @include('layouts.parts.custom.answer', ["type" => "answer", 'name' => 'answer',
-                                                                'contents' => $item, 'isUser'=>$isUser,
-                                                                'post'=>$post, 'gender'=>$gender])
                     @endforeach
                 @endif
 
                 @if( isLogin() != 1)
-                    <div class="entryBaner pb-3">
+                    <div class="col-12 entryBaner pb-3">
                         <div class="row">
                             <div class="col"></div>
-                            <div class="col-sm-8" style="margin-top: 30px">
-                                <p class="detail_label text-center">専門家にお金の悩みを相談できます</p>
+                            <div class="col-sm-8">
+                                <p class="detail_label text-center" style="margin-top: 30px">専門家にお金の悩みを相談できます</p>
                                 <div class="ml-5 pl-5 mt-4 detail_sub_label">
                                     <p>・ 月300円（税別）</p>
                                     <p>・ 毎月3回まで質問が可能</p>
@@ -69,10 +66,10 @@
                         </div>
                     </div>
                 @elseif(\Auth::user()->pay_status == 1)
-                    <div class="entryBaner pb-3">
+                    <div class="col-12 entryBaner pb-3">
                         <div class="col-4"></div>
                         <div class="col-8">
-                            <p class="title-24px-orange text-center">専門家にお金の悩みを相談できます</h5>
+                            <p class="title-24px-orange text-center" style="margin-top: 30px" >専門家にお金の悩みを相談できます</h5>
                             <ul style="padding-left:80px;list-style:none">
                                 <li class="label-18px" style="margin-top:4px">・毎月3回まで質問が可能</li>
                                 <li class="label-18px" style="margin-top:4px">・最短5分で回答可能</li>
