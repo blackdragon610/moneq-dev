@@ -113,7 +113,7 @@
 
     $('#filter-delete').click(function(){
         $('#tema').tagsinput('removeAll');
-        loadMoreData(0);
+        loadMoreData(-1);
     })
 
 

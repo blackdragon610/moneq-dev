@@ -53,17 +53,18 @@
     </article>
 
     <script>
+
         $('#answered' + {{$contents->id}}).on('click',function(){
 
-        $.ajax({
-            type: "GET",
-            url: "{{url('/post/answer/')}}" + '/' + '{{$contents->post_id}}' + '/{{$contents->id}}',
-            success: function (data) {
-                console.log('Error:', data);
-                if(data == 1){
-                    $('[name="answer"]').empty().html();
-                    $('#answer' + {{$contents->id}}).html('<li><i class="fa fa-check"></i>この専門家の回答で解決</li>');
-                    $('#dataHelpAlert').empty().html('<img src="/images/solved-icon.png">');
+            $.ajax({
+                type: "GET",
+                url: "{{url('/post/answer/')}}" + '/' + '{{$contents->post_id}}' + '/{{$contents->id}}',
+                success: function (data) {
+                    if(data == 1){
+                        $('[name="answer"]').empty().html();
+                        $('#answer' + {{$contents->id}}).html('<li><i class="fa fa-check"></i>この専門家の回答で解決</li>');
+                        $('#dataHelpAlert').empty().html('<img src="/images/solved-icon.png">');
+                    }
                 }
             });
         });

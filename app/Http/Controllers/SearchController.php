@@ -200,8 +200,9 @@ class SearchController extends Controller
                          on(t1.user_id=t2.id)
                          LEFT JOIN(select sub_name, id from sub_categories)t3 on(t1.sub_category_id=t3.id)";
 
+            if($order == -1)    $where = 't1.id<-1';
             if($where != '1')    $totalSql .= " where ".$where;
-            if($order != 0 && $order != 3 )    $totalSql .= " order by ".$orderStr.", updated_at desc";
+            if($order != -1 && $order != 0 && $order != 3 )    $totalSql .= " order by ".$orderStr.", updated_at desc";
             else    $totalSql .= " order by updated_at desc";
 
             $posts = \DB::select($totalSql);
@@ -296,9 +297,11 @@ class SearchController extends Controller
                          on(t1.user_id=t2.id)
                          LEFT JOIN(select sub_name, id from sub_categories)t3 on(t1.sub_category_id=t3.id)";
 
+            if($order == -1)    $where = 't1.id<-1';
             if($where != '1')    $totalSql .= " where ".$where;
-            if($order != 0 && $order != 3)    $totalSql .= " order by ".$orderStr.", updated_at desc";
+            if($order != -1 && $order != 0 && $order != 3)    $totalSql .= " order by ".$orderStr.", updated_at desc";
             else    $totalSql .= " order by updated_at desc";
+
 
             $posts = \DB::select($totalSql);
 
@@ -416,7 +419,8 @@ class SearchController extends Controller
                 if($sql5 != '') $where .= ' and ('.$sql5.')';
             }
 
-            if($order != 0 && $order != 3)    $orderStr = $orderStr.", updated_at desc";
+            if($order == -1)    $where = 't1.id<-1';
+            if($order == -1 && $order != 0 && $order != 3)    $orderStr = $orderStr.", updated_at desc";
             else    $orderStr .= "updated_at desc";
 
             $experts = Expert::whereRaw($where)->orderByRaw($orderStr)->paginate(config('app.per_page'));

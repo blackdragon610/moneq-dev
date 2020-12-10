@@ -57,7 +57,7 @@
 
     $('#filter-delete').click(function(){
         $('#tema').tagsinput('removeAll');
-        loadMoreData(0);
+        loadMoreData(-1);
     })
 
     $('.radio-input').click(function(){
@@ -65,7 +65,6 @@
         var temaId = $(this).attr('id');
         var aa = $('#for' + temaId).text();
         var alias = $(this).attr('name');
-        console.log(tema);
 
         $('#tema').tagsinput({
         allowDuplicates: false,
@@ -108,12 +107,22 @@
 
 
 	function loadMoreData(order){
-        var formData = {
-            keyword: $('#keyword').val(),
-            filter: $('#tema').val(),
-            area: $('#prefecture_area').val(),
-            category_name: $('#category').val(),
-            order: order
+        if(order == -1){
+            var formData = {
+                keyword: $('#keyword').val(),
+                filter: '-1',
+                area: $('#prefecture_area').val(),
+                category_name: $('#category').val(),
+                order: order
+            }
+        }else{
+            var formData = {
+                keyword: $('#keyword').val(),
+                filter: $('#tema').val(),
+                area: $('#prefecture_area').val(),
+                category_name: $('#category').val(),
+                order: order
+            }
         }
 	  $.ajax(
 	        {

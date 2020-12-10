@@ -85,6 +85,7 @@
     $('#registerBtn').click(function(){
         if($('input:checked').length == 0)
         {
+            console.log('sdfsdf');
             $('#checkError').show();
         }else{
             form.submit();
