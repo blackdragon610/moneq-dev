@@ -57,6 +57,7 @@
 
     $('#filter-delete').click(function(){
         $('#tema').tagsinput('removeAll');
+        $('.radio-input').prop('checked', false);
         loadMoreData(-1);
     })
 

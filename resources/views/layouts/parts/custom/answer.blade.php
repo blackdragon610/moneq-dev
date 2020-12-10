@@ -9,7 +9,10 @@
                     </a>
                 </div>
                 <div class="col-sm-6">
-                    <div id="expert-name" style="margin-top:6px">{{$contents->expert->expert_name_second}}</div>
+                    <div id="expert-name" style="margin-top:6px">
+                        <span id="name0">{{$contents->expert->expert_name_second.$contents->expert->expert_name_first}}</span>
+                        <span id="name1">{{$contents->expert->expert_name_kana_second.$contents->expert->expert_name_kana_first}}</span>
+                    </div>
                     <div class="col p-0" style="margin-top:5px">
                         <img src="/images/svg/relation_card.svg">
                         <span>{{$post->sub_category->sub_name}}</span>
@@ -28,7 +31,7 @@
                 <div class="container-fluid" style="padding:0px">
             @endif
                 <div class="speech-bubble">
-                    <p id="description">{{$item->body}}</p>
+                    <p id="description">{{substr($item->body, 0, 200)}}</p>
                 </div>
             </div>
             <div class="row">
@@ -52,7 +55,18 @@
         </div>
     </article>
 
+
+    <button type="button" id='notify' class="btn btn-alert-blue" style="display: none">
+        <image src="/images/svg/image-fa-checkbox.svg">
+            専門家が選択されました。
+        <span class="fa fa-close"></span>
+    </button>
+
     <script>
+
+    $('.fa').click(function(){
+        $('#notify').hide();
+    })
 
         $('#answered' + {{$contents->id}}).on('click',function(){
 
@@ -61,6 +75,7 @@
                 url: "{{url('/post/answer/')}}" + '/' + '{{$contents->post_id}}' + '/{{$contents->id}}',
                 success: function (data) {
                     if(data == 1){
+                        $('#notify').show();
                         $('[name="answer"]').empty().html();
                         $('#answer' + {{$contents->id}}).html('<li><i class="fa fa-check"></i>この専門家の回答で解決</li>');
                         $('#dataHelpAlert').empty().html('<img src="/images/solved-icon.png">');

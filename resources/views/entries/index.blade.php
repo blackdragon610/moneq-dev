@@ -32,8 +32,6 @@
                                          color:#221815">
                         <input type="checkbox" id = "register" name = "register">
                         <a href="#" style="color:#FF3B00">利用規約</a>に同意して登録する</p>
-                    </div>
-                    <div class="row" style="margin-top:26px;margin-bottom:44px;margin-left:0px;margin-right:0px;display:none">
                         <p class="error-box col-12" id="checkError" style="display:none">利用規約に同意してください。</p>
                     </div>
                     <div class="row">
@@ -42,10 +40,7 @@
                                     style="height:50px !important;
                                            font-family: NotoSans-JP-Medium;
                                            font-size: 16px !important;">送信する</button>
-
-
-
-</div>
+                        </div>
                     </div>
                 {{Form::close()}}
             </div>

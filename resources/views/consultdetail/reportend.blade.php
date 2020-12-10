@@ -6,14 +6,8 @@
     <div class="container">
 
             <div class="row">
-                <!-- right sticky sidebar -->
-                <div class="col-12 col-sm-3 order-sm-2" id="sticky">
-                    <!-- <section> -->
-                    {{-- @include('experts.rightpane', ["type" => "search", 'name' => 'rightpane', 'contents' => '']) --}}
-                    <!-- </section> -->
-                </div>
 
-                <div class="col-12 col-sm-9 order-sm-1 pl-0" id="main">
+                <div class="col-12 pl-0" id="main">
 
                     <div style="margin-top:18px">
                         <ol class="breadcrumb m-0 p-0">
