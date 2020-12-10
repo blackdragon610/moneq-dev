@@ -82,7 +82,7 @@
                             </label>
 
                             @if(!$isConfirmation)
-                                <div style="background-color:#FFF5E9;padding:24px;margin-bottom:24px">
+                                <div style="background-color:#fff9f2;padding:24px;margin-bottom:24px">
                                     <p class="label-14px">
                                         具体的な情報（数字や年数など）、相談の状況（年齢、年収、家族構成など）、聞きたいことを簡約にまとめると<br/>
                                         より早く、より多くの専門家から回答される可能性が高くなります。

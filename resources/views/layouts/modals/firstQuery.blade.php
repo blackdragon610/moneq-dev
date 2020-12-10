@@ -2,15 +2,15 @@
     <div class="modal-dialog modal-query">
         <div class="modal-content">
             <div class="modal-header">
-                <p class="title-21px" id="myModalLabel" style="display:inline-block;margin-left:10px">はじめて相談する方へ</p>
+                <p class="title-21px" id="myModalLabel" style="display:inline-block">はじめて相談する方へ</p>
                 <button type="button" class="close" style="background-color:white;border:0px;
                     position:absolute;right:20px" data-dismiss="modal" aria-label="Close">
-                    <span class="fa fa-close"></span>
+                    <span class="fa fa-close" style="font-size: 18px;"></span>
                 </button>
                 <hr class="mt-2 mb-3"/>
             </div>
             <form id="place_form" class="form" style="padding:24px" name="place" enctype="multipart/form-data" accept-charset="utf-8">
-                <div class="modal-body">
+                <div class="modal-body" style="padding: 0px;">
                     <p class="title-16px" style="background-color:#FFF5E9;padding-left:12px">相談の流れ</p>
                     <p class="label-16px" style="padding-left:12px">１．相談の内容を入力する</p>
                     <p class="label-16px" style="padding-left:12px">２．最短10分でお金の専門家から回答</p>

@@ -7,7 +7,7 @@
 
     <div class="row">
         <!-- right sticky sidebar -->
-        <div class="col-12 col-sm-3 order-sm-2" id="sticky" style="min-width:300px">
+        <div class="col-12 col-sm-3 order-sm-2" id="sticky-sidebar" style="min-width:300px">
             <!-- <section> -->
             @include('experts.rightpane', ["type" => "search", 'name' => 'rightpane', 'contents' => ''])
             <!-- </section> -->
