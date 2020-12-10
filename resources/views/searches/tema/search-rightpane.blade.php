@@ -114,6 +114,8 @@
     $('#filter-delete').click(function(){
         $('#tema').tagsinput('removeAll');
         loadMoreData(-1);
+        $('.radio-input').prop('checked', false);
+
     })
 
 

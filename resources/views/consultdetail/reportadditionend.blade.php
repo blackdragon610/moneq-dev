@@ -5,20 +5,37 @@
 <div class="whitepanel">
     <div class="container">
 
-        <div class="row">
-            <div class="col-md-12 col-lg-12">
-                <p class="keepTwoLine">「<span><b>保険のことで質問です<b></span>」の追記が完了しました。</p>
+            <div class="row">
+                <!-- right sticky sidebar -->
+                <div class="col-12 pl-0" id="main">
 
-                    <section>
-                        <div class="row">
-                            <div class="col text-center btnLayer">
-                                <a class="btnSubmit" href="{{route('post.detail', $postId)}}">追記内容の相談に戻る</a>
-                            </div>
+                    <div style="margin-top:18px">
+                        <ol class="breadcrumb m-0 p-0">
+                            <li class="breadcrumb-item">
+                                <img src="/images/svg/image-fa-comments.svg" style="margin-right:4px">
+                                <a href="{{url('/expert')}}" style="color:#9B9B9B">相談</a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                保険のことで質問です
+                            </li>
+                            <li class="breadcrumb-item">
+                                通報
+                            </li>
+                        </ol>
+                    </div>
+
+                    <p class="title-medium">相談追記完了</p>
+                    <p class="title-16px text-center">「{{$post->post_name}}」の通報が完了しました。</p>
+
+                    <div class="row">
+                        <div class="col text-center btnLayer">
+                            <a class="btn btnSubmit btnUnselected" href="{{url('/')}}" style="width:300px !important">トップ</a>
                         </div>
-                    </section>
+                    </div>
 
+                </div>
             </div>
-        </div>
+
 
     </div>
 </div>

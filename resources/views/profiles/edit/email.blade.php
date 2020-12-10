@@ -67,13 +67,14 @@
 
     $('#submitBtn').click(function(){
         let form_data = $("#form").serialize();
-
         $.ajax({
 
             type:"GET",
             data: form_data,
             url: "{{route('profiles.email.update')}}",
             success: function(data) {
+                console.log('2134');
+
                 if(data == "ok"){
                     $('.error-box').hide();
                     $('#notify').show();

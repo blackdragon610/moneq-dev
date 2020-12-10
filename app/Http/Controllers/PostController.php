@@ -264,7 +264,7 @@ class PostController extends Controller
         return view('consultdetail.report', compact('post', 'weekExperts', 'monthExperts', 'totalExperts'));
     }
 
-    public function reportEnd(Request $request, AdminSendMail $AdminSendMail, MailClass $MailClass){
+    public function reportEnd(Request $request, PostAnswer $PostAnswer, AdminSendMail $AdminSendMail, MailClass $MailClass){
 
         $validator = Validator::make($request->all(), [
             'body' => 'required',
@@ -272,10 +272,13 @@ class PostController extends Controller
 
         if($validator->fails()){
             $post = Post::where('id', $request->post_id)->first();
-            $inputs = $request->input();
+            $weekExperts = $PostAnswer->weekHighExpert();
+            $monthExperts = $PostAnswer->monthHighExpert();
+            $totalExperts = $PostAnswer->totalHighExpert();
+                $inputs = $request->input();
             $errors = $validator->errors();
 
-            return view('consultdetail.report', compact('post', 'inputs', 'errors'));
+            return view('consultdetail.report', compact('post', 'inputs', 'errors', 'weekExperts', 'monthExperts', 'totalExperts'));
         }
 
         $postReport = new PostReport();
@@ -337,7 +340,9 @@ class PostController extends Controller
         $postReport->user_id = Auth::user()->id;
         $postReport->body = $request->body;
         $postReport->save();
-        return view('consultdetail.reportadditionend', ['postId'=>$request->post_id]);
+
+        $post = Post::where('id', $request->post_id)->first();
+        return view('consultdetail.reportadditionend', compact('post'));
     }
 
 }

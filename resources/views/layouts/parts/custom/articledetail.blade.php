@@ -12,10 +12,10 @@
         <span id="name">{{$post->user->nickname.'さん'}}</span>
         <span id="age">{{getAge($post->user->date_birth)}}代{{'/'.$post->user->gender}}</span>
 
-        @if($post->post_answer_id != 0)
+        @if($post->post_answer_id != 0 || $post->deleted_at != null)
             <span id="solved"><img src="/images/svg/img-checkbox-green-checked.svg"><span style="margin-left: 5px">解決済み</span></span>
         @else
-            @if($post->count_answer != 0 || $post->deleted_at != null)
+            @if($post->count_answer != 0)
                 <span id="unsolved"><img src="/images/svg/img-checkbox-red-checked.svg"><span style="margin-left: 5px">未解決</span></span>
             @else
                 <span id="unsolved"><img src="/images/svg/img-checkbox-red-checked.svg"><span style="margin-left: 5px">回答なし</span></span>

@@ -2,11 +2,7 @@
 <article class="col-12 pl-0 pr-0">
     <div id="userinfo" class="container-fluid">
         <div class="row">
-            @if($contents->image)
-                <img src="{{$contents->image}}" id="avatar">
-            @else
-                <img src="/images/img-avatar-sample.png" id="avatar"/>
-            @endif
+            <img src="{{getImage("experts", $contents->image, "Thum")}}" id="avatar">
             <div id="content">
                 <span id="name0">{{$contents->expert_name_first.$contents->expert_name_second}}さん</span>
                 <span id="name1">{{$contents->expert_name_kana_first.$contents->expert_name_kana_second}}</span>

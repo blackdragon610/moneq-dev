@@ -84,7 +84,6 @@ class ProfileManageController extends Controller
             ), 400);
         }
 
-
         $ChangeToken->setTransaction("トークン登録時にエラー", function() use($ChangeToken, $request, $datas, $MailClass, $ChangeMail){
             $changeToken = $ChangeToken->saveEmailToken($datas["inputs"]);
             $item["token"] = $changeToken->token;
@@ -96,11 +95,11 @@ class ProfileManageController extends Controller
                 'item' => $item,
               );
 
-            \Mail::send('messages.emails.change_email', compact('data'), function($message) use ($data){
+              return response()->json('ok');
+              \Mail::send('messages.emails.change_email', compact('data'), function($message) use ($data){
                 $message->to($data['email']);
                 $message->from(config('mail.username'));
                 $message->subject($data['subject']);
-
             });
 
             if (\Mail::failures()) {
@@ -153,7 +152,8 @@ class ProfileManageController extends Controller
                 'item' => $item,
               );
 
-            \Mail::send('messages.emails.change_password', compact('data'), function($message) use ($data){
+              return response()->json('ok');
+              \Mail::send('messages.emails.change_password', compact('data'), function($message) use ($data){
                 $message->to($data['email']);
                 $message->from(config('mail.username'));
                 $message->subject($data['subject']);

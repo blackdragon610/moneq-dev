@@ -83,6 +83,7 @@
     $('#filter-delete').click(function(){
         $('#tema').tagsinput('removeAll');
         loadMoreData(0);
+        $('.radio-input').prop('checked', false);
     })
 
 

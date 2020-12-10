@@ -105,7 +105,6 @@ class OtherController extends Controller
                             ->where('post_data.user_id', \Auth::user()->id)
                             ->whereRaw('!isnull(posts.id)')
                             ->orderBy('post_data.created_at', 'desc')
-                            ->withTrashed()
                             ->paginate(config('app.per_page'));
         $gender = configJson('custom/gender');
 
