@@ -126,10 +126,11 @@
         var alias = $(this).attr('name');
 
         $('#tema').tagsinput({
-        allowDuplicates: false,
+            allowDuplicates: false,
             itemValue: 'val',  // this will be used to set id of tag
             itemText: 'label', // this will be used to set text of tag
-            alias : 'alias'
+            alias : 'alias',
+            id : 'temaId'
         });
 
         var ss = $('#tema').tagsinput('items');
@@ -139,7 +140,7 @@
                 $('#tema').tagsinput('remove', data);
         });
         if(aa != '全て')
-            $('#tema').tagsinput('add', { val: tema , label: aa, alias: alias});
+            $('#tema').tagsinput('add', { val: tema , label: aa.substring(0, 15), alias: alias, temaId: temaId});
         else
             loadMoreData(0);
     })
@@ -171,6 +172,11 @@
     $('#tema').on('itemAdded', function(event) {
         loadMoreData(0);
     });
+
+    $('#tema').on('itemRemoved', function(event) {
+        $('#' + event.item.temaId).prop('checked', false);
+    });
+
 
     $(document).on('click','span[data-role]',function(){
         loadMoreData(0);

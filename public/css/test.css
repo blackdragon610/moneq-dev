@@ -1311,6 +1311,8 @@ span.answers {
     background-color: #221815;
     padding: 4px;
     border-radius: 0px;
+    line-height: 15px !important;
+    display: inline-block;
 }
 .bootstrap-tagsinput .tag [data-role="remove"] {
     margin-left: 0px;
