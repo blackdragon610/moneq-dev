@@ -30,10 +30,10 @@ class ProfileManageController extends Controller
                 $pay_status = '無料会員';
                 break;
             case 2:
-                $pay_status = '年払会員';
+                $pay_status = '有料プラン(年払会員 or 月払会員)';
                 break;
             case 3:
-                $pay_status = '月払会員';
+                $pay_status = '有料プラン(年払会員 or 月払会員)';
                 break;
             case 4:
                 $pay_status = 'モニター会員';
@@ -275,7 +275,7 @@ class ProfileManageController extends Controller
 
         $PayModel = UserPayment::where('user_id', $user_id);
         $PayModel->order_id = '';
-        return redirect()->route('profiles.manage');
+        return view('profiles.edit.paymentstop');
     }
 
     public function paymentInfo(Request $request){

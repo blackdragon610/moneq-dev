@@ -30,7 +30,7 @@
                     </div>
                     <div class="row">
                         <div class="col text-center btnLayer">
-                            <button class="btnSubmit btnUnselected">会員情報に戻る</button>
+                            <button class="btnSubmit btnUnselected">相談詳細に戻る</button>
                         </div>
                     </div>
                 {{Form::close()}}
