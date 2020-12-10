@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <div class="row" style="margin-left:24px">
+        <div class="row" style="margin-left:24px;margin-top:12px;margin-right:24px;word-break:break-word;margin-bottom:12px">
             <p>{{$contents->body}}</p>
         </div>
 
