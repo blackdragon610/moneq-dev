@@ -30,7 +30,7 @@
                         </li>
                     </ol>
                 </div>
-            
+
                 <p class="label-16px p-4 mt-5 add-post">
                 <span class="label-24px-red">「{{$post->post_name}}」</span>が不適切な相談だと思う場合は、その理由をご記入のうえ、送信ください。
                 なお、対応結果やその理由につきましてはご返答いたしかねますので予めご了承いただければ幸いです。</p>
@@ -39,7 +39,7 @@
                     <input type="hidden" name="post_id", value="{{$post->id}}">
                     <section>
                         <label class="label-regular">通報内容</label>
-                        @include('layouts.parts.editor.textarea', ['name' => 'body', 'contents' => 'style="border:1px solid #707070"'])
+                        @include('layouts.parts.editor.textarea', ['name' => 'body', 'contents' => 'style="border:1px solid #707070;min-height:20em !important;"'])
                     </section>
                     <section>
                         <div class="row">

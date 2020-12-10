@@ -16,14 +16,16 @@
 
                     <a href="{{route('post.create')}}" class="btn yellow-roundbtn">今すぐ、専門家に相談する</a>
 
-                    <div class="input-group col-lg-6 offset-lg-3 col-md-12" style="margin-top:60px" id="searchbar">
-                        <input id="searchSubTxt" class="form-control py-1 amber-border" style="width:370px;height:48px" type="text" placeholder="お金の悩みを検索" >
-                        <div class="input-group-append">
-                            <button type="button" class="btn btn-secondary">
-                                <i class="fa fa-search fa-1x"></i>
-                            </button>
+                    {{Form::open(['url'=> route('search.tema'),'method'=>'GET', 'files' => false, 'id' => 'form'])}}
+                        <div class="input-group col-lg-6 offset-lg-3 col-md-12" style="margin-top:60px" id="searchbar">
+                            <input id="searchSubTxt" name="keyword" class="form-control py-1 amber-border" style="width:370px;height:48px" type="text" placeholder="お金の悩みを検索" >
+                            <div class="input-group-append">
+                                <button class="btn btn-secondary">
+                                    <i class="fa fa-search fa-1x"></i>
+                                </button>
+                            </div>
                         </div>
-                    </div>
+                    {{Form::close()}}
                 </div>
 
             </div>
