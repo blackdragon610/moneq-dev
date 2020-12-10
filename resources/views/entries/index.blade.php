@@ -42,7 +42,10 @@
                                     style="height:50px !important;
                                            font-family: NotoSans-JP-Medium;
                                            font-size: 16px !important;">送信する</button>
-                        </div>
+
+
+
+</div>
                     </div>
                 {{Form::close()}}
             </div>
