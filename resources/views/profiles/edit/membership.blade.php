@@ -43,7 +43,7 @@
                                 <p class="title-16px" style="padding-left:65px"><img src="/images/svg/img-check-red.svg" style="margin-right:5px">回答した専門家に個別相談を依頼できる</p>
                                 @if($user->pay_status != 2)
                                     <div class="col text-center" style="margin-top:48px;margin-bottom:48px">
-                                        <a href="{{url('payment/1/2')}}" class="btn white-btn-304-50" id="btnPlan1">選択する</a>
+                                        <a id="membershipbtn" href="{{url('payment/1/2')}}" class="btn white-btn-304-50" id="btnPlan1">選択する</a>
                                     </div>
                                 @endif
                             </article>
@@ -58,7 +58,7 @@
                                 <p class="title-16px" style="padding-left:65px"><img src="/images/svg/img-check-red.svg" style="margin-right:5px">回答した専門家に個別相談を依頼できる</p>
                                 @if($user->pay_status == 1)
                                     <div class="col text-center" style="margin-top:48px;margin-bottom:48px">
-                                        <a href="{{url('payment/1/3')}}" class="btn white-btn-304-50" id="btnPlan2">選択する</a>
+                                        <a id="membershipbtn" href="{{url('payment/1/3')}}" class="btn white-btn-304-50" id="btnPlan2">選択する</a>
                                     </div>
                                 @endif
                             </article>
@@ -75,7 +75,7 @@
                     <p class="label-16px" style="color:#777777">変更のキャンセルはできませんので、予めご了承ください。</p>
                     @if($user->pay_status != 1)
                         <p style="margin-top:24px">
-                            <a href="{{route('profiles.membership.payment.delete')}}" class="text-dark title-16px" style="margin-top:24px"><u>課金停止</u></a>
+                            <a id="membershipbtn" href="{{route('profiles.membership.payment.delete')}}" class="text-dark title-16px" style="margin-top:24px"><u>課金停止</u></a>
                         </p>
                     @endif
 

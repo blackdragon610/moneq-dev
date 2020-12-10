@@ -642,6 +642,15 @@ p {
     font-size: 20px !important;
     letter-spacing: 3px;
 }
+.orange-btn-304-50{
+    background-color: #ee7800 !important;
+    min-width: 300px !important;
+    height: 50px !important;
+    font-family: NotoSans-JP-Medium;
+    font-size: 16px !important;
+    color: #221815 !important;
+    line-height: 35px;
+}
 .yellow-btn-304-50{
     background-color: #ffd800 !important;
     min-width: 300px !important;
@@ -1033,6 +1042,16 @@ article #wait {
     color: #ffd800;
 }
 
+a#membershipbtn.btn.white-btn-304-50:hover {
+    background-color: #ee7800 !important;
+    min-width: 300px !important;
+    height: 50px !important;
+    font-family: NotoSans-JP-Medium;
+    font-size: 16px !important;
+    color: #221815 !important;
+    line-height: 35px;
+} 
+
 /* ------------- */
 article #userinfo {
     border: 1px solid #dbdbdb;
@@ -1045,7 +1064,8 @@ article .ranking {
 article #userinfo #avatar {
     margin-top:35px;
     margin-left:35px;
-    margin-bottom:50px;
+    width: 60px;
+    height: 60px;
 }
 article #userinfo #content {
     margin-left: 20px;

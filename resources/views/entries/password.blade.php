@@ -28,6 +28,10 @@
                 <div class="row" style="margin-top:80px">
                     <div class="col-12 col-sm-6">
                         <article class="col-12 p-0" style="background-color:#FFF9F2; max-width:488px; max-height:402px">
+                            <div class="ribbon-wrapper">
+                                <div class="ribbon">おすすめ</div>
+                            </div>
+
                             <p class="title-small text-center">年払会員 (3,980円/年)</p>
                             <p class="title-16px" style="padding-left:65px;margin-top:27px"><img src="/images/svg/img-check-red.svg" style="margin-right:5px">月最大3回お金の専門家に相談が可能</p>
                             <p class="title-16px" style="padding-left:65px"><img src="/images/svg/img-check-red.svg" style="margin-right:5px">1つの質問につき最大3回まで追加質問が可能</p>
@@ -96,9 +100,9 @@
 
 <script>
 $('#btnPlan1').click(function(e) {
-    $('#btnPlan1').addClass('btnSelected').removeClass('btnUnselected');
-    $('#btnPlan2').addClass('btnUnselected').removeClass('btnSelected');
-    $('#btnPlan3').addClass('btnUnselected').removeClass('btnSelected');
+    $('#btnPlan1').addClass('orange-btn-304-50').removeClass('white-btn-304-50');
+    $('#btnPlan2').addClass('white-btn-304-50').removeClass('orange-btn-304-50');
+    $('#btnPlan3').addClass('white-btn-304-50').removeClass('orange-btn-304-50');
     $('#btnPlan1').html('選択中');
     $('#btnPlan2').html('選択する');
     $('#btnPlan3').html('選択する');
@@ -106,9 +110,9 @@ $('#btnPlan1').click(function(e) {
 });
 
 $('#btnPlan2').click(function(e) {
-    $('#btnPlan2').addClass('btnSelected').removeClass('btnUnselected');
-    $('#btnPlan1').addClass('btnUnselected').removeClass('btnSelected');
-    $('#btnPlan3').addClass('btnUnselected').removeClass('btnSelected');
+    $('#btnPlan2').addClass('orange-btn-304-50').removeClass('white-btn-304-50');
+    $('#btnPlan1').addClass('white-btn-304-50').removeClass('orange-btn-304-50');
+    $('#btnPlan3').addClass('white-btn-304-50').removeClass('orange-btn-304-50');
     $('#btnPlan2').html('選択中');
     $('#btnPlan1').html('選択する');
     $('#btnPlan3').html('選択する');
@@ -116,9 +120,9 @@ $('#btnPlan2').click(function(e) {
 });
 
 $('#btnPlan3').click(function(e) {
-    $('#btnPlan3').addClass('btnSelected').removeClass('btnUnselected');
-    $('#btnPlan1').addClass('btnUnselected').removeClass('btnSelected');
-    $('#btnPlan2').addClass('btnUnselected').removeClass('btnSelected');
+    $('#btnPlan3').addClass('orange-btn-304-50').removeClass('white-btn-304-50');
+    $('#btnPlan1').addClass('white-btn-304-50').removeClass('orange-btn-304-50');
+    $('#btnPlan2').addClass('white-btn-304-50').removeClass('orange-btn-304-50');
     $('#btnPlan3').html('選択中');
     $('#btnPlan1').html('選択する');
     $('#btnPlan2').html('選択する');
