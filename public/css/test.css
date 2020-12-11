@@ -947,11 +947,15 @@ ol li {
     margin-top: 10px;
 }
 
+#sticky-sidebar {
+    margin-top:84px;
+}
+
 /* ----------- */
 article #article {
     padding: 15px 30px !important;
     border: 1px solid #dbdbdb;
-    max-height: 297px;
+    /* max-height: 297px; */
 }
 article #article_detail {
     padding: 30px;
@@ -1085,7 +1089,8 @@ article .ranking {
 article #userinfo #avatar {
     margin-top:35px;
     margin-left:35px;
-    margin-bottom:50px;
+    width:60px;
+    height:60px;
 }
 article #userinfo #content {
     margin-left: 20px;
@@ -1150,8 +1155,18 @@ article #profilecard #caption {
     font-family: NotoSans-JP-Regular;
     font-size: 16px !important;
     margin-bottom: 5px !important;
+    overflow: visible;
 }
 
+a#membershipbtn.btn.white-btn-304-50:hover {
+    background-color: #ee7800 !important;
+    min-width: 304px !important;
+    min-height: 50px !important;
+    /* font-family: NotoSans-JP-Medium; */
+    font-size: 16px !important;
+    color: #221815 !important;
+    line-height: 35px;
+}
 
 /* ---------------- */
 .collapsible {

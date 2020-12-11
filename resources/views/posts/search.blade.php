@@ -7,7 +7,7 @@
         <!-- right sticky sidebar -->
         <div class="col-12 col-sm-3 order-sm-2 order-1" id="sticky-sidebar">
             <!-- <section> -->
-                <div class="sticky-top bg-white m-2">
+                <div class="sticky-top bg-white">
                     <div class="nav flex-column">
                         <a href="#_" class="nav-link">Link</a>
                         <a href="#_" class="nav-link">Link</a>

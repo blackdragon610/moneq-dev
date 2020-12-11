@@ -1,4 +1,4 @@
-<div class="container-fluid bg-white p-2 mt-5" style="border:1px solid #dbdbdb;min-width:300px">
+<div class="container-fluid bg-white p-2" style="border:1px solid #dbdbdb;min-width:300px">
     <p class="title-21px mt-3 text-center">今すぐ、お金の専門家に相談</p>
     <p class="label-14px" style="padding-left:50px">スマホですぐに質問が可能</p>
     <p class="label-14px" style="padding-left:50px">100名超の認定専門家が回答</p>
