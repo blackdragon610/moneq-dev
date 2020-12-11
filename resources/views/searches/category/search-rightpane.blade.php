@@ -24,7 +24,7 @@
         <button id="filter-delete" class="btn-tag-grey-round">結果の消去<span class="fa fa-times-circle" style="font-size:14px;color:white;margin-left:5px;"></span></button>
     </div>
     <div class="col-12 m-0 p-0 mb-0">
-        <input type="text" id="tema" class="form-control" style="border:0px !important"/>
+        <input type="text" id="tema" class="form-control" style="border:0px !important;background-color: white;" readonly/>
     </div>
     <?php $i=0;?>
     @foreach($categories as $category)
