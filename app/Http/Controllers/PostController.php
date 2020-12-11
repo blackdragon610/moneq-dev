@@ -33,9 +33,9 @@ class PostController extends Controller
     {
         // $Post->rePostCreate();
         if(isProfile() == 3){
-            if(\Auth::user()->pay_status == 1){
-                return redirect()->route('payment', ['sheetId'=>2, 'member'=>1]);
-            }
+            // if(\Auth::user()->pay_status == 1){
+            //     return redirect()->route('payment', ['sheetId'=>2, 'member'=>1]);
+            // }
             return redirect()->route('profile.edit');
         }
 
