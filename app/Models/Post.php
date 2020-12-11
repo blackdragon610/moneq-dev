@@ -77,7 +77,7 @@ class Post extends ModelClass
         $Model = clone $this;
 
         if ($startDate){
-            $Model = $Model->whereBetween('created_at', [$startDate, $nextDate])->withTrashed()->get();
+            $Model = $Model->where('user_id', \Auth::user()->id)->whereBetween('created_at', [$startDate, $nextDate])->withTrashed()->get();
         }
         return $Model->count();
     }
