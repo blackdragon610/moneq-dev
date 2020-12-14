@@ -110,6 +110,7 @@ class Expert extends ModelClass implements JWTSubject
                                                     function($join){
                                                         $join->on('expert_id', '=', 't2.user_id');
                                                     })
+                            ->where('count_answer', '>', 0)
                             ->orderBy('amount', 'desc')
                             ->orderBy('hAmount', 'desc')
                             ->paginate($limit);
@@ -119,7 +120,7 @@ class Expert extends ModelClass implements JWTSubject
 
     public function totalAnswerHighExpert($limit = 0){
 
-        $experts = Expert::orderBy('count_answer', 'desc')->paginate($limit);
+        $experts = Expert::where('count_answer', '>', 0)->orderBy('count_answer', 'desc')->paginate($limit);
 
         return $experts;
     }
@@ -137,6 +138,7 @@ class Expert extends ModelClass implements JWTSubject
                                                     function($join){
                                                         $join->on('expert_id', '=', 't2.user_id');
                                                     })
+                            ->where('count_answer', '>', 0)
                             ->orderBy('hAmount', 'desc')
                             ->orderBy('amount', 'desc')
                             ->paginate($limit);
@@ -145,7 +147,7 @@ class Expert extends ModelClass implements JWTSubject
 
     public function totalHelpHighExpert($limit = 0){
 
-        $experts = Expert::orderBy('count_useful', 'desc')->paginate($limit);
+        $experts = Expert::where('count_answer', '>', 0)->orderBy('count_useful', 'desc')->paginate($limit);
 
         return $experts;
     }
