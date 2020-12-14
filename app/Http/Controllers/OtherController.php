@@ -24,9 +24,9 @@ class OtherController extends Controller
     {
 
         if(isProfile() == 3){
-            if(\Auth::user()->pay_status == 1){
-                return redirect()->route('payment', ['sheetId'=>2, 'member'=>1]);
-            }
+            // if(\Auth::user()->pay_status == 1){
+            //     return redirect()->route('payment', ['sheetId'=>2, 'member'=>1]);
+            // }
             return redirect()->route('profile.edit');
         }
 
@@ -89,9 +89,9 @@ class OtherController extends Controller
     {
 
         if(isProfile() == 3){
-            if(\Auth::user()->pay_status == 1){
-                return redirect()->route('payment', ['sheetId'=>2, 'member'=>1]);
-            }
+            // if(\Auth::user()->pay_status == 1){
+            //     return redirect()->route('payment', ['sheetId'=>2, 'member'=>1]);
+            // }
             return redirect()->route('profile.edit');
         }
 

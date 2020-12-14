@@ -176,6 +176,10 @@ class EntryController extends Controller
 
         $sheetId = 2;
 
+        if($member == 1){
+            return view('profiles.input');
+        }
+
         return view('payment.index', compact('sheetId', 'member'));
     }
 

@@ -95,7 +95,6 @@ class ProfileManageController extends Controller
                 'item' => $item,
               );
 
-              return response()->json('ok');
               \Mail::send('messages.emails.change_email', compact('data'), function($message) use ($data){
                 $message->to($data['email']);
                 $message->from(config('mail.username'));
@@ -152,7 +151,6 @@ class ProfileManageController extends Controller
                 'item' => $item,
               );
 
-              return response()->json('ok');
               \Mail::send('messages.emails.change_password', compact('data'), function($message) use ($data){
                 $message->to($data['email']);
                 $message->from(config('mail.username'));

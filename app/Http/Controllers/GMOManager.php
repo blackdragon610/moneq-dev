@@ -268,10 +268,12 @@ class GMOManager extends Controller
 
     public function autoCreditsPayment(){
         $orderId = $this->order_id;
+        if($orderId == 0)   $this->delete();
     }
 
     public function autoCarriorPayment(){
         $orderId = $this->order_id;
+        if($orderId == 0)   $this->delete();
         $kind = $this->kind;
 
         Defaults::setShopId(env('GMO_SHOP_ID'));
